@@ -1,0 +1,294 @@
+﻿html, body, div, p, ul, li, ol, dl, dt, dd, header, footer, video, h1, h2, h3, h4, canvas, section, figure {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+html, body {
+  height: 100%;
+}
+
+img {
+  border: none;
+  vertical-align: top;
+  width: 100%;
+  height: auto;
+}
+
+@mixin pos($v) {
+  @if $v == a {
+    position: absolute;
+  } 
+  @else if $v == r {
+     position: relative;
+  } 
+  @else if $v == f {
+    position: fixed;
+  }
+}
+
+@mixin br($v:50%) {
+  border-radius: $v;
+}
+
+@mixin opacity($v:0) {
+  opacity: $v;
+}
+
+@mixin transform($v) {
+  -webkit-transform: $v;
+  transform: $v;
+}
+
+@mixin transitionDelay($time){
+  -webkit-transition-delay: $time;
+  transition-delay: $time;
+}
+
+
+@mixin transformOrigin($v) {
+  -webkit-transform-origin: $v;
+  transform-origin: $v;
+}
+
+@mixin backgroundSize($v:cover) {
+  background-size: $v;
+}
+
+@mixin transition_transform($v) {
+  -webkit-transition: -webkit-transform $v;
+  transition: transform $v;
+}
+
+@mixin transform_origin($v:center) {
+  -webkit-transform-origin: $v;
+  transform-origin: $v;
+}
+
+@mixin transition($v) {
+  -webkit-transition: $v;
+  transition: $v;
+}
+
+@mixin transitionTimingFunction($v:cubic-bezier(0, 0.9, 0.17, 1.01))
+{
+  -webkit-transition-timing-function: $v;
+  transition-timing-function: $v;
+}
+
+@mixin transform($v) {
+  -webkit-transform: $v;
+  transform: $v;
+}
+
+@mixin background($bg) {
+  background: $bg;
+}
+
+@mixin backgroundSize($v:cover) {
+  background-size: $v;
+}
+
+@mixin animation($v) {
+  -webkit-animation: $v;
+  animation: $v;
+}
+
+@mixin transform3d {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  perspective: 800px;
+  -webkit-perspective: 800px;
+}
+
+@mixin displayBox($v) {
+  display: -webkit-box;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  -webkit-box-orient: $v;
+}
+
+@mixin fly-h-gradient-line {
+  background: -webkit-gradient(linear, left top, right top, from(rgba(204, 204, 204, .2)), color-stop(0.5, rgba(204, 204, 204, 1)), to(rgba(204, 204, 204, .2)));
+  background: -moz-linear-gradient(left, rgba(204, 204, 204, .2), rgba(204, 204, 204, 1) 50%, rgba(204, 204, 204, .2));
+  background: -ms-linear-gradient(left, rgba(204, 204, 204, .2), rgba(204, 204, 204, 1) 50%, rgba(204, 204, 204, .2));
+}
+
+@mixin fly-v-gradient-line($minOpacity:.2,$maxOpacity:1) {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(204, 204, 204, $minOpacity)), color-stop(0.5, rgba(204, 204, 204, $maxOpacity)), to(rgba(204, 204, 204, $minOpacity)));
+  background: -moz-linear-gradient(top, rgba(204, 204, 204, $minOpacity), rgba(204, 204, 204, $maxOpacity) 50%, rgba(204, 204, 204, $minOpacity));
+  background: -ms-linear-gradient(top, rgba(204, 204, 204, $minOpacity), rgba(204, 204, 204, $maxOpacity) 50%, rgba(204, 204, 204, $minOpacity));
+}
+
+@mixin displayFlex($v:column) {
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: $v;
+}
+
+$baseColor:#d1bdbd;
+$baseColor1:#e89e79;
+$maxIndex:9999;
+body{
+	background:#EACFBB;
+  overflow: hidden;
+  font-size: .1rem;
+  font-family: 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif;
+  color:$baseColor;
+}
+#fly-main{
+  
+  .fly-nav{
+    $navBg:#fff9f3;
+    width: 10rem;
+    height: 13.3vh;//1224/9202*100=13.3
+    background:$navBg;
+    z-index: $maxIndex;
+    @include pos(a);
+    @include transition_transform(1s);
+    @include transitionTimingFunction();
+    &.active{
+      @include transform(translate3d(0,-100%,0));
+    }
+    ul{
+      
+       &.show{
+          opacity:1;
+          @include transform(translate3d(0,0,0));
+       }
+       @include transitionTimingFunction();
+       @include transform(translate3d(0,100px,0));
+       opacity:0;
+       @include transition(.8s);
+       float: left;
+       @include displayBox(horizontal);
+       width: 4.2rem;
+      li{
+        -webkit-box-flex: 1;
+        img{
+          margin-top: 1vh;
+        }
+        text-align: center;
+        @include pos(r);
+        span{
+          color:$baseColor1;
+          font-size: .06rem;
+          margin-top: -2vh;
+          @include pos(a);
+          left: 34%;
+        }
+
+      }
+ 
+
+      &:nth-of-type(2){
+          width: 1.2rem;
+          float: right;
+      }
+    }
+
+    .fly-menu-bar{
+        $barWidth : 1.4rem;
+        @include pos(a);
+        width: $barWidth;
+        left: 50%;
+        top: 99%;
+        margin-left: - $barWidth / 2;
+        text-align: center;
+        font-size:.06rem;
+        background:inherit;
+        @include br(10px);
+        div:nth-of-type(2){
+          @include transform(rotate(90deg) scaleY(2));
+        }
+    }
+  }
+  .fly-cook-book-C{
+      width: 10rem;
+      height: 34.1vh;
+      background:#f9e0ca;
+      @include displayBox(horizontal);
+      &>section{
+        height: 100%;
+        overflow: hidden;
+      }
+      .fly-food{
+          width: 3.4rem;
+          @include pos(r);
+        
+        .fly-food-item{
+            width: 70%;
+            height: 84%;
+            background:#fff;
+            @include pos(a);
+            @include br(30px);
+            left: 13%;
+            top:8%;
+            box-shadow:0 0 1rem rgba(232,158,121,.4);
+            &:after{
+              content:'推荐食材';
+              @include pos(a);
+              width: .1rem;
+              font-size:.08rem;
+              padding: .05rem .04rem .05rem .05rem;
+              top: 40%;
+              @include br(12px);
+              background:inherit;
+              left: 97%;
+            }
+            z-index: 1;
+        }
+
+        .fly-top1{
+           left: 13%;
+            &:after{
+              content:'推荐食材';
+              top: 40%;
+            }
+            z-index: 1;
+        }
+        .fly-top2{
+            left: 20%;
+            z-index: 0;
+            &:after{
+              content:'推荐菜谱';
+              top: 60%;
+            }
+        }
+        .fly-top3{
+           left: 5%;
+            z-index: 2;
+            &:after{
+              content:'时间 / 天气';
+              top: 5%;
+            }
+        }
+
+        //<!--天气-->
+        .fly-weather{
+           
+        }
+        //<!--推荐食材-->
+        .fly-rec-food{
+           
+        }
+        //<!--推荐菜谱-->
+        .fly-rec-menu{
+          
+        } 
+      }
+      .fly-cook-list{
+          width: 3.82rem;
+      }
+      .fly-cook-detail{
+        width: 2.78rem;
+      }
+  }
+}

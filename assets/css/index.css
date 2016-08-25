@@ -1,0 +1,146 @@
+@charset "UTF-8";
+html, body, div, p, ul, li, ol, dl, dt, dd, header, footer, video, h1, h2, h3, h4, canvas, section, figure {
+  padding: 0;
+  margin: 0; }
+
+a {
+  text-decoration: none; }
+
+li {
+  list-style: none; }
+
+html, body {
+  height: 100%; }
+
+img {
+  border: none;
+  vertical-align: top;
+  width: 100%;
+  height: auto; }
+
+body {
+  background: #EACFBB;
+  overflow: hidden;
+  font-size: .1rem;
+  font-family: 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif;
+  color: #d1bdbd; }
+
+#fly-main .fly-nav {
+  width: 10rem;
+  height: 13.3vh;
+  background: #fff9f3;
+  z-index: 9999;
+  position: absolute;
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
+  -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);
+  transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01); }
+  #fly-main .fly-nav.active {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0); }
+  #fly-main .fly-nav ul {
+    -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);
+    transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);
+    -webkit-transform: translate3d(0, 100px, 0);
+    transform: translate3d(0, 100px, 0);
+    opacity: 0;
+    -webkit-transition: 0.8s;
+    transition: 0.8s;
+    float: left;
+    display: -webkit-box;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    -webkit-box-orient: horizontal;
+    width: 4.2rem; }
+    #fly-main .fly-nav ul.show {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0); }
+    #fly-main .fly-nav ul li {
+      -webkit-box-flex: 1;
+      text-align: center;
+      position: relative; }
+      #fly-main .fly-nav ul li img {
+        margin-top: 1vh; }
+      #fly-main .fly-nav ul li span {
+        color: #e89e79;
+        font-size: .06rem;
+        margin-top: -2vh;
+        position: absolute;
+        left: 34%; }
+    #fly-main .fly-nav ul:nth-of-type(2) {
+      width: 1.2rem;
+      float: right; }
+  #fly-main .fly-nav .fly-menu-bar {
+    position: absolute;
+    width: 1.4rem;
+    left: 50%;
+    top: 99%;
+    margin-left: -0.7rem;
+    text-align: center;
+    font-size: .06rem;
+    background: inherit;
+    border-radius: 10px; }
+    #fly-main .fly-nav .fly-menu-bar div:nth-of-type(2) {
+      -webkit-transform: rotate(90deg) scaleY(2);
+      transform: rotate(90deg) scaleY(2); }
+#fly-main .fly-cook-book-C {
+  width: 10rem;
+  height: 34.1vh;
+  background: #f9e0ca;
+  display: -webkit-box;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  -webkit-box-orient: horizontal; }
+  #fly-main .fly-cook-book-C > section {
+    height: 100%;
+    overflow: hidden; }
+  #fly-main .fly-cook-book-C .fly-food {
+    width: 3.4rem;
+    position: relative; }
+    #fly-main .fly-cook-book-C .fly-food .fly-food-item {
+      width: 70%;
+      height: 84%;
+      background: #fff;
+      position: absolute;
+      border-radius: 30px;
+      left: 13%;
+      top: 8%;
+      box-shadow: 0 0 1rem rgba(232, 158, 121, 0.4);
+      z-index: 1; }
+      #fly-main .fly-cook-book-C .fly-food .fly-food-item:after {
+        content: '推荐食材';
+        position: absolute;
+        width: .1rem;
+        font-size: .08rem;
+        padding: .05rem .04rem .05rem .05rem;
+        top: 40%;
+        border-radius: 12px;
+        background: inherit;
+        left: 97%; }
+    #fly-main .fly-cook-book-C .fly-food .fly-top1 {
+      left: 13%;
+      z-index: 1; }
+      #fly-main .fly-cook-book-C .fly-food .fly-top1:after {
+        content: '推荐食材';
+        top: 40%; }
+    #fly-main .fly-cook-book-C .fly-food .fly-top2 {
+      left: 20%;
+      z-index: 0; }
+      #fly-main .fly-cook-book-C .fly-food .fly-top2:after {
+        content: '推荐菜谱';
+        top: 60%; }
+    #fly-main .fly-cook-book-C .fly-food .fly-top3 {
+      left: 5%;
+      z-index: 2; }
+      #fly-main .fly-cook-book-C .fly-food .fly-top3:after {
+        content: '时间 / 天气';
+        top: 5%; }
+  #fly-main .fly-cook-book-C .fly-cook-list {
+    width: 3.82rem; }
+  #fly-main .fly-cook-book-C .fly-cook-detail {
+    width: 2.78rem; }
+
+/*# sourceMappingURL=index.css.map */
