@@ -121,23 +121,23 @@ body {
         background: inherit;
         left: 97%; }
     #fly-main .fly-cook-book-C .fly-food .fly-top1 {
-      left: 13%;
-      z-index: 1; }
-      #fly-main .fly-cook-book-C .fly-food .fly-top1:after {
-        content: '推荐食材';
-        top: 40%; }
-    #fly-main .fly-cook-book-C .fly-food .fly-top2 {
       left: 20%;
       z-index: 0; }
-      #fly-main .fly-cook-book-C .fly-food .fly-top2:after {
-        content: '推荐菜谱';
-        top: 60%; }
+    #fly-main .fly-cook-book-C .fly-food .fly-top2 {
+      left: 13%;
+      z-index: 1; }
     #fly-main .fly-cook-book-C .fly-food .fly-top3 {
       left: 5%;
       z-index: 2; }
-      #fly-main .fly-cook-book-C .fly-food .fly-top3:after {
-        content: '时间 / 天气';
-        top: 5%; }
+    #fly-main .fly-cook-book-C .fly-food .fly-weather:after {
+      content: '时间 / 天气';
+      top: 5%; }
+    #fly-main .fly-cook-book-C .fly-food .fly-rec-food:after {
+      content: '推荐食材';
+      top: 60%; }
+    #fly-main .fly-cook-book-C .fly-food .fly-rec-menu:after {
+      content: '推荐菜谱';
+      top: 40%; }
   #fly-main .fly-cook-book-C .fly-cook-list {
     width: 3.82rem; }
   #fly-main .fly-cook-book-C .fly-cook-detail {

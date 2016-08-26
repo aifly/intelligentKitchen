@@ -2,7 +2,9 @@ import $ from 'jquery';
 import './assets/css/index.css';
 
 import Obserable from './libs/Obserable.js';
-import './libs/menu.js';
+import './libs/nav.js';
+import './libs/cookbook.js';
+
 
 
 let data = {

@@ -247,41 +247,41 @@ body{
         }
 
         .fly-top1{
-           left: 13%;
-            &:after{
-              content:'推荐食材';
-              top: 40%;
-            }
-            z-index: 1;
+            left: 20%;
+            z-index: 0;   
         }
         .fly-top2{
-            left: 20%;
-            z-index: 0;
-            &:after{
-              content:'推荐菜谱';
-              top: 60%;
-            }
+        
+            left: 13%;
+            z-index: 1;
+          
         }
         .fly-top3{
            left: 5%;
-            z-index: 2;
-            &:after{
+           z-index: 2;
+          
+        }
+        //<!--天气-->
+        .fly-weather{
+             &:after{
               content:'时间 / 天气';
               top: 5%;
             }
         }
-
-        //<!--天气-->
-        .fly-weather{
-           
-        }
         //<!--推荐食材-->
         .fly-rec-food{
-           
+          &:after{
+              content:'推荐食材';
+              top: 60%;
+            }
+             
         }
         //<!--推荐菜谱-->
         .fly-rec-menu{
-          
+            &:after{
+              content:'推荐菜谱';
+               top: 40%;
+            }
         } 
       }
       .fly-cook-list{
