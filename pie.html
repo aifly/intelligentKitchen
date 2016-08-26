@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'/>
+	<title>饼图</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		canvas{
+			display: block;
+			margin: 90px auto;
+			border:1px solid red;
+		}
+	</style>
+</head>
+<body>
+
+	<canvas id="canvas" width=400 height=400></canvas>
+	<script type="text/javascript" src='./libs/createjs.js'></script>
+	<script type="text/javascript">
+		var canvas = document.getElementById('canvas'),
+			stage = new createjs.Stage(canvas),
+			pieContainer = new createjs.Container();
+
+			stage.addChild(pieContainer);
+
+
+		class Pie{
+			constructor(options={}){
+				let s = this;
+				s.angle = options.angle;
+				s.x = options.x;
+				s.y = options.y;
+				s.draw();
+			}
+			draw(){
+
+			}
+		}
+
+		new Pie({
+			angle:30,
+			x:200,
+			y:200
+		});
+
+	</script>
+</body>
+</html>
