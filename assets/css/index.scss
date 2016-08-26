@@ -217,7 +217,7 @@ body{
       @include displayBox(horizontal);
       &>section{
         height: 100%;
-        overflow: hidden;
+        //overflow: hidden;
       }
       .fly-food{
           width: 3.4rem;
@@ -229,6 +229,7 @@ body{
             background:#fff;
             @include pos(a);
             @include br(30px);
+
             left: 13%;
             top:8%;
             box-shadow:0 0 1rem rgba(232,158,121,.4);
@@ -241,7 +242,7 @@ body{
               top: 40%;
               @include br(12px);
               background:inherit;
-              left: 97%;
+              left: 98%;
             }
             z-index: 1;
         }
@@ -257,7 +258,7 @@ body{
           
         }
         .fly-top3{
-           left: 5%;
+           left: 6%;
            z-index: 2;
           
         }
@@ -280,7 +281,7 @@ body{
         .fly-rec-menu{
             &:after{
               content:'推荐菜谱';
-               top: 40%;
+               top: 35%;
             }
         } 
       }

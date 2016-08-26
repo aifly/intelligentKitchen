@@ -32,9 +32,7 @@ body {
   z-index: 9999;
   position: absolute;
   -webkit-transition: -webkit-transform 1s;
-  transition: -webkit-transform 1s;
   transition: transform 1s;
-  transition: transform 1s, -webkit-transform 1s;
   -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);
   transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01); }
   #fly-main .fly-nav.active {
@@ -95,8 +93,7 @@ body {
   -webkit-box-pack: center;
   -webkit-box-orient: horizontal; }
   #fly-main .fly-cook-book-C > section {
-    height: 100%;
-    overflow: hidden; }
+    height: 100%; }
   #fly-main .fly-cook-book-C .fly-food {
     width: 3.4rem;
     position: relative; }
@@ -119,7 +116,7 @@ body {
         top: 40%;
         border-radius: 12px;
         background: inherit;
-        left: 97%; }
+        left: 98%; }
     #fly-main .fly-cook-book-C .fly-food .fly-top1 {
       left: 20%;
       z-index: 0; }
@@ -127,7 +124,7 @@ body {
       left: 13%;
       z-index: 1; }
     #fly-main .fly-cook-book-C .fly-food .fly-top3 {
-      left: 5%;
+      left: 6%;
       z-index: 2; }
     #fly-main .fly-cook-book-C .fly-food .fly-weather:after {
       content: '时间 / 天气';
@@ -137,7 +134,7 @@ body {
       top: 60%; }
     #fly-main .fly-cook-book-C .fly-food .fly-rec-menu:after {
       content: '推荐菜谱';
-      top: 40%; }
+      top: 35%; }
   #fly-main .fly-cook-book-C .fly-cook-list {
     width: 3.82rem; }
   #fly-main .fly-cook-book-C .fly-cook-detail {
