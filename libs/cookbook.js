@@ -1,10 +1,11 @@
 import $ from 'jquery';
 import './jquery.tap.js';
+var Sector = require('zrender');
+
 let data = {
 	cookBookC:$('#fly-main .fly-cook-book-C'),
 	foods:$('#fly-main .fly-food-item'),
-	classList:[0,1,2]
-
+	programa:$('#fly-main .fly-cook-book-C>section')
 }
 
 let util = {
@@ -48,11 +49,16 @@ let util = {
 		data.foods.removeClass('fly-top1 fly-top2 fly-top3');
 	},
 
+	isEnableDrag : false,
+
 	bindEvent(document){
 
 		let self = this;
 
 		data.foods.on('tap',(e)=>{
+			if(self.isEnableDrag){//
+				return;
+			}
 			var isTop = $(e.target).hasClass('fly-top3');
 			if(isTop){return;}
 			//self.startChangeMenu($(e.target),$(e.target).index('.fly-food-item'));
@@ -99,6 +105,8 @@ let util = {
 		});
 
 		data.cookBookC.on('touchstart',(e)=>{
+
+			
 			var isTop = $(e.target).hasClass('fly-top3');
 			if(!isTop){
 				return;
@@ -110,6 +118,9 @@ let util = {
 				WebkitTransition:'none',
 			});
 			$(document).on('touchmove',e=>{
+				if(self.isEnableDrag){
+					return; //启用了拖拽操作。
+				}
 				var e = e.originalEvent ? e.originalEvent.changedTouches[0]:e.changedTarget[0];
 				var x = e.pageX - disX;
 				x>0&&(x=0);
@@ -117,6 +128,9 @@ let util = {
 					WebkitTransform:'translate3d('+x+'px,0,0)'
 				});
 			}).on('touchend',e=>{
+				if(self.isEnableDrag){
+					return; //启用了拖拽操作。
+				}
 				var e = e.originalEvent ? e.originalEvent.changedTouches[0]:e.changedTarget[0];
 				var x = e.pageX - disX;
 
@@ -134,6 +148,39 @@ let util = {
 			});
 
 		});
+
+		data.programa.on('touchstart',e=>{
+
+			var timer = setTimeout(()=>{
+			
+				self.isEnableDrag = true;
+		
+				data.programa.find('.fly-cook-book-item-C').addClass('active');
+		
+			},1000);
+				var e = e.originalEvent ? e.originalEvent.changedTouches[0]:e.changedTarget[0];
+			let $target = $(e.target).hasClass('fly-cook-book-item')?$(e.target):$(e.target).parents('.fly-cook-book-item'),
+				index = $target.index(),
+				disX = e.pageX - $target.offset().left,
+				disY = e.pageY - $target.offset().top;
+
+			$(document).on('touchmove',e=>{
+
+				if(self.isEnableDrag){
+					var e = e.originalEvent ? e.originalEvent.changedTouches[0]:e.changedTarget[0];
+					$target.css({left:e.pageX - disX,top:e.pageY - disY});			
+				}
+			}).on('touchend',e=>{
+				$(document).off('touchmove touchend');
+				setTimeout(()=>{
+					self.isEnableDrag = false;
+					data.programa.find('.fly-cook-book-item-C').removeClass('active');
+				},1)
+			});
+
+		});
+
+		
 	},
 	startChangeMenu($target){
 

@@ -100,6 +100,10 @@ img {
   -webkit-animation: $v;
   animation: $v;
 }
+@mixin animationDelay($time){
+  -webkit-animation-delay:$time;
+          animation-delay:$time;
+}
 
 @mixin transform3d {
   -webkit-transform-style: preserve-3d;
@@ -132,6 +136,9 @@ img {
   display: -webkit-flex;
   flex-flow: $v;
 }
+
+.shake-little{display:inline-block;-webkit-transform-origin:center center}
+.shake-freeze,.shake-constant.shake-constant--hover:hover,.shake-trigger:hover .shake-constant.shake-constant--hover{-webkit-animation-play-state:paused}.shake-freeze:hover,.shake-trigger:hover .shake-freeze,.shake-little:hover,.shake-trigger:hover .shake-little{-webkit-animation-play-state:running}@-webkit-keyframes shake-little{2%{-webkit-transform:translate(0px, 1px) rotate(0.5deg)}4%{-webkit-transform:translate(1px, 1px) rotate(0.5deg)}6%{-webkit-transform:translate(1px, 0px) rotate(0.5deg)}8%{-webkit-transform:translate(1px, 0px) rotate(0.5deg)}10%{-webkit-transform:translate(1px, 0px) rotate(0.5deg)}12%{-webkit-transform:translate(1px, 0px) rotate(0.5deg)}14%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}16%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}18%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}20%{-webkit-transform:translate(0px, 1px) rotate(0.5deg)}22%{-webkit-transform:translate(0px, 1px) rotate(0.5deg)}24%{-webkit-transform:translate(1px, 1px) rotate(0.5deg)}26%{-webkit-transform:translate(1px, 0px) rotate(0.5deg)}28%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}30%{-webkit-transform:translate(1px, 0px) rotate(0.5deg)}32%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}34%{-webkit-transform:translate(1px, 0px) rotate(0.5deg)}36%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}38%{-webkit-transform:translate(1px, 0px) rotate(0.5deg)}40%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}42%{-webkit-transform:translate(1px, 1px) rotate(0.5deg)}44%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}46%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}48%{-webkit-transform:translate(0px, 1px) rotate(0.5deg)}50%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}52%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}54%{-webkit-transform:translate(0px, 1px) rotate(0.5deg)}56%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}58%{-webkit-transform:translate(1px, 0px) rotate(0.5deg)}60%{-webkit-transform:translate(0px, 1px) rotate(0.5deg)}62%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}64%{-webkit-transform:translate(1px, 1px) rotate(0.5deg)}66%{-webkit-transform:translate(1px, 0px) rotate(0.5deg)}68%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}70%{-webkit-transform:translate(1px, 1px) rotate(0.5deg)}72%{-webkit-transform:translate(0px, 1px) rotate(0.5deg)}74%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}76%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}78%{-webkit-transform:translate(0px, 1px) rotate(0.5deg)}80%{-webkit-transform:translate(1px, 0px) rotate(0.5deg)}82%{-webkit-transform:translate(1px, 0px) rotate(0.5deg)}84%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}86%{-webkit-transform:translate(0px, 1px) rotate(0.5deg)}88%{-webkit-transform:translate(1px, 1px) rotate(0.5deg)}90%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}92%{-webkit-transform:translate(1px, 1px) rotate(0.5deg)}94%{-webkit-transform:translate(1px, 1px) rotate(0.5deg)}96%{-webkit-transform:translate(1px, 0px) rotate(0.5deg)}98%{-webkit-transform:translate(0px, 1px) rotate(0.5deg)}0%,100%{-webkit-transform:translate(0, 0) rotate(0)}}.shake-little:hover,.shake-trigger:hover .shake-little,.shake-little.shake-freeze,.shake-little.shake-constant{-webkit-animation-duration:100ms;-webkit-animation-iteration-count:infinite;-webkit-animation-name:shake-little;-webkit-animation-timing-function:ease-in-out}
 
 $baseColor:#d1bdbd;
 $baseColor1:#e89e79;
@@ -214,11 +221,33 @@ body{
       width: 10rem;
       height: 34.1vh;
       background:#f9e0ca;
-      @include displayBox(horizontal);
+      @include pos(r);
       &>section{
         height: 100%;
         //overflow: hidden;
+        @include pos(a);
+        left: 0;
+        top: 0;
+        .active{
+          @include animation(shake-little 200ms ease-in-out infinite);  
+        }
+        .fly-cook-book-item-C{
+          width: 100%;
+          height: 100%;
+        }
+        @for $i from 1 through 3{
+          &>section:nth-of-type(#{$i}){
+              .fly-cook-book-item-C{
+                @include animationDelay($i * 100ms);   
+              }
+             
+          }
+        }  
+        border:1px solid red;
       }
+
+      
+
       .fly-food{
           width: 3.4rem;
           @include pos(r);
@@ -287,9 +316,11 @@ body{
       }
       .fly-cook-list{
           width: 3.82rem;
+          left: 3.4rem;
       }
       .fly-cook-detail{
         width: 2.78rem;
+        left: 7.22rem;
       }
   }
 }
