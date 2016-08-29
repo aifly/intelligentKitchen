@@ -1,60 +1,32 @@
 
 import numberData from './number.js';
 
-export default class Time{
+export default class Temperature{
 	constructor(options = {}){
 		let s = this;
 		s.canvas = options.canvas;
 		s.margin  = 9;
 		s.r = 5;
-		var index = s.init();
-
 		
 
-		var num = numberData[10]
-		setInterval(()=>{
-			!new Date().getSeconds() && (index = s.init());//当前秒数为0的时候，重新绘制时间。
-			s.canvas.getContext('2d').clearRect((s.margin + s.r)*(index-3),0,20,s.canvas.height);
-			setTimeout(()=>{
-				index = s.init();
-			},500);
-		},1000);
+		
 	}
 
-	timeLoop(index){
-		var s = this;
-
-		var context = s.canvas.getContext('2d');
-		s.draw(10,context,index);
-	}
-
-	init(){
+	init(temperature){
 
 		let s = this;
 		let id = 2;
 		var context = s.canvas.getContext('2d');
 		context.clearRect(0,0,s.canvas.width,s.canvas.height);
-		var ten = new Date().getHours()/ 10 | 0,
-			one = new Date().getHours() % 10,
-			minsTen =  new Date().getMinutes()/10|0,
-			minsOne =  new Date().getMinutes()%10;
+		var ten = temperature/ 10 | 0,
+			one = temperature % 10;
+			
 		s.draw(ten,context,id);
-
 		id += numberData[ten][0].length+1;
 		s.draw(one,context,id);
-		
-
 		id += numberData[one][0].length+1;
-		s.draw(10,context,id);
+		s.draw(11,context,id);
 		
-		id += numberData[10][0].length+1;
-		s.draw(minsTen,context,id);
-		var index = id;
-
-		id += numberData[minsTen][0].length+1;
-		s.draw(minsOne,context,id);
-
-		return index;
 
 	}
 
@@ -66,7 +38,7 @@ export default class Time{
 		for(var i = 0;i<9;i++){
 			for(var j = 0;j<34;j++){
 				context.save();
-				context.translate(0,30);
+				context.translate(0,0);
 				context.beginPath();
 
 				context.arc((s.margin + s.r)*(j+id)+s.margin,i*(s.margin+s.r)+s.margin,s.r,0,Math.PI*2,false);
@@ -84,7 +56,5 @@ export default class Time{
 		}
 	
 	}
-
-
 
 }

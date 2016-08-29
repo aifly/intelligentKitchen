@@ -68,7 +68,6 @@
 		this.el = el; // root element
 		this.options = options = (options || {});
 
-		console.log(1)
 		// Defaults
 		options.group = options.group || Math.random();
 		options.store = options.store || null;

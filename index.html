@@ -54,6 +54,7 @@
 				<div>></div>
 			</div>
 		</nav>
+		<div class="fly-nav-mask" id="fly-nav-mask"></div>
 		<div class="fly-close-drag" id='fly-close-drag'>
 			完成
 		</div>
@@ -85,16 +86,43 @@
 						</ol>
 						<div class="fly-time-C">
 							<div class="fly-time">
-								<canvas id='fly-timer-canvas' width="100%"></canvas>
+								<canvas id='fly-timer-canvas' width="100%" ></canvas>
+								<canvas id='fly-temperature-canvas' width="100%"></canvas>
 							</div>
 							<div class="fly-date">
-								七月二十六
+								<h1>七月二十六</h1>
+								<h1>夏至食物推荐</h1>
+								<div class="fly-rec-food-container">
+									<ul>
+										<li>夏至饼</li>
+										<li>夏至羹</li>
+										<li>豌豆糕</li>
+										<li>夏至蛋</li>
+									</ul>
+								</div>
 							</div>
+						</div>
+						<div class="fly-city-C">
+							<div class="fly-city-scroll-C" id="fly-city-scroll-C">
+							<ul>
+								<li>Beijing</li>
+								<li>Beijing</li>
+								<li>Beijing</li>
+								<li>Beijing</li>
+								<li>Beijing</li>
+								<li>Beijing</li>
+								<li>Beijing</li>
+							</ul>
+						</div>
+						<div class="fly-add">+</div>
 						</div>
 					</div><!--天气-->
 					<div class="fly-rec-food fly-food-item fly-top2">推荐食材</div><!--推荐食材-->
-					<div class="fly-rec-menu fly-food-item fly-top1">推荐菜谱</div><!--推荐菜谱-->	
+					<div class="fly-rec-menu fly-food-item fly-top1">
+						<div style="width: 100px;height: 200px;background: red;"></div>
+					</div><!--推荐菜谱-->	
 				</div>
+
 				<div class="mask"></div>
 			</li>
 			<li class="fly-cook-list fly-cook-book-item">

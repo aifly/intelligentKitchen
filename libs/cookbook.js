@@ -3,6 +3,13 @@ import './jquery.tap.js';
 
 import Sortable from './Sortable.js';
 import Time from './canvas.js';
+import Temperature from './temperature.js';
+
+import cityData from './city.js';//获取假数据记得要移除掉。
+
+import IScroll from 'iscroll';
+
+
 
 
 let data = {
@@ -10,7 +17,9 @@ let data = {
 	foods:$('#fly-main .fly-food-item'),
 	programa:$('#fly-main .fly-cook-book-C .fly-cook-book-item'),
 	closeBar:$("#fly-close-drag"),
-	timeCanvas:$('#fly-timer-canvas')
+	timeCanvas:$('#fly-timer-canvas'),
+	temperatureCanvas:$("#fly-temperature-canvas"),
+	cityScrollC:$("#fly-city-scroll-C")
 }
 
 let util = {
@@ -64,6 +73,7 @@ let util = {
 		data.closeBar.on('tap',()=>{
 			data.closeBar.removeClass('active');
 			data.programa.removeClass('active');
+
 			sort && sort.destroy();
 			self.isEnableDrag = false;
 		});
@@ -72,8 +82,10 @@ let util = {
 			if(self.isEnableDrag){//
 				return;
 			}
-			var isTop = $(e.target).hasClass('fly-top3');
+			var target = $(e.target).hasClass('fly-food-item')?$(e.target):$(e.target).parents('.fly-food-item');
+			var isTop = target.hasClass('fly-top3');
 			if(isTop){return;}
+
 			//self.startChangeMenu($(e.target),$(e.target).index('.fly-food-item'));
 			let $target = $(e.target),
 				index = $target.index('.fly-food-item')*1,
@@ -81,15 +93,15 @@ let util = {
 				this.removeTopClass();
 				data.foods.eq(index).css({
 					WebkitTransitionDuration:'.5s',
-					WebkitTransform:'translate3d(100%,0,0)',
+					//WebkitTransform:'translate3d(100%,0,0)',
 					opacity:0.3
 				}).addClass('fly-top3');
 				setTimeout(()=>{
 					data.foods.eq(index).css({
-						WebkitTransform:'translate3d(0,0,0)',
+						//WebkitTransform:'translate3d(0,0,0)',
 						opacity:1
 					});
-				},700);
+				},300);
 				
 				this.iNow = index;
 
@@ -119,34 +131,45 @@ let util = {
 
 		data.cookBookC.on('touchstart',(e)=>{
 
-			
-			var isTop = $(e.target).hasClass('fly-top3');
-			if(!isTop){
+			var target = $(e.target).hasClass('fly-food-item')?$(e.target):$(e.target).parents('.fly-food-item');
+			var isTop = target.hasClass('fly-top3');
+			if(!isTop || $(e.target).hasClass('fly-city-scroll-C')||$(e.target).parents('.fly-city-scroll-C').length>0){
 				return;
 			}
+
 			var $target = $('.fly-top3');
 			var e = e.originalEvent ? e.originalEvent.changedTouches[0]:e.changedTarget[0];
-			var disX = e.pageX - $target.offset().left;
+			var disX = e.pageX;// - $target.offset().left;
+
 			data.foods.css({
 				WebkitTransition:'none',
 			});
 			$(document).on('touchmove',e=>{
 
+				e.preventDefault();
 				if(self.isEnableDrag){
 					return; //启用了拖拽操作。
 				}
 				var e = e.originalEvent ? e.originalEvent.changedTouches[0]:e.changedTarget[0];
 				var x = e.pageX - disX;
-				x>0&&(x=0);
+
+				x > 0 && ( x = 0 );
 				$target.css({
-					WebkitTransform:'translate3d('+x+'px,0,0)'
+					WebkitTransform:'translate3d(' + x + 'px,0,0)'
 				});
+
+				return 0;
 			}).on('touchend',e=>{
 				if(self.isEnableDrag){
 					return; //启用了拖拽操作。
 				}
+
 				var e = e.originalEvent ? e.originalEvent.changedTouches[0]:e.changedTarget[0];
 				var x = e.pageX - disX;
+				$(document).off('touchend touchmove');
+				if(x>= 0){
+					return;
+				}
 
 				if(-x>=100){//
 					self.startChangeMenu($target);
@@ -157,8 +180,9 @@ let util = {
 						WebkitTransitionTimingFunction:"cubic-bezier(0, 0.9, 0.17, 1.01)",
 						WebkitTransform:'translate3d(0,0,0)'
 					});
+				 
 				}
-				$(document).off('touchend touchmove');
+				
 			});
 
 		});
@@ -171,7 +195,8 @@ let util = {
 				self.isEnableDrag = true;
 		
 				data.programa.addClass('active');
-				!sort && (sort = new Sortable(data.cookBookC[0],{group:'omega'}));	
+				
+				sort = new Sortable(data.cookBookC[0],{group:'omega'});
 				data.closeBar.addClass('active');
 
 			},1000);
@@ -180,68 +205,13 @@ let util = {
 				iNow = 0;
 
 			$(document).on('touchmove',e=>{
-
+				clearTimeout(timer);
 				if(self.isEnableDrag){
 					if(iNow++ ===1){
 						$target.removeClass('active');	
 						
 					}else{
-						/*
-							return;
-						var e = e.originalEvent ? e.originalEvent.changedTouches[0]:e.changedTarget[0];
-						$target.css({left:e.pageX - disX,top:e.pageY - disY});
-						var arr = [];
-						data.programa.each((i,n)=>{
-							if($target[0] === n){
-								return;
-							}
-							let left = $target.offset().left+$target.width(),
-								top = $target.offset().top+$target.height(),
-								right = $target.offset().left,
-								bottom = $target.offset().top;
-
-								
-							if(left<$(n).offset().left 
-								|| right > $(n).offset().left+$(n).width()
-								|| top < $(n).offset().top 
-								|| bottom > $(n).offset.top+$(n).height()
-								){
-								//没有碰撞上
-							}
-							else{
-								//console.log('ok');
-								//碰撞上了。
-								var disX = self.getDis(
-									$target.offset().left+$target.width()/2,
-									$target.offset().top+$target.height()/2,
-									$(n).offset().left+$(n).width()/2,
-									$(n).offset().top+$(n).height()/2
-									);
-								arr.push({disX,target:$(n)});
-							}
-
-						});	
-
-						let len = arr.length;
-						if(len > 1){//有两个碰撞
-							if(arr[0].disX <= arr[1].disX){
-								//开始交换位置
-								arr[0].target.addClass('near');
-							}
-							else{
-								arr[1].target.addClass('near');
-							}
-						}else if(len === 1){//只有一个
-						 let tar =	arr[0].target.hasClass('fly-cook-book-item')?arr[0].target:arr[0].target.parents('.fly-cook-book-item');
-							tar.addClass('near');
-							$target.addClass('near')
-						}else if(len <= 0){
-								
-						}
-
-						arr= null;
-
-						*/
+						
 					}
 					
 				}
@@ -345,16 +315,49 @@ let util = {
 	setSize(){
 		
 		setTimeout(()=>{
-			data.timeCanvas[0].width = data.timeCanvas.parent().width();
-			data.timeCanvas[0].height = data.timeCanvas.parent().height();
+			let width = data.timeCanvas.parent().width(),
+				height = data.timeCanvas.parent().height()/2;
+			data.timeCanvas[0].width = data.temperatureCanvas[0].width = width;
+			data.timeCanvas[0].height = data.temperatureCanvas[0].height =  height;
+
+
 			this.canvasStart(data.timeCanvas[0]);
-		},1)
+			this.temperatureStart(data.temperatureCanvas[0],26);
+			
+
+			var scrollC = data.cityScrollC.find('ul');
+			this.fillCity(cityData,scrollC);
+			let li = data.cityScrollC.find('ul li');
+
+			scrollC.width(li.length*li.width());
+
+			new IScroll(data.cityScrollC[0],{
+				disableMouse:true,
+				invertWheelDirection:true,
+				scrollX: true,
+		 		scrollY: false
+			});
+
+		},1);
 
 	},
 	canvasStart(canvas){
 		new Time({
 			canvas:canvas
 		});
+	},
+	temperatureStart(canvas,temperature){
+		new Temperature({
+			canvas:canvas
+		}).init(temperature);
+	},
+	fillCity(citys,scrollC){
+		var html = ``;
+		citys.forEach(item=>{
+			html+=`<li>${item.city}</li>`;
+		});
+		scrollC.html(html);
+
 	}
 }
 

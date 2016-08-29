@@ -1,0 +1,89 @@
+
+//各种城市的信息
+const cityData = [
+	{
+		city:'Beijing',
+		temperature:26,
+		weather:[
+			'cloud',
+			'sun',
+			'rain',
+			'sun',
+			'rain'
+		]
+	},{
+		city:'Wuhan',
+		temperature:30,
+		weather:[
+			'cloud',
+			'sun',
+			'rain',
+			'sun',
+			'rain'
+		]
+	},{
+		city:'Shanghai',
+		temperature:28,
+		weather:[
+			'cloud',
+			'sun',
+			'rain',
+			'sun',
+			'rain'
+		]
+	},{
+		city:'Dalian',
+		temperature:25,
+		weather:[
+			'cloud',
+			'sun',
+			'rain',
+			'sun',
+			'rain'
+		]
+	},{
+		city:'Chongqing',
+		temperature:34,
+		weather:[
+			'sun',
+			'sun',
+			'rain',
+			'sun',
+			'rain'
+		]
+	},{
+		city:'ChangSha',
+		temperature:32,
+		weather:[
+			'sun',
+			'sun',
+			'rain',
+			'sun',
+			'rain'
+		]
+	},{
+		city:'Baiyin',
+		temperature:24,
+		weather:[
+			'sun',
+			'sun',
+			'rain',
+			'sun',
+			'rain'
+		]
+	},{
+		city:'Huanggang',
+		temperature:29,
+		weather:[
+			'sun',
+			'sun',
+			'rain',
+			'sun',
+			'rain'
+		]
+	}
+];
+
+
+
+export default cityData;
