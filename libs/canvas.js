@@ -1,6 +1,7 @@
 
 import numberData from './number.js';
 
+
 export default class Time{
 	constructor(options = {}){
 		let s = this;

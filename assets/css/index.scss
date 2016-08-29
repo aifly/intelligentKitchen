@@ -159,9 +159,11 @@ $nav-height:13.3vh;
     width: 100%;
     background:rgba(0,0,0,0);
     z-index: -1;
+    @include transform(translate3d(0,100%,0));
     top: $nav-height;
     &.active{
       z-index: $maxIndex + 1;
+      @include transform(translate3d(0,0,0));
     }
   }
 

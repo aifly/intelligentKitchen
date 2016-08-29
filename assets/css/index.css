@@ -148,9 +148,13 @@ body {
   width: 100%;
   background: transparent;
   z-index: -1;
+  -webkit-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0);
   top: 13.3vh; }
   #fly-main .fly-nav-mask.active {
-    z-index: 10000; }
+    z-index: 10000;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); }
 #fly-main .fly-nav {
   width: 10rem;
   height: 13.3vh;
@@ -158,9 +162,7 @@ body {
   z-index: 9999;
   position: absolute;
   -webkit-transition: -webkit-transform 0.5s;
-  transition: -webkit-transform 0.5s;
   transition: transform 0.5s;
-  transition: transform 0.5s, -webkit-transform 0.5s;
   -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);
   transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01); }
   #fly-main .fly-nav.active {
@@ -224,9 +226,7 @@ body {
   -webkit-transform: translate3d(0, -100%, 0);
   transform: translate3d(0, -100%, 0);
   -webkit-transition: -webkit-transform 0.3s;
-  transition: -webkit-transform 0.3s;
   transition: transform 0.3s;
-  transition: transform 0.3s, -webkit-transform 0.3s;
   -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);
   transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01); }
   #fly-main .fly-close-drag.active {
@@ -316,9 +316,7 @@ body {
       z-index: 1; }
     #fly-main .fly-cook-book-C .fly-food .fly-top3 {
       left: 6%;
-      z-index: 2;
-      -webkit-transform: traslateZ(2px);
-      transform: traslateZ(2px); }
+      z-index: 2; }
     #fly-main .fly-cook-book-C .fly-food .fly-weather:after {
       content: '时间 / 天气';
       top: 5%; }
@@ -385,4 +383,5 @@ body {
   #fly-main .fly-cook-book-C .fly-cook-detail {
     width: 2.78rem;
     left: 7.22rem; }
+
 /*# sourceMappingURL=index.css.map */
