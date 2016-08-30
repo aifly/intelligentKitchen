@@ -1,0 +1,183 @@
+﻿
+
+@mixin pos($v) {
+  @if $v == a {
+    position: absolute;
+  } 
+  @else if $v == r {
+     position: relative;
+  } 
+  @else if $v == f {
+    position: fixed;
+  }
+}
+
+@mixin br($v:50%) {
+  border-radius: $v;
+}
+
+@mixin opacity($v:0) {
+  opacity: $v;
+}
+
+@mixin transform($v) {
+  -webkit-transform: $v;
+  transform: $v;
+}
+
+@mixin transitionDelay($time){
+  -webkit-transition-delay: $time;
+  transition-delay: $time;
+}
+
+
+@mixin transformOrigin($v) {
+  -webkit-transform-origin: $v;
+  transform-origin: $v;
+}
+
+@mixin backgroundSize($v:cover) {
+  background-size: $v;
+}
+
+@mixin transition_transform($v) {
+  -webkit-transition: -webkit-transform $v;
+  transition: transform $v;
+}
+
+@mixin transform_origin($v:center) {
+  -webkit-transform-origin: $v;
+  transform-origin: $v;
+}
+
+@mixin transition($v) {
+  -webkit-transition: $v;
+  transition: $v;
+}
+
+@mixin transitionTimingFunction($v:cubic-bezier(0, 0.9, 0.17, 1.01))
+{
+  -webkit-transition-timing-function: $v;
+  transition-timing-function: $v;
+}
+
+@mixin transform($v) {
+  -webkit-transform: $v;
+  transform: $v;
+}
+
+@mixin background($bg) {
+  background: $bg;
+}
+
+@mixin backgroundSize($v:cover) {
+  background-size: $v;
+}
+
+@mixin animation($v) {
+  -webkit-animation: $v;
+  animation: $v;
+}
+@mixin animationDelay($time){
+  -webkit-animation-delay:$time;
+          animation-delay:$time;
+}
+
+@mixin transform3d() {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  perspective: 800px;
+  -webkit-perspective: 800px;
+}
+
+@mixin displayBox($v) {
+  display: -webkit-box;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  -webkit-box-orient: $v;
+}
+
+@mixin fly-h-gradient-line {
+  background: -webkit-gradient(linear, left top, right top, from(rgba(204, 204, 204, .2)), color-stop(0.5, rgba(204, 204, 204, 1)), to(rgba(204, 204, 204, .2)));
+  background: -moz-linear-gradient(left, rgba(204, 204, 204, .2), rgba(204, 204, 204, 1) 50%, rgba(204, 204, 204, .2));
+  background: -ms-linear-gradient(left, rgba(204, 204, 204, .2), rgba(204, 204, 204, 1) 50%, rgba(204, 204, 204, .2));
+}
+
+@mixin fly-v-gradient-line($minOpacity:.2,$maxOpacity:1) {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(204, 204, 204, $minOpacity)), color-stop(0.5, rgba(204, 204, 204, $maxOpacity)), to(rgba(204, 204, 204, $minOpacity)));
+  background: -moz-linear-gradient(top, rgba(204, 204, 204, $minOpacity), rgba(204, 204, 204, $maxOpacity) 50%, rgba(204, 204, 204, $minOpacity));
+  background: -ms-linear-gradient(top, rgba(204, 204, 204, $minOpacity), rgba(204, 204, 204, $maxOpacity) 50%, rgba(204, 204, 204, $minOpacity));
+}
+
+@mixin displayFlex($v:column) {
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: $v;
+}
+
+
+$baseColor:#d1bdbd;
+$baseColor1:#e89e79;
+$maxIndex:9999;
+
+$foodlist-height:1.6rem;
+
+.foodlist{
+	margin:.13rem auto;
+}
+.foodlist-C{
+	width:86%;
+	margin-left: .1rem;
+	height:$foodlist-height;
+	overflow:hidden;
+	float:left;
+	@include br(20px);
+	box-shadow:0 0 1.1rem rgba(232,158,121,.6),0 0 .1rem rgba(232,158,121,.2) inset;
+}
+.foodlist-next{
+	float:left;
+	height:$foodlist-height / 4;
+	line-height: $foodlist-height / 4;
+	margin-top: .56rem;
+	padding:0 20px;
+	@include transform(scaleY(2.4));
+	//margin-top: $foodlist-height /2 ;
+}
+.foodlist-content{
+	float:left;
+	height:100%;
+	li{
+
+		width:.675rem;
+		float: left;
+		height:($foodlist-height ) / 2;
+		overflow: hidden;
+		box-sizing:border-box;
+		padding:10px;;
+		
+		div{
+
+			width:100%;
+			@include br(20px);
+			height:100%;
+			@include pos(r);
+			overflow: hidden;
+		}
+		span{
+			font-size:.06rem;
+			@include pos(a);
+			left: 0;
+			bottom:0;
+			display:block;
+			width:100%;
+			color:#fff;
+			text-align: center;
+			height: 40px;
+			line-height: 40px;
+			background:rgba(0,0,0,.5);
+		}
+		&.food-top{
+			margin-top: 0.01rem;	
+		}
+	}
+}

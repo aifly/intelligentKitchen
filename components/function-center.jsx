@@ -5,12 +5,30 @@ import Temperature from '../libs/temperature.js';
 import $ from 'jquery';
 import '../libs/jquery.tap.js';
 import Sortable from '../libs/Sortable.js';
+import cityData from '../libs/city.js';
+import IScroll from 'iscroll';
+import FlyFoodList from './foodlist.jsx';
+import foodlist from '../libs/foodlist.js';//
+import cooklist from '../libs/cooklist.js';//
 
 export default class FlyFunctionCenter extends React.Component{
 	constructor(option){
-		super(option)
+		super(option);
+		this.closeDrag=this.closeDrag.bind(this);
+		this.state ={
+			cityData : []
+		}
 	}
+	
 	render(){
+
+		let data = {
+			dataSource:foodlist
+		}
+		let cookData ={
+			dataSource :cooklist
+		}
+
 		return (
 			<li className="fly-food fly-cook-book-item">
 				<div className="fly-cook-book-item-C" ref='fly-cook-book-item-C'> 
@@ -56,23 +74,19 @@ export default class FlyFunctionCenter extends React.Component{
 							</div>
 						</div>
 						<div className="fly-city-C">
-							<div className="fly-city-scroll-C" id="fly-city-scroll-C">
+							<div className="fly-city-scroll-C" ref="fly-city-scroll-C">
 							<ul>
-								<li>Beijing</li>
-								<li>Beijing</li>
-								<li>Beijing</li>
-								<li>Beijing</li>
-								<li>Beijing</li>
-								<li>Beijing</li>
-								<li>Beijing</li>
+								{this.state.cityData}
 							</ul>
 						</div>
 						<div className="fly-add">+</div>
 						</div>
 					</div>
-					<div className="fly-rec-food fly-food-item fly-top2" ref='rec-food'>推荐食材</div>
+					<div className="fly-rec-food fly-food-item fly-top2" ref='rec-food'>
+						<FlyFoodList {...data}></FlyFoodList>
+					</div>
 					<div className="fly-rec-menu fly-food-item fly-top1" ref='rec-menu'>
-						推荐菜谱
+						<FlyFoodList {...cookData}></FlyFoodList>
 					</div>	
 				</div>
 
@@ -80,8 +94,29 @@ export default class FlyFunctionCenter extends React.Component{
 			</li>
 		)
 	}
+
 	componentDidMount(){
 		this.init();
+
+		this.state.cityData = cityData.map((item,i)=>{
+			return <li key={i}>{item.city}</li>
+		});
+
+		this.forceUpdate();
+
+		let scrollUl = this.refs['fly-city-scroll-C'];
+
+		setTimeout(()=>{
+			let width =scrollUl.children[0].children[0].offsetWidth;
+			scrollUl.children[0].style.width = (width+2) * this.state.cityData.length +'px';
+			new IScroll(scrollUl,{
+				disableMouse:true,
+				invertWheelDirection:true,
+				scrollX: true,
+		 		scrollY: false
+			});
+		},1);
+
 	}
 
 	setSize(){
@@ -98,28 +133,17 @@ export default class FlyFunctionCenter extends React.Component{
 			this.timerCanvasStart(timerCanvas);
 			this.temperatureCanvasStart(temperatureCanvas,27);
 
-	/*		let width = data.timeCanvas.parent().width(),
-				height = data.timeCanvas.parent().height()/2;
-			data.timeCanvas[0].width = data.temperatureCanvas[0].width = width;
-			data.timeCanvas[0].height = data.temperatureCanvas[0].height =  height;
-
-
-			this.canvasStart(data.timeCanvas[0]);
-			this.temperatureStart(data.temperatureCanvas[0],26);
+			 
 			
 
+	/*
 			var scrollC = data.cityScrollC.find('ul');
 			this.fillCity(cityData,scrollC);
 			let li = data.cityScrollC.find('ul li');
 
 			scrollC.width(li.length*li.width());
 
-			new IScroll(data.cityScrollC[0],{
-				disableMouse:true,
-				invertWheelDirection:true,
-				scrollX: true,
-		 		scrollY: false
-			});
+			
 */
 		},1);
 
@@ -170,24 +194,33 @@ export default class FlyFunctionCenter extends React.Component{
 		
 	}
 
+	closeDrag(){
 
+		this.programa.removeClass('active');
+		this.sort && this.sort.destroy();
+		this.isEnableDrag = false;
+	}
 
 	bindEvent(document){
 
 		let self = this;
-		var sort = null;
+
+		this.sort =  null;
 		this.foods = $('#fly-main .fly-food-item');
 		this.programa = $('#fly-main .fly-cook-book-C .fly-cook-book-item');
-		this.cookBookC = $('#fly-main .fly-cook-book-C')
+		this.cookBookC = $('#fly-main .fly-cook-book-C');
+		//this.closeBar = $();
+
+		let {obserable} = this.props;
+
+		obserable.on('closeDrag',()=>{
+			self.closeDrag();
+		});
+
+
+
 		var data = this;
-
-		/*data.closeBar.on('tap',()=>{
-			data.closeBar.removeClass('active');
-			data.programa.removeClass('active');
-
-			sort && sort.destroy();
-			self.isEnableDrag = false;
-		});*/
+ 
 
 		data.foods.on('tap',(e)=>{
 			if(self.isEnableDrag){//
@@ -212,7 +245,7 @@ export default class FlyFunctionCenter extends React.Component{
 						//WebkitTransform:'translate3d(0,0,0)',
 						opacity:1
 					});
-				},300);
+				},140);
 				
 				this.iNow = index;
 
@@ -222,7 +255,6 @@ export default class FlyFunctionCenter extends React.Component{
 						data.foods.eq(1).addClass('fly-top2');
 						data.foods.eq(2).addClass('fly-top1');
 
-						
 					break;
 					case 1:
 						
@@ -245,7 +277,10 @@ export default class FlyFunctionCenter extends React.Component{
 
 			var target = $(e.target).hasClass('fly-food-item')?$(e.target):$(e.target).parents('.fly-food-item');
 			var isTop = target.hasClass('fly-top3');
-			if(!isTop || $(e.target).hasClass('fly-city-scroll-C')||$(e.target).parents('.fly-city-scroll-C').length>0){
+
+			if(!isTop || $(e.target).hasClass('fly-city-scroll-C')||$(e.target).parents('.fly-city-scroll-C').length>0
+				|| $(e.target).hasClass('foodlist')|| $(e.target).parents('.foodlist').length>0
+				){
 				return;
 			}
 
@@ -309,8 +344,8 @@ export default class FlyFunctionCenter extends React.Component{
 		
 				data.programa.addClass('active');
 				
-				sort = new Sortable(data.cookBookC[0],{group:'omega'});
-				//data.closeBar.addClass('active');
+				self.sort = new Sortable(data.cookBookC[0],{group:'omega'});
+				self.props.obserable.trigger({type:'showDone'})
 
 			},1000);
 				var e = e.originalEvent ? e.originalEvent.changedTouches[0]:e.changedTarget[0];
@@ -372,6 +407,16 @@ export default class FlyFunctionCenter extends React.Component{
 		},200)
 	}
 	
+	fillCity(citys,scrollC){
+		var html = ``;
+		citys.forEach(item=>{
+			html+=`<li>${item.city}</li>`;
+		});
+		scrollC.html(html);
+		return citys.map((item)=>{
+			return `<li>${item.city}</li>`;
+		});
+	}
 
 	
 }

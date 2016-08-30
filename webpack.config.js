@@ -2,7 +2,7 @@ var webpack = require('webpack');
 
 module.exports = {
 	entry:{
-		index:'./index.es6'
+		index:'./index.jsx'
 	},
 	output:{
 		path:'./assets/js',
@@ -16,9 +16,9 @@ module.exports = {
 	module:{
 		loaders:[
 			{
-				test:/\.es6|\.js$/,
+				test:/\.jsx|\.js$/,
 				exclude:/node_modules/,
-				loaders:['babel']
+				loaders:['react-hot','babel']
 			},
 			{
 				test:/\.css$/,

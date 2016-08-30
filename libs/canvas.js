@@ -35,10 +35,11 @@ export default class Time{
 		let id = 2;
 		var context = s.canvas.getContext('2d');
 		context.clearRect(0,0,s.canvas.width,s.canvas.height);
-		var ten = new Date().getHours()/ 10 | 0,
-			one = new Date().getHours() % 10,
-			minsTen =  new Date().getMinutes()/10|0,
-			minsOne =  new Date().getMinutes()%10;
+		let D =new Date();
+		var ten = D.getHours()/ 10 | 0,
+			one = D.getHours() % 10,
+			minsTen =  D.getMinutes()/10|0,
+			minsOne =  D.getMinutes()%10;
 		s.draw(ten,context,id);
 
 		id += numberData[ten][0].length+1;
