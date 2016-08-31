@@ -385,4 +385,10 @@ body {
     width: 2.78rem;
     left: 7.22rem; }
 
+/*时间轴*/
+.fly-time-line-C {
+  width: 10rem;
+  height: 1px;
+  background: red; }
+
 /*# sourceMappingURL=index.css.map */

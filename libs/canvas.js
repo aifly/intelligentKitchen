@@ -6,6 +6,7 @@ export default class Time{
 	constructor(options = {}){
 		let s = this;
 		s.canvas = options.canvas;
+		s.obserable = options.obserable;
 		s.margin  = 9;
 		s.r = 5;
 		var index = s.init();
@@ -14,11 +15,19 @@ export default class Time{
 
 		var num = numberData[10]
 		setInterval(()=>{
-			!new Date().getSeconds() && (index = s.init());//当前秒数为0的时候，重新绘制时间。
+			var D = new Date();
+			var hours = D.getHours(),
+				mins = D.getMinutes(),
+				seconds = D.getSeconds();
+
+
+			//!new Date().getSeconds() && (index = s.init());//当前秒数为0的时候，重新绘制时间。
 			s.canvas.getContext('2d').clearRect((s.margin + s.r)*(index-3),0,20,s.canvas.height);
 			setTimeout(()=>{
 				index = s.init();
 			},500);
+			hours === 0 && mins === 0 && seconds === 0 && s.obserable.trigger({type:'updateCalendar'});
+			
 		},1000);
 	}
 

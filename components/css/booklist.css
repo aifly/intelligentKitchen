@@ -1,5 +1,6 @@
 @charset "UTF-8";
 .book-list-C {
+  box-shadow: 0 0 1.1rem rgba(232, 158, 121, 0.6);
   width: 88%;
   height: 80%;
   margin: 5% auto;
@@ -21,7 +22,7 @@
     top: .1rem;
     border-radius: 14px; }
   .book-list-C .booklist-left-C {
-    -webkit-box-flex: 1;
+    width: 25%;
     height: 100%;
     display: -webkit-box;
     -webkit-box-align: center;
@@ -46,7 +47,7 @@
         border: 3px solid #e89e79;
         box-sizing: border-box; }
   .book-list-C .booklist-right-C {
-    -webkit-box-flex: 3;
+    width: 75%;
     height: 100%;
     display: -webkit-box;
     -webkit-box-align: center;
@@ -54,7 +55,9 @@
     -webkit-box-orient: vertical; }
     .book-list-C .booklist-right-C .bl-calendar {
       width: 100%;
-      -webkit-box-flex: 1; }
+      -webkit-box-flex: 1;
+      box-sizing: border-box;
+      height: 50%; }
       .book-list-C .booklist-right-C .bl-calendar table {
         padding-top: .1rem;
         width: 90%;
@@ -66,8 +69,98 @@
           font-size: .08rem;
           border-bottom: 1px solid #dcdcdc;
           padding-bottom: 20px; }
+        .book-list-C .booklist-right-C .bl-calendar table tbody tr {
+          height: .28rem; }
+          .book-list-C .booklist-right-C .bl-calendar table tbody tr:nth-of-type(1) td {
+            padding: .05rem 0;
+            border-bottom: 1px solid #dcdcdc;
+            box-sizing: border-box; }
+        .book-list-C .booklist-right-C .bl-calendar table td {
+          position: relative; }
+          .book-list-C .booklist-right-C .bl-calendar table td span {
+            display: block;
+            font-size: .08rem; }
+            .book-list-C .booklist-right-C .bl-calendar table td span:nth-of-type(2) {
+              font-size: .07rem; }
+          .book-list-C .booklist-right-C .bl-calendar table td .hasfood {
+            border-radius: 50%;
+            position: relative; }
+            .book-list-C .booklist-right-C .bl-calendar table td .hasfood:before {
+              content: '';
+              width: 0.05rem;
+              height: 0.05rem;
+              background: #e89e79;
+              border-radius: 50%;
+              position: absolute;
+              right: .01rem;
+              top: .01rem; }
+        .book-list-C .booklist-right-C .bl-calendar table .today {
+          color: #e89e79; }
+          .book-list-C .booklist-right-C .bl-calendar table .today div {
+            background: #efefef;
+            width: .25rem;
+            height: .25rem;
+            border-radius: 50%;
+            position: absolute;
+            left: .023rem;
+            top: .05rem; }
+          .book-list-C .booklist-right-C .bl-calendar table .today span {
+            color: inherit; }
     .book-list-C .booklist-right-C .bl-food-list {
-      -webkit-box-flex: 1;
-      width: 100%; }
+      width: 100%;
+      height: 50%;
+      display: -webkit-box;
+      -webkit-box-align: center;
+      -webkit-box-pack: center;
+      -webkit-box-orient: horizontal; }
+      .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll {
+        width: 90%;
+        height: 100%;
+        overflow: hidden;
+        background: rgba(232, 158, 121, 0.1);
+        box-shadow: 0 0 1.1rem rgba(232, 158, 121, 0.6), 0 0 2rem rgba(232, 158, 121, 0.5) inset;
+        border-radius: 20px;
+        margin-top: -.14rem; }
+        .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll ul {
+          margin-top: -.07rem; }
+          .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll ul li {
+            width: .731rem;
+            float: left;
+            height: 1rem;
+            position: relative;
+            box-sizing: border-box;
+            background: rgba(232, 158, 121, 0.1); }
+            .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll ul li div {
+              box-shadow: 0 0 0.1rem rgba(232, 158, 121, 0.6);
+              position: absolute;
+              border-radius: 20px;
+              width: 90%;
+              overflow: hidden;
+              height: 90%;
+              left: 10%;
+              top: 10%;
+              -webkit-transition: border 0.2s;
+              transition: border 0.2s;
+              box-sizing: border-box; }
+              .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll ul li div.active {
+                border: 8px solid #e89e79; }
+            .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll ul li span {
+              display: block;
+              position: absolute;
+              bottom: 0;
+              background: #fff;
+              color: #cfbbba;
+              width: 100%;
+              height: .2rem;
+              line-height: .2rem;
+              font-size: .08rem;
+              padding-left: 20px; }
+      .book-list-C .booklist-right-C .bl-food-list .bl-food-next {
+        width: 10%;
+        height: 40%;
+        text-align: center;
+        line-height: 5vh;
+        -webkit-transform: scaleY(2.5);
+        transform: scaleY(2.5); }
 
 /*# sourceMappingURL=booklist.css.map */

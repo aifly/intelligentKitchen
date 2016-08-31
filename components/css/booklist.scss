@@ -123,6 +123,7 @@ $maxIndex:9999;
 
 
 .book-list-C{
+  box-shadow:0 0 1.1rem rgba(232,158,121,.6);
 	width:88%;
 	height:80%;
 	margin:5% auto;
@@ -144,7 +145,7 @@ $maxIndex:9999;
 	}
   @include displayBox(horizontal);
   .booklist-left-C{
-    -webkit-box-flex: 1;
+    width: 25%;
     
     height: 100%;
     @include displayBox(vertical);
@@ -174,7 +175,7 @@ $maxIndex:9999;
 
   }
   .booklist-right-C{
-    -webkit-box-flex: 3;
+    width:75%;
     height: 100%;
     @include displayBox(vertical);
     .bl-calendar{
@@ -192,11 +193,134 @@ $maxIndex:9999;
             border-bottom:1px solid #dcdcdc;
             padding-bottom:20px;
            }
+           tbody{
+              tr{
+                height: .28rem;
+                &:nth-of-type(1){
+                  td{
+                    padding:.05rem 0;
+                    border-bottom:1px solid #dcdcdc;
+                    box-sizing:border-box;
+                  }
+                }
+               }
+           }
+           
+           td{
+              span{
+                display:block;
+                font-size: .08rem;
+                &:nth-of-type(2){
+                  font-size: .07rem;
+                }
+              }
+              @include pos(r);
+
+              .hasfood{
+                @include br(50%);
+                @include pos(r);
+                  &:before{
+                    content:'';
+                    $width:.05rem;
+                    width:$width;
+                    height: $width;
+                    background:$baseColor1;
+                    @include br(50%);
+                    @include pos(a);
+                    right: .01rem;
+                    top: .01rem;
+
+
+                  }
+              }
+           }
+           .today{
+              color:$baseColor1;
+              
+             div{
+              background:#efefef;
+                width: .25rem;
+                height: .25rem;
+                @include br(50%);
+                @include pos(a);
+                left: .023rem;
+                top: .05rem;
+             }
+              span{
+                color:inherit;
+              }
+               
+           }
+           
         }
+
+        box-sizing:border-box;
+        height: 50%;
     }
+
     .bl-food-list{
-        -webkit-box-flex: 1;
+
+
         width: 100%;
+        height: 50%;
+        
+        @include displayBox(horizontal);
+        .bl-food-scroll{
+          
+          width: 90%;
+          height: 100%;
+          overflow: hidden;
+          background:rgba(232,158,121,.1);
+          box-shadow:0 0 1.1rem rgba(232,158,121,.6),0 0 2rem rgba(232,158,121,.5) inset;
+          @include br(20px);
+          margin-top: -.14rem;
+          ul{
+            margin-top: -.07rem;
+            li{
+              width: .731rem;
+              float: left;
+              height: 1rem;
+              @include pos(r);
+              box-sizing: border-box;
+              background:rgba(232,158,121,.1);
+              div{
+               box-shadow:0 0 .1rem rgba(232,158,121,.6);
+                $width:90%;
+                @include pos(a);
+                @include br(20px);
+                width:$width;
+                overflow: hidden;
+                height: $width;
+                left: 100 - $width;
+                top: 100 - $width;
+                @include transition(border .2s);
+                &.active{
+                  border:8px solid $baseColor1;
+                }
+                box-sizing: border-box;
+              }
+              span{
+                display: block;
+                @include pos(a);
+                bottom:0;
+                background:#fff;
+                color:#cfbbba;
+                width:100%;
+                height: .2rem;
+                line-height: .2rem;
+                font-size:.08rem;
+                padding-left: 20px;
+              }
+            }
+          }
+        }
+        .bl-food-next{
+          width: 10%;
+          height: 40%;
+          text-align: center;
+          line-height: 5vh;
+          @include transform(scaleY(2.5));
+        }
     }
   }
 }

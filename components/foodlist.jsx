@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './css/foodlist.css';
 import IScroll from 'iscroll';
 
+//第一部分切换的菜谱和食材列表组件。
 export default class FlyFoodList extends Component {
 	constructor(option){
 		super(...option);

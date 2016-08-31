@@ -29,8 +29,12 @@ class App extends React.Component{
 				<FlyDone {...data}/>
 				<ul className="fly-cook-book-C">
 					<FlyFunctionCenter {...data}></FlyFunctionCenter>
-					<FlyCookBookList></FlyCookBookList>
-					<FlyCookBookItem></FlyCookBookItem>
+					<FlyCookBookList {...data}></FlyCookBookList>
+					<FlyCookBookItem {...data}></FlyCookBookItem>
+				</ul>
+				<section className='fly-time-line-C'></section>
+				<ul>
+					
 				</ul>
 			</div>
 		)

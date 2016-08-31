@@ -83,7 +83,7 @@
 
 			function GetLunarDay(solarYear,solarMonth,solarDay){
 			//solarYear = solarYear<1900?(1900+solarYear):solarYear;
-				if(solarYear<1921 || solarYear>2020){
+				if(solarYear<1921){
 					return "";
 				}else{
 					solarMonth = (parseInt(solarMonth)>0) ? (solarMonth-1) : 11;
@@ -93,4 +93,14 @@
 			}
 	
 
-	export default GetLunarDay;
+		function GetDateStr(AddDayCount) {
+		    var dd = new Date();
+		    dd.setDate(dd.getDate()+AddDayCount);//获取AddDayCount天后的日期
+		   // var y = dd.getFullYear();
+		   // var m = dd.getMonth()+1;//获取当前月份的日期
+		    var d = dd.getDate();
+		    return d;
+		}
+
+
+	export default {GetLunarDay,GetDateStr};

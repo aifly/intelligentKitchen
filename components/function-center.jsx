@@ -11,6 +11,7 @@ import FlyFoodList from './foodlist.jsx';
 import foodlist from '../libs/foodlist.js';//
 import cooklist from '../libs/cooklist.js';//
 
+//最左侧的控制中心组件。
 export default class FlyFunctionCenter extends React.Component{
 	constructor(option){
 		super(option);
@@ -149,8 +150,10 @@ export default class FlyFunctionCenter extends React.Component{
 
 	}
 	timerCanvasStart(canvas){
+		let self = this;
 		new Time({
-			canvas:canvas
+			canvas:canvas,
+			obserable:self.props.obserable
 		});
 	}
 	temperatureCanvasStart(canvas,temperature){
@@ -407,16 +410,7 @@ export default class FlyFunctionCenter extends React.Component{
 		},200)
 	}
 	
-	fillCity(citys,scrollC){
-		var html = ``;
-		citys.forEach(item=>{
-			html+=`<li>${item.city}</li>`;
-		});
-		scrollC.html(html);
-		return citys.map((item)=>{
-			return `<li>${item.city}</li>`;
-		});
-	}
+ 
 
 	
 }

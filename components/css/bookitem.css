@@ -1,0 +1,70 @@
+@charset "UTF-8";
+/*步骤开始。开始制作*/
+.book-item-C {
+  width: 84%;
+  margin: 0 auto;
+  height: 80%;
+  position: relative;
+  top: 2.7vh;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 30px; }
+  .book-item-C ul.book-item-ul {
+    height: 100%;
+    display: -webkit-box;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    -webkit-box-orient: vertical; }
+    .book-item-C ul.book-item-ul li {
+      height: 50%;
+      width: 100%;
+      border: 1px solid red; }
+  .book-item-C .book-item-detail-src {
+    width: 100%;
+    height: 100%;
+    position: relative; }
+    .book-item-C .book-item-detail-src .book-item-content {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      height: .2rem;
+      line-height: .2rem; }
+      .book-item-C .book-item-detail-src .book-item-content .book-item-name {
+        font-size: .15rem;
+        margin-left: .1rem; }
+      .book-item-C .book-item-detail-src .book-item-content .book-item-pageview {
+        position: absolute;
+        left: 50%;
+        font-size: .1rem; }
+        .book-item-C .book-item-detail-src .book-item-content .book-item-pageview em {
+          font-style: normal;
+          font-size: .09rem;
+          margin-top: -.1rem;
+          display: inline-block;
+          position: relative;
+          top: -4px; }
+      .book-item-C .book-item-detail-src .book-item-content .book-item-discuss {
+        position: absolute;
+        right: 5%; }
+        .book-item-C .book-item-detail-src .book-item-content .book-item-discuss span:nth-of-type(1) {
+          display: inline-block;
+          text-align: center;
+          border: 1px solid #fff;
+          padding: 0 6px;
+          height: .1rem;
+          line-height: .1rem;
+          margin-right: .03rem;
+          border-radius: 8px; }
+          .book-item-C .book-item-detail-src .book-item-content .book-item-discuss span:nth-of-type(1) b {
+            display: inline-block;
+            width: .01rem;
+            height: .01rem;
+            margin: 0 4px;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            position: relative;
+            top: -.02rem; }
+
+/*# sourceMappingURL=bookitem.css.map */
