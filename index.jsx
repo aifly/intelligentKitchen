@@ -11,6 +11,9 @@ import FlyDone from './components/done.jsx';
 import FlyFunctionCenter from './components/function-center.jsx';
 import FlyCookBookItem from './components/cook-book-item.jsx';
 import FlyCookBookList from './components/cook-book-list.jsx';
+import FlyAlimentationData from './components/alimentationData.jsx';
+import FlyOperatorCenter from './components/operatorCenter.jsx';
+import FlyFoodsPlace from './components/foodsPlace.jsx';
 let obserable=  new Obserable();
 
 
@@ -33,8 +36,10 @@ class App extends React.Component{
 					<FlyCookBookItem {...data}></FlyCookBookItem>
 				</ul>
 				<section className='fly-time-line-C'></section>
-				<ul>
-					
+				<ul className='fly-main-operator-C'>
+					<FlyAlimentationData></FlyAlimentationData>
+					<FlyOperatorCenter></FlyOperatorCenter>
+					<FlyFoodsPlace></FlyFoodsPlace>
 				</ul>
 			</div>
 		)

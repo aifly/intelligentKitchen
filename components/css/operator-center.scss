@@ -1,0 +1,170 @@
+
+
+@mixin pos($v) {
+  @if $v == a {
+    position: absolute;
+  } 
+  @else if $v == r {
+     position: relative;
+  } 
+  @else if $v == f {
+    position: fixed;
+  }
+}
+
+@mixin br($v:50%) {
+  border-radius: $v;
+}
+
+@mixin opacity($v:0) {
+  opacity: $v;
+}
+
+@mixin transform($v) {
+  -webkit-transform: $v;
+  transform: $v;
+}
+
+@mixin transitionDelay($time){
+  -webkit-transition-delay: $time;
+  transition-delay: $time;
+}
+
+
+@mixin transformOrigin($v) {
+  -webkit-transform-origin: $v;
+  transform-origin: $v;
+}
+
+@mixin backgroundSize($v:cover) {
+  background-size: $v;
+}
+
+@mixin transition_transform($v) {
+  -webkit-transition: -webkit-transform $v;
+  transition: transform $v;
+}
+
+@mixin transform_origin($v:center) {
+  -webkit-transform-origin: $v;
+  transform-origin: $v;
+}
+
+@mixin transition($v) {
+  -webkit-transition: $v;
+  transition: $v;
+}
+
+@mixin transitionTimingFunction($v:cubic-bezier(0, 0.9, 0.17, 1.01))
+{
+  -webkit-transition-timing-function: $v;
+  transition-timing-function: $v;
+}
+
+@mixin transform($v) {
+  -webkit-transform: $v;
+  transform: $v;
+}
+
+@mixin background($bg) {
+  background: $bg;
+}
+
+@mixin backgroundSize($v:cover) {
+  background-size: $v;
+}
+
+@mixin animation($v) {
+  -webkit-animation: $v;
+  animation: $v;
+}
+@mixin animationDelay($time){
+  -webkit-animation-delay:$time;
+          animation-delay:$time;
+}
+
+@mixin transform3d() {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  perspective: 800px;
+  -webkit-perspective: 800px;
+}
+
+@mixin displayBox($v) {
+  display: -webkit-box;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  -webkit-box-orient: $v;
+}
+
+@mixin fly-h-gradient-line {
+  background: -webkit-gradient(linear, left top, right top, from(rgba(204, 204, 204, .2)), color-stop(0.5, rgba(204, 204, 204, 1)), to(rgba(204, 204, 204, .2)));
+  background: -moz-linear-gradient(left, rgba(204, 204, 204, .2), rgba(204, 204, 204, 1) 50%, rgba(204, 204, 204, .2));
+  background: -ms-linear-gradient(left, rgba(204, 204, 204, .2), rgba(204, 204, 204, 1) 50%, rgba(204, 204, 204, .2));
+}
+
+@mixin fly-v-gradient-line($minOpacity:.2,$maxOpacity:1) {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(204, 204, 204, $minOpacity)), color-stop(0.5, rgba(204, 204, 204, $maxOpacity)), to(rgba(204, 204, 204, $minOpacity)));
+  background: -moz-linear-gradient(top, rgba(204, 204, 204, $minOpacity), rgba(204, 204, 204, $maxOpacity) 50%, rgba(204, 204, 204, $minOpacity));
+  background: -ms-linear-gradient(top, rgba(204, 204, 204, $minOpacity), rgba(204, 204, 204, $maxOpacity) 50%, rgba(204, 204, 204, $minOpacity));
+}
+
+@mixin displayFlex($v:column) {
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: $v;
+}
+
+
+$baseColor:#d1bdbd;
+$baseColor1:#e89e79;
+$maxIndex:9999;
+
+.fly-weight{
+	
+	width:2rem !important;
+	@include displayBox(vertical);
+	.fly-btns-C{
+		width:60%;
+		margin-left: -30%;
+		@include displayBox(horizontal);
+		figure{
+			margin:0 .1rem;
+			img{@include br(50%);}
+		}
+	}
+	.shadow{
+		box-shadow:0 0 1.1rem rgba(232,158,121,.7);
+	}
+	.fly-operator-C{
+		@include pos(r);
+		width: 65%;
+		margin-top: .1rem;
+		box-shadow:0 0 1.1rem rgba(232,158,121,.6);
+		@include br(.25rem);
+		overflow: hidden;
+		height: 3rem;
+		div.fly-img-C{
+			@include transition_transform(.3s);
+			@include transitionTimingFunction();
+		}
+		img.board{
+			@include pos(a);
+			left: 0;
+			top: 100%;
+			opacity:0;
+		}
+		&.active{
+			height: 2.2rem;
+			.fly-img-C{
+				@include transform(translate3d(0,-3rem,0));
+			}
+			img.board{
+				opacity:1;
+			}
+			img.weight{
+				opacity:0;
+			}
+		}
+	}
+}

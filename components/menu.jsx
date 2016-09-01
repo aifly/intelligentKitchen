@@ -44,7 +44,7 @@ export default class FlyNav extends React.Component{
 							<span>时间</span>
 						</li>
 					</ul>
-					<ul>
+					<ul ref='fly-menu-C1'>
 						<li>
 							<img src="./assets/images/nav8.png" />
 							<span>设置</span>
@@ -70,6 +70,7 @@ export default class FlyNav extends React.Component{
 		var hasClass = menu.classList.contains('active');
 			menu.classList[hasClass?'remove':'add']('active');
 			this.refs['fly-menu-C'].classList[!hasClass?"remove":'add']('show');
+			this.refs['fly-menu-C1'].classList[!hasClass?"remove":'add']('show');
 			this.refs['fly-nav-mask'].classList[hasClass?'add':'remove']('active');
 	}
 

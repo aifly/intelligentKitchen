@@ -15,6 +15,10 @@ let addFoods = [
 			{name:'小番茄',weight:'30g'},
 			{name:'鸡蛋',weight:'40g'},
 			{name:'生菜',weight:'70g'},
+			{name:'生菜',weight:'70g'},
+			{name:'生菜',weight:'70g'},
+			{name:'生菜',weight:'70g'},
+			{name:'生菜',weight:'70g'},
 			{name:'培根',weight:'50g'},
 			{name:'吐丝',weight:'25g'}
 		]

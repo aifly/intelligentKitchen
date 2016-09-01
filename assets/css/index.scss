@@ -460,6 +460,14 @@ $nav-height:13.3vh;
 
 .fly-time-line-C{
   width:10rem;
-  height: 1px;
-  background: red;//$baseColor1;
+  height: .5rem;
+  
+}
+
+.fly-main-operator-C{
+  @include displayBox(horizontal);
+  li.fly-operator-item{
+    -webkit-box-flex: 1;
+    height: 100%;
+  }
 }

@@ -104,7 +104,7 @@
 }
 
 @mixin fly-v-gradient-line($minOpacity:.3,$maxOpacity:1) {
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(4, 0, 0, $minOpacity)), color-stop(0.5, rgba(0, 0, 0, $maxOpacity)), to(rgba(0, 0, 0, $minOpacity)));
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(204, 204, 204, $minOpacity)), color-stop(0.5, rgba(204, 204, 204, $maxOpacity)), to(rgba(204, 204, 204, $minOpacity)));
 }
 
 @mixin displayFlex($v:column) {

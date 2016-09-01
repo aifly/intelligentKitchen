@@ -388,7 +388,15 @@ body {
 /*时间轴*/
 .fly-time-line-C {
   width: 10rem;
-  height: 1px;
-  background: red; }
+  height: .5rem; }
+
+.fly-main-operator-C {
+  display: -webkit-box;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  -webkit-box-orient: horizontal; }
+  .fly-main-operator-C li.fly-operator-item {
+    -webkit-box-flex: 1;
+    height: 100%; }
 
 /*# sourceMappingURL=index.css.map */
