@@ -1,0 +1,17 @@
+.fly-alimentation-data {
+  display: -webkit-box;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  -webkit-box-orient: vertical;
+  position: relative; }
+  .fly-alimentation-data div.fly-data-C {
+    height: 2.5rem;
+    width: 100%; }
+    .fly-alimentation-data div.fly-data-C canvas {
+      position: absolute;
+      border: 3px solid #fff;
+      left: 10%; }
+  .fly-alimentation-data div.fly-m-name {
+    width: 100%; }
+
+/*# sourceMappingURL=alimentationdata.css.map */
