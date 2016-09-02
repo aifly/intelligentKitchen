@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
 
+
 import {Sector} from '../libs/sector';
 
 import './css/alimentationdata.css';
@@ -70,7 +71,7 @@ export default class FlyAlimentationData extends Component {
 		setTimeout(()=>{
 
 			this.setSize();
-
+			this.drawCorner();
 			for(var i =0;i<8;i++){
 				new Sector({
 					x:this.canvas.width/2,
@@ -82,11 +83,8 @@ export default class FlyAlimentationData extends Component {
 					rotate:i*45
 				});	
 			}
-			this.drawCorner();
+			
 			this.stage.update();
-
-
-
 
 		},1);
 
