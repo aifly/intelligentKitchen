@@ -24,10 +24,12 @@ import { PublicShadow } from './public-shadow.jsx';
 						<img  src='./assets/images/time-info.png' onTouchStart={this.props.touchStart} onTouchEnd={this.props.touchEnd}/>
 					</figure>
 				</div>
-				<div className='fly-operator-C' ref='fly-operator-C'>
-					<div className='fly-img-C'>
-						<img src='./assets/images/weight.png'/>
-						<img src='./assets/images/board.png' className='board'/>	
+				<div className='fly-operator-C' >
+					<div className='operator-C'  ref='fly-operator-C'>
+						<div className='fly-img-C'>
+							<img src='./assets/images/weight.png'/>
+							<img src='./assets/images/board.png' className='board'/>	
+						</div>
 					</div>
 				</div>
 			</li>

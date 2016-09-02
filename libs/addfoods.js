@@ -21,6 +21,13 @@ let addFoods = [
 			{name:'生菜',weight:'70g'},
 			{name:'培根',weight:'50g'},
 			{name:'吐丝',weight:'25g'}
+		],
+		steps:[
+			'第一步',
+			'第二步',
+			'第三步',
+			'第四步',
+			'第五步'
 		]
 	},{
 		name:"草莓蓝莓派",
@@ -40,6 +47,13 @@ let addFoods = [
 			{name:'生菜',weight:'20g'},
 			{name:'培根',weight:'20g'},
 			{name:'吐丝',weight:'25g'}
+		],
+		steps:[
+			'第一步',
+			'第二步',
+			'第三步',
+			'第四步',
+			'第五步'
 		]
 	},{
 		name:"西冷牛排",
@@ -59,6 +73,13 @@ let addFoods = [
 			{name:'生菜',weight:'20g'},
 			{name:'培根',weight:'20g'},
 			{name:'吐丝',weight:'25g'}
+		],
+		steps:[
+			'第一步',
+			'第二步',
+			'第三步',
+			'第四步',
+			'第五步'
 		]
 	},{
 		name:"面包秀",
@@ -78,6 +99,13 @@ let addFoods = [
 			{name:'生菜',weight:'20g'},
 			{name:'培根',weight:'20g'},
 			{name:'吐丝',weight:'25g'}
+		],
+		steps:[
+			'第一步',
+			'第二步',
+			'第三步',
+			'第四步',
+			'第五步'
 		]
 	},{
 		name:"草莓蓝莓派",
@@ -97,6 +125,13 @@ let addFoods = [
 			{name:'生菜',weight:'20g'},
 			{name:'培根',weight:'20g'},
 			{name:'吐丝',weight:'25g'}
+		],
+		steps:[
+			'第一步',
+			'第二步',
+			'第三步',
+			'第四步',
+			'第五步'
 		]
 	},{
 		name:"西冷牛排",
@@ -116,6 +151,13 @@ let addFoods = [
 			{name:'生菜',weight:'20g'},
 			{name:'培根',weight:'20g'},
 			{name:'吐丝',weight:'25g'}
+		],
+		steps:[
+			'第一步',
+			'第二步',
+			'第三步',
+			'第四步',
+			'第五步'
 		]
 	},{
 		name:"面包秀",
@@ -135,6 +177,13 @@ let addFoods = [
 			{name:'生菜',weight:'20g'},
 			{name:'培根',weight:'20g'},
 			{name:'吐丝',weight:'25g'}
+		],
+		steps:[
+			'第一步',
+			'第二步',
+			'第三步',
+			'第四步',
+			'第五步'
 		]
 	}
 ];

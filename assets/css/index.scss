@@ -152,14 +152,14 @@ body{
 }
 $nav-height:13.3vh;
 #fly-main{
-
+  //  @include transform(translateY(-2rem));
   .fly-nav-mask{
     @include pos(a);
     height: 100vh - $nav-height;
     width: 100%;
     background:rgba(0,0,0,0);
     z-index: -1;
-    @include transform(translate3d(0,100%,0));
+    @include transform(translate3d(0,120%,0));
     top: $nav-height;
     &.active{
       z-index: $maxIndex + 1;
@@ -467,7 +467,15 @@ $nav-height:13.3vh;
 .fly-main-operator-C{
   @include displayBox(horizontal);
   li.fly-operator-item{
-    -webkit-box-flex: 1;
+    width: 3.3rem;  
     height: 100%;
+    &:nth-of-type(2){
+      width: 3.8rem;
+    }
+    &:nth-of-type(3){
+      width: 2.9rem; 
+    }
+
+
   }
 }
