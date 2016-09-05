@@ -71,47 +71,7 @@ import { PublicShadow } from './public-shadow.jsx';
 	  	 		}
 	  	 	],
 	  	 	scaleData:[
-	  	 		{
-	  	 			unit:'g',
-	  	 			weight:'60',
-	  	 			scale:.11,
-	  	 			name:'热量'
-	  	 		},{
-	  	 			unit:'g',
-	  	 			weight:'40',
-	  	 			scale:.14,
-	  	 			name:'蛋白质'
-	  	 		},{
-	  	 			unit:'g',
-	  	 			weight:'29',
-	  	 			scale:.12,
-	  	 			name:'脂肪'
-	  	 		},{
-	  	 			unit:'g',
-	  	 			weight:'24',
-	  	 			scale:.14,
-	  	 			name:'碳水化合物'
-	  	 		},{
-	  	 			unit:'g',
-	  	 			weight:'30',
-	  	 			scale:.11,
-	  	 			name:'膳食纤维'
-	  	 		},{
-	  	 			unit:'g',
-	  	 			weight:'36',
-	  	 			scale:.12,
-	  	 			name:'微量元素'
-	  	 		},{
-	  	 			unit:'g',
-	  	 			weight:'20',
-	  	 			scale:.16,
-	  	 			name:'维生素'
-	  	 		},{
-	  	 			unit:'g',
-	  	 			weight:'20',
-	  	 			scale:.1,
-	  	 			name:'其它'
-	  	 		}
+	  	 			
 	  	 	]
 
 	  	 }
@@ -119,7 +79,6 @@ import { PublicShadow } from './public-shadow.jsx';
 
 	  this.checkMaterial = this.checkMaterial.bind(this);
 	}
-
 
 
 	render() {
@@ -202,7 +161,7 @@ import { PublicShadow } from './public-shadow.jsx';
 
 			let colors =  ['#f3e5dc','#f1e0d6'];
 			
-			this.drawSector(true,'',this.drawCorner());
+			//this.drawSector(true,'',this.drawCorner());
 			//this.showCurrentFoodData(this.drawCorner(true));
 			this.stage.update();
 
@@ -219,18 +178,26 @@ import { PublicShadow } from './public-shadow.jsx';
 			this.state.alimentatonData.materials = data.materials;
 			this.state.alimentatonData.currentFoodData = [];
 			this.state.alimentatonData.scaleData = data.scaleData;
-			this.state.liWidth = this.refs['fly-m-scroll'].children[0].offsetWidth+40
+
 			this.forceUpdate();
 
-			if(this.scroll ===undefined){
-				this.scroll = new IScroll(this.refs['fly-m-name'],{
-					scrollX:true,
-					scrollY:false,
+			setTimeout(()=>{
+				this.setState({
+					liWidth :this.refs['fly-m-scroll'].children[0].offsetWidth+50
 				});
-			}
-			else{
-				this.scroll.refresh();
-			}
+
+				if(this.scroll ===undefined){
+					this.scroll = new IScroll(this.refs['fly-m-name'],{
+						scrollX:true,
+						scrollY:false,
+					});
+				}
+				else{
+					this.scroll.refresh();
+				}
+			},10);
+
+			
 
 			this.drawSector(true,'',this.drawCorner());
 		})
@@ -302,14 +269,16 @@ import { PublicShadow } from './public-shadow.jsx';
 			let textArr = [];
 			let R =radius*1.5;
 			let shapeContainer = new createjs.Container();
-					
+			this.stage.addChild(shapeContainer);		
 			for(var i =0;i<8;i++){
 				let sector = new Sector({
 						x:width/2,
 						y:height/2,
 						r:data[i].scale*height*1.8,
 						color:this.state.alimentatonData.colors[i%2],
-						rotate:i*45
+						rotate:i*45,
+						scale:0,
+						alpha:0
 					}).shape;
 				sector.name = i;
 				shapeContainer.addChild(
@@ -338,9 +307,14 @@ import { PublicShadow } from './public-shadow.jsx';
 			shapeContainer.y = height/2;
 			shapeContainer.rotation = -90;
 
-
-			this.stage.addChild(shapeContainer);
-
+			this.shapeArr.forEach((shape,i)=>{
+				createjs.Tween.get(shape,{loop:false}).wait(i*300).to({
+					scaleX:1,
+					scaleY:1,
+					alpha:1
+				},300+i*100, createjs.Ease.easeIn);
+			});
+			
 			
 			this.bindEvent(this.shapeArr,textArr);
 			

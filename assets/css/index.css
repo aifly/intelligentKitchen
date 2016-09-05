@@ -162,9 +162,7 @@ body {
   z-index: 9999;
   position: absolute;
   -webkit-transition: -webkit-transform 0.5s;
-  transition: -webkit-transform 0.5s;
   transition: transform 0.5s;
-  transition: transform 0.5s, -webkit-transform 0.5s;
   -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);
   transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01); }
   #fly-main .fly-nav.active {
@@ -229,9 +227,7 @@ body {
   -webkit-transform: translate3d(0, -100%, 0);
   transform: translate3d(0, -100%, 0);
   -webkit-transition: -webkit-transform 0.3s;
-  transition: -webkit-transform 0.3s;
   transition: transform 0.3s;
-  transition: transform 0.3s, -webkit-transform 0.3s;
   -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);
   transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01); }
   #fly-main .fly-close-drag.active {

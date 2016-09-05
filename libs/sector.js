@@ -9,6 +9,8 @@
 		s.endAngle = (props.startAngle||0 + 45)/180*Math.PI;
 		s.color = props.color||'#fff';
 		s.rotate = props.rotate;
+		s.scale = props.scale;
+		s.alpha = props.alpha;
 		
 
 		s.draw();
@@ -26,6 +28,9 @@
 		//s.stage.addChild(shape);
 		this.shape = shape;
 		shape.rotation = s.rotate;
+		shape.alpha = s.alpha;
+		shape.scaleX = s.scale;
+		shape.scaleY = s.scale;
 		shape.x = s.x;
 		shape.y = s.y;
 		shape.regX = s.x;

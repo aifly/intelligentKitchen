@@ -22,6 +22,49 @@ let addFoods = [
 			{name:'培根',weight:'50g'},
 			{name:'吐丝',weight:'25g'}
 		],
+		scaleData:[
+  	 		{
+  	 			unit:'g',
+  	 			weight:'60',
+  	 			scale:.11,
+  	 			name:'热量'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'40',
+  	 			scale:.14,
+  	 			name:'蛋白质'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'29',
+  	 			scale:.12,
+  	 			name:'脂肪'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'24',
+  	 			scale:.14,
+  	 			name:'碳水化合物'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'30',
+  	 			scale:.11,
+  	 			name:'膳食纤维'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'36',
+  	 			scale:.12,
+  	 			name:'微量元素'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'20',
+  	 			scale:.16,
+  	 			name:'维生素'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'20',
+  	 			scale:.1,
+  	 			name:'其它'
+  	 		}
+	  	],
 		steps:[
 			'第一步',
 			'第二步',
@@ -47,7 +90,49 @@ let addFoods = [
 			{name:'生菜',weight:'20g'},
 			{name:'培根',weight:'20g'},
 			{name:'吐丝',weight:'25g'}
-		],
+		],scaleData:[
+  	 		{
+  	 			unit:'g',
+  	 			weight:'60',
+  	 			scale:.11,
+  	 			name:'热量'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'40',
+  	 			scale:.14,
+  	 			name:'蛋白质'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'29',
+  	 			scale:.12,
+  	 			name:'脂肪'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'24',
+  	 			scale:.14,
+  	 			name:'碳水化合物'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'30',
+  	 			scale:.11,
+  	 			name:'膳食纤维'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'36',
+  	 			scale:.12,
+  	 			name:'微量元素'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'20',
+  	 			scale:.16,
+  	 			name:'维生素'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'20',
+  	 			scale:.1,
+  	 			name:'其它'
+  	 		}
+	  	],
 		steps:[
 			'第一步',
 			'第二步',
@@ -73,7 +158,49 @@ let addFoods = [
 			{name:'生菜',weight:'20g'},
 			{name:'培根',weight:'20g'},
 			{name:'吐丝',weight:'25g'}
-		],
+		],scaleData:[
+  	 		{
+  	 			unit:'g',
+  	 			weight:'60',
+  	 			scale:.11,
+  	 			name:'热量'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'40',
+  	 			scale:.14,
+  	 			name:'蛋白质'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'29',
+  	 			scale:.12,
+  	 			name:'脂肪'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'24',
+  	 			scale:.14,
+  	 			name:'碳水化合物'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'30',
+  	 			scale:.11,
+  	 			name:'膳食纤维'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'36',
+  	 			scale:.12,
+  	 			name:'微量元素'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'20',
+  	 			scale:.16,
+  	 			name:'维生素'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'20',
+  	 			scale:.1,
+  	 			name:'其它'
+  	 		}
+	  	],
 		steps:[
 			'第一步',
 			'第二步',
@@ -100,6 +227,49 @@ let addFoods = [
 			{name:'培根',weight:'20g'},
 			{name:'吐丝',weight:'25g'}
 		],
+		scaleData:[
+  	 		{
+  	 			unit:'g',
+  	 			weight:'60',
+  	 			scale:.11,
+  	 			name:'热量'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'40',
+  	 			scale:.14,
+  	 			name:'蛋白质'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'29',
+  	 			scale:.12,
+  	 			name:'脂肪'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'24',
+  	 			scale:.14,
+  	 			name:'碳水化合物'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'30',
+  	 			scale:.11,
+  	 			name:'膳食纤维'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'36',
+  	 			scale:.12,
+  	 			name:'微量元素'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'20',
+  	 			scale:.16,
+  	 			name:'维生素'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'20',
+  	 			scale:.1,
+  	 			name:'其它'
+  	 		}
+	  	],
 		steps:[
 			'第一步',
 			'第二步',
@@ -126,6 +296,49 @@ let addFoods = [
 			{name:'培根',weight:'20g'},
 			{name:'吐丝',weight:'25g'}
 		],
+		scaleData:[
+  	 		{
+  	 			unit:'g',
+  	 			weight:'60',
+  	 			scale:.11,
+  	 			name:'热量'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'40',
+  	 			scale:.14,
+  	 			name:'蛋白质'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'29',
+  	 			scale:.12,
+  	 			name:'脂肪'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'24',
+  	 			scale:.14,
+  	 			name:'碳水化合物'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'30',
+  	 			scale:.11,
+  	 			name:'膳食纤维'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'36',
+  	 			scale:.12,
+  	 			name:'微量元素'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'20',
+  	 			scale:.16,
+  	 			name:'维生素'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'20',
+  	 			scale:.1,
+  	 			name:'其它'
+  	 		}
+	  	],
 		steps:[
 			'第一步',
 			'第二步',
@@ -152,6 +365,49 @@ let addFoods = [
 			{name:'培根',weight:'20g'},
 			{name:'吐丝',weight:'25g'}
 		],
+		scaleData:[
+  	 		{
+  	 			unit:'g',
+  	 			weight:'60',
+  	 			scale:.11,
+  	 			name:'热量'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'40',
+  	 			scale:.14,
+  	 			name:'蛋白质'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'29',
+  	 			scale:.12,
+  	 			name:'脂肪'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'24',
+  	 			scale:.14,
+  	 			name:'碳水化合物'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'30',
+  	 			scale:.11,
+  	 			name:'膳食纤维'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'36',
+  	 			scale:.12,
+  	 			name:'微量元素'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'20',
+  	 			scale:.16,
+  	 			name:'维生素'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'20',
+  	 			scale:.1,
+  	 			name:'其它'
+  	 		}
+	  	],
 		steps:[
 			'第一步',
 			'第二步',
@@ -178,6 +434,49 @@ let addFoods = [
 			{name:'培根',weight:'20g'},
 			{name:'吐丝',weight:'25g'}
 		],
+		scaleData:[
+  	 		{
+  	 			unit:'g',
+  	 			weight:'60',
+  	 			scale:.11,
+  	 			name:'热量'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'40',
+  	 			scale:.14,
+  	 			name:'蛋白质'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'29',
+  	 			scale:.12,
+  	 			name:'脂肪'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'24',
+  	 			scale:.14,
+  	 			name:'碳水化合物'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'30',
+  	 			scale:.11,
+  	 			name:'膳食纤维'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'36',
+  	 			scale:.12,
+  	 			name:'微量元素'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'20',
+  	 			scale:.16,
+  	 			name:'维生素'
+  	 		},{
+  	 			unit:'g',
+  	 			weight:'20',
+  	 			scale:.1,
+  	 			name:'其它'
+  	 		}
+	  	],
 		steps:[
 			'第一步',
 			'第二步',
