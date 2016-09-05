@@ -11,8 +11,6 @@ export default class Time{
 		s.r = 5;
 		var index = s.init();
 
-		
-
 		var num = numberData[10]
 		setInterval(()=>{
 			var D = new Date();
@@ -22,7 +20,8 @@ export default class Time{
 
 
 			//!new Date().getSeconds() && (index = s.init());//当前秒数为0的时候，重新绘制时间。
-			s.canvas.getContext('2d').clearRect((s.margin + s.r)*(index-3),0,20,s.canvas.height);
+			s.canvas.getContext('2d').clearRect((s.margin + s.r)*(index-3),(s.margin + s.r)*5.4,15,s.canvas.height/14);
+			s.canvas.getContext('2d').clearRect((s.margin + s.r)*(index-3),(s.margin + s.r)*7.4,15,s.canvas.height/14);
 			setTimeout(()=>{
 				index = s.init();
 			},500);
@@ -84,7 +83,7 @@ export default class Time{
 				
 				context.closePath();
 
-				context.fillStyle='#f8f3ef';
+				context.fillStyle='#f8f3ef';//f8f3ef
 				if(numberData[num][i] && numberData[num][i][j]){
 					context.fillStyle='#df9977';	
 				}

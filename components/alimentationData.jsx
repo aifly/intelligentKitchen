@@ -1,21 +1,155 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
-
+import IScroll from 'iscroll';
 
 import {Sector} from '../libs/sector';
 
 import './css/alimentationdata.css';
 
-export default class FlyAlimentationData extends Component {
+import { PublicShadow } from './public-shadow.jsx';
+
+ class FlyAlimentationData extends Component {
+	constructor(props) {
+	  super(props);
+	
+	  this.state = {
+	  	liWidth:0,
+	  	 alimentatonData : {
+	  	 	materials:[
+	  	 		/*{name:'小番茄',weight:'30g'},
+				{name:'鸡蛋',weight:'40g'},
+				{name:'生菜',weight:'70g'},
+				{name:'生菜',weight:'70g'},
+				{name:'生菜',weight:'70g'},
+				{name:'生菜',weight:'70g'},
+				{name:'生菜',weight:'70g'},
+				{name:'培根',weight:'50g'},
+				{name:'吐丝',weight:'25g'}*/
+	  	 	],
+	  	 	colors : ['#f3e5dc','#f1e0d6'],
+	  	 	currentFoodData:[
+	  	 		{
+	  	 			unit:'g',
+	  	 			weight:'60',
+	  	 			scale:.89,
+	  	 			name:'热量'
+	  	 		},{
+	  	 			unit:'g',
+	  	 			weight:'40',
+	  	 			scale:.88,
+	  	 			name:'蛋白质'
+	  	 		},{
+	  	 			unit:'g',
+	  	 			weight:'29',
+	  	 			scale:.80,
+	  	 			name:'脂肪'
+	  	 		},{
+	  	 			unit:'g',
+	  	 			weight:'24',
+	  	 			scale:.69,
+	  	 			name:'碳水化合物'
+	  	 		},{
+	  	 			unit:'g',
+	  	 			weight:'30',
+	  	 			scale:.58,
+	  	 			name:'膳食纤维'
+	  	 		},{
+	  	 			unit:'g',
+	  	 			weight:'36',
+	  	 			scale:.65,
+	  	 			name:'微量元素'
+	  	 		},{
+	  	 			unit:'g',
+	  	 			weight:'20',
+	  	 			scale:.83,
+	  	 			name:'维生素'
+	  	 		},{
+	  	 			unit:'g',
+	  	 			weight:'20',
+	  	 			scale:.7,
+	  	 			name:'其它'
+	  	 		}
+	  	 	],
+	  	 	scaleData:[
+	  	 		{
+	  	 			unit:'g',
+	  	 			weight:'60',
+	  	 			scale:.11,
+	  	 			name:'热量'
+	  	 		},{
+	  	 			unit:'g',
+	  	 			weight:'40',
+	  	 			scale:.14,
+	  	 			name:'蛋白质'
+	  	 		},{
+	  	 			unit:'g',
+	  	 			weight:'29',
+	  	 			scale:.12,
+	  	 			name:'脂肪'
+	  	 		},{
+	  	 			unit:'g',
+	  	 			weight:'24',
+	  	 			scale:.14,
+	  	 			name:'碳水化合物'
+	  	 		},{
+	  	 			unit:'g',
+	  	 			weight:'30',
+	  	 			scale:.11,
+	  	 			name:'膳食纤维'
+	  	 		},{
+	  	 			unit:'g',
+	  	 			weight:'36',
+	  	 			scale:.12,
+	  	 			name:'微量元素'
+	  	 		},{
+	  	 			unit:'g',
+	  	 			weight:'20',
+	  	 			scale:.16,
+	  	 			name:'维生素'
+	  	 		},{
+	  	 			unit:'g',
+	  	 			weight:'20',
+	  	 			scale:.1,
+	  	 			name:'其它'
+	  	 		}
+	  	 	]
+
+	  	 }
+	  };
+
+	  this.checkMaterial = this.checkMaterial.bind(this);
+	}
+
+
+
 	render() {
 		return (
 			<li className='fly-operator-item fly-alimentation-data' ref='fly-operator-item'>
 				<div ref='fly-data-C' className='fly-data-C'>
 					<canvas  id='alimentation-canvas'></canvas>
 				</div>
-				<div className='fly-m-name'>111</div>
+				<div className='fly-m-name' ref='fly-m-name'>
+					<ul ref='fly-m-scroll' onTouchTap={this.checkMaterial} style={{width:this.state.alimentatonData.materials.length*this.state.liWidth}}>
+						{this.state.alimentatonData.materials.map((item,i)=>{
+							return (
+								<li key={i}>{item.name}</li>
+							);
+						})}
+					</ul>
+				</div>
 			</li>
 		);
+	}
+
+
+	checkMaterial(e){
+		this.props.shadow(e.target);
+		
+
+		Array.from(this.refs['fly-m-scroll'].querySelectorAll('li')).forEach((item)=>{
+			item.classList.remove('active');
+		});
+		e.target.classList.add('active');
 	}
 
 	setSize(){
@@ -38,7 +172,7 @@ export default class FlyAlimentationData extends Component {
 		return line2;
 	}
 
-	drawCorner(){
+	drawCorner(){//绘制对角线。
 		
 		let container = new createjs.Container();
 
@@ -46,22 +180,16 @@ export default class FlyAlimentationData extends Component {
 		
 		let x = this.canvas.width/2,
 			y = this.canvas.height/2,
-			r = 400,
+			r = 350,
 			len = 40;
 
 		circle.graphics.beginStroke('#fff').drawCircle(x,y,r);
 		
-		let line1 = new createjs.Shape();
-		line1.graphics.setStrokeStyle(2).beginStroke('#fff').moveTo(x-r-len,y).lineTo(x+r+len,y);
-		
-
-		
-
-		container.addChild(line1,this.drawLine(x,y,r,len,90),this.drawLine(x,y,r,len,45),this.drawLine(x,y,r,len,-45));
-
-		container.addChild(circle);
+		container.addChild(this.drawLine(x,y,r,len,0),this.drawLine(x,y,r,len,90),this.drawLine(x,y,r,len,45),this.drawLine(x,y,r,len,-45),circle);
 
 		this.stage.addChild(container);
+
+		return r;
 
 
 	}
@@ -71,60 +199,222 @@ export default class FlyAlimentationData extends Component {
 		setTimeout(()=>{
 
 			this.setSize();
-			this.drawCorner();
-			for(var i =0;i<8;i++){
-				new Sector({
-					x:this.canvas.width/2,
-					y:this.canvas.height/2,
-					r:25*i+200,
-					stage:this.stage,
-					color:'#f3e5dc',
-					startAngle:0,
-					rotate:i*45
-				});	
-			}
+
+			let colors =  ['#f3e5dc','#f1e0d6'];
 			
+			this.drawSector(true,'',this.drawCorner());
+			//this.showCurrentFoodData(this.drawCorner(true));
 			this.stage.update();
 
+
+			createjs.Ticker.timingMode = createjs.Ticker.RAF;
+
+			createjs.Ticker.on("tick", this.stage);
 		},1);
 
 
+		let {obserable} = this.props;
+
+		obserable.on('fillAlimentationData',(data)=>{
+			this.state.alimentatonData.materials = data.materials;
+			this.state.alimentatonData.currentFoodData = [];
+			this.state.alimentatonData.scaleData = data.scaleData;
+			this.state.liWidth = this.refs['fly-m-scroll'].children[0].offsetWidth+40
+			this.forceUpdate();
+
+			if(this.scroll ===undefined){
+				this.scroll = new IScroll(this.refs['fly-m-name'],{
+					scrollX:true,
+					scrollY:false,
+				});
+			}
+			else{
+				this.scroll.refresh();
+			}
+
+			this.drawSector(true,'',this.drawCorner());
+		})
+		
 
 
-		  var data = [
-		    {year: '热量/234.5kal',总成份:111.0 ,当前成份:56 },
-		    {year: '蛋白质/59.6g',总成份:55.0 ,当前成份:16 },
-		    {year: '脂肪/34.5g',总成份:35.0 ,当前成份:15 },
-		    {year: '碳水化合物/251.1g',总成份:85.0 ,当前成份:14 },
-		    {year: '12g/膳食纤维',总成份:15.0 ,当前成份:14 },
-		    {year: '32.3g/微量元素',总成份:64.0 ,当前成份:13 },
-		    {year: '维生素/12.2g',总成份:84.0 ,当前成份:14 },
-		    {year: '其它/.3g',总成份:26.0 ,当前成份:16 }
-		  ];
+		
+	}
 
-		/*  var Stat = G2.Stat;
-		  var Frame = G2.Frame;
-		  let self = this;
-		  var frame = new Frame(data); // 加工数据
-		  
-		  setTimeout(()=>{
+	showCurrentFoodData(r){
 
-		  		frame = Frame.combinColumns(frame, ['总成份', '当前成份'], 'count', '营养成分', 'year');
-				  var chart = new G2.Chart({
-				    id: 'alimentation-canvas',
-				    width: self.refs['fly-data-C'].offsetWidth,
-				    height:self.refs['fly-data-C'].offsetHeight
-				  });
+		this.state.alimentatonData.currentFoodData.length>0 && this.drawSector(false,'#fff',r);
+	}
 
-				  chart.source(frame);
-				  chart.coord('polar', {inner: .01});//中心圆的大小。
-				  chart.legend('bottom');
-				  chart.intervalStack().position('year*count')
-				    .shape('stroke')
-				    .color('营养成分',['#f3e5dc','#fff']);
-				  chart.render();
-		  },1)*/
-		  
+	bindEvent(obj=this.shapeArr,textArr){
+		let last = -1;
+		let iNow = 0;
+		obj.forEach(container=>{
+			container.on('mousedown',e=>{
+				let index = e.currentTarget.name*1;
+
+
+				if (last>-1 && last !== index) {
+					createjs.Tween.get(obj[last],{loop:false})
+					.to({scaleX:1,scaleY:1},500, createjs.Ease.elasticOut).call(()=>{
+						
+					});
+
+					textArr[last].color="#fff";
+					textArr[last].font=".1rem Arial";
+					
+				}
+
+					if(last !== index){
+ 					createjs.Tween.get(obj[index],{loop:false})
+						.to({scaleX:1.4,scaleY:1.4},500, createjs.Ease.elasticOut).call(()=>{
+						});
+
+					textArr[index].color="#f90";
+					textArr[index].font=".12rem Arial";			
+					}
+					else{
+						iNow++;
+						let flag =iNow%2 > 0;
+						createjs.Tween.get(obj[index],{loop:false})
+						.to({scaleX:flag?1:1.4,scaleY:flag?1:1.4},500, createjs.Ease.elasticOut).call(()=>{
+						});
+						textArr[index].color=flag?"#fff":"#f90";
+						textArr[index].font=flag?".1rem Arial":".12rem Arial";	
+					}
+				last = index;
+				 
+			});
+		});
+	}
+
+	drawSector(flag=true,color,radius){
+
+
+
+		//this.stage.removeAllChildren();
+		let data = this.state.alimentatonData.scaleData;
+		    
+		let height = this.canvas.height,
+			width = this.canvas.width;
+	
+		if(flag){//
+			this.shapeArr = this.shapeArr || [];
+			let textArr = [];
+			let R =radius*1.5;
+			let shapeContainer = new createjs.Container();
+					
+			for(var i =0;i<8;i++){
+				let sector = new Sector({
+						x:width/2,
+						y:height/2,
+						r:data[i].scale*height*1.8,
+						color:this.state.alimentatonData.colors[i%2],
+						rotate:i*45
+					}).shape;
+				sector.name = i;
+				shapeContainer.addChild(
+					sector
+				);
+
+				this.shapeArr.push(sector);
+
+				let index = i;
+
+				var text = new createjs.Text(data[index].name+data[index].weight+data[index].unit, ".1rem Arial", "#fff");
+						
+					text.x= width/2 + Math.sin((22.5+45*index)/180*Math.PI)*R;
+					
+					text.y= R - Math.cos((22.5+45*index)/180*Math.PI)*R + 50 ;
+					text.textAlign= 'center';	
+					this.stage.addChild(text);
+					textArr.push(text);
+					
+			}
+
+			shapeContainer.regX = width/2;
+			shapeContainer.regY = height/2;
+			shapeContainer.x = width/2;
+
+			shapeContainer.y = height/2;
+			shapeContainer.rotation = -90;
+
+
+			this.stage.addChild(shapeContainer);
+
+			
+			this.bindEvent(this.shapeArr,textArr);
+			
+
+		}
+		else{
+			let currentData = this.state.alimentatonData.currentFoodData,
+				containerData =  [];
+
+				this.textArr = this.textArr || [];
+
+			for(var i =0;i<16;i++){
+
+				let isEven = i % 2 === 0;
+
+				if(isEven){
+					var name = (i/2|0);
+					var c = new createjs.Container();
+					c.name = name;
+					containerData.push(c);
+				}
+
+				let index =  containerData.length -1;
+				let r = isEven ? data[index].scale*height*1.8:
+										data[index].scale*height*1.8*currentData[index].scale;
+
+				
+
+				containerData[index].addChild(
+					new Sector({
+						x:width/2,
+						y:height/2,
+						r:r,
+						color: !isEven ? this.state.alimentatonData.colors[index % 2]: color,
+						rotate:index*45
+					}).shape
+				);
+
+				containerData[index].x = width/2;
+				containerData[index].y = height/2;
+
+				containerData[index].regX = width/2;
+				containerData[index].regY = height/2;
+
+				containerData[index].rotation = -90;
+
+
+			  	isEven && this.stage.addChild(containerData[index]);
+
+			  	if(isEven){
+					let R =radius*1.5;
+					var text = new createjs.Text(data[index].name+data[index].weight+data[index].unit+'--'+currentData[index].weight+currentData[index].unit, ".1rem Arial", "#fff");
+						
+						text.x= width/2 + Math.sin((22.5+45*index)/180*Math.PI)*R;
+						
+						text.y= R - Math.cos((22.5+45*index)/180*Math.PI)*R + 50 ;
+						text.textAlign= 'center';	
+						this.stage.addChild(text);
+
+						this.textArr.push(text);
+				}
+			  	
+			}
+
+			this.bindEvent(containerData,this.textArr);
+
+
+			 
+
+		}
+
 	}
 
 }
+
+
+export default PublicShadow(FlyAlimentationData);

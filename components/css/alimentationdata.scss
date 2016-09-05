@@ -125,19 +125,55 @@ $maxIndex:9999;
   
     @include displayBox(vertical);
     @include pos(r);
-    
+    width: 3.6rem !important;
    div.fly-data-C{
-      height: 2.5rem;
+      height: 3rem;
       width:100%;
       
       canvas{
         @include pos(a);
-        border:3px solid #fff;
-        left: 10%;
+      
+        left: 3%;
       }
 
    }
    div.fly-m-name{
-     width: 100%;
+     width: 80%;
+     overflow: hidden;
+     ul{
+     }
+     li{
+       width: .5rem;
+       float: left;
+       color:#fff;
+       height: .2rem;
+       line-height: .2rem;
+       text-align: center;
+       border:2px solid #fff;
+       @include br(30px);
+       margin: 0 20px;
+       @include pos(r);
+       &:after{
+        content:"...";
+        @include pos(a);
+        left: 104%;
+        top:-15%;
+       }
+       &:last-of-type{
+         &:after{
+          content:''
+         }
+       }
+     }
+     .active{
+        border-color:$baseColor1;
+        color:$baseColor1;
+        &:after{
+          color:#fff;
+        }
+     }
+     .shadow{
+      box-shadow:0 0 1.1rem rgba(232,158,121,.7);
+    }
    }
 }

@@ -3,15 +3,41 @@
   -webkit-box-align: center;
   -webkit-box-pack: center;
   -webkit-box-orient: vertical;
-  position: relative; }
+  position: relative;
+  width: 3.6rem !important; }
   .fly-alimentation-data div.fly-data-C {
-    height: 2.5rem;
+    height: 3rem;
     width: 100%; }
     .fly-alimentation-data div.fly-data-C canvas {
       position: absolute;
-      border: 3px solid #fff;
-      left: 10%; }
+      left: 3%; }
   .fly-alimentation-data div.fly-m-name {
-    width: 100%; }
+    width: 80%;
+    overflow: hidden; }
+    .fly-alimentation-data div.fly-m-name li {
+      width: .5rem;
+      float: left;
+      color: #fff;
+      height: .2rem;
+      line-height: .2rem;
+      text-align: center;
+      border: 2px solid #fff;
+      border-radius: 30px;
+      margin: 0 20px;
+      position: relative; }
+      .fly-alimentation-data div.fly-m-name li:after {
+        content: "...";
+        position: absolute;
+        left: 104%;
+        top: -15%; }
+      .fly-alimentation-data div.fly-m-name li:last-of-type:after {
+        content: ""; }
+    .fly-alimentation-data div.fly-m-name .active {
+      border-color: #e89e79;
+      color: #e89e79; }
+      .fly-alimentation-data div.fly-m-name .active:after {
+        color: #fff; }
+    .fly-alimentation-data div.fly-m-name .shadow {
+      box-shadow: 0 0 1.1rem rgba(232, 158, 121, 0.7); }
 
 /*# sourceMappingURL=alimentationdata.css.map */

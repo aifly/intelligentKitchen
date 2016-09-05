@@ -303,6 +303,7 @@ body {
         content: '推荐食材';
         position: absolute;
         width: .1rem;
+        z-index: -1;
         font-size: .08rem;
         padding: .05rem .04rem .05rem .05rem;
         top: 40%;

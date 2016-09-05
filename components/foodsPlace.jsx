@@ -11,7 +11,7 @@ export default class FlyFoodsPlace extends Component {
 	  		
 	  	],
 	  	plateDemoStyle:{
-	  		left:"90%",
+	  		left:"80%",
 	  		top:0
 	  	}
 	  };

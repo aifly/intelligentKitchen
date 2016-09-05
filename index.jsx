@@ -37,9 +37,9 @@ class App extends React.Component{
 				</ul>
 				<section className='fly-time-line-C'></section>
 				<ul className='fly-main-operator-C'>
-					<FlyAlimentationData></FlyAlimentationData>
-					<FlyOperatorCenter></FlyOperatorCenter>
-					<FlyFoodsPlace></FlyFoodsPlace>
+					<FlyAlimentationData {...data}></FlyAlimentationData>
+					<FlyOperatorCenter {...data}></FlyOperatorCenter>
+					<FlyFoodsPlace {...data}></FlyFoodsPlace>
 				</ul>
 			</div>
 		)

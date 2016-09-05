@@ -187,6 +187,11 @@ export default class FlyCookBookList extends React.Component{
 			data:addFoods[index]
 		});
 
+		/*obserable.trigger({
+			type:'fillAlimentationData',
+			data:{}
+		})*/
+
 
 	}
 

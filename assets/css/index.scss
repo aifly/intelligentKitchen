@@ -336,6 +336,7 @@ $nav-height:13.3vh;
               content:'推荐食材';
               @include pos(a);
               width: .1rem;
+              z-index: -1;
               font-size:.08rem;
               padding: .05rem .04rem .05rem .05rem;
               top: 40%;

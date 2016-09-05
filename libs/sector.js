@@ -5,11 +5,12 @@
 		s.x = props.x;
 		s.y = props.y;
 		s.r = props.r;
-		s.startAngle = (props.startAngle)/180*Math.PI;
-		s.endAngle = (props.startAngle+45)/180*Math.PI;
+		s.startAngle = (props.startAngle||0)/180*Math.PI;
+		s.endAngle = (props.startAngle||0 + 45)/180*Math.PI;
 		s.color = props.color||'#fff';
 		s.rotate = props.rotate;
-		s.stage = props.stage;
+		
+
 		s.draw();
 	}
 
@@ -22,14 +23,13 @@
 			.arc(s.x,s.y,s.r,s.startAngle,s.endAngle,0)
 			.lineTo(s.x,s.y)
 			.endFill().endStroke();
-		s.stage.addChild(shape);
+		//s.stage.addChild(shape);
+		this.shape = shape;
 		shape.rotation = s.rotate;
 		shape.x = s.x;
 		shape.y = s.y;
 		shape.regX = s.x;
 		shape.regY = s.y;
-		
-		
 
 	}
 

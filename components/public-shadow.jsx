@@ -20,7 +20,7 @@ export let PublicShadow = ComponsedComponent => class extends Component{
 	shadow(obj,className='shadow'){
 		obj.classList.add(className);
 		setTimeout(()=>{
-			obj.classList.add(className);		
+			obj.classList.remove(className);		
 		},150);
 	}
 
