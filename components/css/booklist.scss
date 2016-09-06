@@ -130,11 +130,13 @@ $maxIndex:9999;
 	background:#fff;
 	@include br(30px);
 	@include pos(r);
+  z-index:1;
 	$width:.1rem;
 	&:before{
 		content:'已加入菜谱';
 		background:inherit;//
 		@include pos(a);
+    z-index: 0;
 		width:$width;
 		right: -$width - .1 ;
     padding:20px 20px 20px 40px;

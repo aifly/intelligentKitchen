@@ -254,7 +254,7 @@ $nav-height:13.3vh;
   .fly-cook-book-C{
 
       width: 10rem;
-      height: 34.1vh;
+      height: 42vh;
       background:#f9e0ca;
       @include pos(r);
       padding-top: 5vh;
@@ -393,6 +393,7 @@ $nav-height:13.3vh;
                 width: 90%;
                 margin: 10px auto;
                 @include displayBox(horizontal);
+
                 height: 15vh;
                 .fly-time{
                   -webkit-box-flex:1;
@@ -461,12 +462,12 @@ $nav-height:13.3vh;
 
 .fly-time-line-C{
   width:10rem;
-  height: .5rem;
   
 }
 
 .fly-main-operator-C{
   @include displayBox(horizontal);
+  -webkit-box-align:start;
   li.fly-operator-item{
     width: 3.3rem;  
     height: 100%;
@@ -476,7 +477,6 @@ $nav-height:13.3vh;
     &:nth-of-type(3){
       width: 2.9rem; 
     }
-
 
   }
 }

@@ -7,6 +7,7 @@
   background: #fff;
   border-radius: 30px;
   position: relative;
+  z-index: 1;
   display: -webkit-box;
   -webkit-box-align: center;
   -webkit-box-pack: center;
@@ -15,6 +16,7 @@
     content: '已加入菜谱';
     background: inherit;
     position: absolute;
+    z-index: 0;
     width: 0.1rem;
     right: -0.2rem;
     padding: 20px 20px 20px 40px;
