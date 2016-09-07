@@ -139,7 +139,7 @@ import { PublicShadow } from './public-shadow.jsx';
 		
 		let x = this.canvas.width/2,
 			y = this.canvas.height/2,
-			r = 350,
+			r = 300,
 			len = 40;
 
 		circle.graphics.beginStroke('#fff').drawCircle(x,y,r);
@@ -263,11 +263,11 @@ import { PublicShadow } from './public-shadow.jsx';
 		    
 		let height = this.canvas.height,
 			width = this.canvas.width;
-	
+		let R =radius*1.4;
 		if(flag){//
 			this.shapeArr = this.shapeArr || [];
 			let textArr = [];
-			let R =radius*1.5;
+			
 			let shapeContainer = new createjs.Container();
 			this.stage.addChild(shapeContainer);		
 			for(var i =0;i<8;i++){
@@ -293,7 +293,7 @@ import { PublicShadow } from './public-shadow.jsx';
 						
 					text.x= width/2 + Math.sin((22.5+45*index)/180*Math.PI)*R;
 					
-					text.y= R - Math.cos((22.5+45*index)/180*Math.PI)*R + 50 ;
+					text.y= R - Math.cos((22.5+45*index)/180*Math.PI)*R  ;
 					text.textAlign= 'center';	
 					this.stage.addChild(text);
 					textArr.push(text);
@@ -341,7 +341,6 @@ import { PublicShadow } from './public-shadow.jsx';
 				let r = isEven ? data[index].scale*height*1.8:
 										data[index].scale*height*1.8*currentData[index].scale;
 
-				
 
 				containerData[index].addChild(
 					new Sector({
@@ -365,12 +364,11 @@ import { PublicShadow } from './public-shadow.jsx';
 			  	isEven && this.stage.addChild(containerData[index]);
 
 			  	if(isEven){
-					let R =radius*1.5;
 					var text = new createjs.Text(data[index].name+data[index].weight+data[index].unit+'--'+currentData[index].weight+currentData[index].unit, ".1rem Arial", "#fff");
 						
 						text.x= width/2 + Math.sin((22.5+45*index)/180*Math.PI)*R;
 						
-						text.y= R - Math.cos((22.5+45*index)/180*Math.PI)*R + 50 ;
+						text.y= R - Math.cos((22.5+45*index)/180*Math.PI)*R  ;
 						text.textAlign= 'center';	
 						this.stage.addChild(text);
 
@@ -380,8 +378,6 @@ import { PublicShadow } from './public-shadow.jsx';
 			}
 
 			this.bindEvent(containerData,this.textArr);
-
-
 			 
 
 		}

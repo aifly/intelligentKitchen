@@ -16,7 +16,7 @@
     content: '已加入菜谱';
     background: inherit;
     position: absolute;
-    z-index: 0;
+    z-index: -1;
     width: 0.1rem;
     right: -0.2rem;
     padding: 20px 20px 20px 40px;

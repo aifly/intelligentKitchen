@@ -10,8 +10,9 @@ export default class FlyFoodsPlace extends Component {
 	  	plates:[
 	  		
 	  	],
+	  	trashClass:'',
 	  	plateDemoStyle:{
-	  		left:"80%",
+	  		left:"94%",
 	  		top:0
 	  	}
 	  };
@@ -37,6 +38,24 @@ export default class FlyFoodsPlace extends Component {
 				{this.state.plates.map((item,i)=>{
 					return <div key={i}  style={{left:this.state.plates[i].left,top:this.state.plates[i].top}} className='fly-plate-item'></div>
 				})}
+				
+				{/*垃圾桶图标实现*/}
+				<div ref='fly-draw-trash-C' className={this.state.trashClass+' fly-draw-trash-C'} >
+					<div className='trash-header'></div>
+					<div className='trash-header-bar'></div>
+					<div className='trash-body'>
+
+					</div>
+					<div className='trash-line'></div>
+					<div className='trash-line1'></div>
+					<div className='trash-line2'></div>
+				</div>
+				<div className='fly-broken-plate' ref='fly-broken-plate'>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
 			</li>
 		);
 	}
@@ -56,13 +75,16 @@ export default class FlyFoodsPlace extends Component {
 				top:this.state.plateDemoStyle.top
 			});
 			this.forceUpdate();
-			
-			
+ 
 			$(document).on('touchmove',e=>{
 				var e =	e.originalEvent.changedTouches[0];
 				let index = this.state.plates.length-1;
-				this.state.plates[index].left = e.pageX - disX;
-				this.state.plates[index].top = e.pageY - disY;
+				var x = e.pageX - disX;
+				var y = e.pageY - disY;
+				x < 0 && (x = 0);
+				y < 0 && (y = 0);
+				this.state.plates[index].left = x;
+				this.state.plates[index].top = y;
 				this.forceUpdate();
 
 			}).on('touchend',e=>{
@@ -77,23 +99,93 @@ export default class FlyFoodsPlace extends Component {
 		},false);
 
 
+		//拖拽盘子。
+
+		let data = {
+			viewHeight : document.documentElement.clientHeight,
+			viewWidth  : document.documentElement.clientWidth
+		}
+
 		$(this.refs['fly-plate-C']).on('touchstart',e=>{
 			if(!e.target.classList.contains('fly-plate-item')){
 				return;
 			}
+			this.plateWidth = this.plateWidth || e.target.offsetWidth;
+			this.maxX = this.maxX || this.refs['fly-plate-C'].offsetWidth - this.plateWidth - 30;
+			this.maxY = this.maxY || this.refs['fly-plate-C'].offsetHeight - this.plateWidth - 30;
+
+			
 			let target = e.target;
 			var e = e.changedTouches[0];
 			let index = this.index(document.querySelectorAll('.fly-plate-item'),target);
 			 var disX = e.pageX - target.offsetLeft ,
 				 disY = e.pageY - target.offsetTop ;
 
+			this.setState({
+				trashClass:'active'
+			});
+
+			this.trashWidth = this.trashWidth|| this.refs['fly-draw-trash-C'].offsetWidth / 2;
+			this.trashHeight =this.trashHeight || this.refs['fly-draw-trash-C'].offsetHeight / 2;
+
+
 			$(document).on('touchmove',e=>{
 				var e =	e.originalEvent.changedTouches[0];
-				this.state.plates[index].left = e.pageX - disX;
-				this.state.plates[index].top = e.pageY - disY;
+				let x = e.pageX - disX,
+					y = e.pageY - disY;
+				x < 0 && (x = 0);
+				y < 0 && (y = 0);
+				x > this.maxX && (x = this.maxX);
+				y > this.maxY && (y = this.maxY);
+				this.state.plates[index].left = x;
+				this.state.plates[index].top = y;
+				if(e.pageX > data.viewWidth - this.trashWidth
+					&& e.pageY > data.viewHeight - this.trashHeight
+					){
+					if(this.state.trashClass.indexOf('begin-trashed') <= -1){
+						this.state.trashClass = this.state.trashClass + ' begin-trashed'
+
+						this.refs['fly-plate-C'].querySelectorAll('.fly-plate-item')[index].classList.add('will-delete');
+
+					}
+
+				}
+				else{
+					if(this.state.trashClass.indexOf('begin-trashed') > -1){
+						 let classList = this.state.trashClass.split(' ');
+						 classList.pop();
+ 						 this.state.trashClass = classList.join(' ');
+ 						this.refs['fly-plate-C'].querySelectorAll('.fly-plate-item')[index].classList.remove('will-delete');
+					}
+ 						
+				}
 				this.forceUpdate();
 			}).on('touchend',e=>{
 				$(document).off('touchmove touchend');
+				var e =	e.originalEvent.changedTouches[0];
+
+				if(e.pageX > data.viewWidth - this.trashWidth
+					&& e.pageY > data.viewHeight - this.trashHeight
+					){ //开始删除操作。
+					//todo
+
+					this.refs['fly-plate-C'].querySelectorAll('.fly-plate-item')[index].classList.add('delete');
+					this.refs['fly-broken-plate'].classList.add('active');
+					setTimeout(()=>{
+
+						this.state.plates.splice(index,1);
+						this.state.trashClass = '';
+						this.forceUpdate();
+						this.refs['fly-broken-plate'].classList.remove('active');
+					},400);	
+				}
+				else{
+					setTimeout(()=>{
+						this.setState({
+							trashClass:''
+						});
+					},100);	
+				}
 			});
 		});
 

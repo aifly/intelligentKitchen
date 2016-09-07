@@ -6,27 +6,26 @@
   .fly-weight .fly-btns-C {
     width: 60%;
     margin-left: -20%;
-    height: .5rem;
+    height: .3rem;
     display: -webkit-box;
     -webkit-box-align: center;
     -webkit-box-pack: center;
     -webkit-box-orient: horizontal; }
     .fly-weight .fly-btns-C figure {
-      margin: 0 .1rem; }
+      margin: 0 .05rem; }
       .fly-weight .fly-btns-C figure img {
         border-radius: 50%; }
+      .fly-weight .fly-btns-C figure:first-of-type {
+        margin-left: .1rem; }
   .fly-weight .shadow {
     box-shadow: 0 0 1.1rem rgba(232, 158, 121, 0.7); }
   .fly-weight .fly-operator-C {
     position: relative;
-    width: 65%;
+    width: 2.1rem;
     margin-top: .1rem;
     border-radius: 0.25rem;
     overflow: hidden;
-    height: 2.5rem; }
-    .fly-weight .fly-operator-C .operator-C {
-      height: 2.5rem;
-      box-shadow: 0 0 1.1rem rgba(232, 158, 121, 0.6); }
+    padding-bottom: 20px; }
     .fly-weight .fly-operator-C div.fly-img-C {
       -webkit-transition: -webkit-transform 0.3s;
       transition: -webkit-transform 0.3s;
@@ -37,13 +36,15 @@
     .fly-weight .fly-operator-C img.board {
       position: absolute;
       left: 0;
-      top: 100%;
+      top: 101%;
       opacity: 0; }
     .fly-weight .fly-operator-C .active {
-      height: 1.82rem; }
+      height: 1.68rem;
+      padding-bottom: 0;
+      border-radius: 0.25rem; }
       .fly-weight .fly-operator-C .active .fly-img-C {
-        -webkit-transform: translate3d(0, -2.51rem, 0);
-        transform: translate3d(0, -2.51rem, 0);
+        -webkit-transform: translate3d(0, -2.1rem, 0);
+        transform: translate3d(0, -2.1rem, 0);
         border-radius: 0.25rem; }
       .fly-weight .fly-operator-C .active img.board {
         opacity: 1; }

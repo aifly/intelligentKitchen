@@ -1,4 +1,4 @@
-
+﻿
 
 @mixin pos($v) {
   @if $v == a {
@@ -120,7 +120,8 @@ $maxIndex:9999;
 
 .fly-plate-C{
   @include pos(r);
-  height: 3.5rem !important; 
+
+  height: 2.67rem !important; 
   $plateWidth:1rem;
   .fly-plate-demo{
     @include pos(a);
@@ -135,7 +136,187 @@ $maxIndex:9999;
     height: $plateWidth;
     background:#fff;
     @include br(50%);
-    @include transform(scale(1.2));
+    @include transform(scale(1.2)); 
+    @include transition_transform(.5s);
+    @include transitionTimingFunction();
+    &.will-delete{
+      @include transform(scale(.6));
+      opacity:.5;
+    }
+    &.delete{
+      @include transform(scale(0));
+    }
+  }
+  
+  //破碎的盘子。
+  .fly-broken-plate{
+      @include pos(a);
+      right: 0;
+      bottom:0;
+      width: .8rem;
+      height: .8rem;
+      @include br(50%);
+      overflow: hidden;
+      @include transform3d();
+      opacity:0;
+      div{
+        width: 50%;
+        height: 50%;
+        @include pos(a);
+        left: 0;
+        top: 0;
+        background:#fff;
+        z-index: -1;
+        @include transition_transform(.4s);
+        &:nth-of-type(2){
+          left: 50%;
+        }
+        &:nth-of-type(3){
+           top: 50%;
+        }
+        &:nth-of-type(4){
+          left: 50%;
+          top: 50%;
+        }
+      }
+
+      &.active{
+        opacity:1;
+        div{
+            @include transform(translate3d(-.1rem,-.1rem,3rem));   
+            &:nth-of-type(2){
+              @include transform(translate3d(.1rem,-.1rem,3rem));   
+            }
+            &:nth-of-type(3){
+              @include transform(translate3d(-.1rem,.1rem,3rem));   
+            }
+            &:nth-of-type(4){
+             @include transform(translate3d(.1rem,.1rem,3rem));   
+            }
+            
+          }
+      }
+
+  }
+  //垃圾桶
+  .fly-draw-trash-C{
+
+     z-index:$maxIndex + 10;
+    opacity:0;
+    @include transition_transform(1s);
+    @include transitionTimingFunction();
+
+    &.active{
+      
+       opacity:1;
+    }
+
+    &.begin-trashed{
+      $trashColor :#d9534f;
+      @include transform(scale(.7));
+        .trash-header{
+           border:.1rem solid $trashColor;
+        }
+        .trash-header-bar{
+           background:$trashColor;
+        }
+        .trash-body{
+           border:.12rem solid $trashColor;
+        }
+
+        .trash-line{
+           border:.025rem solid $trashColor;
+        }
+
+        .trash-line1{
+           border:.04rem solid $trashColor;
+        }
+        
+        .trash-line2{
+           border:.04rem solid $trashColor;
+        }
+
+    }
+    
+    @include transform(scale(.5));
+    @include transformOrigin(right bottom);
+
+    right: 0;
+    bottom: 0;
+
+    $trashColor:#fff;
+    width: 1rem;
+    height: 1.2rem;
+    @include pos(a);
+    @include transform3d();
+    
+    .trash-header{
+       width: 20%;
+       height: .05rem;
+       border:.1rem solid $trashColor;
+       @include br(.12rem);
+       left: 30%;
+       @include pos(a);
+    }
+    .trash-header-bar{
+       width: 100%;
+       @include pos(a);
+       left: 0;
+       height: .1rem;
+       @include br(.1rem);
+       background:$trashColor;
+       top:.15rem;
+    }
+    .trash-body{
+       width: 86%;
+       height: 1.4rem;
+       @include pos(a);
+       top: .15rem;
+       left: 7%;
+       @include transformOrigin(top);
+       @include transform(rotateX(-35deg));
+       //@include br(.25rem);
+
+       border-bottom-left-radius:.2rem;
+       border-bottom-right-radius:.2rem;
+
+       border:.12rem solid $trashColor;
+       box-sizing:border-box;
+
+    }
+
+    .trash-line{
+       width: 40%;
+       height: 0;
+       @include pos(a);
+       left: 28%;
+       @include br(.1rem);
+       border:.025rem solid $trashColor;
+       margin-top: .35rem;
+    }
+
+    .trash-line1{
+       width: 0;
+       height: .4rem;
+       @include pos(a);
+       left: 34%;
+       @include br(.1rem);
+       border:.04rem solid $trashColor;
+       margin-top: .5rem;
+       @include transform(rotate(-5deg));
+    }
+    
+    .trash-line2{
+       width: 0;
+       height: .4rem;
+       @include pos(a);
+       left: 58%;
+       @include br(.1rem);
+       border:.04rem solid $trashColor;
+       margin-top: .5rem;
+       @include transform(rotate(5deg));
+    }
+
   }
 
 }
