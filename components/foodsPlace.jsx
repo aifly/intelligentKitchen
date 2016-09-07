@@ -161,6 +161,7 @@ export default class FlyFoodsPlace extends Component {
 				}
 				this.forceUpdate();
 			}).on('touchend',e=>{
+
 				$(document).off('touchmove touchend');
 				var e =	e.originalEvent.changedTouches[0];
 
@@ -169,14 +170,23 @@ export default class FlyFoodsPlace extends Component {
 					){ //开始删除操作。
 					//todo
 
+
 					this.refs['fly-plate-C'].querySelectorAll('.fly-plate-item')[index].classList.add('delete');
 					this.refs['fly-broken-plate'].classList.add('active');
+
+					/*
+					Array.from(this.refs['fly-plate-C'].querySelectorAll('.fly-plate-item')).forEach(item=>{
+							item.classList.remove('will-delete');
+							item.classList.remove('delete');
+					});*/
+					
 					setTimeout(()=>{
 
-						this.state.plates.splice(index,1);
+						////this.state.plates.splice(index,1);
 						this.state.trashClass = '';
 						this.forceUpdate();
 						this.refs['fly-broken-plate'].classList.remove('active');
+
 					},400);	
 				}
 				else{
@@ -184,8 +194,10 @@ export default class FlyFoodsPlace extends Component {
 						this.setState({
 							trashClass:''
 						});
+
 					},100);	
 				}
+
 			});
 		});
 
