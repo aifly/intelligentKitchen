@@ -131,8 +131,7 @@ $maxIndex:9999;
       width:100%;
       
       canvas{
-        @include pos(a);
-      
+        @include pos(a); 
         left: 3%;
       }
 
@@ -175,5 +174,29 @@ $maxIndex:9999;
      .shadow{
       box-shadow:0 0 1.1rem rgba(232,158,121,.7);
     }
+   }
+
+
+   .fly-circle{
+      width: .1rem;
+      height: .1rem;
+      background:#fff;
+      @include br(50%);
+      @include pos(a);
+      left: 3%;
+      top: 0;
+      opacity:0;
+      -webkit-filter: blur(7px);
+   }
+
+   .fly-circle-center{
+      @include pos(a);
+      left: 3%;
+      top: 0;
+      border:2px solid #fff;
+      @include br(50%);
+      -webkit-filter: blur(0px);
+      box-shadow:0 0 .2rem rgba(232,158,121,.2),0 0 .2rem rgba(232,158,121,.2) inset;
+      z-index: -1;
    }
 }

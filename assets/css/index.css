@@ -268,11 +268,12 @@ body {
       animation-delay: 300ms; }
     #fly-main .fly-cook-book-C > li .fly-city-C {
       width: 80%;
-      height: 2vh;
-      margin: 0 auto; }
+      margin: .1rem auto;
+      height: .15rem;
+      line-height: .15rem; }
     #fly-main .fly-cook-book-C > li .fly-city-scroll-C {
       width: 88%;
-      height: 2vh;
+      height: .15rem;
       float: left;
       overflow: hidden; }
       #fly-main .fly-cook-book-C > li .fly-city-scroll-C ul li {
@@ -341,7 +342,7 @@ body {
           margin-left: -10px; }
     #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C {
       width: 90%;
-      margin: 10px auto;
+      margin: .1rem auto;
       display: -webkit-box;
       -webkit-box-align: center;
       -webkit-box-pack: center;

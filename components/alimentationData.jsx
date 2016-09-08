@@ -71,7 +71,47 @@ import { PublicShadow } from './public-shadow.jsx';
 	  	 		}
 	  	 	],
 	  	 	scaleData:[
-	  	 			
+	  	 		{
+	  	 			unit:'g',
+	  	 			weight:'60',
+	  	 			scale:.11,
+	  	 			name:'热量'
+	  	 		},{
+	  	 			unit:'g',
+	  	 			weight:'40',
+	  	 			scale:.14,
+	  	 			name:'蛋白质'
+	  	 		},{
+	  	 			unit:'g',
+	  	 			weight:'29',
+	  	 			scale:.12,
+	  	 			name:'脂肪'
+	  	 		},{
+	  	 			unit:'g',
+	  	 			weight:'24',
+	  	 			scale:.14,
+	  	 			name:'碳水化合物'
+	  	 		},{
+	  	 			unit:'g',
+	  	 			weight:'30',
+	  	 			scale:.11,
+	  	 			name:'膳食纤维'
+	  	 		},{
+	  	 			unit:'g',
+	  	 			weight:'36',
+	  	 			scale:.12,
+	  	 			name:'微量元素'
+	  	 		},{
+	  	 			unit:'g',
+	  	 			weight:'20',
+	  	 			scale:.16,
+	  	 			name:'维生素'
+	  	 		},{
+	  	 			unit:'g',
+	  	 			weight:'20',
+	  	 			scale:.1,
+	  	 			name:'其它'
+	  	 		}
 	  	 	]
 
 	  	 }
@@ -96,6 +136,9 @@ import { PublicShadow } from './public-shadow.jsx';
 						})}
 					</ul>
 				</div>
+				<div className='fly-circle' id='fly-circle'></div>
+				<div className='fly-circle-center' id='fly-circle-center'></div>
+
 			</li>
 		);
 	}
@@ -134,15 +177,20 @@ import { PublicShadow } from './public-shadow.jsx';
 	drawCorner(){//绘制对角线。
 		
 		let container = new createjs.Container();
-
-		let circle = new createjs.Shape();
 		
 		let x = this.canvas.width/2,
 			y = this.canvas.height/2,
 			r = 300,
 			len = 40;
 
-		circle.graphics.beginStroke('#fff').drawCircle(x,y,r);
+		let domCircle = document.getElementById("fly-circle-center");
+		domCircle.style.width = r*2 +'px';
+		domCircle.style.height = r*2 +'px';
+		let circle = new createjs.DOMElement(domCircle);
+		circle.x= x -r;
+		circle.y = y -r ;
+
+		//circle.graphics.beginStroke('#fff').drawCircle(x,y,r);
 		
 		container.addChild(this.drawLine(x,y,r,len,0),this.drawLine(x,y,r,len,90),this.drawLine(x,y,r,len,45),this.drawLine(x,y,r,len,-45),circle);
 
@@ -153,6 +201,58 @@ import { PublicShadow } from './public-shadow.jsx';
 
 	}
 	
+	drawCircle(r){
+
+		let domBall = document.getElementById('fly-circle');
+		let dom = new createjs.DOMElement(domBall);
+		let ballWidth = domBall.offsetWidth,
+			ballHeight = domBall.offsetHeight;
+		this.stage.addChild(dom);
+		dom.x = this.canvas.width/2 - ballWidth/2;
+		dom.y = this.canvas.height/2-r - ballHeight/2;
+		dom.r = r;
+		dom.domBall= domBall;
+		dom.ballWidth = ballWidth;
+		dom.ballHeight = ballHeight;
+		dom.centerX = this.canvas.width/2;
+		dom.centerY = this.canvas.height/2;
+
+		this.ball = dom;
+	}
+
+	ballCircularMotion(ball){//小球做圆周运动
+		this.iNow = this.iNow===undefined? 180 : this.iNow;
+		
+		if((this.iNow+180)%45 === 0 ){
+			var index =8-(this.iNow+180)/45|0;
+			index === 8 && (index = 0);
+			let textArr = [];
+			this.allDataContainer.children.forEach(item=>{
+				if(item.color){
+					textArr.push(item);
+				}
+			});
+			textArr[index-1<0?7:index-1].color ='#fff';
+			textArr[index-1<0?7:index-1].font ='.1rem Arial';
+			textArr[index].font ='.12rem Arial';
+			textArr[index].color='#f90';
+
+		}
+
+
+		ball.x =ball.centerX - ball.ballWidth/2 + ball.r * Math.sin(this.iNow/180*Math.PI);
+		ball.y =ball.centerY - ball.ballHeight/2 + ball.r * Math.cos(this.iNow/180*Math.PI);
+
+		this.iNow -=.5;
+		if(this.iNow<-180){
+			this.iNow = 180;
+
+		}
+
+
+		
+	}
+
 	componentDidMount() {
 
 		setTimeout(()=>{
@@ -162,13 +262,18 @@ import { PublicShadow } from './public-shadow.jsx';
 			let colors =  ['#f3e5dc','#f1e0d6'];
 			
 			//this.drawSector(true,'',this.drawCorner());
+			
 			//this.showCurrentFoodData(this.drawCorner(true));
 			this.stage.update();
 
 
 			createjs.Ticker.timingMode = createjs.Ticker.RAF;
 
-			createjs.Ticker.on("tick", this.stage);
+			createjs.Ticker.on("tick", ()=>{
+				this.ball &&  this.ballCircularMotion(this.ball);
+				this.stage.update();
+			});
+
 		},1);
 
 
@@ -196,19 +301,15 @@ import { PublicShadow } from './public-shadow.jsx';
 					this.scroll.refresh();
 				}
 			},10);
-
-			
-
+			this.stage.removeAllChildren();
 			this.drawSector(true,'',this.drawCorner());
-		})
-		
-
-
+			
+		});
 		
 	}
-
+ 
 	showCurrentFoodData(r){
-
+		
 		this.state.alimentatonData.currentFoodData.length>0 && this.drawSector(false,'#fff',r);
 	}
 
@@ -256,9 +357,13 @@ import { PublicShadow } from './public-shadow.jsx';
 
 	drawSector(flag=true,color,radius){
 
-
-
-		//this.stage.removeAllChildren();
+		this.drawCircle(radius);//绘制圆周运动的小球。
+ 		this.allDataContainer = this.allDataContainer || new createjs.Container();
+ 		this.allDataContainer.removeAllChildren();
+ 		this.stage.removeChild(this.allDataContainer);
+ 		
+ 		this.stage.addChild(this.allDataContainer);
+		
 		let data = this.state.alimentatonData.scaleData;
 		    
 		let height = this.canvas.height,
@@ -294,8 +399,20 @@ import { PublicShadow } from './public-shadow.jsx';
 					text.x= width/2 + Math.sin((22.5+45*index)/180*Math.PI)*R;
 					
 					text.y= R - Math.cos((22.5+45*index)/180*Math.PI)*R  ;
+
+					switch(index){
+							case 0:
+							case 7:
+								text.y+=60;
+							break;
+							case 3:
+							case 4:
+								text.y-=30;
+							break;
+					}
+
 					text.textAlign= 'center';	
-					this.stage.addChild(text);
+					this.allDataContainer.addChild(text);
 					textArr.push(text);
 					
 			}
@@ -321,10 +438,15 @@ import { PublicShadow } from './public-shadow.jsx';
 
 		}
 		else{
+
 			let currentData = this.state.alimentatonData.currentFoodData,
 				containerData =  [];
 
+
 				this.textArr = this.textArr || [];
+
+		 	
+		 	R+=30;
 
 			for(var i =0;i<16;i++){
 
@@ -342,15 +464,16 @@ import { PublicShadow } from './public-shadow.jsx';
 										data[index].scale*height*1.8*currentData[index].scale;
 
 
-				containerData[index].addChild(
-					new Sector({
+				let sector = new Sector({
 						x:width/2,
 						y:height/2,
 						r:r,
 						color: !isEven ? this.state.alimentatonData.colors[index % 2]: color,
 						rotate:index*45
-					}).shape
-				);
+					}).shape;
+				sector.name = index;
+
+				containerData[index].addChild(sector);
 
 				containerData[index].x = width/2;
 				containerData[index].y = height/2;
@@ -360,17 +483,41 @@ import { PublicShadow } from './public-shadow.jsx';
 
 				containerData[index].rotation = -90;
 
-
-			  	isEven && this.stage.addChild(containerData[index]);
+			  	isEven && this.allDataContainer.addChild(containerData[index]);
 
 			  	if(isEven){
+
 					var text = new createjs.Text(data[index].name+data[index].weight+data[index].unit+'--'+currentData[index].weight+currentData[index].unit, ".1rem Arial", "#fff");
 						
 						text.x= width/2 + Math.sin((22.5+45*index)/180*Math.PI)*R;
 						
-						text.y= R - Math.cos((22.5+45*index)/180*Math.PI)*R  ;
+						text.y= R - Math.cos((22.5+45*index)/180*Math.PI)*R  - 10 ;
+						switch(index){
+							case 0:
+							case 7:
+								text.y+=60;
+							break;
+							case 1:
+								text.x+=60;
+							break;
+							case 3:
+								text.y-=70;
+								text.x+=60;
+							break;
+							case 4:
+								text.y-=70;
+								text.x-=60;
+							break;
+							case 5:
+								text.x-=60;
+								text.y-=20;
+							break;
+							case 6:
+								text.x-=60;
+							break;
+						}
 						text.textAlign= 'center';	
-						this.stage.addChild(text);
+						this.allDataContainer.addChild(text);
 
 						this.textArr.push(text);
 				}

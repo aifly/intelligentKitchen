@@ -25,12 +25,12 @@ let addFoods = [
 		scaleData:[
   	 		{
   	 			unit:'g',
-  	 			weight:'60',
+  	 			weight:'30',
   	 			scale:.11,
   	 			name:'热量'
   	 		},{
   	 			unit:'g',
-  	 			weight:'40',
+  	 			weight:'60',
   	 			scale:.14,
   	 			name:'蛋白质'
   	 		},{

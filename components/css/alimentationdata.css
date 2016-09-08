@@ -39,5 +39,24 @@
         color: #fff; }
     .fly-alimentation-data div.fly-m-name .shadow {
       box-shadow: 0 0 1.1rem rgba(232, 158, 121, 0.7); }
+  .fly-alimentation-data .fly-circle {
+    width: .1rem;
+    height: .1rem;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    left: 3%;
+    top: 0;
+    opacity: 0;
+    -webkit-filter: blur(7px); }
+  .fly-alimentation-data .fly-circle-center {
+    position: absolute;
+    left: 3%;
+    top: 0;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    -webkit-filter: blur(0px);
+    box-shadow: 0 0 0.2rem rgba(232, 158, 121, 0.2), 0 0 0.2rem rgba(232, 158, 121, 0.2) inset;
+    z-index: -1; }
 
 /*# sourceMappingURL=alimentationdata.css.map */

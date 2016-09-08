@@ -286,14 +286,15 @@ $nav-height:13.3vh;
 
         .fly-city-C{
           width:80%;
-          height: 2vh;
-          margin:0 auto;
-
+          margin:.1rem auto;
+          height: .15rem;
+          line-height: .15rem;
         }
 
         .fly-city-scroll-C{
           width:88%;
-          height: 2vh;
+          height: .15rem;
+          
           float: left;
           overflow: hidden;
           
@@ -391,7 +392,7 @@ $nav-height:13.3vh;
 
             .fly-time-C{//时间
                 width: 90%;
-                margin: 10px auto;
+                margin: .1rem auto;
                 @include displayBox(horizontal);
 
                 height: 15vh;

@@ -9,8 +9,8 @@
 		s.endAngle = (props.startAngle||0 + 45)/180*Math.PI;
 		s.color = props.color||'#fff';
 		s.rotate = props.rotate;
-		s.scale = props.scale;
-		s.alpha = props.alpha;
+		s.scale = props.scale===undefined? 1 :　props.scale;
+		s.alpha = props.alpha===undefined? 1 :　props.alpha;
 		
 
 		s.draw();
@@ -19,6 +19,7 @@
 	draw(){
 		let shape = new createjs.Shape(),
 			s = this;
+			
 		shape.graphics.beginFill(s.color)
 			.moveTo(s.x,s.y)
 			.lineTo(s.x+s.r*Math.cos(s.startAngle),s.y+s.y*Math.sin(s.startAngle))
