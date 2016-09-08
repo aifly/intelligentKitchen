@@ -61,7 +61,12 @@ export default class FlyFoodsPlace extends Component {
 	}
 	componentDidMount() {
 
-		 
+		 let {obserable} = this.props;
+		 obserable.on('clearPlates',()=>{
+		 	this.setState({
+		 		plates:[]
+		 	});
+		 });
 
 		var target = this.refs['fly-plate-demo'];
 		target.addEventListener('touchstart', e=>{

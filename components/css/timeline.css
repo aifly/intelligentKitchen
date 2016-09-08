@@ -1,0 +1,47 @@
+@charset "UTF-8";
+/*时间轴*/
+.fly-time-line-C {
+  width: 10rem;
+  height: .3rem;
+  position: relative;
+  line-height: .3rem;
+  top: -.15rem; }
+  .fly-time-line-C .line {
+    width: 100%;
+    height: 5px;
+    background: #fff;
+    position: absolute;
+    top: .15rem; }
+  .fly-time-line-C .fly-progress {
+    width: 1rem;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    height: 10px; }
+  .fly-time-line-C .fly-points-C {
+    display: -webkit-box;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    -webkit-box-orient: horizontal;
+    position: relative;
+    top: .12rem; }
+    .fly-time-line-C .fly-points-C .prepare span {
+      -webkit-filter: blur(5px);
+      background: white; }
+    .fly-time-line-C .fly-points-C article {
+      -webkit-box-flex: 1;
+      text-align: center;
+      position: relative;
+      color: #fff;
+      font-size: .08rem; }
+      .fly-time-line-C .fly-points-C article span {
+        display: inline-block;
+        width: .1rem;
+        height: .1rem;
+        background: rgba(255, 255, 255, 0.5);
+        position: absolute;
+        top: -.02rem;
+        left: 47%;
+        border-radius: 50%; }
+
+/*# sourceMappingURL=timeline.css.map */

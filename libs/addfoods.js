@@ -35,27 +35,27 @@ let addFoods = [
   	 			name:'蛋白质'
   	 		},{
   	 			unit:'g',
-  	 			weight:'29',
+  	 			weight:'33',
   	 			scale:.12,
   	 			name:'脂肪'
   	 		},{
   	 			unit:'g',
-  	 			weight:'24',
+  	 			weight:'17',
   	 			scale:.14,
   	 			name:'碳水化合物'
   	 		},{
   	 			unit:'g',
-  	 			weight:'30',
+  	 			weight:'81',
   	 			scale:.11,
   	 			name:'膳食纤维'
   	 		},{
   	 			unit:'g',
-  	 			weight:'36',
+  	 			weight:'12',
   	 			scale:.12,
   	 			name:'微量元素'
   	 		},{
   	 			unit:'g',
-  	 			weight:'20',
+  	 			weight:'43',
   	 			scale:.16,
   	 			name:'维生素'
   	 		},{
@@ -118,12 +118,12 @@ let addFoods = [
   	 			name:'膳食纤维'
   	 		},{
   	 			unit:'g',
-  	 			weight:'36',
+  	 			weight:'26',
   	 			scale:.12,
   	 			name:'微量元素'
   	 		},{
   	 			unit:'g',
-  	 			weight:'20',
+  	 			weight:'24',
   	 			scale:.16,
   	 			name:'维生素'
   	 		},{
@@ -161,7 +161,7 @@ let addFoods = [
 		],scaleData:[
   	 		{
   	 			unit:'g',
-  	 			weight:'60',
+  	 			weight:'22',
   	 			scale:.11,
   	 			name:'热量'
   	 		},{

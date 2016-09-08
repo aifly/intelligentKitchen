@@ -172,6 +172,10 @@ export default class FlyCookBookList extends React.Component{
 			break;
 		};
 
+		if(!target.classList){
+			return;
+		}
+
 
 		Array.from(this.refs['foods-C'].querySelectorAll('li div')).forEach((item,i)=>{
 			item.classList.remove('active');
@@ -193,6 +197,11 @@ export default class FlyCookBookList extends React.Component{
 				materials:addFoods[index].foodMaterial,
 				scaleData:addFoods[index].scaleData
 			}
+		});
+
+		//清空盘子。
+		obserable.trigger({
+			type:'clearPlates'
 		});
 
 

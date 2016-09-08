@@ -360,6 +360,7 @@ import { PublicShadow } from './public-shadow.jsx';
 		this.drawCircle(radius);//绘制圆周运动的小球。
  		this.allDataContainer = this.allDataContainer || new createjs.Container();
  		this.allDataContainer.removeAllChildren();
+
  		this.stage.removeChild(this.allDataContainer);
  		
  		this.stage.addChild(this.allDataContainer);
@@ -369,8 +370,8 @@ import { PublicShadow } from './public-shadow.jsx';
 		let height = this.canvas.height,
 			width = this.canvas.width;
 		let R =radius*1.4;
-		if(flag){//
-			this.shapeArr = this.shapeArr || [];
+		if(flag){//绘制单个菜的营养成份
+			this.shapeArr =  [];
 			let textArr = [];
 			
 			let shapeContainer = new createjs.Container();
@@ -431,7 +432,6 @@ import { PublicShadow } from './public-shadow.jsx';
 					alpha:1
 				},300+i*100, createjs.Ease.easeIn);
 			});
-			
 			
 			this.bindEvent(this.shapeArr,textArr);
 			
