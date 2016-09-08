@@ -138,11 +138,28 @@ $maxIndex:9999;
   }
   .fly-progress{
       width: 1rem;
+      @include transform(scaleX(1.2));
+      @include transformOrigin(left);
       @include pos(a);
       left: 0;
       top:50%;
+      margin-top: -2px;
       height: 10px;
+      @include br(10px);
+      background: -webkit-gradient(linear, left top, right top, from(rgba(232,158,121,.3)), to(rgba(232,158,121,.9)));
+      -webkit-filter:blur(1px);
       //background:red;
+      &:after{
+        content:'';
+        @include pos(a);
+        width: .1rem;
+        height: .1rem;
+        @include br(50%);
+        background: rgba(232,158,121,1);
+        right: 0;
+        top: -.035rem;
+        -webkit-filter:blur(8px);
+      }
 
     }
 
