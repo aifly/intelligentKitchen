@@ -204,7 +204,7 @@ if (!Array.from) {
 		let {obserable} = this.props;
 
 		var index = target.getAttribute('data-index');
-
+		
 		obserable.trigger({
 			type:'fillFood',
 			data:this.state.addFoods[this.state.currentTimeSlot][index]

@@ -141,8 +141,8 @@ import addFoods from '../libs/addfoods.js';//
 		obserable.trigger({
 			type:'fillAlimentationData',
 			data:{
-				//materials:this.state.addFoods[this.state.currentTimeSlot][index].foodMaterial,
-				scaleData:this.state.addFoods[this.state.currentTimeSlot][index].scaleData
+				materials:this.state.dataSource[this.state.currentTimeSlot][index].foodMaterial,
+				scaleData:this.state.dataSource[this.state.currentTimeSlot][index].scaleData
 			}
 		});
 
