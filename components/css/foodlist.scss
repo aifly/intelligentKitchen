@@ -124,8 +124,88 @@ $foodlist-height:1.6rem;
 
 .foodlist{
 	margin:.13rem auto;
+  
 }
 .foodlist-C{
+  $width:35%;
+  section{
+    @include displayBox(horizontal);  
+    ol{
+      width: $width;
+      li{
+        margin:0 auto;
+        text-align: center;
+        $size:.3rem;
+        height: $size;
+        width: $size;
+        @include br(50%);
+        line-height: $size;
+        &.active{
+          border:3px solid $baseColor1;
+        }
+      }
+      @include pos(r);
+      height: 100%;
+      &:after{
+        content:'';
+        width: 2px;
+        height: 160%;
+        top: -30%;
+        @include fly-v-gradient-line();
+        @include pos(a);
+        right: 10px;
+      }
+    }
+  }
+  .foodlist-content{
+
+    &.no-data:before{
+      content:'暂无数据';
+      color:#f00;
+      margin-top: 50%;
+      margin-left: 20%;
+      display:block;
+    }
+
+    overflow: hidden;
+    height:1.6rem;
+    width:100 - $width;
+    li{
+
+      width:.675rem;
+      float: left;
+      height:($foodlist-height ) / 2;
+      overflow: hidden;
+      box-sizing:border-box;
+      padding:10px;;
+      
+      div{
+
+        width:100%;
+        @include br(20px);
+        height:100%;
+        @include pos(r);
+        overflow: hidden;
+      }
+      span{
+        font-size:.08rem;
+        @include pos(a);
+        left: 0;
+        bottom:0;
+        display:block;
+        width:100%;
+        color:#cfbbba;
+        text-align: center;
+        height: .15rem;
+        line-height: .15rem;
+        background:rgba(255,255,255,1);
+      }
+      &.food-top{
+        margin-top: 0.01rem;  
+      }
+    }
+  }
+
 	width:86%;
 	margin-left: .1rem;
 	height:$foodlist-height;
@@ -142,42 +222,4 @@ $foodlist-height:1.6rem;
 	padding:0 20px;
 	@include transform(scaleY(2.4));
 	//margin-top: $foodlist-height /2 ;
-}
-.foodlist-content{
-	float:left;
-	height:100%;
-	li{
-
-		width:.675rem;
-		float: left;
-		height:($foodlist-height ) / 2;
-		overflow: hidden;
-		box-sizing:border-box;
-		padding:10px;;
-		
-		div{
-
-			width:100%;
-			@include br(20px);
-			height:100%;
-			@include pos(r);
-			overflow: hidden;
-		}
-		span{
-			font-size:.06rem;
-			@include pos(a);
-			left: 0;
-			bottom:0;
-			display:block;
-			width:100%;
-			color:#fff;
-			text-align: center;
-			height: 40px;
-			line-height: 40px;
-			background:rgba(0,0,0,.5);
-		}
-		&.food-top{
-			margin-top: 0.01rem;	
-		}
-	}
 }

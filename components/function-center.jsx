@@ -8,8 +8,10 @@ import Sortable from '../libs/Sortable.js';
 import cityData from '../libs/city.js';
 import IScroll from 'iscroll';
 import FlyFoodList from './foodlist.jsx';
-import foodlist from '../libs/foodlist.js';//
-import cooklist from '../libs/cooklist.js';//
+import addFoods from '../libs/addfoods.js';//
+
+
+import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Calendar.js';
 
 //最左侧的控制中心组件。
 export default class FlyFunctionCenter extends React.Component{
@@ -17,44 +19,32 @@ export default class FlyFunctionCenter extends React.Component{
 		super(option);
 		this.closeDrag=this.closeDrag.bind(this);
 		this.state ={
-			cityData : []
+			cityData : [],
+			weatherData:[
+				
+			],
+			currentData:'',
+			
 		}
 	}
 	
 	render(){
 
-		let data = {
-			dataSource:foodlist
-		}
-		let cookData ={
-			dataSource :cooklist
-		}
+		
 
 		return (
 			<li className="fly-food fly-cook-book-item">
 				<div className="fly-cook-book-item-C" ref='fly-cook-book-item-C'> 
 					<div className="fly-weather  fly-food-item fly-top3" ref='weather'>
 						<ol className="fly-weather-C">
-							<li>
-								<img src="./assets/images/sun.png" />
-								<span>08/28</span>
-							</li>
-							<li>
-								<img src="./assets/images/rain.png" />
-								<span>08/29</span>
-							</li>
-							<li>
-								<img src="./assets/images/cloud.png" />
-								<span>08/30</span>
-							</li>
-							<li>
-								<img src="./assets/images/sun1.png" />
-								<span>08/31</span>
-							</li>
-							<li>
-								<img src="./assets/images/rain.png" />
-								<span>09/01</span>
-							</li>
+							{this.state.weatherData.map((item,i)=>{
+								return (
+									<li key={i}>
+										<img src={item.src} />
+										<span>{item.date}</span>
+									</li>
+								)	
+							})}
 						</ol>
 						<div className="fly-time-C">
 							<div className="fly-time">
@@ -62,7 +52,7 @@ export default class FlyFunctionCenter extends React.Component{
 								<canvas ref='fly-temperature-canvas' width="100%"></canvas>
 							</div>
 							<div className="fly-date">
-								<h1>七月二十六</h1>
+								<h1>{this.state.currentData}</h1>
 								<h1>夏至食物推荐</h1>
 								<div className="fly-rec-food-container">
 									<ul>
@@ -84,10 +74,10 @@ export default class FlyFunctionCenter extends React.Component{
 						</div>
 					</div>
 					<div className="fly-rec-food fly-food-item fly-top2" ref='rec-food'>
-						<FlyFoodList {...data}></FlyFoodList>
+						<FlyFoodList type='rec-food' obserable={this.props.obserable}></FlyFoodList>
 					</div>
 					<div className="fly-rec-menu fly-food-item fly-top1" ref='rec-menu'>
-						<FlyFoodList {...cookData}></FlyFoodList>
+						<FlyFoodList type='rec-menu'></FlyFoodList>
 					</div>	
 				</div>
 
@@ -97,11 +87,36 @@ export default class FlyFunctionCenter extends React.Component{
 	}
 
 	componentDidMount(){
+
+
+
 		this.init();
 
 		this.state.cityData = cityData.map((item,i)=>{
 			return <li key={i}>{item.city}</li>
 		});
+
+
+
+
+
+		let weatherIcos=[
+			'./assets/images/sun.png',
+			'./assets/images/rain.png',
+			'./assets/images/cloud.png',
+			'./assets/images/sun1.png',
+			'./assets/images/rain.png'
+		]
+
+		for(var i =0;i<5;i++){
+			this.state.weatherData.push({
+				src:weatherIcos[i],
+				date:getFurtureDate(i)
+			})
+		}
+
+		var dd=  new Date();
+		this.state.currentData= getMonthAndDate(dd.getFullYear(),dd.getMonth()+1,dd.getDate());
 
 		this.forceUpdate();
 
@@ -119,6 +134,7 @@ export default class FlyFunctionCenter extends React.Component{
 		},1);
 
 	}
+ 
 
 	setSize(){
 		
@@ -282,7 +298,7 @@ export default class FlyFunctionCenter extends React.Component{
 			var isTop = target.hasClass('fly-top3');
 
 			if(!isTop || $(e.target).hasClass('fly-city-scroll-C')||$(e.target).parents('.fly-city-scroll-C').length>0
-				|| $(e.target).hasClass('foodlist')|| $(e.target).parents('.foodlist').length>0
+				|| $(e.target).hasClass('foodlist-content')|| $(e.target).parents('.foodlist-content').length>0
 				){
 				return;
 			}
@@ -413,4 +429,4 @@ export default class FlyFunctionCenter extends React.Component{
  
 
 	
-}
+} 

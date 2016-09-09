@@ -43,7 +43,7 @@ export default class FlyCookBookItem extends React.Component{
 								</div>
 							</li>	
 							<li className='book-item-detail book-item-ul-li'>
-								<div className='detail' ref='detail'>
+								{/*<div className='detail' ref='detail'>
 									<ol>
 										<li>
 											<div>
@@ -71,7 +71,7 @@ export default class FlyCookBookItem extends React.Component{
 											<div></div>
 										</li>
 									</ol>
-								</div>
+								</div>*/}
 								<div className='material' ref='material'>
 									<h1>材料</h1>
 									<section className='material-scroll' ref='material-scroll'>
@@ -97,14 +97,16 @@ export default class FlyCookBookItem extends React.Component{
 	}
 
 	getDetail(){
-		this.iNow = this.iNow || 1;
+		/*this.iNow = this.iNow || 1;
 		if(this.iNow++%2===1){
 			
 			this.refs['detail'].parentNode.classList.add('active')
 		}
 		else{
 			this.refs['detail'].parentNode.classList.remove('active')
-		}
+		}*/
+
+		
 		
 	}
 

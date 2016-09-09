@@ -81,16 +81,48 @@
 						return tmp;
 					}
 
-			function GetLunarDay(solarYear,solarMonth,solarDay){
-			//solarYear = solarYear<1900?(1900+solarYear):solarYear;
-				if(solarYear<1921){
-					return "";
-				}else{
-					solarMonth = (parseInt(solarMonth)>0) ? (solarMonth-1) : 11;
-					e2c(solarYear,solarMonth,solarDay);
-					return GetcDateString();
-				}
+					function getLunarCalendar(){
+						var tmp="";
+						/*tmp+=tgString.charAt((cYear-4)%10);
+						tmp+=dzString.charAt((cYear-4)%12);
+						tmp+="(";
+						tmp+=sx.charAt((cYear-4)%12);
+						tmp+=")年 ";*/
+						if(cMonth<1){
+							//tmp+="(闰)";
+							tmp+=monString.charAt(-cMonth-1);
+						}else{
+							tmp+=monString.charAt(cMonth-1);
+						}
+						tmp+="月";
+						tmp+=(cDay<11)?"初":((cDay<20)?"十":((cDay<30)?"廿":"三十"));
+						if (cDay%10!=0||cDay==10){
+							tmp+=numString.charAt((cDay-1)%10);
+						}
+
+						return tmp;
+					}
+
+		function getMonthAndDate(solarYear,solarMonth,solarDay){
+			if(solarYear<1921){
+				return "";
+			}else{
+				solarMonth = (parseInt(solarMonth)>0) ? (solarMonth-1) : 11;
+				e2c(solarYear,solarMonth,solarDay);
+				return getLunarCalendar();
 			}
+		}
+
+		function GetLunarDay(solarYear,solarMonth,solarDay){
+		//solarYear = solarYear<1900?(1900+solarYear):solarYear;
+			if(solarYear<1921){
+				return "";
+			}else{
+				solarMonth = (parseInt(solarMonth)>0) ? (solarMonth-1) : 11;
+				e2c(solarYear,solarMonth,solarDay);
+				return GetcDateString();
+			}
+		}
 	
 
 		function GetDateStr(AddDayCount) {
@@ -103,4 +135,16 @@
 		}
 
 
-	export default {GetLunarDay,GetDateStr};
+		function getFurtureDate(count){
+			var dd = new Date();
+		    dd.setDate(dd.getDate()+count);//获取AddDayCount天后的日期
+		   
+		    var m = dd.getMonth()+1;//获取当前月份的日期
+		    var d = dd.getDate();
+		    m <10 && (m = '0'+ m);
+		    d <10 && (d = '0'+ d);
+		    return m+"/"+d;
+		}
+
+
+	export default {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate};

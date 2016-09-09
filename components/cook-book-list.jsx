@@ -3,6 +3,7 @@ import {GetLunarDay,GetDateStr} from '../libs/Calendar.js';
 import addFoods from '../libs/addFoods.js'; //测试数据
 import './css/booklist.css';
 import IScroll from 'iscroll';
+import {FlyPublicData} from './public-data.jsx';
 
 
 if (!Array.from) {
@@ -13,27 +14,43 @@ if (!Array.from) {
 
 
 //已加入菜谱组件。
-export default class FlyCookBookList extends React.Component{
+ class FlyCookBookList extends React.Component{
 	constructor(option){
 		super(option);
 		this.state = {
 			liWidth:307,
+			currentTimeSlot:0,
 			dates1:[],//第一排的日期
 			dates2:[],//第二排的日期
-			addFoods:[],//已添加的菜谱
+			addFoods:[
+				[],//早餐
+				[],//中餐
+				[]　//晚餐
+			],//已添加的菜谱
 		}
 		this.next=this.next.bind(this);
 		this.getFoodById=this.getFoodById.bind(this);
+		this.changeTimeSlot=this.changeTimeSlot.bind(this);
+	}
+	changeTimeSlot(e){
+		var target = e.target;
+		if(target.nodeName === "DIV" ){
+			var index =	this.props.getIndex(e.target.parentNode.children,e.target);
+			this.setState({
+				currentTimeSlot:index
+			})
+		}
+		//
 	}
 	render(){
 		return (
 			<li className="fly-cook-list fly-cook-book-item">
 				<div className="fly-cook-book-item-C">
 					<article className="book-list-C">
-						<aside className='booklist-left-C'>
-							<div>早餐</div>
-							<div className='active'>中餐</div>
-							<div>晚餐</div>
+						<aside className='booklist-left-C' onTouchTap={this.changeTimeSlot}>
+							<div className={this.state.currentTimeSlot===0?'active':''}>早餐</div>
+							<div className={this.state.currentTimeSlot===1?'active':''}>中餐</div>
+							<div className={this.state.currentTimeSlot===2?'active':''}>晚餐</div>
 						</aside>
 						<aside className='booklist-right-C'>
 							<div className='bl-calendar'>
@@ -78,9 +95,9 @@ export default class FlyCookBookList extends React.Component{
 								</table>
 							</div>
 							<div className='bl-food-list'>
-								<div className='bl-food-scroll' ref='scroll'>
-									<ul ref='foods-C' style={{width:this.state.liWidth*this.state.addFoods.length}}>
-										{this.state.addFoods.map((item,i)=>{
+								<div className={this.state.addFoods[this.state.currentTimeSlot].length?'bl-food-scroll':'bl-food-scroll no-data'} ref='scroll'>
+									<ul ref='foods-C' style={{width:this.state.liWidth*this.state.addFoods[this.state.currentTimeSlot].length}}>
+										{this.state.addFoods[this.state.currentTimeSlot].map((item,i)=>{
 											return (
 												<li key={i} onTouchTap={this.getFoodById}>
 													<div data-index={i} style={{background:'  url('+item.imgSrc+') no-repeat center',backgroundSize:'cover'}}>
@@ -132,9 +149,11 @@ export default class FlyCookBookList extends React.Component{
 
 	}
 
-	componentWillMount(){
+	componentDidMount() {
 
-		let {obserable} = this.props;
+		let {obserable,getTimeSlot} = this.props;//getTimeSlot是从高街组件中得到的属性。
+
+		this.state.currentTimeSlot = getTimeSlot;
 
 		obserable.on('updateCalendar',()=>{
 			this.updateCalendar();
@@ -142,7 +161,7 @@ export default class FlyCookBookList extends React.Component{
 		
 		this.updateCalendar();
 
-		this.state.addFoods = addFoods;
+		this.state.addFoods[this.state.currentTimeSlot] = addFoods;
 
 		this.forceUpdate();
 
@@ -188,14 +207,14 @@ export default class FlyCookBookList extends React.Component{
 
 		obserable.trigger({
 			type:'fillFood',
-			data:addFoods[index]
+			data:this.state.addFoods[this.state.currentTimeSlot][index]
 		});
 
 		obserable.trigger({
 			type:'fillAlimentationData',
 			data:{
-				materials:addFoods[index].foodMaterial,
-				scaleData:addFoods[index].scaleData
+				materials:this.state.addFoods[this.state.currentTimeSlot][index].foodMaterial,
+				scaleData:this.state.addFoods[this.state.currentTimeSlot][index].scaleData
 			}
 		});
 
@@ -214,3 +233,6 @@ export default class FlyCookBookList extends React.Component{
 		this.scroll.scrollTo(x,0,200);
 	}
 }
+
+
+export default FlyPublicData(FlyCookBookList);

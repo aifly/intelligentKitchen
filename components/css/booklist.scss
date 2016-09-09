@@ -267,8 +267,15 @@ $maxIndex:9999;
         height: 50%;
         
         @include displayBox(horizontal);
+
         .bl-food-scroll{
-          
+          &.no-data:before{
+            content:'暂无数据';
+              color:#f00;
+              margin-left: 40%;
+              margin-top: 15%;
+              display:block;
+          }  
           width: 90%;
           height: 100%;
           overflow: hidden;

@@ -123,6 +123,12 @@
         box-shadow: 0 0 1.1rem rgba(232, 158, 121, 0.6), 0 0 2rem rgba(232, 158, 121, 0.5) inset;
         border-radius: 20px;
         margin-top: -.14rem; }
+        .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll.no-data:before {
+          content: '暂无数据';
+          color: #f00;
+          margin-left: 40%;
+          margin-top: 15%;
+          display: block; }
         .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll ul {
           margin-top: -.07rem; }
           .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll ul li {

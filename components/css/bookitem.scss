@@ -161,53 +161,6 @@ $fontColor:#a16d56;
       }
     }
 
-    
-    .book-item-detail{//
-        .detail{
-          @include br(30px);
-          width:100%;
-          background:#fff;
-          @include transition_transform(.7s );
-          @include transitionTimingFunction();
-          @include transformOrigin(center center -.49rem);
-          backface-visibility: hidden;
-          height: 100%;
-          ol{
-            @include displayBox(vertical);
-            width:98%;
-            margin:0 auto;
-            li{
-              height: .45rem;
-              width: 100%;
-              border-top:2px solid #eaeaea;
-              @include displayBox(horizontal);
-              div{
-                width:33%;
-                border-right:2px solid #eaeaea;//
-                height: 100%;
-                @include pos(r);
-                &:last-of-type{
-                  border:none;
-               }
-               span{
-                  @include pos(a);
-                  top: .2rem;
-               }
-                span:nth-of-type(1){
-                  font-size:.12rem;
-                  left: .04rem;
-                }
-                span:nth-of-type(2){
-                  font-size:.09rem;
-                    right: .04rem;
-                    top: .23rem;
-                }
-              }
-            }
-          }
-        }
-    }
-
     .material{
       @include pos(a);
       left: 1%;
@@ -215,9 +168,7 @@ $fontColor:#a16d56;
       top: 0;
       background:#fff;
       height: 100%;
-      @include transformOrigin(center center -.49rem);
-      @include transform(rotateX(90deg));
-      opacity:0;
+      
       @include transitionTimingFunction();
       -webkit-transition: opaicty .5s .1s,-webkit-transform .5s;
       backface-visibility: hidden;
@@ -265,13 +216,13 @@ $fontColor:#a16d56;
         clear: left;
         text-align: center;
         @include pos(a);
-        bottom: .06rem;
+        bottom: .02rem;
         span{
           color:$baseColor;
           font-size:.08rem;
-          border:1px solid $baseColor;
-          @include br(30px);
-          padding:5px 10px;
+          border:3px solid $baseColor;
+          @include br(25px);
+          padding:5px 20px;
           display: inline-block;
         }
       }

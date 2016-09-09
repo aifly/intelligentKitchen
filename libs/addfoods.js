@@ -6,11 +6,6 @@ let addFoods = [
 		detailSrc:'./assets/images/food1.png',
 		pageView:333,
 		discuss:124,//讨论
-		craft:'烤',
-		personCount:3,
-		taste:'甜',
-		difficult:'难',
-		time:'60mins',
 		foodMaterial:[
 			{name:'小番茄',weight:'30g'},
 			{name:'鸡蛋',weight:'40g'},
@@ -79,11 +74,6 @@ let addFoods = [
 		detailSrc:'./assets/images/food1.png',
 		pageView:133,
 		discuss:224,//讨论
-		craft:'烤',
-		personCount:3,
-		taste:'甜',
-		difficult:'稍难',
-		time:'60mins',
 		foodMaterial:[
 			{name:'小番茄',weight:'60g'},
 			{name:'鸡蛋',weight:'50g'},
@@ -147,11 +137,6 @@ let addFoods = [
 		detailSrc:'./assets/images/food1.png',
 		pageView:283,
 		discuss:124,//讨论
-		craft:'烤',
-		personCount:3,
-		taste:'甜',
-		difficult:'稍难',
-		time:'60mins',
 		foodMaterial:[
 			{name:'小番茄',weight:'60g'},
 			{name:'鸡蛋',weight:'50g'},
@@ -215,11 +200,6 @@ let addFoods = [
 		detailSrc:'./assets/images/food1.png',
 		pageView:633,
 		discuss:124,//讨论
-		craft:'烤',
-		personCount:3,
-		taste:'甜',
-		difficult:'稍难',
-		time:'60mins',
 		foodMaterial:[
 			{name:'小番茄',weight:'60g'},
 			{name:'鸡蛋',weight:'50g'},
@@ -284,11 +264,6 @@ let addFoods = [
 		detailSrc:'./assets/images/food1.png',
 		pageView:126,
 		discuss:124,//讨论
-		craft:'烤',
-		personCount:3,
-		taste:'甜',
-		difficult:'稍难',
-		time:'60mins',
 		foodMaterial:[
 			{name:'小番茄',weight:'60g'},
 			{name:'鸡蛋',weight:'50g'},
@@ -353,11 +328,6 @@ let addFoods = [
 		detailSrc:'./assets/images/food1.png',
 		pageView:852,
 		discuss:124,//讨论
-		craft:'烤',
-		personCount:3,
-		taste:'甜',
-		difficult:'稍难',
-		time:'60mins',
 		foodMaterial:[
 			{name:'小番茄',weight:'60g'},
 			{name:'鸡蛋',weight:'50g'},
@@ -422,11 +392,6 @@ let addFoods = [
 		detailSrc:'./assets/images/food1.png',
 		pageView:133,
 		discuss:124,//讨论
-		craft:'烤',
-		personCount:3,
-		taste:'甜',
-		difficult:'稍难',
-		time:'60mins',
 		foodMaterial:[
 			{name:'小番茄',weight:'60g'},
 			{name:'鸡蛋',weight:'50g'},

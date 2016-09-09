@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .foodlist {
   margin: .13rem auto; }
 
@@ -9,6 +10,70 @@
   float: left;
   border-radius: 20px;
   box-shadow: 0 0 1.1rem rgba(232, 158, 121, 0.6), 0 0 0.1rem rgba(232, 158, 121, 0.2) inset; }
+  .foodlist-C section {
+    display: -webkit-box;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    -webkit-box-orient: horizontal; }
+    .foodlist-C section ol {
+      width: 35%;
+      position: relative;
+      height: 100%; }
+      .foodlist-C section ol li {
+        margin: 0 auto;
+        text-align: center;
+        height: 0.3rem;
+        width: 0.3rem;
+        border-radius: 50%;
+        line-height: 0.3rem; }
+        .foodlist-C section ol li.active {
+          border: 3px solid #e89e79; }
+      .foodlist-C section ol:after {
+        content: '';
+        width: 2px;
+        height: 160%;
+        top: -30%;
+        background: -webkit-gradient(linear, left top, left bottom, from(rgba(204, 204, 204, 0.2)), color-stop(0.5, #cccccc), to(rgba(204, 204, 204, 0.2)));
+        background: -ms-linear-gradient(top, rgba(204, 204, 204, 0.2), #cccccc 50%, rgba(204, 204, 204, 0.2));
+        position: absolute;
+        right: 10px; }
+  .foodlist-C .foodlist-content {
+    overflow: hidden;
+    height: 1.6rem;
+    width: 65%; }
+    .foodlist-C .foodlist-content.no-data:before {
+      content: '暂无数据';
+      color: #f00;
+      margin-top: 50%;
+      margin-left: 20%;
+      display: block; }
+    .foodlist-C .foodlist-content li {
+      width: .675rem;
+      float: left;
+      height: 0.8rem;
+      overflow: hidden;
+      box-sizing: border-box;
+      padding: 10px; }
+      .foodlist-C .foodlist-content li div {
+        width: 100%;
+        border-radius: 20px;
+        height: 100%;
+        position: relative;
+        overflow: hidden; }
+      .foodlist-C .foodlist-content li span {
+        font-size: .08rem;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        display: block;
+        width: 100%;
+        color: #cfbbba;
+        text-align: center;
+        height: .15rem;
+        line-height: .15rem;
+        background: white; }
+      .foodlist-C .foodlist-content li.food-top {
+        margin-top: 0.01rem; }
 
 .foodlist-next {
   float: left;
@@ -18,36 +83,5 @@
   padding: 0 20px;
   -webkit-transform: scaleY(2.4);
   transform: scaleY(2.4); }
-
-.foodlist-content {
-  float: left;
-  height: 100%; }
-  .foodlist-content li {
-    width: .675rem;
-    float: left;
-    height: 0.8rem;
-    overflow: hidden;
-    box-sizing: border-box;
-    padding: 10px; }
-    .foodlist-content li div {
-      width: 100%;
-      border-radius: 20px;
-      height: 100%;
-      position: relative;
-      overflow: hidden; }
-    .foodlist-content li span {
-      font-size: .06rem;
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      display: block;
-      width: 100%;
-      color: #fff;
-      text-align: center;
-      height: 40px;
-      line-height: 40px;
-      background: rgba(0, 0, 0, 0.5); }
-    .foodlist-content li.food-top {
-      margin-top: 0.01rem; }
 
 /*# sourceMappingURL=foodlist.css.map */

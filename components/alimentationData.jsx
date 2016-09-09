@@ -264,47 +264,48 @@ import { PublicShadow } from './public-shadow.jsx';
 			//this.drawSector(true,'',this.drawCorner());
 			
 			//this.showCurrentFoodData(this.drawCorner(true));
-			this.stage.update();
+			
 
+			let {obserable} = this.props;
 
+			obserable.on('fillAlimentationData',(data)=>{
+				this.state.alimentatonData.materials = data.materials;
+				this.state.alimentatonData.currentFoodData = [];
+				this.state.alimentatonData.scaleData = data.scaleData;
+
+				this.forceUpdate();
+
+				setTimeout(()=>{
+					this.setState({
+						liWidth :this.refs['fly-m-scroll'].children[0].offsetWidth+50
+					});
+
+					if(this.scroll ===undefined){
+						this.scroll = new IScroll(this.refs['fly-m-name'],{
+							scrollX:true,
+							scrollY:false,
+						});
+					}
+					else{
+						this.scroll.refresh();
+					}
+				},10);
+				this.stage.removeAllChildren();
+				this.drawSector(true,'',this.drawCorner());
+			});
 			createjs.Ticker.timingMode = createjs.Ticker.RAF;
 
 			createjs.Ticker.on("tick", ()=>{
 				this.ball &&  this.ballCircularMotion(this.ball);
+				this.ball && (obserable.trigger({type:'prepareFood'}))
 				this.stage.update();
 			});
 
 		},1);
 
 
-		let {obserable} = this.props;
-
-		obserable.on('fillAlimentationData',(data)=>{
-			this.state.alimentatonData.materials = data.materials;
-			this.state.alimentatonData.currentFoodData = [];
-			this.state.alimentatonData.scaleData = data.scaleData;
-
-			this.forceUpdate();
-
-			setTimeout(()=>{
-				this.setState({
-					liWidth :this.refs['fly-m-scroll'].children[0].offsetWidth+50
-				});
-
-				if(this.scroll ===undefined){
-					this.scroll = new IScroll(this.refs['fly-m-name'],{
-						scrollX:true,
-						scrollY:false,
-					});
-				}
-				else{
-					this.scroll.refresh();
-				}
-			},10);
-			this.stage.removeAllChildren();
-			this.drawSector(true,'',this.drawCorner());
-			
-		});
+		
+		
 		
 	}
  
@@ -314,9 +315,19 @@ import { PublicShadow } from './public-shadow.jsx';
 	}
 
 	bindEvent(obj=this.shapeArr,textArr){
+
+
 		let last = -1;
 		let iNow = 0;
 		obj.forEach(container=>{
+
+			createjs.Tween.get(container,{loop:false}).wait(Math.random()*200|0+200).to({
+					scaleX:1,
+					scaleY:1,
+					alpha:1
+			},Math.random()*1000|0+500, createjs.Ease.easeIn);
+
+
 			container.on('mousedown',e=>{
 				let index = e.currentTarget.name*1;
 
@@ -425,13 +436,6 @@ import { PublicShadow } from './public-shadow.jsx';
 			shapeContainer.y = height/2;
 			shapeContainer.rotation = -90;
 
-			this.shapeArr.forEach((shape,i)=>{
-				createjs.Tween.get(shape,{loop:false}).wait(i*300).to({
-					scaleX:1,
-					scaleY:1,
-					alpha:1
-				},300+i*100, createjs.Ease.easeIn);
-			});
 			
 			this.bindEvent(this.shapeArr,textArr);
 			
@@ -481,6 +485,9 @@ import { PublicShadow } from './public-shadow.jsx';
 				containerData[index].regX = width/2;
 				containerData[index].regY = height/2;
 
+				containerData[index].scaleX = containerData[index].scaleY = containerData[index].alpha= 0;
+
+
 				containerData[index].rotation = -90;
 
 			  	isEven && this.allDataContainer.addChild(containerData[index]);
@@ -525,6 +532,8 @@ import { PublicShadow } from './public-shadow.jsx';
 			}
 
 			this.bindEvent(containerData,this.textArr);
+
+			
 			 
 
 		}

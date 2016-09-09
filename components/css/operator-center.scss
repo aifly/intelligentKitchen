@@ -150,8 +150,8 @@ $maxIndex:9999;
     padding-bottom: 20px;
 		div.fly-img-C{
 
-			@include transition_transform(.3s);
-			@include transitionTimingFunction();
+			//@include transition_transform(.3s);
+			//@include transitionTimingFunction();
 		}
 		img.board{
 			@include pos(a);
