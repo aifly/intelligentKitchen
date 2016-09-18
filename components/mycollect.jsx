@@ -7,7 +7,7 @@ export default class FlyMyCollect extends Component {
 	render() {
 		
 		return (
-			<div className={'fly-collect-C ' + this.props.className}>
+			<div className={'fly-collect-C add-collect ' + this.props.className} onTouchTap={this.props.changeMyCollectTop}>
 				<FlyFoodList isShowTimeline={false} type='my-collect'  obserable={this.props.obserable}></FlyFoodList>
 			</div>
 		);

@@ -122,16 +122,29 @@ $maxIndex:9999;
 }
 
 
+@-webkit-keyframes move{
+  50%{
+    @include transform(translate3d(-100%,0,0));
+  }
+  100%{
+    @include transform(translate3d(0,0,0)); 
+  }
+}
+.startMove{
+  @include animation(move .3s ease);
+}
+
 .book-list-C{
   box-shadow:0 0 1.1rem rgba(232,158,121,.6);
 	width:88%;
   &.active{
       z-index: 2;
-      left:-.34rem;
+      left:-.2rem;
   }
+  z-index: 1;
 	height:1.9rem;
 	margin:5% auto;
-	left:-.12rem;
+	left:-.02rem;
   background: #FFF;
 	@include br(30px);
 	@include pos(r);

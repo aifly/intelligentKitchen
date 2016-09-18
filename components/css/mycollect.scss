@@ -124,10 +124,10 @@ $maxIndex:9999;
 
 .fly-collect-C{
   &.active{
-    z-index: 0;
-    left: .32rem;
+    z-index: 3;
+    left: .02rem;
   }
-  left: .1rem;
+  left: .22rem;
   width: 88%;
   height: 1.9rem;
   @include pos(a);

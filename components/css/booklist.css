@@ -1,10 +1,22 @@
 @charset "UTF-8";
+@-webkit-keyframes move {
+  50% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0); }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); } }
+.startMove {
+  -webkit-animation: move 0.3s ease;
+  animation: move 0.3s ease; }
+
 .book-list-C {
   box-shadow: 0 0 1.1rem rgba(232, 158, 121, 0.6);
   width: 88%;
+  z-index: 1;
   height: 1.9rem;
   margin: 5% auto;
-  left: -.12rem;
+  left: -.02rem;
   background: #FFF;
   border-radius: 30px;
   position: relative;
@@ -15,7 +27,7 @@
   -webkit-box-orient: horizontal; }
   .book-list-C.active {
     z-index: 2;
-    left: -.34rem; }
+    left: -.2rem; }
   .book-list-C:before {
     content: '已加入菜谱';
     background: inherit;

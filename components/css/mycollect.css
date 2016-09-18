@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*我的收藏组件*/
 .fly-collect-C {
-  left: .1rem;
+  left: .22rem;
   width: 88%;
   height: 1.9rem;
   position: absolute;
@@ -11,8 +11,8 @@
   border-radius: 30px;
   background: #fff; }
   .fly-collect-C.active {
-    z-index: 0;
-    left: .32rem; }
+    z-index: 3;
+    left: .02rem; }
   .fly-collect-C:after {
     content: '我的收藏';
     position: absolute;

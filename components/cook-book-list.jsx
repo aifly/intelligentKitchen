@@ -5,6 +5,7 @@ import './css/booklist.css';
 import IScroll from 'iscroll';
 import {FlyPublicData} from './public-data.jsx';
 import FlyMyCollect from './mycollect.jsx';
+import $ from 'jquery';
 
 if (!Array.from) {
     Array.from = (c)=> {
@@ -28,12 +29,31 @@ if (!Array.from) {
 				[],//中餐
 				[]　//晚餐
 			],//已添加的菜谱
-			currentPannel:1
+			currentPannel:0
 		}
-		this.next=this.next.bind(this);
-		this.getFoodById=this.getFoodById.bind(this);
-		this.changeTimeSlot=this.changeTimeSlot.bind(this);
+		this.next = this.next.bind(this);
+		this.getFoodById = this.getFoodById.bind(this);
+		this.changeTimeSlot = this.changeTimeSlot.bind(this);
+		this.change = this.change.bind(this);
+		this.changeMyCollectTop = this.changeMyCollectTop.bind(this);
 	}
+	change(e){//切换
+
+		if( !this.state.currentPannel && e.target.classList.contains('book-list-C')){
+			this.setState({
+				currentPannel:1
+			})
+		}
+	}
+
+	changeMyCollectTop(e){
+		if(this.state.currentPannel && e.target.classList.contains('fly-collect-C')){
+			this.setState({
+				currentPannel:0
+			})	
+		}
+	}
+
 	changeTimeSlot(e){
 		var target = e.target;
 		if(target.nodeName === "DIV" ){
@@ -46,10 +66,10 @@ if (!Array.from) {
 	}
 	render(){
 		return (
-			<li className="fly-cook-list fly-cook-book-item">
+			<li className="fly-cook-list fly-cook-book-item" ref='fly-cook-list'>
 				<div style={{position:'relative'}}>
 					<div className="fly-cook-book-item-C">
-					<article className={"book-list-C " }>
+					<article className={"book-list-C add-collect "+(this.state.currentPannel?'active':'') } onTouchTap={this.change}>
 						<aside className='booklist-left-C' onTouchTap={this.changeTimeSlot}>
 							<div className={this.state.currentTimeSlot===0?'active':''}>早餐</div>
 							<div className={this.state.currentTimeSlot===1?'active':''}>中餐</div>
@@ -116,7 +136,7 @@ if (!Array.from) {
 						</aside>
 					</article>
 				</div>
-				<FlyMyCollect obserable={this.props.obserable} className={this.state.currentPannel?'':'active'}></FlyMyCollect>
+				<FlyMyCollect changeMyCollectTop={this.changeMyCollectTop} obserable={this.props.obserable} className={this.state.currentPannel?'':'active'}></FlyMyCollect>
 				</div>
 			</li>
 		)
@@ -181,6 +201,67 @@ if (!Array.from) {
 				scrollY:false,
 			});
 		},1);
+
+
+		$(this.refs['fly-cook-list']).on('touchstart',e=>{
+			
+			let $target=$(e.target);
+			if($target.hasClass('bl-food-scroll') || $target.parents('.bl-food-scroll').length || $target.hasClass('foodlist-content') || $target.parents('.foodlist-content').length){
+				return;
+			}
+
+			var target = $(e.target).hasClass('add-collect')?$(e.target):$(e.target).parents('.add-collect');
+			
+
+
+			var e = e.originalEvent ? e.originalEvent.changedTouches[0]:e.changedTarget[0];
+			var disX = e.pageX;// - $target.offset().left;
+
+			target.css({
+				WebkitTransition:'none',
+			});
+
+			$(document).on('touchmove',e=>{
+
+				e.preventDefault();
+				
+				var e = e.originalEvent ? e.originalEvent.changedTouches[0]:e.changedTarget[0];
+				var x = e.pageX - disX;
+
+				x > 0 && ( x = 0 );
+				target.css({
+					WebkitTransform:'translate3d(' + x + 'px,0,0)'
+				});
+
+				return 0;
+			}).on('touchend',e=>{
+				
+				var e = e.originalEvent ? e.originalEvent.changedTouches[0]:e.changedTarget[0];
+				var x = e.pageX - disX;
+				$(document).off('touchend touchmove');
+				if(x>= 0){
+					return;
+				}
+
+				if(-x>=100){//
+					this.setState({
+						currentPannel:!this.state.currentPannel
+					});										
+				}
+
+				target.addClass('startMove').on('webkitAnimationEnd',()=>{
+					target.css({
+						WebkitTransform:'translate3d(0,0,0)'
+					});
+				});
+				
+
+				
+				
+			});
+
+		});
+
 
 	}
 
