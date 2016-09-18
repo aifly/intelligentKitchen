@@ -44,11 +44,11 @@ import addFoods from '../libs/addfoods.js';//
 
 				<div ref='foodlist-C' className='foodlist-C'>
 					<section>
-						<ol onTouchTap={this.changeTimeSlot}>
+						{this.props.isShowTimeline && <ol onTouchTap={this.changeTimeSlot}>
 							<li className={this.state.currentTimeSlot===0?'active':''}>早餐</li>
 							<li className={this.state.currentTimeSlot===1?'active':''}>中餐</li>
 							<li className={this.state.currentTimeSlot===2?'active':''}>晚餐</li>
-						</ol>
+						</ol>}
 						<div className={this.state.dataSource[this.state.currentTimeSlot].length?'foodlist-content':'foodlist-content no-data'} ref='foodlist-content'>
 							<ul style={{width:this.state.ulWidth}} onTouchTap={this.getFoodById}>
 								{this.state.dataSource[this.state.currentTimeSlot].map((data,i)=>{
@@ -84,6 +84,9 @@ import addFoods from '../libs/addfoods.js';//
 				this.state.dataSource[this.state.currentTimeSlot]= addFoods;
 			break;
 			case 'rec-menu':
+				this.state.dataSource[this.state.currentTimeSlot]= addFoods;
+			break;
+			case 'my-collect': // 我的收藏。
 				this.state.dataSource[this.state.currentTimeSlot]= addFoods;
 			break;
 		}
@@ -152,6 +155,10 @@ import addFoods from '../libs/addfoods.js';//
 		});
 
 	}
+}
+
+FlyFoodList.defaultProps = {
+	isShowTimeline:true
 }
 
 

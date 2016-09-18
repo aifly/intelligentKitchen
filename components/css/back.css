@@ -1,0 +1,45 @@
+html, body, div, p, ul, li, ol, dl, dt, dd, header, footer, video, h1, h2, h3, h4, canvas, section, figure {
+  padding: 0;
+  margin: 0; }
+
+a {
+  text-decoration: none; }
+
+li {
+  list-style: none; }
+
+html, body {
+  height: 100%; }
+
+img {
+  border: none;
+  vertical-align: top;
+  width: 100%;
+  height: auto; }
+
+.fly-back span {
+  margin-left: .1rem;
+  text-align: left;
+  width: .2rem;
+  height: 4px;
+  margin-top: 20px;
+  background: #d1bdbd;
+  border-radius: 4px;
+  position: relative; }
+  .fly-back span:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: .05rem;
+    width: 2px;
+    background: inherit;
+    top: -.05rem;
+    border-radius: 4px;
+    border: 1px solid #d1bdbd;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-transform-origin: bottom;
+    transform-origin: bottom; }
+
+/*# sourceMappingURL=back.css.map */

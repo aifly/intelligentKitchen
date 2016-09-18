@@ -4,7 +4,7 @@ import addFoods from '../libs/addFoods.js'; //测试数据
 import './css/booklist.css';
 import IScroll from 'iscroll';
 import {FlyPublicData} from './public-data.jsx';
-
+import FlyMyCollect from './mycollect.jsx';
 
 if (!Array.from) {
     Array.from = (c)=> {
@@ -14,6 +14,7 @@ if (!Array.from) {
 
 
 //已加入菜谱组件。
+
  class FlyCookBookList extends React.Component{
 	constructor(option){
 		super(option);
@@ -27,6 +28,7 @@ if (!Array.from) {
 				[],//中餐
 				[]　//晚餐
 			],//已添加的菜谱
+			currentPannel:1
 		}
 		this.next=this.next.bind(this);
 		this.getFoodById=this.getFoodById.bind(this);
@@ -45,8 +47,9 @@ if (!Array.from) {
 	render(){
 		return (
 			<li className="fly-cook-list fly-cook-book-item">
-				<div className="fly-cook-book-item-C">
-					<article className="book-list-C">
+				<div style={{position:'relative'}}>
+					<div className="fly-cook-book-item-C">
+					<article className={"book-list-C " }>
 						<aside className='booklist-left-C' onTouchTap={this.changeTimeSlot}>
 							<div className={this.state.currentTimeSlot===0?'active':''}>早餐</div>
 							<div className={this.state.currentTimeSlot===1?'active':''}>中餐</div>
@@ -112,6 +115,8 @@ if (!Array.from) {
 							</div>
 						</aside>
 					</article>
+				</div>
+				<FlyMyCollect obserable={this.props.obserable} className={this.state.currentPannel?'':'active'}></FlyMyCollect>
 				</div>
 			</li>
 		)

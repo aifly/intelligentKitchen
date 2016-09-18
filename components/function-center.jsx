@@ -3,13 +3,13 @@ import React from 'react';
 import Time from '../libs/canvas.js';
 import Temperature from '../libs/temperature.js';
 import $ from 'jquery';
-import '../libs/jquery.tap.js';
 import Sortable from '../libs/Sortable.js';
 import cityData from '../libs/city.js';
+import '../libs/jquery.tap';
 import IScroll from 'iscroll';
 import FlyFoodList from './foodlist.jsx';
-import addFoods from '../libs/addfoods.js';//
-
+import hotCity from '../libs/hotcity';
+import FlyBack  from './back.jsx';
 
 import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Calendar.js';
 
@@ -19,65 +19,246 @@ export default class FlyFunctionCenter extends React.Component{
 		super(option);
 		this.closeDrag=this.closeDrag.bind(this);
 		this.state ={
-			cityData : [],
+			activeCityData : [
+				{"cn_name": "北京","pinyin": "BEIJING"},
+			],
 			weatherData:[
 				
 			],
 			currentData:'',
 			
 		}
+		this.getCityBySpell = this.getCityBySpell.bind(this);
+		this.back = this.back.bind(this);
+		this.showCityList = this.showCityList.bind(this);
+		this.activeCity = this.activeCity.bind(this);
+	}
+
+	index(elems, parent, selector) {
+        var parent = parent || elems.parentNode,
+            cindex = -1,
+            selector = selector || "*";
+        Array.from(parent.querySelectorAll(selector)).forEach(function (item, i) {
+            "use strict";
+            if (item === elems) {
+                cindex = i;
+            }
+        });
+        return cindex;
+    }
+
+
+	getCityBySpell(spell){
+		let citys = [];
+		hotCity.forEach((city,i)=>{
+			if(city.pinyin.charAt(0) === spell){
+				let c =  {
+					className:'',
+					cn_name:city.cn_name,
+					pinyin:city.pinyin
+				}
+				this.state.activeCityData.forEach((item,k)=>{
+					if(item.pinyin === city.pinyin && item.cn_name === city.cn_name){
+						c.className = 'active';
+					}
+				});
+				citys.push(c);
+			}
+		}); 
+
+		return	citys.map((city,i)=>{
+			return <li data-spell={city.pinyin} className={'fly-city-item '+city.className} key={i}>{city.cn_name}</li>
+		});
+
+
+	}
+
+	activeCity(e){//选中or取消选中城市
+		let target = e.target,
+			classList = target.classList;
+		if(classList.contains('fly-city-item')){
+			if(classList.contains('active')){//已经选中了，去掉选中
+				//let index =this.index(e.target,null,'.fly-city-item');
+				this.state.activeCityData.forEach(( item , i )=>{
+					if(target.innerHTML === item.cn_name && target.getAttribute('data-spell') === item.pinyin){
+						this.state.activeCityData.splice(i,1);
+					}
+				});
+			}
+			else{
+				this.state.activeCityData.push({
+					pinyin:target.getAttribute('data-spell'),
+					className:'active',
+					cn_name:target.innerHTML
+				})
+			}
+			this.renderScroll();
+			this.forceUpdate();
+		}
+
+	}
+
+	back(){
+		this.refs['fly-hotcity-list'].classList.remove('active');
+	}
+
+	showCityList(){
+		this.refs['fly-hotcity-list'].classList.add('active');
 	}
 	
 	render(){
 
-		
+		let hotCityData = hotCity.map((item,i)=>{
+			return <li key={i}>{item.cn_name}</li>
+		})
 
 		return (
 			<li className="fly-food fly-cook-book-item">
 				<div className="fly-cook-book-item-C" ref='fly-cook-book-item-C'> 
 					<div className="fly-weather  fly-food-item fly-top3" ref='weather'>
-						<ol className="fly-weather-C">
-							{this.state.weatherData.map((item,i)=>{
-								return (
-									<li key={i}>
-										<img src={item.src} />
-										<span>{item.date}</span>
-									</li>
-								)	
-							})}
-						</ol>
-						<div className="fly-time-C">
-							<div className="fly-time">
-								<canvas ref='fly-timer-canvas' width="100%" ></canvas>
-								<canvas ref='fly-temperature-canvas' width="100%"></canvas>
-							</div>
-							<div className="fly-date">
-								<h1>{this.state.currentData}</h1>
-								<h1>夏至食物推荐</h1>
-								<div className="fly-rec-food-container">
-									<ul>
-										<li>夏至饼</li>
-										<li>夏至羹</li>
-										<li>豌豆糕</li>
-										<li>夏至蛋</li>
-									</ul>
+						<article style={{position:'absolute',left:0,top:0,width:'100%',height:'100%',overflow:'hidden'}}>
+							<section>
+							<ol className="fly-weather-C">
+								{this.state.weatherData.map((item,i)=>{
+									return (
+										<li key={i}>
+											<img src={item.src} />
+											<span>{item.date}</span>
+										</li>
+									)	
+								})}
+							</ol>
+							<div className="fly-time-C">
+								<div className="fly-time">
+									<canvas ref='fly-timer-canvas' width="100%" ></canvas>
+									<canvas ref='fly-temperature-canvas' width="100%"></canvas>
+								</div>
+								<div className="fly-date">
+									<h1>{this.state.currentData}</h1>
+									<h1>夏至食物推荐</h1>
+									<div className="fly-rec-food-container">
+										<ul>
+											<li>夏至饼</li>
+											<li>夏至羹</li>
+											<li>豌豆糕</li>
+											<li>夏至蛋</li>
+										</ul>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div className="fly-city-C">
-							<div className="fly-city-scroll-C" ref="fly-city-scroll-C">
-							<ul>
-								{this.state.cityData}
-							</ul>
-						</div>
-						<div className="fly-add">+</div>
-						</div>
+							<div className="fly-city-C">
+								<div className="fly-city-scroll-C" ref="fly-city-scroll-C">
+									<ul>
+										{this.state.activeCityData.map((item,i)=>{
+
+											return <li key={i}>{item.cn_name}</li>
+										})}
+									</ul>
+								</div>
+								<div className="fly-add" onTouchTap={this.showCityList}>+</div>
+							</div>
+						</section>	
+						<section className='fly-hotcity-list' ref='fly-hotcity-list'>
+							<h1 className='fly-hotcity-title'>
+								<FlyBack callBack={this.back}></FlyBack>
+								<span>热门城市</span>
+								<span onTouchTap={this.back}>确定</span>
+							</h1>
+							<div className='fly-hotcity-C'>
+								<div className='fly-hotcity-scroll' ref='fly-hotcity-scroll'>
+									<ul onTouchTap={this.activeCity}>
+										<li className="fly-first-spell">A</li>
+										{this.getCityBySpell("A")}
+										<li className="fly-first-spell">B</li>
+										 {this.getCityBySpell("B")}
+										<li className="fly-first-spell">C</li>
+									 	{this.getCityBySpell("C")}
+										<li className="fly-first-spell">D</li>
+										{this.getCityBySpell("D")} 
+										<li className="fly-first-spell">E</li>
+										 {this.getCityBySpell("E")}
+										<li className="fly-first-spell">F</li>
+										 {this.getCityBySpell("F")}
+										<li className="fly-first-spell">G</li>
+										 {this.getCityBySpell("G")}
+										<li className="fly-first-spell">H</li>
+									 	{this.getCityBySpell("H")}
+										<li className="fly-first-spell">I</li>
+										{this.getCityBySpell("I")} 
+										<li className="fly-first-spell">J</li>
+										 {this.getCityBySpell("J")}
+										<li className="fly-first-spell">K</li>
+										 {this.getCityBySpell("K")}
+										<li className="fly-first-spell">L</li>
+										 {this.getCityBySpell("L")}
+										<li className="fly-first-spell">M</li>
+										 {this.getCityBySpell("M")}
+										<li className="fly-first-spell">N</li>
+										 {this.getCityBySpell("N")}
+										<li className="fly-first-spell">O</li>
+										 {this.getCityBySpell("O")}
+										<li className="fly-first-spell">P</li>
+										{this.getCityBySpell("P")}										 
+										<li className="fly-first-spell">Q</li>
+										 {this.getCityBySpell("Q")}
+										<li className="fly-first-spell">R</li>
+										 {this.getCityBySpell("R")}
+										<li className="fly-first-spell">S</li>
+										 {this.getCityBySpell("S")}
+										<li className="fly-first-spell">T</li>
+										 {this.getCityBySpell("T")}
+										<li className="fly-first-spell">U</li>
+										 {this.getCityBySpell("U")}
+										<li className="fly-first-spell">V</li>
+										 {this.getCityBySpell("V")}
+										<li className="fly-first-spell">W</li>
+										 {this.getCityBySpell("W")}
+										<li className="fly-first-spell">X</li>
+										 {this.getCityBySpell("X")}
+										<li className="fly-first-spell">Y</li>
+										 {this.getCityBySpell("Y")}
+										<li className="fly-first-spell">Z</li>
+										 {this.getCityBySpell("Z")}
+									</ul>
+								</div>
+								<ul className='fly-hotcity-spell'>
+									<li>A</li>
+									<li>B</li>
+									<li>C</li>
+									<li>D</li>
+									<li>E</li>
+									<li>F</li>
+									<li>G</li>
+									<li>H</li>
+									<li>I</li>
+									<li>J</li>
+									<li>K</li>
+									<li>L</li>
+									<li>M</li>
+									<li>N</li>
+									<li>O</li>
+									<li>P</li>
+									<li>Q</li>
+									<li>R</li>
+									<li>S</li>
+									<li>T</li>
+									<li>U</li>
+									<li>V</li>
+									<li>W</li>
+									<li>X</li>
+									<li>Y</li>
+									<li>Z</li>
+								</ul>
+							</div>
+
+						</section>	
+						</article>
 					</div>
 					<div className="fly-rec-food fly-food-item fly-top2" ref='rec-food'>
 						<FlyFoodList type='rec-food' obserable={this.props.obserable}></FlyFoodList>
 					</div>
 					<div className="fly-rec-menu fly-food-item fly-top1" ref='rec-menu'>
-						<FlyFoodList type='rec-menu'></FlyFoodList>
+						<FlyFoodList type='rec-menu' obserable={this.props.obserable}></FlyFoodList>
 					</div>	
 				</div>
 
@@ -92,13 +273,9 @@ export default class FlyFunctionCenter extends React.Component{
 
 		this.init();
 
-		this.state.cityData = cityData.map((item,i)=>{
+		/*this.state.cityData = cityData.map((item,i)=>{
 			return <li key={i}>{item.city}</li>
-		});
-
-
-
-
+		});*/
 
 		let weatherIcos=[
 			'./assets/images/sun.png',
@@ -123,16 +300,26 @@ export default class FlyFunctionCenter extends React.Component{
 		let scrollUl = this.refs['fly-city-scroll-C'];
 
 		setTimeout(()=>{
-			let width =scrollUl.children[0].children[0].offsetWidth;
-			scrollUl.children[0].style.width = (width+2) * this.state.cityData.length +'px';
-			new IScroll(scrollUl,{
+			
+			this.renderScroll();
+			this.activeCityScroll = new IScroll(scrollUl,{
 				disableMouse:true,
 				invertWheelDirection:true,
 				scrollX: true,
 		 		scrollY: false
 			});
+			let cityScroll = new IScroll(this.refs['fly-hotcity-scroll']);
 		},1);
 
+	}
+
+	renderScroll(){
+
+		let scrollUl = this.refs['fly-city-scroll-C'];
+		let width =scrollUl.children[0].children[0].offsetWidth;
+			scrollUl.children[0].style.width = (width+2) * this.state.activeCityData.length +'px';
+
+		this.activeCityScroll && this.activeCityScroll.refresh();
 	}
  
 
@@ -296,12 +483,13 @@ export default class FlyFunctionCenter extends React.Component{
 
 			var target = $(e.target).hasClass('fly-food-item')?$(e.target):$(e.target).parents('.fly-food-item');
 			var isTop = target.hasClass('fly-top3');
-
+			
 			if(!isTop || $(e.target).hasClass('fly-city-scroll-C')||$(e.target).parents('.fly-city-scroll-C').length>0
 				|| $(e.target).hasClass('foodlist-content')|| $(e.target).parents('.foodlist-content').length>0
-				){
+				 || $(e.target).hasClass("fly-hotcity-list") || $(e.target).parents('.fly-hotcity-list').length){
 				return;
 			}
+
 
 
 			var $target = $('.fly-top3');

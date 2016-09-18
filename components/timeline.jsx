@@ -49,11 +49,11 @@ export default class FlyTimeLine extends Component {
 			let points = this.refs['fly-points-C'].querySelectorAll('article');
 
 			let posArr = [],
-				width =this.refs['prepare'].offsetWidth / 2;
+				width =this.refs['prepare'].offsetWidth+10;
 
 
 			for(var i =1 ,len = points.length;i<len;i++){
-				posArr.push({x:points[i].offsetLeft+width});
+				posArr.push({x:width});
 			}
 
 			this.isStop = false;

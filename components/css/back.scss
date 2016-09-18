@@ -1,4 +1,26 @@
-﻿
+html, body, div, p, ul, li, ol, dl, dt, dd, header, footer, video, h1, h2, h3, h4, canvas, section, figure {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+html, body {
+  height: 100%;
+}
+
+img {
+  border: none;
+  vertical-align: top;
+  width: 100%;
+  height: auto;
+}
 
 @mixin pos($v) {
   @if $v == a {
@@ -115,110 +137,30 @@
   flex-flow: $v;
 }
 
+.fly-back{
+    span{
+       margin-left: .1rem;
+       text-align:left;
+       width: .2rem;
+       height: 4px;
+       margin-top: 20px;
+       background:#d1bdbd;
+       @include br(4px);
+       @include pos(r);
+       &:before{
+         content:'';
+         @include pos(a);
+         left: 0;
+         top:0;
+         height: .05rem;
+         width: 2px;
+         background:inherit;
+         top:-.05rem;
+         @include br(4px);
+         border:1px solid #d1bdbd;
+         @include transform(rotate(45deg));
+         @include transformOrigin(bottom);
 
-$baseColor:#d1bdbd;
-$baseColor1:#e89e79;
-$maxIndex:9999;
-
-$foodlist-height:1.6rem;
-
-.foodlist{
-	margin:.13rem auto;
-  
-}
-.foodlist-C{
-  $width:35%;
-  section{
-    @include displayBox(horizontal);  
-    ol{
-      width: $width;
-      li{
-        margin:0 auto;
-        text-align: center;
-        $size:.3rem;
-        height: $size;
-        width: $size;
-        @include br(50%);
-        line-height: $size;
-        &.active{
-          border:3px solid $baseColor1;
-        }
-      }
-      @include pos(r);
-      height: 100%;
-      &:after{
-        content:'';
-        width: 2px;
-        height: 160%;
-        top: -30%;
-        @include fly-v-gradient-line();
-        @include pos(a);
-        right: 10px;
-      }
+       }
     }
-  }
-  .foodlist-content{
-    &.no-data:before{
-      content:'暂无数据';
-      color:#f00;
-      margin-top: 50%;
-      margin-left: 20%;
-      display:block;
-    }
-
-    overflow: hidden;
-    height:1.6rem;
-    width:100 - $width;
-    li{
-
-      width:.675rem;
-      float: left;
-      height:($foodlist-height ) / 2;
-      overflow: hidden;
-      box-sizing:border-box;
-      padding:10px;;
-      
-      div{
-
-        width:100%;
-        @include br(20px);
-        height:100%;
-        @include pos(r);
-        overflow: hidden;
-      }
-      span{
-        font-size:.08rem;
-        @include pos(a);
-        left: 0;
-        bottom:0;
-        display:block;
-        width:100%;
-        color:#cfbbba;
-        text-align: center;
-        height: .15rem;
-        line-height: .15rem;
-        background:rgba(255,255,255,1);
-      }
-      &.food-top{
-        margin-top: 0.01rem;  
-      }
-    }
-  }
-
-	width:86%;
-	margin-left: .1rem;
-	height:$foodlist-height;
-	overflow:hidden;
-	float:left;
-	@include br(20px);
-	box-shadow:0 0 1.1rem rgba(232,158,121,.6),0 0 .1rem rgba(232,158,121,.2) inset;
-}
-.foodlist-next{
-	float:left;
-	height:$foodlist-height / 4;
-	line-height: $foodlist-height / 4;
-	margin-top: .56rem;
-	padding:0 20px;
-	@include transform(scaleY(2.4));
-	//margin-top: $foodlist-height /2 ;
-}
+ }

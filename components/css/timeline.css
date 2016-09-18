@@ -14,11 +14,10 @@
     top: .15rem; }
   .fly-time-line-C .fly-progress {
     position: absolute;
-    left: 17px;
+    left: .78rem;
     top: 50%;
     z-index: 10;
     margin-top: -3px;
-    text-align: left;
     height: 13px;
     border-radius: 10px;
     background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0.3)), to(rgba(255, 255, 255, 0.9)));
@@ -43,10 +42,7 @@
     top: .12rem; }
     .fly-time-line-C .fly-points-C .prepare span {
       -webkit-filter: blur(2px);
-      position: absolute;
-      left: 20px; }
-    .fly-time-line-C .fly-points-C .prepare label {
-      left: 0; }
+      position: absolute; }
     .fly-time-line-C .fly-points-C article {
       -webkit-box-flex: 1;
       text-align: center;
@@ -60,7 +56,7 @@
         position: absolute;
         left: 45%; }
       .fly-time-line-C .fly-points-C article:first-of-type {
-        text-align: left; }
+        text-align: center; }
       .fly-time-line-C .fly-points-C article span {
         display: inline-block;
         width: .18rem;

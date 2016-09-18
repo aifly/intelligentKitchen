@@ -401,4 +401,66 @@ body {
     .fly-main-operator-C li.fly-operator-item:nth-of-type(3) {
       width: 3.4rem; }
 
+.fly-hotcity-list {
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+  opacity: 0;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);
+  transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  border-radius: 30px; }
+  .fly-hotcity-list.active {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    opacity: 1; }
+  .fly-hotcity-list .fly-hotcity-title {
+    width: 100%;
+    height: 12%;
+    display: -webkit-box;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    -webkit-box-orient: horizontal; }
+    .fly-hotcity-list .fly-hotcity-title span {
+      width: 33%;
+      display: block;
+      font-weight: normal;
+      text-align: center; }
+      .fly-hotcity-list .fly-hotcity-title span:nth-of-type(3) {
+        margin-right: 20px; }
+  .fly-hotcity-list .fly-hotcity-C {
+    width: 100%;
+    height: 88%;
+    display: -webkit-box;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    -webkit-box-orient: horizontal; }
+    .fly-hotcity-list .fly-hotcity-C .fly-hotcity-scroll {
+      width: 90%;
+      height: 98%;
+      overflow: hidden; }
+      .fly-hotcity-list .fly-hotcity-C .fly-hotcity-scroll li.fly-first-spell {
+        text-indent: .5em;
+        background: #eee9e9; }
+      .fly-hotcity-list .fly-hotcity-C .fly-hotcity-scroll li.active:after {
+        content: "√";
+        float: right;
+        margin-right: .1rem; }
+      .fly-hotcity-list .fly-hotcity-C .fly-hotcity-scroll li.fly-city-item {
+        height: .2rem;
+        line-height: .2rem;
+        text-indent: .5em;
+        border-bottom: 1px solid #ccc; }
+    .fly-hotcity-list .fly-hotcity-C .fly-hotcity-spell {
+      width: 8%; }
+      .fly-hotcity-list .fly-hotcity-C .fly-hotcity-spell li {
+        font-size: .0478rem;
+        text-align: center; }
+
 /*# sourceMappingURL=index.css.map */

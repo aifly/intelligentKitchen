@@ -476,3 +476,78 @@ $nav-height:13.3vh;
 
   }
 }
+
+
+.fly-hotcity-list{//热门城市
+
+   @include transform(translate3d(-100%,0,0));
+    opacity:0;
+    @include transition(.5s);
+    @include transitionTimingFunction();
+  &.active{
+    @include transform(translate3d(0,0,0));
+    opacity:1;
+  }
+  @include pos(a);
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background:#fff;
+  @include br(30px);
+
+  .fly-hotcity-title{
+     width:100%;
+     height: 12%;
+     @include  displayBox(horizontal);
+     span{
+       width: 33%;
+       display:block;
+       font-weight: normal;
+       text-align: center;
+       &:nth-of-type(2){
+         
+       }
+
+       &:nth-of-type(3){
+        
+        margin-right: 20px;
+       }
+     }
+  }
+  .fly-hotcity-C{
+     width: 100%;
+     height: 88%;
+     @include displayBox(horizontal);
+     .fly-hotcity-scroll{
+      width: 90%;
+      height: 98%;
+      overflow: hidden;
+
+      li.fly-first-spell{
+          text-indent: .5em;
+          background: #eee9e9;
+      }
+      li.active{
+         &:after{
+          content:"√";
+          float: right;
+          margin-right: .1rem;
+         }
+      }
+      li.fly-city-item{
+        height: .2rem;
+        line-height: .2rem;
+        text-indent: .5em;
+        border-bottom:1px solid #ccc;
+      }
+     }
+     .fly-hotcity-spell{
+        width: 8%;
+        li{
+          font-size:.0478rem;
+          text-align: center;
+        }
+     }
+  }
+}
