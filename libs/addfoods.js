@@ -61,18 +61,38 @@ let addFoods = [
   	 		}
 	  	],
 		steps:[
-			'第一步',
-			'第二步',
-			'第三步',
-			'第四步',
-			'第五步'
+      {
+        stepName:'第一步',
+        imgSrc:'./assets/images/food1.png',
+        stepContent:'西红柿切成片1'
+      },
+			{
+        stepName:'第二步',
+        imgSrc:'./assets/images/food2.png',
+        stepContent:'打好鸡蛋并且搅拌均匀1'
+      },
+      {
+        stepName:'第三步',
+        imgSrc:'./assets/images/food3.png',
+        stepContent:'鸡蛋入锅，翻炒，剩出备用1'
+      },
+      {
+        stepName:'第四步',
+        imgSrc:'./assets/images/food4.png',
+        stepContent:'西红柿入锅'
+      },
+      {
+        stepName:'第五步',
+        imgSrc:'./assets/images/food1.png',
+        stepContent:'倒入备用鸡蛋翻炒1'
+      }
 		]
 	},{
 		name:"草莓蓝莓派",
 		imgSrc:"./assets/images/f5.png",
 		id:'',
 		detailSrc:'./assets/images/food1.png',
-		pageView:133,
+		pageView:22,
 		discuss:224,//讨论
 		foodMaterial:[
 			{name:'小番茄',weight:'60g'},
@@ -124,11 +144,31 @@ let addFoods = [
   	 		}
 	  	],
 		steps:[
-			'第一步',
-			'第二步',
-			'第三步',
-			'第四步',
-			'第五步'
+			{
+        stepName:'第一步',
+        imgSrc:'./assets/images/food1.png',
+        stepContent:'西红柿切成片22'
+      },
+      {
+        stepName:'第二步',
+        imgSrc:'./assets/images/food2.png',
+        stepContent:'打好鸡蛋并且搅拌均匀22'
+      },
+      {
+        stepName:'第三步',
+        imgSrc:'./assets/images/food3.png',
+        stepContent:'鸡蛋入锅，翻炒，剩出备用22'
+      },
+      {
+        stepName:'第四步',
+        imgSrc:'./assets/images/food4.png',
+        stepContent:'西红柿入锅22'
+      },
+      {
+        stepName:'第五步',
+        imgSrc:'./assets/images/food1.png',
+        stepContent:'倒入备用鸡蛋翻炒22'
+      }
 		]
 	},{
 		name:"西冷牛排",
@@ -187,11 +227,31 @@ let addFoods = [
   	 		}
 	  	],
 		steps:[
-			'第一步',
-			'第二步',
-			'第三步',
-			'第四步',
-			'第五步'
+			{
+        stepName:'第一步',
+        imgSrc:'./assets/images/food1.png',
+        stepContent:'西红柿切成片'
+      },
+      {
+        stepName:'第二步',
+        imgSrc:'./assets/images/food2.png',
+        stepContent:'打好鸡蛋并且搅拌均匀'
+      },
+      {
+        stepName:'第三步',
+        imgSrc:'./assets/images/food3.png',
+        stepContent:'鸡蛋入锅，翻炒，剩出备用'
+      },
+      {
+        stepName:'第四步',
+        imgSrc:'./assets/images/food4.png',
+        stepContent:'西红柿入锅'
+      },
+      {
+        stepName:'第五步',
+        imgSrc:'./assets/images/food1.png',
+        stepContent:'倒入备用鸡蛋翻炒'
+      }
 		]
 	},{
 		name:"面包秀",
@@ -251,11 +311,31 @@ let addFoods = [
   	 		}
 	  	],
 		steps:[
-			'第一步',
-			'第二步',
-			'第三步',
-			'第四步',
-			'第五步'
+			{
+        stepName:'第一步',
+        imgSrc:'./assets/images/food1.png',
+        stepContent:'西红柿切成片'
+      },
+      {
+        stepName:'第二步',
+        imgSrc:'./assets/images/food2.png',
+        stepContent:'打好鸡蛋并且搅拌均匀'
+      },
+      {
+        stepName:'第三步',
+        imgSrc:'./assets/images/food3.png',
+        stepContent:'鸡蛋入锅，翻炒，剩出备用'
+      },
+      {
+        stepName:'第四步',
+        imgSrc:'./assets/images/food4.png',
+        stepContent:'西红柿入锅'
+      },
+      {
+        stepName:'第五步',
+        imgSrc:'./assets/images/food1.png',
+        stepContent:'倒入备用鸡蛋翻炒'
+      }
 		]
 	},{
 		name:"草莓蓝莓派",
@@ -315,11 +395,31 @@ let addFoods = [
   	 		}
 	  	],
 		steps:[
-			'第一步',
-			'第二步',
-			'第三步',
-			'第四步',
-			'第五步'
+			{
+        stepName:'第一步',
+        imgSrc:'./assets/images/food1.png',
+        stepContent:'西红柿切成片'
+      },
+      {
+        stepName:'第二步',
+        imgSrc:'./assets/images/food2.png',
+        stepContent:'打好鸡蛋并且搅拌均匀'
+      },
+      {
+        stepName:'第三步',
+        imgSrc:'./assets/images/food3.png',
+        stepContent:'鸡蛋入锅，翻炒，剩出备用'
+      },
+      {
+        stepName:'第四步',
+        imgSrc:'./assets/images/food4.png',
+        stepContent:'西红柿入锅'
+      },
+      {
+        stepName:'第五步',
+        imgSrc:'./assets/images/food1.png',
+        stepContent:'倒入备用鸡蛋翻炒'
+      }
 		]
 	},{
 		name:"西冷牛排",
@@ -379,11 +479,31 @@ let addFoods = [
   	 		}
 	  	],
 		steps:[
-			'第一步',
-			'第二步',
-			'第三步',
-			'第四步',
-			'第五步'
+			{
+        stepName:'第一步',
+        imgSrc:'./assets/images/food1.png',
+        stepContent:'西红柿切成片'
+      },
+      {
+        stepName:'第二步',
+        imgSrc:'./assets/images/food2.png',
+        stepContent:'打好鸡蛋并且搅拌均匀'
+      },
+      {
+        stepName:'第三步',
+        imgSrc:'./assets/images/food3.png',
+        stepContent:'鸡蛋入锅，翻炒，剩出备用'
+      },
+      {
+        stepName:'第四步',
+        imgSrc:'./assets/images/food4.png',
+        stepContent:'西红柿入锅'
+      },
+      {
+        stepName:'第五步',
+        imgSrc:'./assets/images/food1.png',
+        stepContent:'倒入备用鸡蛋翻炒'
+      }
 		]
 	},{
 		name:"面包秀",
@@ -443,11 +563,31 @@ let addFoods = [
   	 		}
 	  	],
 		steps:[
-			'第一步',
-			'第二步',
-			'第三步',
-			'第四步',
-			'第五步'
+			{
+        stepName:'第一步',
+        imgSrc:'./assets/images/food1.png',
+        stepContent:'西红柿切成片'
+      },
+      {
+        stepName:'第二步',
+        imgSrc:'./assets/images/food2.png',
+        stepContent:'打好鸡蛋并且搅拌均匀'
+      },
+      {
+        stepName:'第三步',
+        imgSrc:'./assets/images/food3.png',
+        stepContent:'鸡蛋入锅，翻炒，剩出备用'
+      },
+      {
+        stepName:'第四步',
+        imgSrc:'./assets/images/food4.png',
+        stepContent:'西红柿入锅'
+      },
+      {
+        stepName:'第五步',
+        imgSrc:'./assets/images/food1.png',
+        stepContent:'倒入备用鸡蛋翻炒'
+      }
 		]
 	}
 ];

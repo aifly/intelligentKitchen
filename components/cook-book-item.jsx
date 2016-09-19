@@ -6,24 +6,56 @@ import IScroll from 'iscroll';
 export default class FlyCookBookItem extends React.Component{
 	constructor(option){
 		super(option);
-		this.state ={
+		this.state = {
+			currentStep:-1,//当前的步骤 .-1表示未开始
 			foodData : {
 				
-			}
+			},
+			steps:[
+				{
+			        stepName:'第一步',
+			        imgSrc:'./assets/images/food1.png',
+			        stepContent:'西红柿切成片1'
+			      },
+			      /*{
+			        stepName:'第二步',
+			        imgSrc:'./assets/images/food2.png',
+			        stepContent:'打好鸡蛋并且搅拌均匀1'
+			      },
+			      {
+			        stepName:'第三步',
+			        imgSrc:'./assets/images/food3.png',
+			        stepContent:'鸡蛋入锅，翻炒，剩出备用1'
+			      },
+			      {
+			        stepName:'第四步',
+			        imgSrc:'./assets/images/food4.png',
+			        stepContent:'西红柿入锅'
+			      },
+			      {
+			        stepName:'第五步',
+			        imgSrc:'./assets/images/food1.png',
+			        stepContent:'倒入备用鸡蛋翻炒1'
+			      }*/
+			]
 		};
 		this.getDetail = this.getDetail.bind(this);
 		this.closeCook = this.closeCook.bind(this);
 	}
+
+
 	render(){
 
-		let foodData = this.state.foodData;
+		let foodData = this.state.foodData,
+			steps = this.state.steps;
 		let background = {
 			background:foodData.detailSrc?'url('+foodData.detailSrc+') no-repeat center  / cover':'none'
 		};
+
 		return (
 			<li className="fly-cook-detail fly-cook-book-item">
-				<div className="fly-cook-book-item-C book-item" style={{display:foodData.name!== undefined ?'block':'none'}}>
-					<section className='book-item-C'>
+				<div className="fly-cook-book-item-C book-item">
+					{foodData.name  && <section className='book-item-C'>
 						<ul className='book-item-ul'>
 							<li className='book-item-ul-li' onTouchTap={this.getDetail}>
 								<div className='book-item-detail-src' style={background}>
@@ -90,8 +122,21 @@ export default class FlyCookBookItem extends React.Component{
 								</div>
 							</li>	
 						</ul>
-					</section>
+					</section>}
+
+					{steps.length && this.state.currentStep>-1 && <div className='fly-cook-steps-C'>
+						<ul>
+							{steps.map((step,i)=>{
+								return <li key={i}>
+									<img src={step.imgSrc} />
+									<footer>{step.stepContent}</footer>
+								</li>
+							})}							
+						</ul>
+					</div>}
 				</div>
+
+			}
 			</li>
 		)
 	}
@@ -121,13 +166,15 @@ export default class FlyCookBookItem extends React.Component{
 		let {obserable} = this.props;
 		obserable.on('fillFood',(data)=>{
 			this.setState({
-				foodData:data
+				foodData:data,
+				//steps:data.steps
 			},()=>{
+				this.scroll = this.scroll || new IScroll(this.refs['material-scroll']);
 				this.scroll.refresh();//重新刷新滚动条。
 			});
 		});
 
 		
-		this.scroll = new IScroll(this.refs['material-scroll']);
+		
 	}
 }

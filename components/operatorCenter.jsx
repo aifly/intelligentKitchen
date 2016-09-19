@@ -4,8 +4,14 @@ import { PublicShadow } from './public-shadow.jsx';
  class FlyOperatorCenter extends Component {
 	constructor(option){
 		super(option);
+
+		this.state = {
+			showBoard:false,
+			showWeight:true
+		}
 		this.getWeight = this.getWeight.bind(this);
 		this.getBoard = this.getBoard.bind(this);
+
 		
 	}
 	
@@ -26,10 +32,12 @@ import { PublicShadow } from './public-shadow.jsx';
 				</div>
 				<div className='fly-operator-C' >
 					<div className='operator-C'  ref='fly-operator-C'>
-						<div className='fly-img-C'>
-							<img src='./assets/images/weight.png'/>
+						{this.state.showBoard && <div className='fly-img-board'>
 							<img src='./assets/images/board.png' className='board'/>	
-						</div>
+						</div>}
+						{this.state.showWeight && <div className='fly-img-weight'>
+							<img src='./assets/images/weight.png'/>
+						</div>}
 					</div>
 				</div>
 			</li>
@@ -41,12 +49,19 @@ import { PublicShadow } from './public-shadow.jsx';
 	}
 
 	getWeight(){
-		this.refs['fly-operator-C'].classList.remove('active');
+		
+		this.setState({
+			showWeight:true,
+			showBoard:false
+		});
 		
 	}
 
 	getBoard(){
-		this.refs['fly-operator-C'].classList.add('active');
+		this.setState({
+			showWeight:false,
+			showBoard:true
+		});
 	}
 	closeWeight (){
 

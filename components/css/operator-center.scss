@@ -125,8 +125,8 @@ $maxIndex:9999;
 	.fly-btns-C{
 		width:60%;
 		margin-left: -20%;
-    
-    height: .3rem;
+        
+    height: .5rem;
 		@include displayBox(horizontal);
 		figure{
 			margin:0 .05rem;
@@ -143,38 +143,18 @@ $maxIndex:9999;
 	.fly-operator-C{
     
     @include pos(r);
-    width: 2.1rem;
-    margin-top: .1rem;
+    
+    
 		@include br(.25rem);
-		overflow: hidden;
-    padding-bottom: 20px;
-		div.fly-img-C{
-
-			//@include transition_transform(.3s);
-			//@include transitionTimingFunction();
+		
+    
+		div.fly-img-board,div.fly-img-weight{//案板
+        width: 98%;         
 		}
 		img.board{
-			@include pos(a);
-			left: 0;
-			top: 101%;
-			opacity:0;
+	
 		}
-		.active{
-			height: 1.68rem;
-      padding-bottom: 0;
-      @include br(.25rem);
-			.fly-img-C{
-				@include transform(translate3d(0,-2.10rem,0));
-        @include br(.25rem);
-
-			}
-			img.board{
-				opacity:1;
-			}
-			img.weight{
-				opacity:0;
-			}
-		}
+		
 	}
 }
 

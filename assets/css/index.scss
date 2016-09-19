@@ -465,10 +465,10 @@ $nav-height:13.3vh;
   @include displayBox(horizontal);
   -webkit-box-align:start;
   li.fly-operator-item{
-    width: 3.3rem;  
+    width: 2.9rem;
     height: 100%;
     &:nth-of-type(2){
-      width: 3rem;
+      width: 3.4rem;
     }
     &:nth-of-type(3){
       width: 3.4rem; 

@@ -6,7 +6,7 @@
   .fly-weight .fly-btns-C {
     width: 60%;
     margin-left: -20%;
-    height: .3rem;
+    height: .5rem;
     display: -webkit-box;
     -webkit-box-align: center;
     -webkit-box-pack: center;
@@ -21,27 +21,8 @@
     box-shadow: 0 0 1.1rem rgba(232, 158, 121, 0.7); }
   .fly-weight .fly-operator-C {
     position: relative;
-    width: 2.1rem;
-    margin-top: .1rem;
-    border-radius: 0.25rem;
-    overflow: hidden;
-    padding-bottom: 20px; }
-    .fly-weight .fly-operator-C img.board {
-      position: absolute;
-      left: 0;
-      top: 101%;
-      opacity: 0; }
-    .fly-weight .fly-operator-C .active {
-      height: 1.68rem;
-      padding-bottom: 0;
-      border-radius: 0.25rem; }
-      .fly-weight .fly-operator-C .active .fly-img-C {
-        -webkit-transform: translate3d(0, -2.1rem, 0);
-        transform: translate3d(0, -2.1rem, 0);
-        border-radius: 0.25rem; }
-      .fly-weight .fly-operator-C .active img.board {
-        opacity: 1; }
-      .fly-weight .fly-operator-C .active img.weight {
-        opacity: 0; }
+    border-radius: 0.25rem; }
+    .fly-weight .fly-operator-C div.fly-img-board, .fly-weight .fly-operator-C div.fly-img-weight {
+      width: 98%; }
 
 /*# sourceMappingURL=operator-center.css.map */
