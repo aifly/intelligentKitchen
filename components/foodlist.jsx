@@ -45,9 +45,9 @@ import addFoods from '../libs/addfoods.js';//
 				<div ref='foodlist-C' className='foodlist-C'>
 					<section>
 						{this.props.isShowTimeline && <ol onTouchTap={this.changeTimeSlot}>
-							<li className={this.state.currentTimeSlot===0?'active':''}>早餐</li>
-							<li className={this.state.currentTimeSlot===1?'active':''}>中餐</li>
-							<li className={this.state.currentTimeSlot===2?'active':''}>晚餐</li>
+							<li className={this.state.currentTimeSlot === 0 ? 'active':''}>{this.props.tags[0]}</li>
+							<li className={this.state.currentTimeSlot === 1 ? 'active':''}>{this.props.tags[1]}</li>
+							<li className={this.state.currentTimeSlot === 2 ? 'active':''}>{this.props.tags[2]}</li>
 						</ol>}
 						<div className={this.state.dataSource[this.state.currentTimeSlot].length?'foodlist-content':'foodlist-content no-data'} ref='foodlist-content'>
 							<ul style={{width:this.state.ulWidth}} onTouchTap={this.getFoodById}>
@@ -94,7 +94,7 @@ import addFoods from '../libs/addfoods.js';//
 
 		setTimeout(()=>{
 			this.setState({
-				ulWidth:this.refs['foodlist-content'].children[0].children[0].clientWidth*(Math.ceil(this.state.dataSource[this.state.currentTimeSlot].length/2))+1
+				ulWidth:this.refs['foodlist-content'].children[0].children[0].clientWidth*(Math.ceil(this.state.dataSource[this.state.currentTimeSlot].length/2))+2
 			});
 			this.liWidth = this.refs['foodlist-content'].children[0].children[0].clientWidth;
 			this.scroll = new IScroll(this.refs['foodlist-content'],{
@@ -158,7 +158,8 @@ import addFoods from '../libs/addfoods.js';//
 }
 
 FlyFoodList.defaultProps = {
-	isShowTimeline:true
+	isShowTimeline:true,
+	tags:['早餐','中餐','晚餐']
 }
 
 

@@ -110,7 +110,19 @@ export default class FlyFunctionCenter extends React.Component{
 
 		let hotCityData = hotCity.map((item,i)=>{
 			return <li key={i}>{item.cn_name}</li>
-		})
+		});
+
+		let recProps = {
+			tags:['肉类','蔬菜','水产'],
+			type:'rec-food',
+			obserable:this.props.obserable
+		},
+		recMenuProps = {
+			tags:['口味','营养','颜色'],
+			type:'rec-menu',
+			obserable:this.props.obserable
+		}
+
 
 		return (
 			<li className="fly-food fly-cook-book-item">
@@ -255,10 +267,10 @@ export default class FlyFunctionCenter extends React.Component{
 						</article>
 					</div>
 					<div className="fly-rec-food fly-food-item fly-top2" ref='rec-food'>
-						<FlyFoodList type='rec-food' obserable={this.props.obserable}></FlyFoodList>
+						<FlyFoodList {...recProps}></FlyFoodList>
 					</div>
 					<div className="fly-rec-menu fly-food-item fly-top1" ref='rec-menu'>
-						<FlyFoodList type='rec-menu' obserable={this.props.obserable}></FlyFoodList>
+						<FlyFoodList {...recMenuProps}></FlyFoodList>
 					</div>	
 				</div>
 

@@ -3,24 +3,24 @@
   height: 2.67rem !important; }
   .fly-plate-C .fly-plate-demo {
     position: absolute;
-    width: 1rem;
-    height: 1rem;
+    width: 0.9rem;
+    height: 0.9rem;
     background: #fff;
     border-radius: 50%; }
   .fly-plate-C .fly-plate-item {
     position: absolute;
-    width: 1rem;
-    height: 1rem;
+    width: 0.9rem;
+    height: 0.9rem;
     background: #fff;
+    z-index: 10;
     border-radius: 50%;
-    -webkit-transform: scale(1.2);
-    transform: scale(1.2);
     -webkit-transition: -webkit-transform 0.5s;
-    transition: -webkit-transform 0.5s;
     transition: transform 0.5s;
-    transition: transform 0.5s, -webkit-transform 0.5s;
     -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);
     transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01); }
+    .fly-plate-C .fly-plate-item.sm {
+      -webkit-transform: scale(0.86);
+      transform: scale(0.86); }
     .fly-plate-C .fly-plate-item.will-delete {
       -webkit-transform: scale(0.6);
       transform: scale(0.6);
@@ -40,7 +40,8 @@
     transform-style: preserve-3d;
     perspective: 800px;
     -webkit-perspective: 800px;
-    opacity: 0; }
+    opacity: 0;
+    z-index: -1; }
     .fly-plate-C .fly-broken-plate div {
       width: 50%;
       height: 50%;
@@ -50,9 +51,7 @@
       background: #fff;
       z-index: -1;
       -webkit-transition: -webkit-transform 0.4s;
-      transition: -webkit-transform 0.4s;
-      transition: transform 0.4s;
-      transition: transform 0.4s, -webkit-transform 0.4s; }
+      transition: transform 0.4s; }
       .fly-plate-C .fly-broken-plate div:nth-of-type(2) {
         left: 50%; }
       .fly-plate-C .fly-broken-plate div:nth-of-type(3) {
@@ -61,7 +60,8 @@
         left: 50%;
         top: 50%; }
     .fly-plate-C .fly-broken-plate.active {
-      opacity: 1; }
+      opacity: 1;
+      z-index: 1; }
       .fly-plate-C .fly-broken-plate.active div {
         -webkit-transform: translate3d(-0.1rem, -0.1rem, 3rem);
         transform: translate3d(-0.1rem, -0.1rem, 3rem); }
@@ -75,12 +75,10 @@
           -webkit-transform: translate3d(0.1rem, 0.1rem, 3rem);
           transform: translate3d(0.1rem, 0.1rem, 3rem); }
   .fly-plate-C .fly-draw-trash-C {
-    z-index: 10009;
+    z-index: -1;
     opacity: 0;
     -webkit-transition: -webkit-transform 1s;
-    transition: -webkit-transform 1s;
     transition: transform 1s;
-    transition: transform 1s, -webkit-transform 1s;
     -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);
     transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);
     -webkit-transform: scale(0.5);
@@ -97,12 +95,21 @@
     perspective: 800px;
     -webkit-perspective: 800px; }
     .fly-plate-C .fly-draw-trash-C.active {
+      z-index: 10009;
       opacity: 1; }
     .fly-plate-C .fly-draw-trash-C.begin-trashed {
       -webkit-transform: scale(0.7);
       transform: scale(0.7); }
       .fly-plate-C .fly-draw-trash-C.begin-trashed .trash-header {
         border: 0.1rem solid #d9534f; }
+      .fly-plate-C .fly-draw-trash-C.begin-trashed .hat {
+        -webkit-transition: 0.2s;
+        transition: 0.2s; }
+      .fly-plate-C .fly-draw-trash-C.begin-trashed .trash-hat {
+        -webkit-transform-origin: right;
+        transform-origin: right;
+        -webkit-transform: rotate(30deg) translate3d(30px, 0, 0);
+        transform: rotate(30deg) translate3d(30px, 0, 0); }
       .fly-plate-C .fly-draw-trash-C.begin-trashed .trash-header-bar {
         background: #d9534f; }
       .fly-plate-C .fly-draw-trash-C.begin-trashed .trash-body {
@@ -170,4 +177,12 @@
       margin-top: .5rem;
       -webkit-transform: rotate(5deg);
       transform: rotate(5deg); }
+  .fly-plate-C .fly-grid-C {
+    width: 100%;
+    height: 100%; }
+    .fly-plate-C .fly-grid-C li.fly-grid {
+      width: 33%;
+      height: .9rem;
+      float: left; }
+
 /*# sourceMappingURL=foodsplace.css.map */

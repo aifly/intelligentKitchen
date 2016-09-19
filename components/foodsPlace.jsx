@@ -14,6 +14,10 @@ export default class FlyFoodsPlace extends Component {
 	  	plateDemoStyle:{
 	  		left:"94%",
 	  		top:0
+	  	},
+	  	plateSMStyle:{
+	  		left:'95%',
+	  		top:'1rem'
 	  	}
 	  };
 	  this.onTouchStart = this.onTouchStart.bind(this);
@@ -35,14 +39,30 @@ export default class FlyFoodsPlace extends Component {
 		return (
 			<li className='fly-operator-item fly-plate-C' ref='fly-plate-C'>
 				<div className='fly-plate-demo' ref='fly-plate-demo' style={this.state.plateDemoStyle} ></div>
+				<div className='fly-plate-demo fly-plate-sm' ref='fly-plate-sm' style={this.state.plateSMStyle} ></div>
+				
+				<ol className='fly-grid-C' ref='fly-grid-C'>
+					<li className='fly-grid'></li>
+					<li className='fly-grid'></li>
+					<li className='fly-grid'></li>
+					<li className='fly-grid'></li>
+					<li className='fly-grid'></li>
+					<li className='fly-grid'></li>
+					<li className='fly-grid'></li>
+					<li className='fly-grid'></li>
+					<li className='fly-grid'></li>
+				</ol>
+
 				{this.state.plates.map((item,i)=>{
-					return <div key={i}  style={{left:this.state.plates[i].left,top:this.state.plates[i].top}} className='fly-plate-item'></div>
+					return <div key={i}  style={{left:this.state.plates[i].left,top:this.state.plates[i].top}} className={'fly-plate-item '+ this.state.plates[i].className}></div>
 				})}
 				
 				{/*垃圾桶图标实现*/}
 				<div ref='fly-draw-trash-C' className={this.state.trashClass+' fly-draw-trash-C'} >
-					<div className='trash-header'></div>
-					<div className='trash-header-bar'></div>
+					<div className="trash-hat hat" ref='trash-hat'>
+						<div className='trash-header'></div>
+						<div className='trash-header-bar'></div>
+					</div>
 					<div className='trash-body'>
 
 					</div>
@@ -59,16 +79,13 @@ export default class FlyFoodsPlace extends Component {
 			</li>
 		);
 	}
-	componentDidMount() {
 
-		 let {obserable} = this.props;
-		 obserable.on('clearPlates',()=>{
-		 	this.setState({
-		 		plates:[]
-		 	});
-		 });
+	getDis(x1,y1,x2,y2){
+		const m =  Math;
+		return m.sqrt(m.pow((x1-x2),2)+m.pow((y1-y2),2));
+	}
 
-		var target = this.refs['fly-plate-demo'];
+	dragPlate(target,gridsPos){
 		target.addEventListener('touchstart', e=>{
 			var e = e.changedTouches[0];
 
@@ -77,7 +94,8 @@ export default class FlyFoodsPlace extends Component {
 
 			 this.state.plates.push({
 				left:this.state.plateDemoStyle.left,
-				top:this.state.plateDemoStyle.top
+				top:this.state.plateDemoStyle.top,
+				className:target.classList.contains('fly-plate-sm')?'sm':''
 			});
 			this.forceUpdate();
  
@@ -99,17 +117,73 @@ export default class FlyFoodsPlace extends Component {
 					this.state.plates.pop();
 					this.forceUpdate();
 				}
+				else{
+					let minDis = this.getDis(e.pageX-this.refs['fly-plate-C'].offsetLeft,e.pageY-this.refs['fly-plate-C'].offsetTop,gridsPos[0].x,gridsPos[0].y),
+							cIndex  = 0;
+
+						gridsPos.forEach((grid,i)=>{
+							if(i>0){
+								
+								let currentDis = this.getDis(e.pageX-this.refs['fly-plate-C'].offsetLeft,e.pageY-this.refs['fly-plate-C'].offsetTop,grid.x,grid.y);
+								
+								if(minDis > currentDis){
+									minDis = currentDis;
+									cIndex = i;
+								}
+
+							}
+						});
+
+						this.state.plates[this.state.plates.length-1].left = gridsPos[cIndex].x - gridsPos[cIndex].halfW;
+						this.state.plates[this.state.plates.length-1].top = gridsPos[cIndex].y - gridsPos[cIndex].halfH;
+						this.forceUpdate();
+				}
 			});
 			 
 		},false);
+	}
 
-
-		//拖拽盘子。
+	componentDidMount() {
 
 		let data = {
 			viewHeight : document.documentElement.clientHeight,
 			viewWidth  : document.documentElement.clientWidth
 		}
+		 let {obserable} = this.props;
+		 obserable.on('clearPlates',()=>{
+		 	this.setState({
+		 		plates:[]
+		 	});
+		 });
+
+
+		 let grids = this.refs['fly-grid-C'].querySelectorAll('.fly-grid'),
+		 	gridsPos = [];
+
+		 setTimeout(()=>{
+			 for(var i = 0,len = grids.length ; i < len; i++){
+			 	
+			 	gridsPos.push({
+			 		x:grids[i].offsetWidth / 2 + grids[i].offsetLeft,
+			 		y:grids[i].offsetHeight / 2 + grids[i].offsetTop,
+			 		halfW:(grids[i].offsetWidth ) / 2,
+			 		halfH : (grids[i].offsetHeight)/ 2
+			 	});
+			 }
+
+		},1);
+
+
+		var target = this.refs['fly-plate-demo'],
+			target1 = this.refs['fly-plate-sm'];
+		this.dragPlate(target,gridsPos);
+		this.dragPlate(target1,gridsPos);
+
+
+
+		//拖拽盘子。
+
+		
 
 		$(this.refs['fly-plate-C']).on('touchstart',e=>{
 			if(!e.target.classList.contains('fly-plate-item')){
@@ -178,7 +252,7 @@ export default class FlyFoodsPlace extends Component {
 
 					this.refs['fly-plate-C'].querySelectorAll('.fly-plate-item')[index].classList.add('delete');
 					this.refs['fly-broken-plate'].classList.add('active');
-
+					this.refs['trash-hat'].classList.remove('trash-hat');
 					/*
 					Array.from(this.refs['fly-plate-C'].querySelectorAll('.fly-plate-item')).forEach(item=>{
 							item.classList.remove('will-delete');
@@ -191,7 +265,7 @@ export default class FlyFoodsPlace extends Component {
 						this.state.trashClass = '';
 						this.forceUpdate();
 						this.refs['fly-broken-plate'].classList.remove('active');
-
+						this.refs['trash-hat'].classList.add('trash-hat');
 					},400);	
 				}
 				else{
@@ -199,6 +273,26 @@ export default class FlyFoodsPlace extends Component {
 						this.setState({
 							trashClass:''
 						});
+
+						let minDis = this.getDis(e.pageX-this.refs['fly-plate-C'].offsetLeft,e.pageY-this.refs['fly-plate-C'].offsetTop,gridsPos[0].x,gridsPos[0].y),
+							cIndex  = 0;
+
+						gridsPos.forEach((grid,i)=>{
+							if(i>0){
+								
+								let currentDis = this.getDis(e.pageX-this.refs['fly-plate-C'].offsetLeft,e.pageY-this.refs['fly-plate-C'].offsetTop,grid.x,grid.y);
+								
+								if(minDis > currentDis){
+									minDis = currentDis;
+									cIndex = i;
+								}
+
+							}
+						});
+
+						this.state.plates[index].left = gridsPos[cIndex].x - gridsPos[cIndex].halfW;
+						this.state.plates[index].top = gridsPos[cIndex].y - gridsPos[cIndex].halfH;
+						this.forceUpdate();
 
 					},100);	
 				}

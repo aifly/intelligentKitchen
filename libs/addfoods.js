@@ -19,7 +19,7 @@ let addFoods = [
 		],
 		scaleData:[
   	 		{
-  	 			unit:'g',
+  	 			unit:'ka',
   	 			weight:'30',
   	 			scale:.11,
   	 			name:'热量'

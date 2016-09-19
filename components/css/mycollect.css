@@ -17,7 +17,7 @@
     content: '我的收藏';
     position: absolute;
     right: -.2rem;
-    z-index: 0;
+    z-index: -1;
     top: 50%;
     border-radius: 20px;
     width: .1rem;
