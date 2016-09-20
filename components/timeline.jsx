@@ -13,6 +13,7 @@ export default class FlyTimeLine extends Component {
 	  	 	'第五步',
 	  	 ],
 	  	 progressLeft:0,
+
 	  	 width:20
 	  };
 	}
@@ -20,7 +21,7 @@ export default class FlyTimeLine extends Component {
 		return (
 			<section className='fly-time-line-C'>
 				<div className='line'></div>
-				<div className='fly-progress' style={{marginLeft:0,width:this.state.width}}></div>
+				<div className='fly-progress' style={{marginLeft:this.state.progressLeft,width:this.state.width}}></div>
 				<section className='fly-points-C' ref='fly-points-C'>
 					<article className='prepare' ref='prepare'>
 						<span></span>
@@ -40,9 +41,9 @@ export default class FlyTimeLine extends Component {
 	}
 	componentDidMount() {
 		setTimeout(()=>{
-			this.setState({
+			/*this.setState({
 				progressLeft:this.refs['prepare'].offsetWidth / 2
-			});
+			});*/
 
 			let {obserable} = this.props;
 
@@ -59,14 +60,17 @@ export default class FlyTimeLine extends Component {
 			this.isStop = false;
 
 			obserable.on('prepareFood',()=>{
+				let currentStep = obserable.trigger({type:"getCurrentStep"});
+				if(currentStep <= -1){//当前还没有开始第一步。
+					return;	
+				}
+				
 				let x = this.state.width + 1;
-				posArr.forEach(item=>{
-					if(x>=item.x){
-						x=0;
-					}
-				});
-			!this.isStop &&	this.setState({
-					width:x
+				x>= posArr[currentStep].x && (x = 0 );
+				
+				!this.isStop &&	this.setState({
+					width:x,
+					progressLeft:currentStep*width
 				});
 			});
 		},1);

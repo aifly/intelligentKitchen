@@ -133,15 +133,14 @@ import addFoods from '../libs/addfoods.js';//
 
 		var index = target.getAttribute('data-index');
 
-		
-
 
 		obserable.trigger({
 			type:'fillFood',
 			data:this.state.dataSource[this.state.currentTimeSlot][index]
 		});
 
-		obserable.trigger({
+		//todo
+		obserable.trigger({ //填充饼图
 			type:'fillAlimentationData',
 			data:{
 				materials:this.state.dataSource[this.state.currentTimeSlot][index].foodMaterial,

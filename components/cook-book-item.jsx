@@ -15,31 +15,7 @@ import FlyBack from './back.jsx';
 				
 			},
 			steps:[
-				{
-			        stepName:'第一步',
-			        imgSrc:'./assets/images/food1.png',
-			        stepContent:'西红柿切成片1'
-			      },
-			      {
-			        stepName:'第二步',
-			        imgSrc:'./assets/images/food2.png',
-			        stepContent:'打好鸡蛋并且搅拌均匀1'
-			      },
-			      {
-			        stepName:'第三步',
-			        imgSrc:'./assets/images/food3.png',
-			        stepContent:'鸡蛋入锅，翻炒，剩出备用1'
-			      },
-			      {
-			        stepName:'第四步',
-			        imgSrc:'./assets/images/food4.png',
-			        stepContent:'西红柿入锅'
-			      },
-			      {
-			        stepName:'第五步',
-			        imgSrc:'./assets/images/food5.png',
-			        stepContent:'倒入备用鸡蛋翻炒1'
-			      }
+				
 			]
 		};
 		this.getDetail = this.getDetail.bind(this);
@@ -159,9 +135,14 @@ import FlyBack from './back.jsx';
 	}
 
 	beginDo(){
-		this.setState({
-			currentStep:0
-		});
+
+		setTimeout(()=>{
+			
+			this.setState({
+				currentStep:0,
+				defaultWidth:$(".fly-cook-steps-C").width()
+			});
+		},1)
 	}
 
 	closeStep(e){//
@@ -187,30 +168,30 @@ import FlyBack from './back.jsx';
 	closeCook(e){ //关闭。
 		e.preventDefault();
 		this.setState({
-			foodData:{}
+			foodData:{},
+			currentStep:-1
 		});
 	}
 
 	componentDidMount(){
 		let {obserable} = this.props;
+
+		obserable.on('getCurrentStep',()=>{
+
+			return this.state.currentStep;
+
+		});
+
 		obserable.on('fillFood',(data)=>{
 			this.setState({
 				foodData:data,
-				//steps:data.steps
+				steps:data.steps,
+				currentStep : -1
 			},()=>{
 				this.scroll = this.scroll || new IScroll(this.refs['material-scroll']);
 				this.scroll && this.scroll.refresh();//重新刷新滚动条。
-
 			});
 		});
-
-		setTimeout(()=>{
-			this.setState({
-				defaultWidth:this.refs['fly-cook-steps-C'].offsetWidth
-			});
-			
-		},1);
-
 
 		let scrollC = this.refs['steps-C'];
 		$(scrollC).on('touchstart',(e)=>{
@@ -286,20 +267,6 @@ import FlyBack from './back.jsx';
 						this.stepScroll();
 					} 
 				}
-
-				
-				
-
-				/*if(currentStep === 0){//第一步里面滑动的时候
-					if(x > 0){
-						scrollC.style.WebkitTransform='translate3d('+(currentStep*defaultWidth)+'px,0,0)';
-					}
-				}
-				else if(currentStep === stepsLen - 1){
-					if(x<0){
-						scrollC.style.WebkitTransform='translate3d('+(currentStep*defaultWidth)+'px,0,0)';
-					}
-				}*/
 
 				$(document).off('touchmove touchend');
 			});
