@@ -11,10 +11,12 @@ import FlyFoodList from './foodlist.jsx';
 import hotCity from '../libs/hotcity';
 import FlyBack  from './back.jsx';
 
+import {PublicShadow} from './public-shadow.jsx';
+
 import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Calendar.js';
 
 //最左侧的控制中心组件。
-export default class FlyFunctionCenter extends React.Component{
+ class FlyFunctionCenter extends React.Component{
 	constructor(option){
 		super(option);
 		this.closeDrag=this.closeDrag.bind(this);
@@ -368,7 +370,8 @@ export default class FlyFunctionCenter extends React.Component{
 		let self = this;
 		new Time({
 			canvas:canvas,
-			obserable:self.props.obserable
+			obserable:self.props.obserable,
+			isTime:true
 		});
 	}
 	temperatureCanvasStart(canvas,temperature){
@@ -625,8 +628,6 @@ export default class FlyFunctionCenter extends React.Component{
 
 		},200)
 	}
-	
- 
-
-	
 } 
+
+export default PublicShadow(FlyFunctionCenter);

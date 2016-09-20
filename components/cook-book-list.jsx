@@ -7,12 +7,6 @@ import {FlyPublicData} from './public-data.jsx';
 import FlyMyCollect from './mycollect.jsx';
 import $ from 'jquery';
 
-if (!Array.from) {
-    Array.from = (c)=> {
-        return Array.prototype.slice.call(c);
-    }
-}
-
 
 //已加入菜谱组件。
 

@@ -151,9 +151,42 @@ $maxIndex:9999;
 		div.fly-img-board,div.fly-img-weight{//案板
         width: 98%;         
 		}
-		img.board{
-	
-		}
+		
+    div.fly-img-weight{
+      .fly-weight-display{
+         @include pos(a);
+         height: .4rem;
+         width: 98%;
+         bottom:.05rem;
+         left: 0;
+         box-sizing:border-box;
+         @include displayBox(horizontal);
+
+         div{
+          text-align: center;
+          &:nth-of-type(2){
+            height: .4rem;
+            width: 1.15rem;
+            canvas{
+              margin-left: -.08rem;
+            }
+          }
+          &:nth-of-type(1),&:nth-of-type(3){
+            &.shadow{
+               box-shadow:0 0 1.1rem rgba(232,158,121,.7);
+            }
+            border:3px solid #df9977;
+            margin-top: .1rem;
+            @include br(50%);
+            line-height: .3rem;
+            color:#df9977;
+            width: .3rem;
+            height: .3rem;
+          }
+         }
+
+      }
+    }
 		
 	}
 }

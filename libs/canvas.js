@@ -8,26 +8,30 @@ export default class Time{
 		s.canvas = options.canvas;
 		s.obserable = options.obserable;
 		s.margin  = 9;
+		s.isTime = options.isTime;
 		s.r = 5;
-		var index = s.init();
 
-		var num = numberData[10]
-		setInterval(()=>{
-			var D = new Date();
-			var hours = D.getHours(),
-				mins = D.getMinutes(),
-				seconds = D.getSeconds();
+		var num = numberData[10];
+		if(s.isTime){
+			var index = s.init();
+			setInterval(()=>{
+				var D = new Date();
+				var hours = D.getHours(),
+					mins = D.getMinutes(),
+					seconds = D.getSeconds();
 
 
-			//!new Date().getSeconds() && (index = s.init());//当前秒数为0的时候，重新绘制时间。
-			s.canvas.getContext('2d').clearRect((s.margin + s.r)*(index-3),(s.margin + s.r)*5.4,15,s.canvas.height/14);
-			s.canvas.getContext('2d').clearRect((s.margin + s.r)*(index-3),(s.margin + s.r)*7.4,15,s.canvas.height/14);
-			setTimeout(()=>{
-				index = s.init();
-			},500);
-			hours === 0 && mins === 0 && seconds === 0 && s.obserable.trigger({type:'updateCalendar'});
-			
-		},1000);
+				//!new Date().getSeconds() && (index = s.init());//当前秒数为0的时候，重新绘制时间。
+				s.canvas.getContext('2d').clearRect((s.margin + s.r)*(index-3),(s.margin + s.r)*5.4,15,s.canvas.height/14);
+				s.canvas.getContext('2d').clearRect((s.margin + s.r)*(index-3),(s.margin + s.r)*7.4,15,s.canvas.height/14);
+				setTimeout(()=>{
+					index = s.init();
+				},500);
+				hours === 0 && mins === 0 && seconds === 0 && s.obserable.trigger({type:'updateCalendar'});
+				
+			},1000);
+		}
+		
 	}
 
 	timeLoop(index){
@@ -35,6 +39,39 @@ export default class Time{
 
 		var context = s.canvas.getContext('2d');
 		s.draw(10,context,index);
+	}
+
+	initWeight(numbers,color,bgColor){
+
+		let s = this;
+		let id = 2;
+		var context = s.canvas.getContext('2d');
+		context.clearRect(0,0,s.canvas.width,s.canvas.height);
+		let D =new Date();
+		var ten = numbers[0],
+			one = numbers[1],
+			minsTen =  numbers[2],
+			minsOne =  numbers[3];
+		s.draw(ten,context,id,color,bgColor);
+
+		id += numberData[ten][0].length+1;
+		s.draw(one,context,id);
+		
+
+		id += 2;
+		
+		id += numberData[10][0].length+1;
+		s.draw(minsTen,context,id);
+		var index = id;
+
+		id += numberData[minsTen][0].length+1;
+		s.draw(minsOne,context,id,true);
+
+
+
+		id += numberData[minsTen][0].length;
+		s.draw(12,context,id);		
+
 	}
 
 	init(){
@@ -68,10 +105,9 @@ export default class Time{
 
 	}
 
-	draw(num,context,id){
+	draw(num,context,id,flag = false){
 		let s = this;
 
-		
 		
 		for(var i = 0;i<9;i++){
 			for(var j = 0;j<34;j++){
@@ -83,11 +119,22 @@ export default class Time{
 				
 				context.closePath();
 
-				context.fillStyle='#f8f3ef';//f8f3ef
+				context.fillStyle  = "#f8f3ef";//f8f3ef
+
 				if(numberData[num][i] && numberData[num][i][j]){
-					context.fillStyle='#df9977';	
+					
+					if(s.isTime){
+						context.fillStyle = "#df9977";
+					}
+					else{
+						if(num > 0 || flag){
+							context.fillStyle = "#df9977";
+						};
+						
+					}
+
 				}
-				
+
 				context.fill();
 				context.restore();
 			}

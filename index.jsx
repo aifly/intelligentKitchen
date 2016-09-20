@@ -31,7 +31,7 @@ class App extends React.Component{
 		};
 		return (
 			<div>
-				<FlyNav></FlyNav>
+				<FlyNav {...data}></FlyNav>
 				<FlyDone {...data}/>
 				<ul className="fly-cook-book-C">
 					<FlyFunctionCenter {...data}></FlyFunctionCenter>
@@ -59,6 +59,11 @@ let data = {
 let util = {
 	init(){
 		this.setDefault();
+		if (!Array.from) {
+		    Array.from = (c)=> {
+		        return Array.prototype.slice.call(c);
+		    }
+		}
 	},
 	setDefault(width = data.viewWidth,height = data.viewHeigth){
 		$('html').css({fontSize:width/10});
