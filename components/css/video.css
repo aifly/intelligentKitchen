@@ -1,0 +1,72 @@
+.fly-video-C {
+  background: #727171;
+  width: 2.5rem;
+  display: block;
+  margin: .18rem auto;
+  border-radius: 30px; }
+  .fly-video-C section {
+    position: relative; }
+    .fly-video-C section .fly-video-list {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      z-index: 10;
+      left: 0;
+      top: 0;
+      background: #727171;
+      border-top-right-radius: 30px;
+      border-top-left-radius: 30px; }
+    .fly-video-C section h1 {
+      height: .25rem; }
+    .fly-video-C section .fly-video-operator {
+      width: 80%;
+      margin: .1rem auto;
+      display: -webkit-box;
+      -webkit-box-align: center;
+      -webkit-box-pack: center;
+      -webkit-box-orient: horizontal; }
+      .fly-video-C section .fly-video-operator div {
+        width: .25rem;
+        margin: 0 .1rem; }
+    .fly-video-C section .fly-video-list-scroll {
+      width: 90%;
+      margin: 0 auto;
+      overflow: hidden;
+      height: .8rem; }
+      .fly-video-C section .fly-video-list-scroll ul {
+        display: -webkit-box;
+        -webkit-box-align: center;
+        -webkit-box-pack: center;
+        -webkit-box-orient: horizontal; }
+      .fly-video-C section .fly-video-list-scroll li {
+        width: .4rem;
+        height: .6rem;
+        position: relative;
+        margin: 0 10px; }
+        .fly-video-C section .fly-video-list-scroll li img {
+          width: .13rem;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          -webkit-transform: translate3d(-50%, -50%, 0);
+          transform: translate3d(-50%, -50%, 0); }
+        .fly-video-C section .fly-video-list-scroll li span {
+          position: absolute;
+          top: 105%;
+          display: block;
+          text-align: center;
+          width: 100%; }
+  .fly-video-C video {
+    width: 2.5rem;
+    height: 1.675rem !important;
+    display: block;
+    margin: 0 auto;
+    border-radius: 30px; }
+  .fly-video-C .fly-video-control-C {
+    height: .2rem;
+    width: 100%;
+    background: #fff;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px; }
+
+/*# sourceMappingURL=video.css.map */

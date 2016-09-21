@@ -60,31 +60,32 @@ let addFoods = [
   	 			name:'其它'
   	 		}
 	  	],
+    type:'video',
 		steps:[
       {
         stepName:'第一步',
-        imgSrc:'./assets/images/food1.png',
-        stepContent:'西红柿切成片1'
+        imgSrc:'./assets/videos/1.webm',
+        poster:'./assets/images/poster.png'
       },
 			{
         stepName:'第二步',
-        imgSrc:'./assets/images/food2.png',
-        stepContent:'打好鸡蛋并且搅拌均匀1'
+        imgSrc:'./assets/videos/1.webm',
+        poster:'./assets/images/poster.png'
       },
       {
         stepName:'第三步',
-        imgSrc:'./assets/images/food3.png',
-        stepContent:'鸡蛋入锅，翻炒，剩出备用1'
+        imgSrc:'./assets/videos/1.webm',
+        poster:'./assets/images/poster.png'
       },
       {
         stepName:'第四步',
-        imgSrc:'./assets/images/food4.png',
-        stepContent:'西红柿入锅'
+        imgSrc:'./assets/videos/1.webm',
+        poster:'./assets/images/poster.png'
       },
       {
         stepName:'第五步',
-        imgSrc:'./assets/images/food1.png',
-        stepContent:'倒入备用鸡蛋翻炒1'
+        imgSrc:'./assets/videos/1.webm',
+        poster:'./assets/images/poster.png'
       }
 		]
 	},{
@@ -143,6 +144,7 @@ let addFoods = [
   	 			name:'其它'
   	 		}
 	  	],
+      type:'image',
 		steps:[
 			{
         stepName:'第一步',
@@ -226,6 +228,7 @@ let addFoods = [
   	 			name:'其它'
   	 		}
 	  	],
+      type:'image',
 		steps:[
 			{
         stepName:'第一步',
@@ -310,6 +313,7 @@ let addFoods = [
   	 			name:'其它'
   	 		}
 	  	],
+      type:'image',
 		steps:[
 			{
         stepName:'第一步',
@@ -394,6 +398,7 @@ let addFoods = [
   	 			name:'其它'
   	 		}
 	  	],
+      type:'image',
 		steps:[
 			{
         stepName:'第一步',
@@ -478,6 +483,7 @@ let addFoods = [
   	 			name:'其它'
   	 		}
 	  	],
+      type:'image',
 		steps:[
 			{
         stepName:'第一步',
@@ -562,6 +568,7 @@ let addFoods = [
   	 			name:'其它'
   	 		}
 	  	],
+      type:'image',
 		steps:[
 			{
         stepName:'第一步',

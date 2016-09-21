@@ -1,4 +1,10 @@
 @charset "UTF-8";
+.fly-play-ico {
+  width: .2rem;
+  position: absolute;
+  right: 0;
+  bottom: .2rem; }
+
 @-webkit-keyframes move {
   50% {
     -webkit-transform: translate3d(-100%, 0, 0);

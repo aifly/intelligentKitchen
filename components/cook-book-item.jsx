@@ -4,6 +4,8 @@ import IScroll from 'iscroll';
 import { PublicShadow } from './public-shadow.jsx';
 import $ from 'jquery';
 import FlyBack from './back.jsx';
+import FlyVideo from './video.jsx';
+//import videojs from 'video.js'
 //最右侧的组件。具体的每一道菜的步骤。
  class FlyCookBookItem extends React.Component{
 	constructor(option){
@@ -12,11 +14,14 @@ import FlyBack from './back.jsx';
 			currentStep:-1,//当前的步骤 .-1表示未开始
 			defaultWidth:2.5*384,
 			foodData : {
-				
+
 			},
+			stepTimeSpan:[
+			],
 			steps:[
 				
-			]
+			],
+			type:''
 		};
 		this.getDetail = this.getDetail.bind(this);
 		this.closeCook = this.closeCook.bind(this);
@@ -34,10 +39,19 @@ import FlyBack from './back.jsx';
 		let background = {
 			background:foodData.detailSrc?'url('+foodData.detailSrc+') no-repeat center  / cover':'none'
 		};
+		let videoProps= {};
+		if(this.state.foodData.steps){
+			videoProps = {
+				imgSrc:this.state.foodData.steps[0].imgSrc,
+				poster:this.state.foodData.steps[0].poster,
+				steps : this.state.foodData.steps
 
+			};	
+		};
+		
 		return (
 			<li className="fly-cook-detail fly-cook-book-item">
-				<div className="fly-cook-book-item-C book-item">
+				{foodData.type === 'image' && <div className="fly-cook-book-item-C book-item">
 					{foodData.name && this.state.currentStep === -1  && <section className='book-item-C'>
 						<ul className='book-item-ul'>
 							<li className='book-item-ul-li' onTouchTap={this.getDetail}>
@@ -96,20 +110,21 @@ import FlyBack from './back.jsx';
 								})}							
 							</ul>
 						</div>
-						<aside className='fly-next' onTouchTap={this.next} style={{display:this.state.currentStep >= this.state.steps.length-1 ? 'none':'block'}}>下一步</aside>
+						<aside className='fly-next' onTouchTap={this.next}>{this.state.currentStep >= this.state.steps.length-1?'完成':'下一步'}</aside>
 						<div className='fly-close' onTouchTap={this.closeStep}>
 							
 						</div>
 					</div>
-				</div>
-
-			}
+				</div>}
+				{foodData.type === 'video' && <div className="fly-cook-book-item-C book-item">
+					<FlyVideo {...videoProps} {...this.props}></FlyVideo>
+				</div>}
 			</li>
 		)
 	}
 
 	prev(e){
-		this.props.shadow(e.target);
+		e && this.props.shadow(e.target);
 
 		if(this.state.currentStep <=0){
 			return;
@@ -119,30 +134,49 @@ import FlyBack from './back.jsx';
 		},()=>{
 			this.stepScroll();
 		});
+
+		this.state.stepTimeSpan.pop();
 	}
 	next(e){
-		this.props.shadow(e.target);
+
+		let {obserable} = this.props;
+		
+		e && this.props.shadow(e.target);
 		if(this.state.currentStep >=this.state.steps.length-1){
+
+			this.state.stepTimeSpan.push(new Date().getTime() - this.startTime);//	
+			obserable.trigger({type:'stopProgress'});
 			return;
 		}
 		this.setState({
-			currentStep:this.state.currentStep+1
+			currentStep:this.state.currentStep  + 1
 		},()=>{
 			this.stepScroll();
+			obserable.trigger({type:"initProgress",data:this.state.currentStep});
 		});
 
 		//
+
+		this.state.stepTimeSpan.push((new Date().getTime() - this.startTime) / 1000);//
+
+		this.startTime = new Date().getTime();
+
 	}
 
 	beginDo(){
-
+		let {obserable} = this.props;
 		setTimeout(()=>{
 			
 			this.setState({
 				currentStep:0,
 				defaultWidth:$(".fly-cook-steps-C").width()
+			},()=>{
+				obserable.trigger({type:"initProgress",data:this.state.currentStep});
 			});
-		},1)
+
+
+		},1);
+		this.startTime = new Date().getTime();
 	}
 
 	closeStep(e){//
@@ -150,7 +184,8 @@ import FlyBack from './back.jsx';
 	}
 
 	stepScroll(){
-		this.refs['steps-C'].style.WebkitTransform='translate3d(-'+(this.state.currentStep*this.state.defaultWidth)+'px,0,0)';
+		let scrollC = this.refs['steps-C'];
+		scrollC && (scrollC.style.WebkitTransform='translate3d(-'+(this.state.currentStep*this.state.defaultWidth)+'px,0,0)');
 	}
 
 	getDetail(){
@@ -182,6 +217,20 @@ import FlyBack from './back.jsx';
 
 		});
 
+		
+
+		obserable.on('updateStep',(step)=>{
+
+			this.setState({
+				currentStep:step
+			},()=>{
+				this.stepScroll();
+				obserable.trigger({type:"initProgress",data:this.state.currentStep});
+				this.state.stepTimeSpan = this.state.stepTimeSpan.slice(0,step);
+				console.log(this.state.stepTimeSpan);
+			});
+		});
+
 		obserable.on('fillFood',(data)=>{
 			this.setState({
 				foodData:data,
@@ -190,89 +239,89 @@ import FlyBack from './back.jsx';
 			},()=>{
 				this.scroll = this.scroll || new IScroll(this.refs['material-scroll']);
 				this.scroll && this.scroll.refresh();//重新刷新滚动条。
+				let scrollC = this.refs['steps-C'];
+				$(scrollC).on('touchstart',(e)=>{
+
+					var e = e.originalEvent ? e.originalEvent.changedTouches[0]:e.changedTarget[0];
+					var disX = e.pageX;//
+					scrollC.classList.remove('active');//去除transition动画
+					let currentStep = this.state.currentStep,
+						defaultWidth = this.state.defaultWidth,
+						stepsLen = this.state.steps.length;
+					$(document).on('touchmove',e=>{
+						var e = e.originalEvent ? e.originalEvent.changedTouches[0]:e.changedTarget[0],
+							x = e.pageX - disX;
+
+						if(currentStep === 0){//第一步里面滑动的时候
+							if(x > 0){
+							 	//x /= 3;
+							 	x = 0 ;
+							 	return;
+							}
+						}
+						else if(currentStep === stepsLen - 1){
+							if(x<0){
+								//x /= 3;
+								return;
+							}
+						}
+						scrollC.style.WebkitTransform='translate3d('+(x - currentStep*defaultWidth)+'px,0,0)';
+
+					}).on('touchend',e=>{
+						
+
+						var e = e.originalEvent ? e.originalEvent.changedTouches[0]:e.changedTarget[0],
+							x = e.pageX - disX;
+
+						if(currentStep === 0){//第一步里面滑动的时候
+							if(x > 0){
+						 	//x /= 3;
+							 	x = 0 ;
+							 	return;
+							}
+						}
+						else if(currentStep === stepsLen - 1){
+							if(x<0){
+								//x /= 3;
+								x =0 ;
+								return;
+							}
+						}
+						scrollC.classList.add('active');
+
+						if(x < 0 ){
+							if(-x > defaultWidth / 3){
+
+								this.next();
+							}
+							else{
+								this.stepScroll();
+							}	
+						}
+						else{
+
+							if(x > defaultWidth / 3){
+								this.prev();
+							}
+							else{
+								this.stepScroll();
+							} 
+						}
+
+						$(document).off('touchmove touchend');
+					});
+				});
+
 			});
 		});
 
-		let scrollC = this.refs['steps-C'];
-		$(scrollC).on('touchstart',(e)=>{
-			var e = e.originalEvent ? e.originalEvent.changedTouches[0]:e.changedTarget[0];
-			var disX = e.pageX;//
-			scrollC.classList.remove('active');//去除transition动画
-			let currentStep = this.state.currentStep,
-				defaultWidth = this.state.defaultWidth,
-				stepsLen = this.state.steps.length;
-			$(document).on('touchmove',e=>{
-				var e = e.originalEvent ? e.originalEvent.changedTouches[0]:e.changedTarget[0],
-					x = e.pageX - disX;
-
-				if(currentStep === 0){//第一步里面滑动的时候
-					if(x > 0){
-					 	//x /= 3;
-					 	x = 0 ;
-					 	return;
-					}
-				}
-				else if(currentStep === stepsLen - 1){
-					if(x<0){
-						//x /= 3;
-						return;
-					}
-				}
-				scrollC.style.WebkitTransform='translate3d('+(x - currentStep*defaultWidth)+'px,0,0)';
-
-			}).on('touchend',e=>{
-				
-
-				var e = e.originalEvent ? e.originalEvent.changedTouches[0]:e.changedTarget[0],
-					x = e.pageX - disX;
-
-				if(currentStep === 0){//第一步里面滑动的时候
-					if(x > 0){
-				 	//x /= 3;
-					 	x = 0 ;
-					 	return;
-					}
-				}
-				else if(currentStep === stepsLen - 1){
-					if(x<0){
-						//x /= 3;
-						return;
-					}
-				}
-				scrollC.classList.add('active');
-
-				if(x < 0 ){
-					if(-x > defaultWidth / 3){
-
-						this.setState({
-							currentStep:this.state.currentStep + 1
-						},()=>{
-							this.stepScroll();
-						});
-					}
-					else{
-						this.stepScroll();
-					}	
-				}
-				else{
-
-					if(x > defaultWidth / 3){
-						this.setState({
-							currentStep:this.state.currentStep - 1
-						},()=>{
-							this.stepScroll();
-						});
-					}
-					else{
-						this.stepScroll();
-					} 
-				}
-
-				$(document).off('touchmove touchend');
+		obserable.on('fillFoodByVideo',data=>{
+			this.setState({
+				foodData:data,
+				steps:data.steps,
+				currentStep : -1
 			});
-		});
-
-		
+		}); 
 		
 	}
 }

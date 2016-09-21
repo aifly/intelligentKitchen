@@ -142,13 +142,12 @@ $maxIndex:9999;
       @include pos(a);
       left: .78rem;
       top:50%;
-      z-index: 10;
+      z-index: 22;
       margin-top: -3px;
       height: 13px;
       @include br(10px);
       background: -webkit-gradient(linear, left top, right top, from(rgba(255,255,255,.3)), to(rgba(255,255,255,.9)));
       //background: -webkit-gradient(linear, left top, right top, from(rgba(232,158,121,.3)), to(rgba(232,158,121,.9)));
-      -webkit-filter:blur(1px);
       //background:red;
       &:after{
         content:'';
@@ -162,7 +161,9 @@ $maxIndex:9999;
         right: -34px;
         top: -.035rem;
         -webkit-filter:blur(8px);
-        -webkit-animation:sploosh 1s infinite linear alternate;
+        -webkit-animation:sploosh 1s infinite linear alternate; 
+        /* 
+        */
       }
 
     }
@@ -174,7 +175,6 @@ $maxIndex:9999;
     top:.12rem;
     .prepare{
        span{
-          -webkit-filter: blur(2px);
          // background:rgba(232,158,121,1);
           @include pos(a);
          
@@ -207,7 +207,7 @@ $maxIndex:9999;
         height: .18rem;
         background:rgba(255,255,255,.5);
 
-        &:after{
+        &.active:after{
           content:'';
           display: inline-block;
           @include pos(a);
@@ -233,10 +233,10 @@ $maxIndex:9999;
  @-webkit-keyframes sploosh {
     0% {
         box-shadow: 0 0 0 0px rgba(255,255,255, 0.8);
-        -webkit-filter: blur(5px);
+        //-webkit-filter: blur(5px);
     }
     100% {
         box-shadow: 0 0 0 .08rem rgba(255,255,255, 0);
-        -webkit-filter: blur(10px);
+        //-webkit-filter: blur(10px);
     }
 }

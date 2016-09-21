@@ -119,6 +119,7 @@ import $ from 'jquery';
 												<li key={i} onTouchTap={this.getFoodById}>
 													<div data-index={i} style={{background:'  url('+item.imgSrc+') no-repeat center',backgroundSize:'cover'}}>
 														<span>{item.name}</span>
+														{item.type === 'video' && <img className='fly-play-ico' src='./assets/images/play.png'/>}
 													</div>	
 												</li>
 											)

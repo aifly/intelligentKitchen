@@ -158,6 +158,10 @@ $foodlist-height:1.6rem;
     }
   }
   .foodlist-content{
+
+    .fly-play-ico{
+       bottom:.15rem;
+    }
     &.no-data:before{
       content:'暂无数据';
       color:#f00;
