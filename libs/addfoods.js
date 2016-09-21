@@ -1,12 +1,12 @@
 let addFoods = [
 	{
-		name:"面包秀",
-		imgSrc:"./assets/images/f4.png",
-		id:'',
-		detailSrc:'./assets/images/food1.png',
-		pageView:333,
+		name:"面包秀",//食谱名
+		imgSrc:"./assets/images/f4.png",//食谱图片
+		id:'',//id
+		//detailSrc:'./assets/images/food1.png', //最右侧的图片，如果是视频，这个字段没用
+		pageView:333,//浏览
 		discuss:124,//讨论
-		foodMaterial:[
+		foodMaterial:[//食材
 			{name:'小番茄',weight:'30g'},
 			{name:'鸡蛋',weight:'40g'},
 			{name:'生菜',weight:'70g'},
@@ -17,7 +17,7 @@ let addFoods = [
 			{name:'培根',weight:'50g'},
 			{name:'吐丝',weight:'25g'}
 		],
-		scaleData:[
+		scaleData:[ //不用管//饼图数据
   	 		{
   	 			unit:'ka',
   	 			weight:'30',
@@ -60,8 +60,8 @@ let addFoods = [
   	 			name:'其它'
   	 		}
 	  	],
-    type:'video',
-		steps:[
+    type:'video',//类型，图片or视频
+		steps:[//步骤
       {
         stepName:'第一步',
         imgSrc:'./assets/videos/1.webm',
@@ -88,7 +88,8 @@ let addFoods = [
         poster:'./assets/images/poster.png'
       }
 		]
-	},{
+	},
+  {
 		name:"草莓蓝莓派",
 		imgSrc:"./assets/images/f5.png",
 		id:'',
