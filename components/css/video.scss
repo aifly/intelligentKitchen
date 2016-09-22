@@ -159,6 +159,13 @@ $fontColor:#a16d56;
           ul{
              @include displayBox(horizontal);
           }
+          li.active{
+            border:3px solid #f90;
+            box-sizing:border-box;
+            span{
+              color:#f90;
+            }
+          }
           li{
              width: .4rem;
              height: .6rem;
@@ -177,6 +184,7 @@ $fontColor:#a16d56;
                 display: block;
                 text-align: center;
                 width: 100%;
+                font-size: .08rem;
              }
 
           }

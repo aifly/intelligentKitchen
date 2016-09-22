@@ -23,7 +23,8 @@ import $ from 'jquery';
 				[],//中餐
 				[]　//晚餐
 			],//已添加的菜谱
-			currentPannel:0
+			currentPannel:0,
+			isShow:true
 		}
 		this.next = this.next.bind(this);
 		this.getFoodById = this.getFoodById.bind(this);
@@ -61,77 +62,79 @@ import $ from 'jquery';
 	render(){
 		return (
 			<li className="fly-cook-list fly-cook-book-item" ref='fly-cook-list'>
-				<div style={{position:'relative'}}>
-					<div className="fly-cook-book-item-C">
-					<article className={"book-list-C add-collect "+(this.state.currentPannel?'active':'') } onTouchTap={this.change}>
-						<aside className='booklist-left-C' onTouchTap={this.changeTimeSlot}>
-							<div className={this.state.currentTimeSlot===0?'active':''}>早餐</div>
-							<div className={this.state.currentTimeSlot===1?'active':''}>中餐</div>
-							<div className={this.state.currentTimeSlot===2?'active':''}>晚餐</div>
-						</aside>
-						<aside className='booklist-right-C'>
-							<div className='bl-calendar'>
-								<table>
-									<thead>
-										<tr>
-											<th>日</th>
-											<th>一</th>
-											<th>二</th>
-											<th>三</th>
-											<th>四</th>
-											<th>五</th>
-											<th>六</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											{this.state.dates1.map((item,i)=>{
-												return (
-													<td key={i} className={item.isToday?'today':''}>
-														<div className={item.isHasFood?'hasfood':''}>
-															<span>{item.date}</span>
-															<span>{item.lunar}</span>
-														</div>
-													</td>
-												)
-											})}
-										</tr>
-										<tr>
-											{this.state.dates2.map((item,i)=>{
-												return (
-													<td key={i}>
-														<div className={item.isHasFood?'hasfood':''}>
-															<span>{item.date}</span>
-															<span>{item.lunar}</span>
-														</div>
-													</td>
-												)
-											})}
-										</tr>
-									</tbody>
-								</table>
-							</div>
-							<div className='bl-food-list'>
-								<div className={this.state.addFoods[this.state.currentTimeSlot].length?'bl-food-scroll':'bl-food-scroll no-data'} ref='scroll'>
-									<ul ref='foods-C' style={{width:this.state.liWidth*this.state.addFoods[this.state.currentTimeSlot].length}}>
-										{this.state.addFoods[this.state.currentTimeSlot].map((item,i)=>{
-											return (
-												<li key={i} onTouchTap={this.getFoodById}>
-													<div data-index={i} style={{background:'  url('+item.imgSrc+') no-repeat center',backgroundSize:'cover'}}>
-														<span>{item.name}</span>
-														{item.type === 'video' && <img className='fly-play-ico' src='./assets/images/play.png'/>}
-													</div>	
-												</li>
-											)
-										})}
-									</ul>
+				<div style={{display:this.state.isShow?'block':'none'}}>
+					<div style={{position:'relative'}}>
+						<div className="fly-cook-book-item-C">
+						<article className={"book-list-C add-collect "+(this.state.currentPannel?'active':'') } onTouchTap={this.change}>
+							<aside className='booklist-left-C' onTouchTap={this.changeTimeSlot}>
+								<div className={this.state.currentTimeSlot===0?'active':''}>早餐</div>
+								<div className={this.state.currentTimeSlot===1?'active':''}>中餐</div>
+								<div className={this.state.currentTimeSlot===2?'active':''}>晚餐</div>
+							</aside>
+							<aside className='booklist-right-C'>
+								<div className='bl-calendar'>
+									<table>
+										<thead>
+											<tr>
+												<th>日</th>
+												<th>一</th>
+												<th>二</th>
+												<th>三</th>
+												<th>四</th>
+												<th>五</th>
+												<th>六</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												{this.state.dates1.map((item,i)=>{
+													return (
+														<td key={i} className={item.isToday?'today':''}>
+															<div className={item.isHasFood?'hasfood':''}>
+																<span>{item.date}</span>
+																<span>{item.lunar}</span>
+															</div>
+														</td>
+													)
+												})}
+											</tr>
+											<tr>
+												{this.state.dates2.map((item,i)=>{
+													return (
+														<td key={i}>
+															<div className={item.isHasFood?'hasfood':''}>
+																<span>{item.date}</span>
+																<span>{item.lunar}</span>
+															</div>
+														</td>
+													)
+												})}
+											</tr>
+										</tbody>
+									</table>
 								</div>
-								<div className='bl-food-next' onTouchTap={this.next}>></div>
-							</div>
-						</aside>
-					</article>
-				</div>
-				<FlyMyCollect changeMyCollectTop={this.changeMyCollectTop} obserable={this.props.obserable} className={this.state.currentPannel?'':'active'}></FlyMyCollect>
+								<div className='bl-food-list'>
+									<div className={this.state.addFoods[this.state.currentTimeSlot].length?'bl-food-scroll':'bl-food-scroll no-data'} ref='scroll'>
+										<ul ref='foods-C' style={{width:this.state.liWidth*this.state.addFoods[this.state.currentTimeSlot].length}}>
+											{this.state.addFoods[this.state.currentTimeSlot].map((item,i)=>{
+												return (
+													<li key={i} onTouchTap={this.getFoodById}>
+														<div data-index={i} style={{background:'  url('+item.imgSrc+') no-repeat center',backgroundSize:'cover'}}>
+															<span>{item.name}</span>
+															{item.type === 'video' && <img className='fly-play-ico' src='./assets/images/play.png'/>}
+														</div>	
+													</li>
+												)
+											})}
+										</ul>
+									</div>
+									<div className='bl-food-next' onTouchTap={this.next}>></div>
+								</div>
+							</aside>
+						</article>
+					</div>
+						<FlyMyCollect changeMyCollectTop={this.changeMyCollectTop} obserable={this.props.obserable} className={this.state.currentPannel?'':'active'}></FlyMyCollect>
+					</div>
 				</div>
 			</li>
 		)
@@ -172,6 +175,13 @@ import $ from 'jquery';
 	componentDidMount() {
 
 		let {obserable,getTimeSlot} = this.props;//getTimeSlot是从高街组件中得到的属性。
+
+
+		obserable.on('showCollect',(flag)=>{
+			this.setState({
+				isShow:flag
+			})
+		});
 
 		this.state.currentTimeSlot = getTimeSlot;
 
@@ -265,17 +275,17 @@ import $ from 'jquery';
 		let target = '';
 		switch(e.target.nodeName){
 			case "DIV":
-			target = e.target;
+				target = e.target;
 			break;
 			case "SPAN":
-			target = e.target.parentNode;
+			case "IMG":
+				target = e.target.parentNode;
 			break;
 		};
 
 		if(!target.classList){
 			return;
 		}
-
 
 		Array.from(this.refs['foods-C'].querySelectorAll('li div')).forEach((item,i)=>{
 			item.classList.remove('active');
@@ -285,10 +295,42 @@ import $ from 'jquery';
 		let {obserable} = this.props;
 
 		var index = target.getAttribute('data-index');
-		
+
+
+			let targetData =  this.state.addFoods[this.state.currentTimeSlot][index];
+
+		switch(targetData.type){
+			case "image":
+
+				obserable.trigger({
+					type:'fillFood',
+					data:this.state.addFoods[this.state.currentTimeSlot][index]
+				});
+				
+			break;
+			case "video":
+			
+				obserable.trigger({
+					type:'fillFoodByVideo',
+					data:this.state.addFoods[this.state.currentTimeSlot][index]
+				});
+				obserable.trigger({type:'updateStep',data:0});
+			break;
+		}
+
 		obserable.trigger({
-			type:'fillFood',
-			data:this.state.addFoods[this.state.currentTimeSlot][index]
+			type:'fillSteps',
+			data:this.state.addFoods[this.state.currentTimeSlot][index].steps
+		});
+
+		//清空盘子。
+		obserable.trigger({
+			type:'clearPlates'
+		});
+		//初始化进度条
+		obserable.trigger({
+			type:'initProgress',
+			data:-1
 		});
 
 		obserable.trigger({

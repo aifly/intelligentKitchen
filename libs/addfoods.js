@@ -7,15 +7,15 @@ let addFoods = [
 		pageView:333,//浏览
 		discuss:124,//讨论
 		foodMaterial:[//食材
-			{name:'小番茄',weight:'30g'},
-			{name:'鸡蛋',weight:'40g'},
-			{name:'生菜',weight:'70g'},
-			{name:'生菜',weight:'70g'},
-			{name:'生菜',weight:'70g'},
-			{name:'生菜',weight:'70g'},
-			{name:'生菜',weight:'70g'},
-			{name:'培根',weight:'50g'},
-			{name:'吐丝',weight:'25g'}
+			{name:'小番茄',weight:'30g',id:''},
+			{name:'鸡蛋',weight:'40g',id:''},
+			{name:'生菜',weight:'70g',id:''},
+			{name:'生菜',weight:'70g',id:''},
+			{name:'生菜',weight:'70g',id:''},
+			{name:'生菜',weight:'70g',id:''},
+			{name:'生菜',weight:'70g',id:''},
+			{name:'培根',weight:'50g',id:''},
+			{name:'吐丝',weight:'25g',id:''}
 		],
 		scaleData:[ //不用管//饼图数据
   	 		{
@@ -63,7 +63,7 @@ let addFoods = [
     type:'video',//类型，图片or视频
 		steps:[//步骤
       {
-        stepName:'第一步',
+        stepName:'切西红柿',
         imgSrc:'./assets/videos/1.webm',
         poster:'./assets/images/poster.png'
       },

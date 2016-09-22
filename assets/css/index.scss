@@ -464,6 +464,7 @@ $nav-height:13.3vh;
 .fly-main-operator-C{
   @include displayBox(horizontal);
   -webkit-box-align:start;
+
   li.fly-operator-item{
     width: 2.9rem;
     height: 100%;

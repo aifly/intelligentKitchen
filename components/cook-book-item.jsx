@@ -126,6 +126,7 @@ import FlyVideo from './video.jsx';
 	prev(e){
 		e && this.props.shadow(e.target);
 
+		let {obserable} = this.props;
 		if(this.state.currentStep <=0){
 			return;
 		}
@@ -133,19 +134,27 @@ import FlyVideo from './video.jsx';
 			currentStep:this.state.currentStep-1
 		},()=>{
 			this.stepScroll();
+			this.state.steps[this.state.currentStep].timeError = true;
+			obserable.trigger({type:'clearTimespan',data:this.state.currentStep});
 		});
-
-		this.state.stepTimeSpan.pop();
+		
 	}
 	next(e){
 
 		let {obserable} = this.props;
 		
+		//this.state.stepTimeSpan.push(((new Date().getTime() - this.startTime) / 1000|0 + 1)/ 60|0 + 1);// /60换算成分。+1是不足一分钟按一分钟算。
+		if(!this.state.steps[this.state.currentStep].timeError){
+			obserable.trigger({type:'showTimespan',data:((new Date().getTime() - this.startTime) / 1000|0 + 1)/ 60|0 + 1});
+		}
 		e && this.props.shadow(e.target);
 		if(this.state.currentStep >=this.state.steps.length-1){
 
-			this.state.stepTimeSpan.push(new Date().getTime() - this.startTime);//	
+			//this.state.stepTimeSpan.push(new Date().getTime() - this.startTime);//	
 			obserable.trigger({type:'stopProgress'});
+
+			obserable.trigger({type:'showAllTime'});
+			
 			return;
 		}
 		this.setState({
@@ -157,7 +166,7 @@ import FlyVideo from './video.jsx';
 
 		//
 
-		this.state.stepTimeSpan.push((new Date().getTime() - this.startTime) / 1000);//
+		
 
 		this.startTime = new Date().getTime();
 
@@ -217,6 +226,11 @@ import FlyVideo from './video.jsx';
 
 		});
 
+		obserable.on('enableTimespan',(len)=>{
+			for(var i = 0; i < len;i++){
+				this.state.steps[i].timeError = true;
+			}
+		})
 		
 
 		obserable.on('updateStep',(step)=>{
@@ -226,8 +240,8 @@ import FlyVideo from './video.jsx';
 			},()=>{
 				this.stepScroll();
 				obserable.trigger({type:"initProgress",data:this.state.currentStep});
-				this.state.stepTimeSpan = this.state.stepTimeSpan.slice(0,step);
-				console.log(this.state.stepTimeSpan);
+				//this.state.stepTimeSpan = this.state.stepTimeSpan.slice(0,step);
+
 			});
 		});
 
@@ -313,6 +327,16 @@ import FlyVideo from './video.jsx';
 				});
 
 			});
+		});
+
+
+
+		obserable.on('updateTimeSpan',(timespan)=>{
+			this.state.stepTimeSpan.push(timespan);
+		});
+
+		obserable.on('getTimespan',()=>{
+			return this.state.stepTimeSpan;
 		});
 
 		obserable.on('fillFoodByVideo',data=>{

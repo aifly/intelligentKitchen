@@ -109,13 +109,13 @@ import addFoods from '../libs/addfoods.js';//
 		},1);
 	}
 	getFoodById(e){
-
 		let target = '';
 		switch(e.target.nodeName){
 			case "DIV":
 			target = e.target;
 			break;
 			case "SPAN":
+			case "IMG":
 			target = e.target.parentNode;
 			break;
 		};
@@ -145,9 +145,10 @@ import addFoods from '../libs/addfoods.js';//
 					type:'fillFood',
 					data:this.state.dataSource[this.state.currentTimeSlot][index]
 				});
+				
 			break;
 			case "video":
-
+			
 				obserable.trigger({
 					type:'fillFoodByVideo',
 					data:this.state.dataSource[this.state.currentTimeSlot][index]
@@ -155,6 +156,11 @@ import addFoods from '../libs/addfoods.js';//
 				obserable.trigger({type:'updateStep',data:0});
 			break;
 		}
+
+		obserable.trigger({
+			type:'fillSteps',
+			data:this.state.dataSource[this.state.currentTimeSlot][index].steps
+		});
 
 
 		/*obserable.trigger({

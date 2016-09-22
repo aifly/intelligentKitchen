@@ -38,6 +38,11 @@
         -webkit-box-align: center;
         -webkit-box-pack: center;
         -webkit-box-orient: horizontal; }
+      .fly-video-C section .fly-video-list-scroll li.active {
+        border: 3px solid #f90;
+        box-sizing: border-box; }
+        .fly-video-C section .fly-video-list-scroll li.active span {
+          color: #f90; }
       .fly-video-C section .fly-video-list-scroll li {
         width: .4rem;
         height: .6rem;
@@ -55,7 +60,8 @@
           top: 105%;
           display: block;
           text-align: center;
-          width: 100%; }
+          width: 100%;
+          font-size: .08rem; }
   .fly-video-C video {
     width: 2.5rem;
     height: 1.675rem !important;

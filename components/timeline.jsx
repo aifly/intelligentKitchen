@@ -2,49 +2,56 @@ import React, { Component } from 'react';
 import './css/timeline.css';
 import {PublicMethods} from './public-methods.jsx';
 
+import Time from '../libs/canvas';
+
 class FlyTimeLine extends Component {
 	constructor(props) {
 	  super(props);
 	
 	  this.state = {
 	  	 steps:[
-	  	 	'第一步',
-	  	 	'第二步',
-	  	 	'第三步',
-	  	 	'第四步',
-	  	 	'第五步',
+	  	 	
 	  	 ],
 	  	 progressLeft:0,
 		 currentStep:-1,
-	  	 width:20
+	  	 width:0,
+	  	 articleWidth:0,
+	  	 allTime:-1,
+	  	 timespan:[
 
+	  	 ]
 	  };
 
 	  this.updateStep = this.updateStep.bind(this);
 	}
 	render() {
 		return (
-			<section className='fly-time-line-C'>
+			<section className='fly-time-line-C' style={{opacity:this.state.steps.length ? 1:0}}>
 				<div className='line'></div>
-				<div className='fly-progress' style={{marginLeft:this.state.progressLeft,width:this.state.width}}></div>
+				<div className='fly-progress' style={{left:40+this.state.articleWidth - (document.documentElement.clientWidth / 10 * .1) / 2,marginLeft:this.state.progressLeft,width:this.state.width}}></div>
 				<section className='fly-points-C' ref='fly-points-C' onTouchTap={this.updateStep}>
 					<article className='prepare' ref='prepare'>
 						<span className='active'></span>
 						<label>准备食材</label>
 					</article>
 					{this.state.steps.map((step,i)=>{
+						
 						return(
 							<article key={i}>
 								<span className={this.state.currentStep >= i+1?'active':''}></span>
-								<label>{step}</label>
+								<label>{step.stepName} {step.timespan}</label>
+								{/*<div style={{left:-this.state.articleWidth}} className="fly-step-C">{step.stepContent}</div>*/}
 							</article>
 						)
 					})}
 				</section>
+				{this.state.allTime !== -1 && <section className='fly-all-time'>总共用时: {this.state.allTime}</section>}
 			</section>
 		);
 	}
 	componentDidMount() {
+
+		this.lastIndex = 0;
 		setTimeout(()=>{
 			/*this.setState({
 				progressLeft:this.refs['prepare'].offsetWidth / 2
@@ -52,48 +59,83 @@ class FlyTimeLine extends Component {
 
 			let {obserable} = this.props;
 
-			let points = this.refs['fly-points-C'].querySelectorAll('article');
-
-			let posArr = [],
-				width =this.refs['prepare'].offsetWidth + 10;
-
-
-
-
-			for(var i =1 ,len = points.length;i<len;i++){
-				posArr.push({x:width});
-			}
-
 			this.isStop = false;
 
-			let lastCurrentStep = -1;
-
 			obserable.on('initProgress',(data)=>{//初始化进度条
+
 				let state = {
 					width:0,
 					currentStep : data
 				}
 				if(data === -1){
-					state.progressLeft = 20;
+					state.progressLeft = 0;
 				}
 				this.setState(state);
 
 			});
 
+
+			obserable.on('fillSteps',(steps)=>{
+
+				this.setState({
+					steps:steps
+				},()=>{
+					let points = this.refs['fly-points-C'].querySelectorAll('article');
+				 	this.posArr = [];
+					this.width =this.refs['prepare'].offsetWidth;
+					for(var i =1 ,len = points.length;i<len;i++){
+						this.posArr.push({x:this.width});
+					}
+
+					this.setState({
+						articleWidth:points[0].offsetWidth/2 //> 320 ? 320 : points[0].offsetWidth/2
+					});
+				});
+			});
+
 			obserable.on('stopProgress',()=>{
 				this.isStop =  true;
 				this.setState({
-					width:posArr[this.state.currentStep].x,
-					progressLeft:this.state.currentStep*width - 30
+					width:this.posArr[this.state.currentStep].x,
+					progressLeft:this.state.currentStep*this.width
 				});
+			});
+
+			obserable.on('showAllTime',()=>{
+
+				let time = 0;
+				this.state.steps.forEach(step=>{
+					
+					if(step.timespan){
+						let hour = step.timespan.split(':')[0]*1,
+							mins = step.timespan.split(':')[1]*1;
+						time += hour*60 + mins;
+					}
+				});
+				
+
+				//清空盘子。
+				obserable.trigger({
+					type:'clearPlates'
+				});
+
+				time = ((time / 60 | 0) < 10 ? '0'+(time / 60 | 0):(time / 60 | 0)) + " : " +  (time % 60 < 10 ? '0' + time % 60 : time % 60)
+
+				this.setState({
+					allTime:time
+				})
 			});
 
 			obserable.on('pauseProgress',(step)=>{
 				this.isStop =  true;
 				this.setState({
-					width:posArr[this.state.currentStep].x,
-					progressLeft:this.state.currentStep*width 
+					width:this.posArr[this.state.currentStep].x,
+					progressLeft:this.state.currentStep * this.width 
 				});
+			});
+
+			obserable.on('startProgress',()=>{
+				this.isStop =  false;
 			});
 
 			obserable.on('prepareFood',()=>{
@@ -102,15 +144,40 @@ class FlyTimeLine extends Component {
 					return;	
 				}
 
-				let x = this.state.width + 1;
+				let x = this.state.width + 2;
 
-				x>= posArr[currentStep].x && (x = 0 );
+				//x>= this.posArr[currentStep].x && (x =  20 && return false);
+
+				if(x>= this.posArr[currentStep].x){
+					x = 0;
+				}
 				
 				!this.isStop &&	this.setState({
 					width:x,
-					progressLeft:currentStep*width
+					progressLeft:currentStep*this.width
 				});
 			});
+
+			obserable.on('clearTimespan',(data)=>{
+
+				this.state.steps[data].timespan = "00:00";
+
+				this.forceUpdate();
+			});
+
+
+			obserable.on('showTimespan',(timespan)=>{//每一个步骤完成后显示时间
+				var result = '';
+				if(timespan*1 === 0 ){
+					result = "00:00";
+				}
+				else{
+					result = ((timespan / 60 | 0) < 10 ? '0'+(timespan / 60 | 0):(timespan / 60 | 0)) + " : " +  (timespan % 60 < 10 ? '0' + timespan % 60 : timespan % 60);
+				}
+				this.state.steps[this.state.currentStep].timespan = result;
+				this.forceUpdate();
+			});
+
 		},1);
 
 
@@ -118,13 +185,30 @@ class FlyTimeLine extends Component {
 
 	updateStep(e){//点击圆点的时候切换步骤
 		
-		if(e.target.nodeName === "ARTICLE"){
+		if(e.target.nodeName === "ARTICLE" || e.target.nodeName === "CANVAS"){
 			return;
 		}
+
+
 
 		let {obserable,index} = this.props,
 			iNow = index(e.target.parentNode,null,'article');
 		obserable.trigger({type:'updateStep',data:iNow-1});
+
+		if(iNow - this.lastIndex  !== 1){
+			for(var i = 0; i < iNow  ;i++){
+				//this.state.steps[i].timespan = '00:00';
+				obserable.trigger('clearTimespan',i);
+			}
+			obserable.trigger({type:'enableTimespan',data:iNow});//防止点击了圆点，后面又点上一步，下一步
+		}
+
+		this.lastIndex = iNow;
+
+
+		this.forceUpdate();
+
+
 	}
 }
 
