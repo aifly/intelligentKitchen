@@ -123,19 +123,24 @@ injectTapEventPlugin();
 				this.state.menusArr[0].curSrc = this.state.menusArr[0].curSrc === this.state.menusArr[0].src? this.state.menusArr[0]._src:this.state.menusArr[0].src;
 				this.state.menusArr[1].curSrc = this.state.menusArr[1].curSrc === this.state.menusArr[1].src? this.state.menusArr[1]._src:this.state.menusArr[1].src;
 				this.state.menusArr[4].curSrc = this.state.menusArr[4].curSrc === this.state.menusArr[4].src? this.state.menusArr[4]._src:this.state.menusArr[4].src;
-
+				obserable.trigger({type:'showOperater',data:this.state.menusArr[0].curSrc !== this.state.menusArr[0].src});
 			break;
 			case 2://菜谱
+			case 8:
+				this.state.menusArr[2].curSrc = this.state.menusArr[2].curSrc === this.state.menusArr[2].src? this.state.menusArr[2]._src:this.state.menusArr[2].src;
+				this.state.menusArr[8].curSrc = this.state.menusArr[8].curSrc === this.state.menusArr[8].src? this.state.menusArr[8]._src:this.state.menusArr[8].src;
+				obserable.trigger({type:'showCollect',data:this.state.menusArr[2].curSrc !== this.state.menusArr[2].src});
 			break;
 			case 3://统计
 			break;
 			case 5://天气
-			break;
-			case 6://时间
+			case 8://时间
+
+				this.state.menusArr[5].curSrc = this.state.menusArr[5].curSrc === this.state.menusArr[5].src? this.state.menusArr[5]._src:this.state.menusArr[5].src;
+				this.state.menusArr[6].curSrc = this.state.menusArr[6].curSrc === this.state.menusArr[6].src? this.state.menusArr[6]._src:this.state.menusArr[6].src;
+				obserable.trigger({type:'showfunctionCenter',data:this.state.menusArr[5].curSrc !== this.state.menusArr[5].src});
 			break;
 			case 7://无线
-			break;
-			case 8://收藏
 			break;
 		}
 

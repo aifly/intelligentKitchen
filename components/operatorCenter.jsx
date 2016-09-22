@@ -9,42 +9,43 @@ import Time from '../libs/canvas';
 
 		this.state = {
 			showBoard:false,
-			showWeight:true
+			showWeight:false,
+			isShow:false
 		}
 		this.showWeight = this.showWeight.bind(this);
 		this.showBoard = this.showBoard.bind(this);
 		this.netWeight = this.netWeight.bind(this);//去皮
 		this.getWeight = this.getWeight.bind(this);//去皮
-
-		
 	}
 	
 	render() {
 
 		return (
 			<li className='fly-operator-item fly-weight'>
-				<div className='fly-btns-C'>
-					<figure>
-						<img  src='./assets/images/weight-btn.png' onTouchTap={this.showWeight} onTouchStart={this.props.touchStart} onTouchEnd={this.props.touchEnd}/>
-					</figure>
-					<figure>
-						<img  src='./assets/images/broad-btn.png' onTouchTap={this.showBoard} onTouchStart={this.props.touchStart} onTouchEnd={this.props.touchEnd}/>
-					</figure>
-					<figure>
-						<img  src='./assets/images/time-info.png' onTouchStart={this.props.touchStart} onTouchEnd={this.props.touchEnd}/>
-					</figure>
-				</div>
-				<div className='fly-operator-C' >
-					<div className='operator-C'  ref='fly-operator-C'>
-						 <div style={{display:this.state.showBoard ? 'block':'none'}} className='fly-img-board'>
-							<img src='./assets/images/board.png' className='board'/>	
-						</div>
-						<div style={{display:this.state.showWeight ? 'block':'none'}} className='fly-img-weight'>
-							<img src='./assets/images/weight.png'/>
-							<div className='fly-weight-display'>
-								<div onTouchTap={ this.netWeight}>去皮</div>
-								<div className='weight'><canvas ref='weight'></canvas></div>
-								<div onTouchTap={this.getWeight}>确定</div>
+				<div style={{opacity:this.state.isShow ? 1:0}}>
+					<div className='fly-btns-C'>
+						<figure>
+							<img  src='./assets/images/weight-btn.png' onTouchTap={this.showWeight} onTouchStart={this.props.touchStart} onTouchEnd={this.props.touchEnd}/>
+						</figure>
+						<figure>
+							<img  src='./assets/images/broad-btn.png' onTouchTap={this.showBoard} onTouchStart={this.props.touchStart} onTouchEnd={this.props.touchEnd}/>
+						</figure>
+						<figure>
+							<img  src='./assets/images/time-info.png' onTouchStart={this.props.touchStart} onTouchEnd={this.props.touchEnd}/>
+						</figure>
+					</div>
+					<div className='fly-operator-C' >
+						<div className='operator-C'  ref='fly-operator-C'>
+							 <div style={{display:this.state.showBoard ? 'block':'none'}} className='fly-img-board'>
+								<img src='./assets/images/board.png' className='board'/>	
+							</div>
+							<div style={{display:this.state.showWeight ? 'block':'none'}} className='fly-img-weight'>
+								<img src='./assets/images/weight.png'/>
+								<div className='fly-weight-display'>
+									<div onTouchTap={ this.netWeight}>去皮</div>
+									<div className='weight'><canvas ref='weight'></canvas></div>
+									<div onTouchTap={this.getWeight}>确定</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -70,6 +71,13 @@ import Time from '../libs/canvas';
 			//this.initCanvas(canvas,123);
 
 		},2000)
+
+		let {obserable} = this.props;
+		obserable.on('showOperater',(flag)=>{
+			this.setState({
+				isShow:flag
+			})
+		});
 	}
 
 	netWeight(e){//去皮

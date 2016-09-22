@@ -28,6 +28,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 				
 			],
 			currentData:'',
+			isShow:false
 			
 		}
 		this.getCityBySpell = this.getCityBySpell.bind(this);
@@ -128,7 +129,8 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 
 		return (
 			<li className="fly-food fly-cook-book-item">
-				<div className="fly-cook-book-item-C" ref='fly-cook-book-item-C'> 
+				<div style={{position:'absolute',width:'100%',height:'100%',zIndex:1000,display:this.state.isShow?'none':'block'}}></div>
+				<div className="fly-cook-book-item-C" ref='fly-cook-book-item-C' style={{opacity:this.state.isShow?1:0}}> 
 					<div className="fly-weather  fly-food-item fly-top3" ref='weather'>
 						<article style={{position:'absolute',left:0,top:0,width:'100%',height:'100%',overflow:'hidden'}}>
 							<section>
@@ -284,6 +286,13 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 	componentDidMount(){
 
 
+		let {obserable} = this.props;
+
+		obserable.on('showfunctionCenter',(flag)=>{
+			this.setState({
+				isShow:flag
+			});
+		});
 
 		this.init();
 

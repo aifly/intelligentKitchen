@@ -11,8 +11,20 @@
     .fly-alimentation-data div.fly-data-C canvas {
       position: absolute;
       left: 3%; }
+  .fly-alimentation-data div.fly-all {
+    position: absolute;
+    left: .1rem;
+    border: 2px solid #fff;
+    border-radius: 30px;
+    height: .2rem;
+    line-height: .2rem;
+    width: .5rem;
+    text-align: center;
+    color: #fff; }
   .fly-alimentation-data div.fly-m-name {
-    width: 80%;
+    width: 70%;
+    position: absolute;
+    right: .2rem;
     overflow: hidden; }
     .fly-alimentation-data div.fly-m-name li {
       width: .5rem;
@@ -33,8 +45,9 @@
       .fly-alimentation-data div.fly-m-name li:last-of-type:after {
         content: ""; }
     .fly-alimentation-data div.fly-m-name .active {
-      border-color: #e89e79;
-      color: #e89e79; }
+      border-color: #a67156;
+      color: #a67156;
+      -webkit-animation: blur 1s linear infinite alternate; }
       .fly-alimentation-data div.fly-m-name .active:after {
         color: #fff; }
     .fly-alimentation-data div.fly-m-name .shadow {
@@ -58,5 +71,10 @@
     -webkit-filter: blur(0px);
     box-shadow: 0 0 0.2rem rgba(232, 158, 121, 0.2), 0 0 0.2rem rgba(232, 158, 121, 0.2) inset;
     z-index: -1; }
+
+@-webkit-keyframes blur {
+  to {
+    border-color: #e89e79;
+    color: #e89e79; } }
 
 /*# sourceMappingURL=alimentationdata.css.map */

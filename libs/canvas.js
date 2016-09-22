@@ -41,7 +41,8 @@ export default class Time{
 		s.draw(10,context,index);
 	}
 
-	initWeight(numbers,color,bgColor){
+
+	initWeight(numbers){ //体重数据
 
 		let s = this;
 		let id = 2;
@@ -52,7 +53,7 @@ export default class Time{
 			one = numbers[1],
 			minsTen =  numbers[2],
 			minsOne =  numbers[3];
-		s.draw(ten,context,id,color,bgColor);
+		s.draw(ten,context,id);
 
 		id += numberData[ten][0].length+1;
 		s.draw(one,context,id);
@@ -105,17 +106,17 @@ export default class Time{
 
 	}
 
-	draw(num,context,id,flag = false){
+	draw(num,context,id,flag = false, isNeedTop = true){
 		let s = this;
 
 		
-		for(var i = 0;i<9;i++){
-			for(var j = 0;j<34;j++){
+		for(var i = 0;i<15;i++){
+			for(var j = 0;j<38;j++){
 				context.save();
-				context.translate(0,30);
+				isNeedTop && context.translate(0,30);
 				context.beginPath();
 
-				context.arc((s.margin + s.r)*(j+id)+s.margin,i*(s.margin+s.r)+s.margin,s.r,0,Math.PI*2,false);
+				context.arc((s.margin + s.r)*(j+id) + s.margin,i*(s.margin+s.r)+s.margin,s.r,0,Math.PI*2,false);
 				
 				context.closePath();
 

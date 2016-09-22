@@ -41,6 +41,8 @@
     overflow: hidden;
     height: 1.6rem;
     width: 65%; }
+    .foodlist-C .foodlist-content .fly-play-ico {
+      bottom: .15rem; }
     .foodlist-C .foodlist-content.no-data:before {
       content: '暂无数据';
       color: #f00;

@@ -1,23 +1,23 @@
 let addFoods = [
 	{
-		name:"面包秀",
-		imgSrc:"./assets/images/f4.png",
-		id:'',
-		detailSrc:'./assets/images/food1.png',
-		pageView:333,
+		name:"面包秀",//食谱名
+		imgSrc:"./assets/images/f4.png",//食谱图片
+		id:'',//id
+		//detailSrc:'./assets/images/food1.png', //最右侧的图片，如果是视频，这个字段没用
+		pageView:333,//浏览
 		discuss:124,//讨论
-		foodMaterial:[
-			{name:'小番茄',weight:'30g'},
-			{name:'鸡蛋',weight:'40g'},
-			{name:'生菜',weight:'70g'},
-			{name:'生菜',weight:'70g'},
-			{name:'生菜',weight:'70g'},
-			{name:'生菜',weight:'70g'},
-			{name:'生菜',weight:'70g'},
-			{name:'培根',weight:'50g'},
-			{name:'吐丝',weight:'25g'}
+		foodMaterial:[//食材
+			{name:'小番茄',weight:'30g',id:''},
+			{name:'鸡蛋',weight:'40g',id:''},
+			{name:'生菜',weight:'70g',id:''},
+			{name:'生菜',weight:'70g',id:''},
+			{name:'生菜',weight:'70g',id:''},
+			{name:'生菜',weight:'70g',id:''},
+			{name:'生菜',weight:'70g',id:''},
+			{name:'培根',weight:'50g',id:''},
+			{name:'吐丝',weight:'25g',id:''}
 		],
-		scaleData:[
+		scaleData:[ //不用管//饼图数据
   	 		{
   	 			unit:'ka',
   	 			weight:'30',
@@ -60,34 +60,36 @@ let addFoods = [
   	 			name:'其它'
   	 		}
 	  	],
-		steps:[
+    type:'video',//类型，图片or视频
+		steps:[//步骤
       {
-        stepName:'第一步',
-        imgSrc:'./assets/images/food1.png',
-        stepContent:'西红柿切成片1'
+        stepName:'切西红柿',
+        imgSrc:'./assets/videos/1.webm',
+        poster:'./assets/images/poster.png'
       },
 			{
         stepName:'第二步',
-        imgSrc:'./assets/images/food2.png',
-        stepContent:'打好鸡蛋并且搅拌均匀1'
+        imgSrc:'./assets/videos/1.webm',
+        poster:'./assets/images/poster.png'
       },
       {
         stepName:'第三步',
-        imgSrc:'./assets/images/food3.png',
-        stepContent:'鸡蛋入锅，翻炒，剩出备用1'
+        imgSrc:'./assets/videos/1.webm',
+        poster:'./assets/images/poster.png'
       },
       {
         stepName:'第四步',
-        imgSrc:'./assets/images/food4.png',
-        stepContent:'西红柿入锅'
+        imgSrc:'./assets/videos/1.webm',
+        poster:'./assets/images/poster.png'
       },
       {
         stepName:'第五步',
-        imgSrc:'./assets/images/food1.png',
-        stepContent:'倒入备用鸡蛋翻炒1'
+        imgSrc:'./assets/videos/1.webm',
+        poster:'./assets/images/poster.png'
       }
 		]
-	},{
+	},
+  {
 		name:"草莓蓝莓派",
 		imgSrc:"./assets/images/f5.png",
 		id:'',
@@ -143,6 +145,7 @@ let addFoods = [
   	 			name:'其它'
   	 		}
 	  	],
+      type:'image',
 		steps:[
 			{
         stepName:'第一步',
@@ -226,6 +229,7 @@ let addFoods = [
   	 			name:'其它'
   	 		}
 	  	],
+      type:'image',
 		steps:[
 			{
         stepName:'第一步',
@@ -310,6 +314,7 @@ let addFoods = [
   	 			name:'其它'
   	 		}
 	  	],
+      type:'image',
 		steps:[
 			{
         stepName:'第一步',
@@ -394,6 +399,7 @@ let addFoods = [
   	 			name:'其它'
   	 		}
 	  	],
+      type:'image',
 		steps:[
 			{
         stepName:'第一步',
@@ -478,6 +484,7 @@ let addFoods = [
   	 			name:'其它'
   	 		}
 	  	],
+      type:'image',
 		steps:[
 			{
         stepName:'第一步',
@@ -562,6 +569,7 @@ let addFoods = [
   	 			name:'其它'
   	 		}
 	  	],
+      type:'image',
 		steps:[
 			{
         stepName:'第一步',

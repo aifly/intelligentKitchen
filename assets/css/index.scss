@@ -152,7 +152,7 @@ body{
 }
 $nav-height:13.3vh;
 #fly-main{
-  
+
   .fly-nav-mask{
     @include pos(a);
     height: 100vh - $nav-height;
@@ -464,6 +464,7 @@ $nav-height:13.3vh;
 .fly-main-operator-C{
   @include displayBox(horizontal);
   -webkit-box-align:start;
+
   li.fly-operator-item{
     width: 2.9rem;
     height: 100%;

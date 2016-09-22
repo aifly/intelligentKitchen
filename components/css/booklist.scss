@@ -122,6 +122,13 @@ $maxIndex:9999;
 }
 
 
+.fly-play-ico{
+   width: .2rem;
+   @include pos(a);
+   right: 0;
+   bottom:.2rem;
+}
+
 @-webkit-keyframes move{
   50%{
     @include transform(translate3d(-100%,0,0));

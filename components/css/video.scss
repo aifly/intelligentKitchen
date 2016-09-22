@@ -1,0 +1,207 @@
+﻿
+
+@mixin pos($v) {
+  @if $v == a {
+    position: absolute;
+  } 
+  @else if $v == r {
+     position: relative;
+  } 
+  @else if $v == f {
+    position: fixed;
+  }
+}
+
+@mixin br($v:50%) {
+  border-radius: $v;
+}
+
+@mixin opacity($v:0) {
+  opacity: $v;
+}
+
+@mixin transform($v) {
+  -webkit-transform: $v;
+  transform: $v;
+}
+
+@mixin transitionDelay($time){
+  -webkit-transition-delay: $time;
+  transition-delay: $time;
+}
+
+
+@mixin transformOrigin($v) {
+  -webkit-transform-origin: $v;
+  transform-origin: $v;
+}
+
+@mixin backgroundSize($v:cover) {
+  background-size: $v;
+}
+
+@mixin transition_transform($v) {
+  -webkit-transition: -webkit-transform $v;
+  transition: transform $v;
+}
+
+@mixin transform_origin($v:center) {
+  -webkit-transform-origin: $v;
+  transform-origin: $v;
+}
+
+@mixin transition($v) {
+  -webkit-transition: $v;
+  transition: $v;
+}
+
+@mixin transitionTimingFunction($v:cubic-bezier(0, 0.9, 0.17, 1.01))
+{
+  -webkit-transition-timing-function: $v;
+  transition-timing-function: $v;
+}
+
+@mixin transform($v) {
+  -webkit-transform: $v;
+  transform: $v;
+}
+
+@mixin background($bg) {
+  background: $bg;
+}
+
+@mixin backgroundSize($v:cover) {
+  background-size: $v;
+}
+
+@mixin animation($v) {
+  -webkit-animation: $v;
+  animation: $v;
+}
+@mixin animationDelay($time){
+  -webkit-animation-delay:$time;
+          animation-delay:$time;
+}
+
+@mixin transform3d() {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  perspective: 800px;
+  -webkit-perspective: 800px;
+}
+
+@mixin displayBox($v:vertical) {
+  display: -webkit-box;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  -webkit-box-orient: $v;
+}
+
+@mixin fly-h-gradient-line {
+  background: -webkit-gradient(linear, left top, right top, from(rgba(204, 204, 204, .2)), color-stop(0.5, rgba(204, 204, 204, 1)), to(rgba(204, 204, 204, .2)));
+  background: -moz-linear-gradient(left, rgba(204, 204, 204, .2), rgba(204, 204, 204, 1) 50%, rgba(204, 204, 204, .2));
+  background: -ms-linear-gradient(left, rgba(204, 204, 204, .2), rgba(204, 204, 204, 1) 50%, rgba(204, 204, 204, .2));
+}
+
+@mixin fly-v-gradient-line($minOpacity:.3,$maxOpacity:1) {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(4, 0, 0, $minOpacity)), color-stop(0.5, rgba(0, 0, 0, $maxOpacity)), to(rgba(0, 0, 0, $minOpacity)));
+}
+
+@mixin displayFlex($v:column) {
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: $v;
+}
+
+ 
+$baseColor:#d1bdbd;
+$baseColor1:#e89e79;
+$maxIndex:9999;
+$fontColor:#a16d56;
+  .fly-video-C{
+    $width:2.5rem;
+    background:#727171;
+    width: $width;
+    display: block;
+    margin:.18rem auto;
+    @include br(30px);
+    section{
+       @include pos(r);
+
+       .fly-video-list{
+          width:100%;
+          height: 100%;
+          @include pos(a);
+          z-index: 10;
+          left: 0;
+          top: 0;
+          background:#727171;
+          border-top-right-radius:30px;
+          border-top-left-radius:30px;
+       }
+        h1{
+          height: .25rem;
+        }
+        .fly-video-operator{
+           width:80%;
+           margin: .1rem auto;
+           @include displayBox(horizontal);
+           div{
+             width: .25rem;
+             margin: 0 .1rem;
+           }
+        }
+       .fly-video-list-scroll{
+          width: 90%;
+          margin:0 auto;
+          overflow: hidden;
+          height: .8rem;
+          ul{
+             @include displayBox(horizontal);
+          }
+          li.active{
+            border:3px solid #f90;
+            box-sizing:border-box;
+            span{
+              color:#f90;
+            }
+          }
+          li{
+             width: .4rem;
+             height: .6rem;
+             @include pos(r);
+             margin: 0 10px;
+             img{
+               width: .13rem;
+               @include pos(a);
+               left: 50%;
+               top: 50%;
+               @include transform(translate3d(-50%,-50%,0));
+             }
+             span{
+                @include pos(a);
+                top: 105%;
+                display: block;
+                text-align: center;
+                width: 100%;
+                font-size: .08rem;
+             }
+
+          }
+       }
+    }
+    video{
+      width: $width;
+      height: $width * 3 / 4 - .2 !important;
+      display: block;
+      margin:0 auto;
+      @include br(30px);
+    }
+    .fly-video-control-C{
+       height: .2rem;
+       width: 100%;
+       background:#fff;
+       border-bottom-right-radius:30px;
+       border-bottom-left-radius:30px;
+    }
+  }

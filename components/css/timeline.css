@@ -5,7 +5,8 @@
   height: .3rem;
   position: relative;
   line-height: .3rem;
-  top: -.15rem; }
+  top: -.15rem;
+  z-index: 30; }
   .fly-time-line-C .line {
     width: 100%;
     height: 4px;
@@ -14,14 +15,12 @@
     top: .15rem; }
   .fly-time-line-C .fly-progress {
     position: absolute;
-    left: .78rem;
     top: 50%;
-    z-index: 10;
+    z-index: 22;
     margin-top: -3px;
     height: 13px;
     border-radius: 10px;
-    background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0.3)), to(rgba(255, 255, 255, 0.9)));
-    -webkit-filter: blur(1px); }
+    background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0.3)), to(rgba(255, 255, 255, 0.9))); }
     .fly-time-line-C .fly-progress:after {
       content: '';
       position: absolute;
@@ -29,10 +28,12 @@
       height: .1rem;
       border-radius: 50%;
       background: white;
-      right: -34px;
+      right: 0;
       top: -.035rem;
       -webkit-filter: blur(8px);
-      -webkit-animation: sploosh 1s infinite linear alternate; }
+      box-shadow: 0 0 0 0.01rem rgba(255, 255, 255, 0.3);
+      /* 
+      */ }
   .fly-time-line-C .fly-points-C {
     display: -webkit-box;
     -webkit-box-align: center;
@@ -41,7 +42,6 @@
     position: relative;
     top: .12rem; }
     .fly-time-line-C .fly-points-C .prepare span {
-      -webkit-filter: blur(2px);
       position: absolute; }
     .fly-time-line-C .fly-points-C article {
       -webkit-box-flex: 1;
@@ -54,9 +54,15 @@
         top: .05rem;
         display: inline-block;
         position: absolute;
-        left: 45%; }
+        left: 50%;
+        -webkit-transform: translate3d(-50%, 0, 0);
+        transform: translate3d(-50%, 0, 0); }
       .fly-time-line-C .fly-points-C article:first-of-type {
         text-align: center; }
+      .fly-time-line-C .fly-points-C article div.fly-step-C {
+        position: absolute;
+        width: 100%;
+        overflow: hidden; }
       .fly-time-line-C .fly-points-C article span {
         display: inline-block;
         width: .18rem;
@@ -64,9 +70,11 @@
         background: rgba(255, 255, 255, 0.5);
         position: absolute;
         top: -.06rem;
-        left: 47%;
+        left: 50%;
+        -webkit-transform: translate3d(-50%, 0, 0);
+        transform: translate3d(-50%, 0, 0);
         border-radius: 50%; }
-        .fly-time-line-C .fly-points-C article span:after {
+        .fly-time-line-C .fly-points-C article span.active:after {
           content: '';
           display: inline-block;
           position: absolute;
@@ -76,13 +84,16 @@
           top: 25%;
           border-radius: 50%;
           background: white; }
+  .fly-time-line-C .fly-all-time {
+    color: #fff;
+    position: absolute;
+    right: 1rem;
+    top: .4rem; }
 
 @-webkit-keyframes sploosh {
   0% {
-    box-shadow: 0 0 0 0px rgba(255, 255, 255, 0.8);
-    -webkit-filter: blur(5px); }
+    box-shadow: 0 0 0 0px rgba(255, 255, 255, 0); }
   100% {
-    box-shadow: 0 0 0 0.08rem rgba(255, 255, 255, 0);
-    -webkit-filter: blur(10px); } }
+    box-shadow: 0 0 0 0.08rem rgba(255, 255, 255, 0.8); } }
 
 /*# sourceMappingURL=timeline.css.map */
