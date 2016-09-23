@@ -63,7 +63,8 @@ injectTapEventPlugin();
 					_src:'./assets/images/nav9-1.png',
 					menu:'收藏'
 				}
-			]
+			],
+			isEnableDrag:false
 		}
 		this.menuBarHandler = this.menuBarHandler.bind(this);
 		this.closeMenu = this.closeMenu.bind(this);
@@ -99,8 +100,8 @@ injectTapEventPlugin();
 					</ul>
 				</div>
 				<div className='fly-menu-bar' onTouchTap={this.menuBarHandler}>
-					<div>下拉菜单</div>
-					<div>></div>
+					<div className={this.state.isEnableDrag ? 'fly-sure':''}>{this.state.isEnableDrag ? '确定':'下拉菜单'}</div>
+					<div>{this.state.isEnableDrag ? '':'>'}</div>
 				</div>
 				<div className="fly-nav-mask" ref="fly-nav-mask" onTouchTap={this.closeMenu}></div>
 			</nav>
@@ -134,7 +135,7 @@ injectTapEventPlugin();
 			case 3://统计
 			break;
 			case 5://天气
-			case 8://时间
+			case 6://时间
 
 				this.state.menusArr[5].curSrc = this.state.menusArr[5].curSrc === this.state.menusArr[5].src? this.state.menusArr[5]._src:this.state.menusArr[5].src;
 				this.state.menusArr[6].curSrc = this.state.menusArr[6].curSrc === this.state.menusArr[6].src? this.state.menusArr[6]._src:this.state.menusArr[6].src;
@@ -152,27 +153,39 @@ injectTapEventPlugin();
 
 	menuBarHandler(){
 
-		var menu = this.refs['fly-menu'];
+
+		if(this.state.isEnableDrag){
+			let {obserable} = this.props;
+			obserable.trigger({type:'closeDrag'});
+		}
+		else{
+			var menu = this.refs['fly-menu'];
+			var hasClass = menu.classList.contains('active');
+				menu.classList[hasClass?'remove':'add']('active');
+				this.refs['fly-menu-C'].classList[!hasClass?"remove":'add']('show');
+				this.refs['fly-menu-C1'].classList[!hasClass?"remove":'add']('show');
+				this.refs['fly-nav-mask'].classList[hasClass?'add':'remove']('active');
+		}
 	
-		var hasClass = menu.classList.contains('active');
-			menu.classList[hasClass?'remove':'add']('active');
-			this.refs['fly-menu-C'].classList[!hasClass?"remove":'add']('show');
-			this.refs['fly-menu-C1'].classList[!hasClass?"remove":'add']('show');
-			this.refs['fly-nav-mask'].classList[hasClass?'add':'remove']('active');
+
 	}
 
 	closeMenu(){
 			
 			var menu = this.refs['fly-menu'];
 			var hasClass = menu.classList.contains('active');
-
 			hasClass && menu.classList.remove('active');
 			this.menuBarHandler();
 
 	}
 	componentDidMount(){
-
-	}
+		let {obserable} = this.props;
+		obserable.on('switchMenu',(flag)=>{
+			this.setState({
+				isEnableDrag:flag,
+			});
+		});
+	}	
 }
 
 export default PublicMethods(FlyNav);
