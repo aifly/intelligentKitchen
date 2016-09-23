@@ -23,7 +23,7 @@ import $ from 'jquery';
 				[],//中餐
 				[]　//晚餐
 			],//已添加的菜谱
-			currentPannel:0,
+			currentPannel:1,
 			isShow:false,
 			isEnableDrag:false
 		}
