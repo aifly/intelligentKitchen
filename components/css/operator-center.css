@@ -21,6 +21,13 @@
   .fly-weight .fly-operator-C {
     position: relative;
     border-radius: 0.25rem; }
+    .fly-weight .fly-operator-C .fly-countdown-C {
+      position: absolute;
+      left: 0;
+      top: 0;
+      border: 1px solid red;
+      width: 100%;
+      height: 100%; }
     .fly-weight .fly-operator-C div.fly-img-board, .fly-weight .fly-operator-C div.fly-img-weight {
       width: 98%; }
     .fly-weight .fly-operator-C div.fly-img-weight .fly-weight-display {

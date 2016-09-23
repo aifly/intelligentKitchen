@@ -133,6 +133,8 @@ injectTapEventPlugin();
 				obserable.trigger({type:'showCollect',data:this.state.menusArr[2].curSrc !== this.state.menusArr[2].src});
 			break;
 			case 3://统计
+			case 7://无线
+				this.state.menusArr[iNow].curSrc = this.state.menusArr[iNow].curSrc === this.state.menusArr[iNow].src? this.state.menusArr[iNow]._src:this.state.menusArr[iNow].src;
 			break;
 			case 5://天气
 			case 6://时间
@@ -140,8 +142,6 @@ injectTapEventPlugin();
 				this.state.menusArr[5].curSrc = this.state.menusArr[5].curSrc === this.state.menusArr[5].src? this.state.menusArr[5]._src:this.state.menusArr[5].src;
 				this.state.menusArr[6].curSrc = this.state.menusArr[6].curSrc === this.state.menusArr[6].src? this.state.menusArr[6]._src:this.state.menusArr[6].src;
 				obserable.trigger({type:'showfunctionCenter',data:this.state.menusArr[5].curSrc !== this.state.menusArr[5].src});
-			break;
-			case 7://无线
 			break;
 		}
 

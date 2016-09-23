@@ -3,6 +3,7 @@ import './css/operator-center.css';
 import { PublicShadow } from './public-shadow.jsx';
 import numberData from '../libs/number';
 import Time from '../libs/canvas';
+import FlyCountdown from './countdown.jsx';
  class FlyOperatorCenter extends Component {
 	constructor(option){
 		super(option);
@@ -10,7 +11,7 @@ import Time from '../libs/canvas';
 		this.state = {
 			showBoard:false,
 			showWeight:false,
-			isShow:false
+			isShow:true
 		}
 		this.showWeight = this.showWeight.bind(this);
 		this.showBoard = this.showBoard.bind(this);
@@ -46,6 +47,9 @@ import Time from '../libs/canvas';
 									<div className='weight'><canvas ref='weight'></canvas></div>
 									<div onTouchTap={this.getWeight}>确定</div>
 								</div>
+							</div>
+							<div className="fly-countdown-C">
+								<FlyCountdown {...this.props}></FlyCountdown>
 							</div>
 						</div>
 					</div>

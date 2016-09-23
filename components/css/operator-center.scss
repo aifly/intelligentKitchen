@@ -147,6 +147,15 @@ $maxIndex:9999;
     
 		@include br(.25rem);
 		
+
+    .fly-countdown-C{
+       @include pos(a);
+       left: 0;
+       top: 0;
+       border:1px solid red;
+       width: 100%;
+       height: 100%;
+    }
     
 		div.fly-img-board,div.fly-img-weight{//案板
         width: 98%;         
