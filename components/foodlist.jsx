@@ -15,6 +15,7 @@ import addFoods from '../libs/addfoods.js';//
 				[]//晚餐
 			],
 			ulWidth:500,
+			currentIndex:-1,//当前选中的菜谱
 			currentTimeSlot:0,//当前时间段　0:早餐,1:中餐,2:晚餐。
 		};
 		this.next = this.next.bind(this);
@@ -54,7 +55,7 @@ import addFoods from '../libs/addfoods.js';//
 								{this.state.dataSource[this.state.currentTimeSlot].map((data,i)=>{
 									return (
 										<li  key={i} className={i<=Math.floor(this.state.dataSource[this.state.currentTimeSlot].length/2)?'':'food-top'}>
-											<div data-index={i} style={{background:'url('+data.imgSrc+') no-repeat center',backgroundSize:'cover'}}>
+											<div data-index={i}  style={{background:'url('+data.imgSrc+') no-repeat center',backgroundSize:'cover'}} className={i===this.state.currentIndex ? 'active':''}>
 												<span>{data.name}</span>
 												{data.type === 'video' && <img className='fly-play-ico' src='./assets/images/play.png'/>}
 											</div>
@@ -112,11 +113,11 @@ import addFoods from '../libs/addfoods.js';//
 		let target = '';
 		switch(e.target.nodeName){
 			case "DIV":
-			target = e.target;
+			target = e.target.parentNode;
 			break;
 			case "SPAN":
 			case "IMG":
-			target = e.target.parentNode;
+			target = e.target.parentNode.parentNode;
 			break;
 		};
 
@@ -124,26 +125,37 @@ import addFoods from '../libs/addfoods.js';//
 			return;
 		}
 
+
+		let {obserable,index} = this.props;
+		
+
+		let cIndex = index(target,null,'li');
+
+		this.setState({
+			currentIndex:cIndex
+		})
+
+
+
 /*
 		Array.from(this.refs['foods-C'].querySelectorAll('li div')).forEach((item,i)=>{
 			item.classList.remove('active');
 		});
 		target.classList.add('active');*/
 		
-		let {obserable} = this.props;
 
-		var index = target.getAttribute('data-index');
+		var iNow = target.querySelector('div').getAttribute('data-index');
 
 
 		
 
-		let targetData =  this.state.dataSource[this.state.currentTimeSlot][index];
+		let targetData =  this.state.dataSource[this.state.currentTimeSlot][iNow];
 
 		switch(targetData.type){
 			case "image":
 				obserable.trigger({
 					type:'fillFood',
-					data:this.state.dataSource[this.state.currentTimeSlot][index]
+					data:this.state.dataSource[this.state.currentTimeSlot][iNow]
 				});
 				
 			break;
@@ -151,7 +163,7 @@ import addFoods from '../libs/addfoods.js';//
 			
 				obserable.trigger({
 					type:'fillFoodByVideo',
-					data:this.state.dataSource[this.state.currentTimeSlot][index]
+					data:this.state.dataSource[this.state.currentTimeSlot][iNow]
 				});
 				obserable.trigger({type:'updateStep',data:0});
 			break;
@@ -159,20 +171,20 @@ import addFoods from '../libs/addfoods.js';//
 
 		obserable.trigger({
 			type:'fillSteps',
-			data:this.state.dataSource[this.state.currentTimeSlot][index].steps
+			data:this.state.dataSource[this.state.currentTimeSlot][iNow].steps
 		});
 
 
 		/*obserable.trigger({
 			type:'fillFood',
-			data:this.state.dataSource[this.state.currentTimeSlot][index]
+			data:this.state.dataSource[this.state.currentTimeSlot][iNow]
 		});*/
 
 		obserable.trigger({ //填充饼图
 			type:'fillAlimentationData',
 			data:{
-				materials:this.state.dataSource[this.state.currentTimeSlot][index].foodMaterial,
-				scaleData:this.state.dataSource[this.state.currentTimeSlot][index].scaleData
+				materials:this.state.dataSource[this.state.currentTimeSlot][iNow].foodMaterial,
+				scaleData:this.state.dataSource[this.state.currentTimeSlot][iNow].scaleData
 			}
 		});
 

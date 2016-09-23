@@ -56,7 +56,12 @@
       overflow: hidden;
       box-sizing: border-box;
       padding: 10px; }
+      .foodlist-C .foodlist-content li div.active {
+        box-sizing: border-box;
+        border: 8px solid #e89e79; }
       .foodlist-C .foodlist-content li div {
+        -webkit-transition: border 0.1s;
+        transition: border 0.1s;
         width: 100%;
         border-radius: 20px;
         height: 100%;
