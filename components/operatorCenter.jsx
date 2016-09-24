@@ -11,7 +11,7 @@ import FlyCountdown from './countdown.jsx';
 		this.state = {
 			showBoard:false,
 			showWeight:false,
-			isShow:false
+			isShow:true
 		}
 		this.showWeight = this.showWeight.bind(this);
 		this.showBoard = this.showBoard.bind(this);
@@ -48,9 +48,9 @@ import FlyCountdown from './countdown.jsx';
 									<div onTouchTap={this.getWeight}>确定</div>
 								</div>
 							</div>
-							{/*<div className="fly-countdown-C">
+							<div className="fly-countdown-C">
 								<FlyCountdown {...this.props}></FlyCountdown>
-							</div>*/}
+							</div>
 						</div>
 					</div>
 				</div>

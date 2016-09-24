@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './css/foodlist.css';
 import {FlyPublicData} from './public-data.jsx';
 import IScroll from 'iscroll';
-import addFoods from '../libs/addfoods.js';//
+/*import addFoods from '../libs/addfoods.js';//*/
 
 //第一部分切换的菜谱和食材列表组件。
  class FlyFoodList extends Component {

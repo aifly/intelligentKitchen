@@ -1,5 +1,6 @@
-let addFoods = [
+var addFoods = [
 	{
+    foodMtype:1,//
 		name:"面包秀",//食谱名
 		imgSrc:"./assets/images/f4.png",//食谱图片
 		id:'',//id
@@ -600,4 +601,3 @@ let addFoods = [
 	}
 ];
 
-export default addFoods;

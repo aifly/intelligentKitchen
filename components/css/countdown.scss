@@ -145,16 +145,14 @@ $size:.3rem;
   float: left;
   perspective: 1000px;
   width:$size;
-  height:70%;
+  height:65%;
   margin-left: .56rem;
   margin-top: .4rem;
   overflow: hidden;
-  border:1px solid red;
 
 }
 
 .round {
-    @include transition(6s linear);
     width:$size;
     height: $size;
     @include pos(r);
@@ -189,7 +187,6 @@ $size:.3rem;
   text-align: center;
   line-height: $size;
   font-size: .1rem;
-  font-weight: bold;
   color:#fff;
   display:block;
   
