@@ -14,35 +14,17 @@
 </head>
 <body>
 
-	<canvas id="canvas" width=400 height=400></canvas>
-	<script type="text/javascript" src='./libs/createjs.js'></script>
+	<canvas id="canvas" width=400 height=400></canvas> 
+
+	<script type="text/javascript" src='./node_modules/jquery/dist/jquery.js'></script>
 	<script type="text/javascript">
-		var canvas = document.getElementById('canvas'),
-			stage = new createjs.Stage(canvas),
-			pieContainer = new createjs.Container();
-
-			stage.addChild(pieContainer);
-
-
-		class Pie{
-			constructor(options={}){
-				let s = this;
-				s.angle = options.angle;
-				s.x = options.x;
-				s.y = options.y;
-				s.draw();
+		$.ajax({
+			url:"http://192.168.0.100:8080/kitchen/kb/kitchen/weighend.ht",
+			success(data){
+				console.log(data)
 			}
-			draw(){
-				
-			}
-		}
-
-		new Pie({
-			angle:30,
-			x:200,
-			y:200
-		});
-
+		})
 	</script>
+	 
 </body>
 </html>

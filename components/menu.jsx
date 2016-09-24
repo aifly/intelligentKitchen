@@ -109,6 +109,7 @@ injectTapEventPlugin();
 	}
 
 	menuChange(e){
+		e.preventDefault();
 		let {index,obserable} = this.props,
 			iNow = -1;
 		iNow = index(e.target.parentNode,this.refs['fly-menu-C'],'li');

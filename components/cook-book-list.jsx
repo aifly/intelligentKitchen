@@ -1,6 +1,6 @@
 import React from 'react';
 import {GetLunarDay,GetDateStr} from '../libs/Calendar.js';
-import addFoods from '../libs/addFoods.js'; //测试数据
+/*import addFoods from '../libs/addFoods.js'; //测试数据*/
 import './css/booklist.css';
 import IScroll from 'iscroll';
 import {FlyPublicData} from './public-data.jsx';
