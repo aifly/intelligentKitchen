@@ -15,8 +15,14 @@ export default class FlyCountdown extends Component {
 		return (
 			 <article id="timeWarp">
 	            <section id="round" className="fly-round">
+	            	<div className='fly-line'></div>
+	            	<div className='fly-time-unit-C'>
+                		<span>小时</span>
+                		<span>分钟</span>
+                	</div>
+                	<div className='fly-line1'></div>
 	                <section className="roundWrap" ref='roundWrap'>
-
+	                	
 	                </section>
 	                <section className="roundWrap roundWrap1" ref='roundWrap1'>
 
@@ -48,14 +54,15 @@ export default class FlyCountdown extends Component {
 	 	roundWrap1.querySelector('.mins-57').style.opacity = .1;
 	 	roundWrap1.querySelector('.mins-3').style.opacity = .1;
 
-
- 		roundWrap.querySelector('.hours-0').style.opacity = 1;
 	 	roundWrap.querySelector('.hours-1').style.opacity = .5;
+	 	roundWrap.querySelector('.hours-59').style.opacity = .5;
 
 	 	roundWrap.querySelector('.hours-2').style.opacity = .3;
+	 	roundWrap.querySelector('.hours-58').style.opacity = .3;
+	 	roundWrap.querySelector('.hours-57').style.opacity = .1;
 	 	roundWrap.querySelector('.hours-3').style.opacity = .1;
 
-	 	
+
 
 		this.rotateY1  = 348;
 		this.rotateY  = 348;
@@ -72,36 +79,30 @@ export default class FlyCountdown extends Component {
 				let t1 =t|0;
 
 				t1 = t1 > 360 ? t1-360 : t1;
-
-				t1= t1 < 0 ? 360+t1 :t1;
-				if(t1%6>3){
+				//t1= t1 < 0 ? 360+t1 :t1;
+				/*if( t1 % 6 > 3){
 					t1 += 6 - t1 % 6;
+					console.log((t1+12)/6%60+' ---->3');
 				}else{
 					t1 -= t1 % 6;
-				}
+				}*/
 
-				let index = ((t1 + 12) / 6);
-				
+				t1 -= t1 % 6;
 
-				//t > 48 && (t = 48)
-				if(startY - lastY>0){
-					console.log(360-t)
-
-					//t > 48 && (t = 48)
-				}
 				let spans = roundWrap.querySelectorAll('span');
 				for(var  i = 0; i < spans.length; i++){
-					spans[i].style.opacity = 1;
+					spans[i].style.opacity = 0;
 				}
 
-			 	roundWrap.querySelector('.hours-'+(index-1)%60).style.opacity = .5;
-			 	roundWrap.querySelector('.hours-'+(index+1)%60).style.opacity = .5;
+			 	roundWrap.querySelector('.hours-'+((t1 + 12) / 6)%60).style.opacity = 1;
+			 	roundWrap.querySelector('.hours-'+((t1 + 12) / 6-1)%60).style.opacity = .5;
+			 	roundWrap.querySelector('.hours-'+((t1 + 12) / 6+1)%60).style.opacity = .5;
 
-			 	roundWrap.querySelector('.hours-'+(index-2)%60).style.opacity = .3;
-			 	roundWrap.querySelector('.hours-'+(index+2)%60).style.opacity = .3;
+			 	roundWrap.querySelector('.hours-'+((t1 + 12) / 6-2)%60).style.opacity = .3;
+			 	roundWrap.querySelector('.hours-'+((t1 + 12) / 6+2)%60).style.opacity = .3;
 
-			 	roundWrap.querySelector('.hours-'+(index-3)%60) && (roundWrap.querySelector('.hours-'+(index-3)%60).style.opacity = .1);
-			 	roundWrap.querySelector('.hours-'+(index+3)%60) && (roundWrap.querySelector('.hours-'+(index+3)%60).style.opacity = .1);
+			 	roundWrap.querySelector('.hours-'+((t1 + 12) / 6-3)%60) && (roundWrap.querySelector('.hours-'+((t1 + 12) / 6-3)%60).style.opacity = .1);
+			 	roundWrap.querySelector('.hours-'+((t1 + 12) / 6+3)%60) && (roundWrap.querySelector('.hours-'+((t1 + 12) / 6+3)%60).style.opacity = .1);
 
 			 	/*
 			 	for(var i = 3;i<4;i++){
@@ -109,10 +110,9 @@ export default class FlyCountdown extends Component {
 			 		roundWrap.querySelector('.mins-'+((t1 + 12) / 6+i)).style.opacity = .1;
 			 		roundWrap.querySelector('.mins-'+((t1 + 12) / 6-i)).style.opacity = .1;
 			 	}*/
-
-
 				round.style.WebkitTransform = 'rotateX('+t+'deg)';
-			}).on('touchend',e=>{
+			});
+			$(document).on('touchend',e=>{
 				var e = e.originalEvent ? e.originalEvent.changedTouches[0]:e.changedTarget[0];
 				let lastY = e.pageY;
 				this.rotateY = this.rotateY + ( startY - lastY) / size;
@@ -126,17 +126,23 @@ export default class FlyCountdown extends Component {
 					t -= t % 6;
 				}
 
-				
-				//t > 48 && (t = 48)
-
-				//round.style.WebkitTransform = 'rotateX('+t+'deg)';
+				let t1=t;
 				
 
-				
+				roundWrap.querySelector('.hours-'+((t1 + 12) / 6)%60).style.opacity = 1;
+			 	roundWrap.querySelector('.hours-'+((t1 + 12) / 6-1)%60).style.opacity = .5;
+			 	roundWrap.querySelector('.hours-'+((t1 + 12) / 6+1)%60).style.opacity = .5;
 
+			 	roundWrap.querySelector('.hours-'+((t1 + 12) / 6-2)%60).style.opacity = .3;
+			 	roundWrap.querySelector('.hours-'+((t1 + 12) / 6+2)%60).style.opacity = .3;
+
+			 	roundWrap.querySelector('.hours-'+((t1 + 12) / 6-3)%60) && (roundWrap.querySelector('.hours-'+((t1 + 12) / 6-3)%60).style.opacity = .1);
+			 	roundWrap.querySelector('.hours-'+((t1 + 12) / 6+3)%60) && (roundWrap.querySelector('.hours-'+((t1 + 12) / 6+3)%60).style.opacity = .1);
+				round.style.WebkitTransform = 'rotateX('+t+'deg)';
 
 				$(document).off('touchmove touchend');
-			});
+			});			
+
 		});
 
 
@@ -154,18 +160,23 @@ export default class FlyCountdown extends Component {
 
 				t1 = t1 > 360 ? t1-360 : t1;
 				//t1= t1 < 0 ? 360+t1 :t1;
-				if( t1 % 6 > 3){
+				/*if( t1 % 6 > 3){
 					t1 += 6 - t1 % 6;
+					console.log((t1+12)/6%60+' ---->3');
 				}else{
 					t1 -= t1 % 6;
-				}
+				}*/
 
+				t1 -= t1 % 6;
 
 				let spans = roundWrap1.querySelectorAll('span');
 				for(var  i = 0; i < spans.length; i++){
-					spans[i].style.opacity = 1;
+					spans[i].style.opacity = 0;
 				}
 
+
+
+			 	roundWrap1.querySelector('.mins-'+((t1 + 12) / 6)%60).style.opacity = 1;
 			 	roundWrap1.querySelector('.mins-'+((t1 + 12) / 6-1)%60).style.opacity = .5;
 			 	roundWrap1.querySelector('.mins-'+((t1 + 12) / 6+1)%60).style.opacity = .5;
 
@@ -197,7 +208,18 @@ export default class FlyCountdown extends Component {
 					t -= t % 6;
 				}
 
+				let t1=t;
+				
 
+				roundWrap1.querySelector('.mins-'+((t1 + 12) / 6)%60).style.opacity = 1;
+			 	roundWrap1.querySelector('.mins-'+((t1 + 12) / 6-1)%60).style.opacity = .5;
+			 	roundWrap1.querySelector('.mins-'+((t1 + 12) / 6+1)%60).style.opacity = .5;
+
+			 	roundWrap1.querySelector('.mins-'+((t1 + 12) / 6-2)%60).style.opacity = .3;
+			 	roundWrap1.querySelector('.mins-'+((t1 + 12) / 6+2)%60).style.opacity = .3;
+
+			 	roundWrap1.querySelector('.mins-'+((t1 + 12) / 6-3)%60) && (roundWrap1.querySelector('.mins-'+((t1 + 12) / 6-3)%60).style.opacity = .1);
+			 	roundWrap1.querySelector('.mins-'+((t1 + 12) / 6+3)%60) && (roundWrap1.querySelector('.mins-'+((t1 + 12) / 6+3)%60).style.opacity = .1);
 				round1.style.WebkitTransform = 'rotateX('+t+'deg)';
 
 				$(document).off('touchmove touchend');
@@ -226,7 +248,7 @@ export default class FlyCountdown extends Component {
 			for(var j=0; j<=59; j++){
 				if(i===0){
 
-					str =  "<div><span class='hours-"+(59-j)+"'>"+(59-j<=10?(59-j):'')+"</span>"+str+"</div>";	
+					str =  "<div><span class='hours-"+(59-j)+"'>"+((59-j)%11)+"</span>"+str+"</div>";	
 				}
 				else{
 
@@ -235,7 +257,7 @@ export default class FlyCountdown extends Component {
 				
 			}
 			str="<div class='round' style='-webkit-transform:rotateX(348deg)'>"+str+"</div>";
-			roundsArr[i].innerHTML=str;
+			roundsArr[i].innerHTML+=str;
 		}
 
 	}

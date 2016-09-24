@@ -28,12 +28,8 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 				
 			],
 			currentData:'',
-<<<<<<< HEAD
-			isShow:false
-=======
 			isShow:false,
 			isEnableDrag:false //是否启用了拖拽
->>>>>>> d5bf5693271e4f39a16d1da765adbbc987dd7384
 			
 		}
 		this.getCityBySpell = this.getCityBySpell.bind(this);
@@ -134,11 +130,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 
 		return (
 			<li className="fly-food fly-cook-book-item">
-<<<<<<< HEAD
-				<div style={{position:'absolute',width:'100%',height:'100%',zIndex:1000,display:this.state.isShow?'none':'block'}}></div>
-=======
 				<div style={{position:'absolute',width:'100%',height:'100%',zIndex:1000,display:(!this.state.isShow || this.state.isEnableDrag)?'block':'none'}}></div>
->>>>>>> d5bf5693271e4f39a16d1da765adbbc987dd7384
 				<div className="fly-cook-book-item-C" ref='fly-cook-book-item-C' style={{opacity:this.state.isShow?1:0}}> 
 					<div className="fly-weather  fly-food-item fly-top3" ref='weather'>
 						<article style={{position:'absolute',left:0,top:0,width:'100%',height:'100%',overflow:'hidden'}}>
@@ -302,11 +294,8 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 				isShow:flag
 			});
 		});
-<<<<<<< HEAD
-=======
 
 
->>>>>>> d5bf5693271e4f39a16d1da765adbbc987dd7384
 
 		this.init();
 

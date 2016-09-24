@@ -59,11 +59,7 @@ class FlyVideo extends Component {
 	}
 	componentDidMount() {
 		let video = this.refs['video'];
-<<<<<<< HEAD
-		video.muted =true;
-=======
 		//video.muted =true; // 静音
->>>>>>> d5bf5693271e4f39a16d1da765adbbc987dd7384
 		this.video = video;
 		let isEnd = false;
 		video.addEventListener('play',()=>{

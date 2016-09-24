@@ -1,12 +1,20 @@
 .fly-round {
   height: 2.1rem;
   overflow: hidden;
-  border: 1px solid #000;
   position: relative; }
   .fly-round:after {
     content: "";
     clear: both;
     display: block; }
+  .fly-round .fly-line, .fly-round .fly-line1 {
+    /* 
+          width: 90%;
+          left: 5%;
+          border-top:2px solid #fff;
+          @include pos(a);
+          top: $size; */ }
+  .fly-round .fly-line1 {
+    top: 1.7rem; }
 
 .roundWrap {
   -webkit-perspective: 1000px;
@@ -54,5 +62,23 @@
   font-size: .1rem;
   color: #fff;
   display: block; }
+
+.fly-time-unit-C {
+  position: absolute;
+  left: 5%;
+  top: 50%;
+  width: 90%;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  height: 0.3rem;
+  margin-top: -0.075rem;
+  line-height: 0.34rem;
+  z-index: -1; }
+  .fly-time-unit-C span {
+    color: #fff; }
+    .fly-time-unit-C span:nth-of-type(1) {
+      margin-left: 0.66rem; }
+    .fly-time-unit-C span:nth-of-type(2) {
+      margin-left: 0.66rem; }
 
 /*# sourceMappingURL=countdown.css.map */

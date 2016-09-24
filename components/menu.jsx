@@ -138,21 +138,12 @@ injectTapEventPlugin();
 				this.state.menusArr[iNow].curSrc = this.state.menusArr[iNow].curSrc === this.state.menusArr[iNow].src? this.state.menusArr[iNow]._src:this.state.menusArr[iNow].src;
 			break;
 			case 5://天气
-<<<<<<< HEAD
-			case 8://时间
-=======
 			case 6://时间
->>>>>>> d5bf5693271e4f39a16d1da765adbbc987dd7384
 
 				this.state.menusArr[5].curSrc = this.state.menusArr[5].curSrc === this.state.menusArr[5].src? this.state.menusArr[5]._src:this.state.menusArr[5].src;
 				this.state.menusArr[6].curSrc = this.state.menusArr[6].curSrc === this.state.menusArr[6].src? this.state.menusArr[6]._src:this.state.menusArr[6].src;
 				obserable.trigger({type:'showfunctionCenter',data:this.state.menusArr[5].curSrc !== this.state.menusArr[5].src});
 			break;
-<<<<<<< HEAD
-			case 7://无线
-			break;
-=======
->>>>>>> d5bf5693271e4f39a16d1da765adbbc987dd7384
 		}
 
 		this.forceUpdate();

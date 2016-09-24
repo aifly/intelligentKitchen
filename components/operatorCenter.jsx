@@ -11,11 +11,7 @@ import FlyCountdown from './countdown.jsx';
 		this.state = {
 			showBoard:false,
 			showWeight:false,
-<<<<<<< HEAD
-			isShow:false
-=======
 			isShow:true
->>>>>>> d5bf5693271e4f39a16d1da765adbbc987dd7384
 		}
 		this.showWeight = this.showWeight.bind(this);
 		this.showBoard = this.showBoard.bind(this);
@@ -44,23 +40,16 @@ import FlyCountdown from './countdown.jsx';
 							 <div style={{display:this.state.showBoard ? 'block':'none'}} className='fly-img-board'>
 								<img src='./assets/images/board.png' className='board'/>	
 							</div>
-<<<<<<< HEAD
-							<div style={{display:this.state.showWeight ? 'block':'none'}} className='fly-img-weight'>
-=======
 							<div style={{opacity:this.state.showWeight ? 1:0}} className='fly-img-weight'>
->>>>>>> d5bf5693271e4f39a16d1da765adbbc987dd7384
 								<img src='./assets/images/weight.png'/>
 								<div className='fly-weight-display'>
 									<div onTouchTap={ this.netWeight}>去皮</div>
 									<div className='weight'><canvas ref='weight'></canvas></div>
 									<div onTouchTap={this.getWeight}>确定</div>
 								</div>
-<<<<<<< HEAD
-=======
 							</div>
 							<div className="fly-countdown-C">
 								<FlyCountdown {...this.props}></FlyCountdown>
->>>>>>> d5bf5693271e4f39a16d1da765adbbc987dd7384
 							</div>
 						</div>
 					</div>

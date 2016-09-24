@@ -117,11 +117,7 @@ import IScroll from 'iscroll';
 			break;
 			case "SPAN":
 			case "IMG":
-<<<<<<< HEAD
-			target = e.target.parentNode;
-=======
 			target = e.target.parentNode.parentNode;
->>>>>>> d5bf5693271e4f39a16d1da765adbbc987dd7384
 			break;
 		};
 
@@ -173,41 +169,8 @@ import IScroll from 'iscroll';
 			break;
 		}
 
-		
-
-		let targetData =  this.state.dataSource[this.state.currentTimeSlot][index];
-
-		switch(targetData.type){
-			case "image":
-				obserable.trigger({
-					type:'fillFood',
-					data:this.state.dataSource[this.state.currentTimeSlot][index]
-				});
-				
-			break;
-			case "video":
-			
-				obserable.trigger({
-					type:'fillFoodByVideo',
-					data:this.state.dataSource[this.state.currentTimeSlot][index]
-				});
-				obserable.trigger({type:'updateStep',data:0});
-			break;
-		}
-
 		obserable.trigger({
 			type:'fillSteps',
-<<<<<<< HEAD
-			data:this.state.dataSource[this.state.currentTimeSlot][index].steps
-		});
-
-
-		/*obserable.trigger({
-			type:'fillFood',
-			data:this.state.dataSource[this.state.currentTimeSlot][index]
-		});*/
-
-=======
 			data:this.state.dataSource[this.state.currentTimeSlot][iNow].steps
 		});
 
@@ -217,7 +180,6 @@ import IScroll from 'iscroll';
 			data:this.state.dataSource[this.state.currentTimeSlot][iNow]
 		});*/
 
->>>>>>> d5bf5693271e4f39a16d1da765adbbc987dd7384
 		obserable.trigger({ //填充饼图
 			type:'fillAlimentationData',
 			data:{
