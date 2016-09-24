@@ -120,114 +120,81 @@ $baseColor:#d1bdbd;
 $baseColor1:#e89e79;
 $maxIndex:9999;
 
-$foodlist-height:1.6rem;
+$size:.3rem;
 
-.foodlist{
-	margin:.13rem auto;
-  
-}
-.foodlist-C{
-  $width:35%;
-  section{
-    @include displayBox(horizontal);  
-    ol{
-      width: $width;
-      li{
-        margin:0 auto;
-        text-align: center;
-        $size:.3rem;
-        height: $size;
-        width: $size;
-        @include br(50%);
-        line-height: $size;
-        &.active{
-          border:3px solid $baseColor1;
-        }
-      }
-      @include pos(r);
-      height: 100%;
-      &:after{
-        content:'';
-        width: 2px;
-        height: 160%;
-        top: -30%;
-        @include fly-v-gradient-line();
-        @include pos(a);
-        right: 10px;
-      }
-    }
-  }
-  .foodlist-content{
-
-    .fly-play-ico{
-       bottom:.15rem;
-    }
-    &.no-data:before{
-      content:'暂无数据';
-      color:#f00;
-      margin-top: 50%;
-      margin-left: 20%;
-      display:block;
-    }
-
+.fly-round{
+    height: 2.0rem;
     overflow: hidden;
-    height:1.6rem;
-    width:100 - $width;
-
-    
-    li{
+    border:1px solid #000;
+    position: relative;
   
-      width:.675rem;
-      float: left;
-      height:($foodlist-height ) / 2;
-      overflow: hidden;
-      box-sizing:border-box;
-      padding:10px;;
-      div.active{
-        box-sizing:border-box;
-        border:8px solid rgb(232, 158, 121);
-      }
-      div{
-        @include transition(border .1s);
-        width:100%;
-        @include br(20px);
-        height:100%;
-        @include pos(r);
-        overflow: hidden;
-      }
-      span{
-        font-size:.08rem;
-        @include pos(a);
-        left: 0;
-        bottom:0;
-        display:block;
-        width:100%;
-        color:#cfbbba;
-        text-align: center;
-        height: .15rem;
-        line-height: .15rem;
-        background:rgba(255,255,255,1);
-      }
-      &.food-top{
-        margin-top: 0.01rem;  
-      }
+    &:after{
+      content: "";
+      clear: both;
+      display: block;
     }
-  }
 
-	width:86%;
-	margin-left: .1rem;
-	height:$foodlist-height;
-	overflow:hidden;
-	float:left;
-	@include br(20px);
-	box-shadow:0 0 1.1rem rgba(232,158,121,.6),0 0 .1rem rgba(232,158,121,.2) inset;
 }
-.foodlist-next{
-	float:left;
-	height:$foodlist-height / 4;
-	line-height: $foodlist-height / 4;
-	margin-top: .56rem;
-	padding:0 20px;
-	@include transform(scaleY(2.4));
-	//margin-top: $foodlist-height /2 ;
+
+.roundWrap1{
+    //margin-left: .6rem;
+}
+
+.roundWrap {
+  -webkit-perspective: 1000px;
+  float: left;
+  perspective: 1000px;
+  width:$size;
+  height:$size;
+  margin-left: .56rem;
+  margin-top: 0.8rem;
+
+}
+
+.roundWrap:hover .round {
+  transform: rotateX(360deg);
+}
+
+.round {
+    @include transition(6s linear);
+    width:$size;
+    height: $size;
+    @include pos(r);
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    @include transformOrigin(center center -1.9*$size/.2);
+    z-index: 2;
+   div {
+      position: absolute;
+      left: 0;
+      width: 100%;;
+      top:$size;
+      -webkit-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+      -webkit-transform-origin: top;
+      transform-origin: top;
+      -webkit-transform: rotateX(-6deg);
+      transform: rotateX(-6deg);
+      backface-visibility: hidden;
+   }
+}
+.round>div{
+  top: 0;
+  -webkit-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+
+}
+.round span {
+  box-sizing:border-box;
+  width: $size ;
+  height:$size;
+  text-align: center;
+  line-height: $size;
+  font-size: .1rem;
+  font-weight: bold;
+  color:#fff;
+  display:block;
+  
+  //box-shadow: 0 0 3px #dde5ed;
+
 }

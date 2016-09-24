@@ -21,7 +21,12 @@ import FlyVideo from './video.jsx';
 			steps:[
 				
 			],
+<<<<<<< HEAD
 			type:''
+=======
+			type:'',
+			isEnableDrag:false
+>>>>>>> d5bf5693271e4f39a16d1da765adbbc987dd7384
 		};
 		this.getDetail = this.getDetail.bind(this);
 		this.closeCook = this.closeCook.bind(this);
@@ -51,6 +56,7 @@ import FlyVideo from './video.jsx';
 		
 		return (
 			<li className="fly-cook-detail fly-cook-book-item">
+<<<<<<< HEAD
 				{foodData.type === 'image' && <div className="fly-cook-book-item-C book-item">
 					{foodData.name && this.state.currentStep === -1  && <section className='book-item-C'>
 						<ul className='book-item-ul'>
@@ -65,51 +71,75 @@ import FlyVideo from './video.jsx';
 												<b></b>
 												<b></b>
 												<b></b>
+=======
+				<div style={{width:'100%',height:'100%',position:'relative'}}>
+					<div style={{position:'absolute',left:0,top:0,width:'100%',height:'100%',zIndex:foodData.type && this.state.isEnableDrag ? 1000:-1}}></div>
+						{foodData.type === 'image' && <div className="fly-cook-book-item-C book-item">
+						{foodData.name && this.state.currentStep === -1  && <section className='book-item-C'>
+							<ul className='book-item-ul'>
+								<li className='book-item-ul-li' onTouchTap={this.getDetail}>
+									<div className='book-item-detail-src' style={background}>
+										<span onTouchTap={this.closeCook} className='fly-exit'></span>
+										<div className='book-item-content'>
+											<span className='book-item-name'>{foodData.name}</span>
+											<span className='book-item-pageview'>{foodData.pageView}<em>浏览</em></span>
+											<span className="book-item-discuss">
+												<span>
+													<b></b>
+													<b></b>
+													<b></b>
+												</span>
+												<span>{foodData.discuss}</span>
+>>>>>>> d5bf5693271e4f39a16d1da765adbbc987dd7384
 											</span>
-											<span>{foodData.discuss}</span>
-										</span>
-									</div>										
-								</div>
-							</li>	
-							<li className='book-item-detail book-item-ul-li'>
-								
-								<div className='material' ref='material'>
-									<h1>材料</h1>
-									<section className='material-scroll' ref='material-scroll'>
-										
-										<ul>
-											{foodData.foodMaterial && foodData.foodMaterial.map((item,i)=>{
-												return (
-													<li key={i}>
-														<span>{item.name}</span>
-														<span>{item.weight}</span>
-													</li>
-												);
-											})}
-										</ul>
-										
-									</section>
-									<section onTouchTap={this.beginDo} className='begin-do'><span>开始制作</span></section>
-								</div>
-							</li>	
-						</ul>
-					</section>}
-
-					 <div className='fly-cook-steps-C' ref='fly-cook-steps-C' style={{display:steps.length && this.state.currentStep>-1 ? 'block':'none'}}>
-						<aside className='fly-prev' onTouchTap={this.prev} style={{display:this.state.currentStep <=0 ? 'none':'block'}}></aside>					
-						<div className='fly-history'>
-							<FlyBack callBack={()=>{}}></FlyBack>
-						</div>
-						<div className='fly-cook-steps-scroll'>
-							<ul className='active' ref='steps-C' style={{width:steps.length * this.state.defaultWidth}}>
-								{steps.map((step,i)=>{
-									return <li key={i}>
-										<article style={{background:'url('+ step.imgSrc + ') no-repeat center  / cover'}}></article>
-										<footer>{step.stepContent}</footer>
-									</li>
-								})}							
+										</div>										
+									</div>
+								</li>	
+								<li className='book-item-detail book-item-ul-li'>
+									
+									<div className='material' ref='material'>
+										<h1>材料</h1>
+										<section className='material-scroll' ref='material-scroll'>
+											
+											<ul>
+												{foodData.foodMaterial && foodData.foodMaterial.map((item,i)=>{
+													return (
+														<li key={i}>
+															<span>{item.name}</span>
+															<span>{item.weight}</span>
+														</li>
+													);
+												})}
+											</ul>
+											
+										</section>
+										<section onTouchTap={this.beginDo} className='begin-do'><span>开始制作</span></section>
+									</div>
+								</li>	
 							</ul>
+						</section>}
+
+						 <div className='fly-cook-steps-C' ref='fly-cook-steps-C' style={{display:steps.length && this.state.currentStep>-1 ? 'block':'none'}}>
+							<aside className='fly-prev' onTouchTap={this.prev} style={{display:this.state.currentStep <=0 ? 'none':'block'}}></aside>					
+							<div className='fly-history'>
+								<FlyBack callBack={()=>{}}></FlyBack>
+							</div>
+							<div className='fly-cook-steps-scroll'>
+								<ul className='active' ref='steps-C' style={{width:steps.length * this.state.defaultWidth}}>
+									{steps.map((step,i)=>{
+										return <li key={i}>
+											<article style={{background:'url('+ step.imgSrc + ') no-repeat center  / cover'}}></article>
+											<footer>{step.stepContent}</footer>
+										</li>
+									})}							
+								</ul>
+							</div>
+							<aside className='fly-next' onTouchTap={this.next}>{this.state.currentStep >= this.state.steps.length-1?'完成':'下一步'}</aside>
+							<div className='fly-close' onTouchTap={this.closeStep}>
+								
+							</div>
 						</div>
+<<<<<<< HEAD
 						<aside className='fly-next' onTouchTap={this.next}>{this.state.currentStep >= this.state.steps.length-1?'完成':'下一步'}</aside>
 						<div className='fly-close' onTouchTap={this.closeStep}>
 							
@@ -119,6 +149,14 @@ import FlyVideo from './video.jsx';
 				{foodData.type === 'video' && <div className="fly-cook-book-item-C book-item">
 					<FlyVideo {...videoProps} {...this.props}></FlyVideo>
 				</div>}
+=======
+					</div>}
+					{foodData.type === 'video' && <div className="fly-cook-book-item-C book-item">
+						<FlyVideo {...videoProps} {...this.props}></FlyVideo>
+					</div>}
+				</div>
+				
+>>>>>>> d5bf5693271e4f39a16d1da765adbbc987dd7384
 			</li>
 		)
 	}
@@ -219,6 +257,12 @@ import FlyVideo from './video.jsx';
 
 	componentDidMount(){
 		let {obserable} = this.props;
+
+		obserable.on('showBookDetailIsEnableDrag',(flag)=>{
+			this.setState({
+				isEnableDrag:flag
+			});
+		});
 
 		obserable.on('getCurrentStep',()=>{
 

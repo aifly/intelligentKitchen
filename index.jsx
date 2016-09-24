@@ -7,7 +7,7 @@ import Obserable from './libs/Obserable.js';
 /*import './libs/nav.js';
 import './libs/cookbook.js';*/
 import FlyNav from './components/menu.jsx';
-import FlyDone from './components/done.jsx';
+
 import FlyFunctionCenter from './components/function-center.jsx';
 import FlyCookBookItem from './components/cook-book-item.jsx';
 import FlyCookBookList from './components/cook-book-list.jsx';
@@ -32,7 +32,7 @@ class App extends React.Component{
 		return (
 			<div>
 				<FlyNav {...data}></FlyNav>
-				<FlyDone {...data}/>
+				
 				<ul className="fly-cook-book-C">
 					<FlyFunctionCenter {...data}></FlyFunctionCenter>
 					<FlyCookBookList {...data}></FlyCookBookList>

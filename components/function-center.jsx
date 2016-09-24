@@ -28,7 +28,12 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 				
 			],
 			currentData:'',
+<<<<<<< HEAD
 			isShow:false
+=======
+			isShow:false,
+			isEnableDrag:false //是否启用了拖拽
+>>>>>>> d5bf5693271e4f39a16d1da765adbbc987dd7384
 			
 		}
 		this.getCityBySpell = this.getCityBySpell.bind(this);
@@ -129,7 +134,11 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 
 		return (
 			<li className="fly-food fly-cook-book-item">
+<<<<<<< HEAD
 				<div style={{position:'absolute',width:'100%',height:'100%',zIndex:1000,display:this.state.isShow?'none':'block'}}></div>
+=======
+				<div style={{position:'absolute',width:'100%',height:'100%',zIndex:1000,display:(!this.state.isShow || this.state.isEnableDrag)?'block':'none'}}></div>
+>>>>>>> d5bf5693271e4f39a16d1da765adbbc987dd7384
 				<div className="fly-cook-book-item-C" ref='fly-cook-book-item-C' style={{opacity:this.state.isShow?1:0}}> 
 					<div className="fly-weather  fly-food-item fly-top3" ref='weather'>
 						<article style={{position:'absolute',left:0,top:0,width:'100%',height:'100%',overflow:'hidden'}}>
@@ -293,6 +302,11 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 				isShow:flag
 			});
 		});
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> d5bf5693271e4f39a16d1da765adbbc987dd7384
 
 		this.init();
 
@@ -390,7 +404,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 	}
 	init(){	
 		this.iNow = 0;
-		this.isEnableDrag = false;
+		//this.isEnableDrag = false;
 		this.bindEvent(document);
 		this.setSize();
 	}
@@ -428,7 +442,15 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 
 		this.programa.removeClass('active');
 		this.sort && this.sort.destroy();
-		this.isEnableDrag = false;
+		let self = this;
+		let {obserable} = self.props;
+		this.setState({
+			isEnableDrag : false
+		},()=>{
+			obserable.trigger({type:'showIsEnableDrag',data:false});
+			obserable.trigger({type:'showBookDetailIsEnableDrag',data:false});
+			obserable.trigger({type:'switchMenu',data:false});
+		});
 	}
 
 	bindEvent(document){
@@ -453,7 +475,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
  
 
 		data.foods.on('tap',(e)=>{
-			if(self.isEnableDrag){//
+			if(self.state.isEnableDrag){//
 				return;
 			}
 			var target = $(e.target).hasClass('fly-food-item')?$(e.target):$(e.target).parents('.fly-food-item');
@@ -526,7 +548,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 			$(document).on('touchmove',e=>{
 
 				e.preventDefault();
-				if(self.isEnableDrag){
+				if(self.state.isEnableDrag){
 					return; //启用了拖拽操作。
 				}
 				var e = e.originalEvent ? e.originalEvent.changedTouches[0]:e.changedTarget[0];
@@ -539,7 +561,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 
 				//return 0;
 			}).on('touchend',e=>{
-				if(self.isEnableDrag){
+				if(self.state.isEnableDrag){
 					return; //启用了拖拽操作。
 				}
 
@@ -571,12 +593,20 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 			
 			var timer = setTimeout(()=>{
 			
-				self.isEnableDrag = true;
+				self.setState({
+					isEnableDrag:true
+				},()=>{
+					obserable.trigger({type:'showIsEnableDrag',data:self.state.isEnableDrag});
+					obserable.trigger({type:'showBookDetailIsEnableDrag',data:self.state.isEnableDrag});
+					obserable.trigger({type:'switchMenu',data:self.state.isEnableDrag});
+				});
+
+
 		
 				data.programa.addClass('active');
 				
 				self.sort = new Sortable(data.cookBookC[0],{group:'omega'});
-				self.props.obserable.trigger({type:'showDone'})
+				//self.props.obserable.trigger({type:'showDone'})
 
 			},1000);
 				var e = e.originalEvent ? e.originalEvent.changedTouches[0]:e.changedTarget[0];
@@ -585,7 +615,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 
 			$(document).on('touchmove',e=>{
 				clearTimeout(timer);
-				if(self.isEnableDrag){
+				if(self.state.isEnableDrag){
 					if(iNow++ ===1){
 						$target.removeClass('active');	
 						
@@ -597,7 +627,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 			}).on('touchend',e=>{
 				
 				clearTimeout(timer);
-				if(!self.isEnableDrag){
+				if(!self.state.isEnableDrag){
 					return;
 				}
 

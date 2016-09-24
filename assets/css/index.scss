@@ -232,6 +232,10 @@ $nav-height:13.3vh;
 
           @include transform(rotate(90deg) translateY(-$barWidth/2 + .04) scaleY(2));
         }
+        .fly-sure{
+          height: .15rem;
+          font-size:.08rem;
+        }
     }
   }
   .fly-close-drag{

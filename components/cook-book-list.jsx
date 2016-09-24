@@ -23,8 +23,14 @@ import $ from 'jquery';
 				[],//中餐
 				[]　//晚餐
 			],//已添加的菜谱
+<<<<<<< HEAD
 			currentPannel:0,
 			isShow:false
+=======
+			currentPannel:1,
+			isShow:false,
+			isEnableDrag:false
+>>>>>>> d5bf5693271e4f39a16d1da765adbbc987dd7384
 		}
 		this.next = this.next.bind(this);
 		this.getFoodById = this.getFoodById.bind(this);
@@ -60,8 +66,11 @@ import $ from 'jquery';
 		//
 	}
 	render(){
+		let isShow = !this.state.isShow || this.state.isEnableDrag;
+
 		return (
 			<li className="fly-cook-list fly-cook-book-item" ref='fly-cook-list'>
+<<<<<<< HEAD
 				<div style={{position:'absolute',width:'100%',height:'100%',zIndex:1000,display:this.state.isShow?'none':'block'}}></div>
 				<div style={{opacity:this.state.isShow?1:0}}>
 					<div style={{position:'relative'}}>
@@ -134,6 +143,80 @@ import $ from 'jquery';
 							</aside>
 						</article>
 					</div>
+=======
+				<div style={{position:'relative'}}>
+					<div style={{position:'absolute',width:'100%',height:'100%',zIndex:1000,display:isShow?'block':'none'}}></div>
+					<div style={{position:'relative',opacity:this.state.isShow?1:0}}>
+						<div className="fly-cook-book-item-C">
+							<article className={"book-list-C add-collect "+(this.state.currentPannel?'active':'') } onTouchTap={this.change}>
+								<aside className='booklist-left-C' onTouchTap={this.changeTimeSlot}>
+									<div className={this.state.currentTimeSlot===0?'active':''}>早餐</div>
+									<div className={this.state.currentTimeSlot===1?'active':''}>中餐</div>
+									<div className={this.state.currentTimeSlot===2?'active':''}>晚餐</div>
+								</aside>
+								<aside className='booklist-right-C'>
+									<div className='bl-calendar'>
+										<table>
+											<thead>
+												<tr>
+													<th>日</th>
+													<th>一</th>
+													<th>二</th>
+													<th>三</th>
+													<th>四</th>
+													<th>五</th>
+													<th>六</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													{this.state.dates1.map((item,i)=>{
+														return (
+															<td key={i} className={item.isToday?'today':''}>
+																<div className={item.isHasFood?'hasfood':''}>
+																	<span>{item.date}</span>
+																	<span>{item.lunar}</span>
+																</div>
+															</td>
+														)
+													})}
+												</tr>
+												<tr>
+													{this.state.dates2.map((item,i)=>{
+														return (
+															<td key={i}>
+																<div className={item.isHasFood?'hasfood':''}>
+																	<span>{item.date}</span>
+																	<span>{item.lunar}</span>
+																</div>
+															</td>
+														)
+													})}
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<div className='bl-food-list'>
+										<div className={this.state.addFoods[this.state.currentTimeSlot].length?'bl-food-scroll':'bl-food-scroll no-data'} ref='scroll'>
+											<ul ref='foods-C' style={{width:this.state.liWidth*this.state.addFoods[this.state.currentTimeSlot].length}}>
+												{this.state.addFoods[this.state.currentTimeSlot].map((item,i)=>{
+													return (
+														<li key={i} onTouchTap={this.getFoodById}>
+															<div data-index={i} style={{background:'  url('+item.imgSrc+') no-repeat center',backgroundSize:'cover'}}>
+																<span>{item.name}</span>
+																{item.type === 'video' && <img className='fly-play-ico' src='./assets/images/play.png'/>}
+															</div>	
+														</li>
+													)
+												})}
+											</ul>
+										</div>
+										<div className='bl-food-next' onTouchTap={this.next}>></div>
+									</div>
+								</aside>
+							</article>
+						</div>
+>>>>>>> d5bf5693271e4f39a16d1da765adbbc987dd7384
 						<FlyMyCollect changeMyCollectTop={this.changeMyCollectTop} obserable={this.props.obserable} className={this.state.currentPannel?'':'active'}></FlyMyCollect>
 					</div>
 				</div>
@@ -178,6 +261,14 @@ import $ from 'jquery';
 		let {obserable,getTimeSlot} = this.props;//getTimeSlot是从高街组件中得到的属性。
 
 
+<<<<<<< HEAD
+=======
+		obserable.on('showIsEnableDrag',(flag)=>{
+			this.setState({
+				isEnableDrag:flag
+			})
+		});
+>>>>>>> d5bf5693271e4f39a16d1da765adbbc987dd7384
 		obserable.on('showCollect',(flag)=>{
 			this.setState({
 				isShow:flag

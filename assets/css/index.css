@@ -217,6 +217,9 @@ body {
       width: 40px;
       -webkit-transform: rotate(90deg) translateY(-0.66rem) scaleY(2);
       transform: rotate(90deg) translateY(-0.66rem) scaleY(2); }
+    #fly-main .fly-nav .fly-menu-bar .fly-sure {
+      height: .15rem;
+      font-size: .08rem; }
 #fly-main .fly-close-drag {
   position: absolute;
   left: 1rem;
