@@ -11,18 +11,20 @@ import FlyCountdown from './countdown.jsx';
 		this.state = {
 			showBoard:false,
 			showWeight:false,
-			isShow:true
+			isShow:true,
+			showCanvas:false
 		}
 		this.showWeight = this.showWeight.bind(this);
 		this.showBoard = this.showBoard.bind(this);
 		this.netWeight = this.netWeight.bind(this);//去皮
 		this.getWeight = this.getWeight.bind(this);//去皮
+		this.hideCanvas = this.hideCanvas.bind(this);
 	}
 	
 	render() {
 
 		return (
-			<li className='fly-operator-item fly-weight'>
+			<li className='fly-operator-item fly-weight' style={{position:'relative'}}>
 				<div style={{opacity:this.state.isShow ? 1:0}}>
 					<div className='fly-btns-C'>
 						<figure>
@@ -34,6 +36,10 @@ import FlyCountdown from './countdown.jsx';
 						<figure>
 							<img  src='./assets/images/time-info.png' onTouchStart={this.props.touchStart} onTouchEnd={this.props.touchEnd}/>
 						</figure>
+					</div>
+					<div className='fly-show-countdown-top' style={{display:this.state.showCanvas?'block':'none'}}>
+						<span className='fly-close-countdown' onTouchTap={this.hideCanvas}></span>
+						<canvas ref='canvas'></canvas>
 					</div>
 					<div className='fly-operator-C' >
 						<div className='operator-C'  ref='fly-operator-C'>
@@ -58,6 +64,12 @@ import FlyCountdown from './countdown.jsx';
 		);
 	}
 
+	hideCanvas(){
+		this.setState({
+			showCanvas:false
+		});
+	}
+
 	componentDidMount(){
 		let canvas = this.refs['weight'];
 		setTimeout(()=>{
@@ -69,6 +81,18 @@ import FlyCountdown from './countdown.jsx';
 			//this.renderCanvas(1234,canvas);
 		},1);
 
+
+		let {obserable} = this.props;
+
+		obserable.on('getTopCountdownCanvas',()=>{
+			return this.refs['canvas'];
+		});
+
+		obserable.on('controlCanavsDisplay',flag=>{
+			this.setState({showCanvas:flag});
+		});
+
+
 		setTimeout(()=>{//测试称重返回结果重新计算
 
 
@@ -76,7 +100,7 @@ import FlyCountdown from './countdown.jsx';
 
 		},2000)
 
-		let {obserable} = this.props;
+
 		obserable.on('showOperater',(flag)=>{
 			this.setState({
 				isShow:flag

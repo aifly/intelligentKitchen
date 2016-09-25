@@ -229,7 +229,7 @@ $size:.3rem;
    }
 }
 
-.fly-begin-clock{
+.fly-begin-clock,.fly-cancel{
    @include pos(a);
    right: .3rem;
    bottom: 0;
@@ -246,7 +246,6 @@ $size:.3rem;
   width: 90%;
   left: 5%;
   height: 100%;
-  border:1px solid #000;
   canvas{
     @include pos(a);
     top: 50%;

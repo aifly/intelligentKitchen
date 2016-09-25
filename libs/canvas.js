@@ -28,6 +28,8 @@ export default class Time{
 					index = s.init();
 				},500);
 				hours === 0 && mins === 0 && seconds === 0 && s.obserable.trigger({type:'updateCalendar'});
+
+				s.obserable.trigger({type:"timingdown"})
 				
 			},1000);
 		}
@@ -91,7 +93,7 @@ export default class Time{
 			num:ten,
 			context,
 			id,
-			flag:false
+			flag:true
 		});
 
 		id += numberData[ten][0].length;
@@ -106,7 +108,7 @@ export default class Time{
 			num:one,
 			context,
 			id,
-			flag:false
+			flag:true
 		});
 		
 		id +=3;
@@ -190,19 +192,11 @@ export default class Time{
 				
 				context.closePath();
 
-				context.fillStyle  = "#f8f3ef";//e9d3c1
+				context.fillStyle  = "#e9d3c1";//f8f3ef
 
 				if(numberData[num][i] && numberData[num][i][j]){
-					let color = '#f00'
-					if(s.isTime){
-						context.fillStyle = color;
-					}
-					else{
-						if(num > 0 || flag){
-							context.fillStyle = color;
-						};
-						
-					}
+					let color = '#fff'
+					context.fillStyle = color;
 
 				}
 

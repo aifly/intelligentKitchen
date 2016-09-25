@@ -14,9 +14,10 @@ export default class FlyCountdown extends Component {
 	  	timing:0,//倒计时
 	  	hours:0,
 	  	mins:0,
-	  	isTiming:true,//是否开始计时。
+	  	isTiming:false,//是否开始计时。
 	  };
 	  this.beginTiming = this.beginTiming.bind(this);
+	  this.cancelTiming = this.cancelTiming.bind(this);
 	}
 	render() {
 		return (
@@ -38,6 +39,7 @@ export default class FlyCountdown extends Component {
 	            </section>
 	            <section className='fly-countdown-canvas' ref='fly-countdown-canvas' style={{display:this.state.isTiming?'block':'none'}}>
 	            	<canvas ref='canvas'></canvas>
+	            	<div className='fly-cancel' onTouchTap={this.cancelTiming}>取消</div>
 	            </section>
        		 </article>
 		);
@@ -45,34 +47,97 @@ export default class FlyCountdown extends Component {
 	componentDidMount() {
 		this.setLayout();
 		this.bindScroll();
-		this.initCanvas();
+		
+	}
+	cancelTiming(){
+		this.timer = 1;//取消倒计时。
+		this.iNow = 60;
+		this.setState({
+			isTiming:false
+		});
+		let {obserable} = this.props;
+		obserable.trigger({type:'controlCanavsDisplay',data:false});
 	}
 
 	initCanvas(){//初始化canvas
 		let docWidth = window.innerWidth;
 		let {obserable} = this.props;
+		this.timer = null;
+		this.iNow = 60;
 		setTimeout(()=>{
 			const canvas = this.refs['canvas'];
+			const canvas1 = obserable.trigger({type:'getTopCountdownCanvas'})
 			let width = this.refs['fly-countdown-canvas'].offsetWidth ;
 			canvas.width =width / 1.5;
 			canvas.height = width /3.3/2;
+			canvas1.width =width / 1.5;
+			canvas1.height = width /3.3/2;
 			let timing = new Time({
 				canvas:canvas,
 				obserable:obserable,
 				isTime:false,
 				r:3*docWidth/3840
 			});
-			timing.initTiming([1,2,3,4,3]);
-		},1)
+
+			let timing1 = new Time({
+				canvas:canvas1,
+				obserable:obserable,
+				isTime:false,
+				r:3*docWidth/3840
+			});
+			timing.initTiming([this.state.hours,this.mins/10|0,this.mins%10,0,0]);
+			timing1.initTiming([this.state.hours,this.mins/10|0,this.mins%10,0,0]);
+			
+ 			obserable.on('timingdown',()=>{
+ 				if(this.state.timing <= 0){//定时小于等于0
+ 					this.timer = 1;
+ 				}
+ 				if(!this.timer){
+ 					this.iNow--;
+	 				let st = this.iNow / 10 | 0;
+	 				let so = this.iNow % 10;
+	 				let mt = this.state.mins / 10 | 0;  //w分钟的十位数
+	 				let mo = this.state.mins % 10;
+	 				let mh = this.state.hours;
+	 				if(this.iNow <= 0){
+	 					this.iNow = 59;
+	 					if(mo <=0){
+	 						if(mt <=0 ){
+		 						if(mh <=0 && mo <=0 && mt <=0 && so <=0 && st<=0){
+		 							console.log('倒计时结束');
+		 							this.timer =  1;
+		 						}
+		 						else{
+	 								mh--;
+		 						}
+		 					}
+		 					else{
+	 							mt--;
+		 					}
+	 					}
+	 					else{
+	 						mo--;
+	 					}
+	 				}
+					timing.initTiming([mh,mt,mo-1,st,so]);
+					timing1.initTiming([mh,mt,mo-1,st,so]);
+ 				}
+ 			});
+		},1);
 	}
 
 	beginTiming(){//开始记时
 		//alert(this.hours+'===' + this.mins)
+		let {obserable} = this.props;
 		this.setState({
 			timing:this.hours*60+this.mins,
 			hours:this.hours,
-			mins:this.mins
-		});
+			mins:this.mins,
+			isTiming:true
+		},()=>{
+			this.initCanvas();
+			obserable.trigger({type:'controlCanavsDisplay',data:true});
+		});	
 
 	}
 

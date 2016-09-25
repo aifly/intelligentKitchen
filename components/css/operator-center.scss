@@ -209,5 +209,38 @@ $maxIndex:9999;
     }
 		
 	}
+
+
+  .fly-show-countdown-top{
+    @include pos(a);
+    top: .1rem;
+    left: 2.1rem;
+    border:1px solid #fff;
+    span{
+      display: block;
+      @include pos(a);
+      $size:.1rem;
+      width: $size;
+      height: $size;
+      line-height: $size;
+      text-align: center;
+      background: #fff;
+      left: -$size /2;
+      top : -$size /2;
+      @include br(50%);
+      &:after,&:before{
+        content:'';
+        @include pos(a);
+        width: 80%;
+        left: 10%;
+        top: 50%;
+        border-top: 2px solid $baseColor1;
+        @include transform(rotate(45deg));
+      }
+      &:after{
+        @include transform(rotate(-45deg));
+      }
+    }
+  }
 }
 

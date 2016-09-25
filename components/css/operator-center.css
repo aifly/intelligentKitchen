@@ -67,5 +67,33 @@
           height: .3rem; }
           .fly-weight .fly-operator-C div.fly-img-weight .fly-weight-display div:nth-of-type(1).shadow, .fly-weight .fly-operator-C div.fly-img-weight .fly-weight-display div:nth-of-type(3).shadow {
             box-shadow: 0 0 1.1rem rgba(232, 158, 121, 0.7); }
+  .fly-weight .fly-show-countdown-top {
+    position: absolute;
+    top: .1rem;
+    left: 2.1rem;
+    border: 1px solid #fff; }
+    .fly-weight .fly-show-countdown-top span {
+      display: block;
+      position: absolute;
+      width: 0.1rem;
+      height: 0.1rem;
+      line-height: 0.1rem;
+      text-align: center;
+      background: #fff;
+      left: -0.05rem;
+      top: -0.05rem;
+      border-radius: 50%; }
+      .fly-weight .fly-show-countdown-top span:after, .fly-weight .fly-show-countdown-top span:before {
+        content: '';
+        position: absolute;
+        width: 80%;
+        left: 10%;
+        top: 50%;
+        border-top: 2px solid #e89e79;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg); }
+      .fly-weight .fly-show-countdown-top span:after {
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg); }
 
 /*# sourceMappingURL=operator-center.css.map */
