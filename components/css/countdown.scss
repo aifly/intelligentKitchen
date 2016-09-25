@@ -229,3 +229,28 @@ $size:.3rem;
    }
 }
 
+.fly-begin-clock{
+   @include pos(a);
+   right: .3rem;
+   bottom: 0;
+   color:#fff;
+   height: .1rem;
+   line-height: .1rem;
+   border:2px solid #fff;
+   @include br(30px);
+   padding: 8px 40px;
+   font-size: .08rem;
+}
+.fly-countdown-canvas{
+  @include pos(a);
+  width: 90%;
+  left: 5%;
+  height: 100%;
+  border:1px solid #000;
+  canvas{
+    @include pos(a);
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%,-50%));
+  }
+}
