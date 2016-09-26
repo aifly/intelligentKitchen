@@ -188,6 +188,8 @@ import IScroll from 'iscroll';
 			}
 		});
 
+		//obserable.trigger({type:'closeStep',data:e});//关闭步骤
+
 
 		//清空盘子。
 		obserable.trigger({

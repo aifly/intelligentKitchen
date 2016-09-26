@@ -29,12 +29,13 @@ class FlyVideo extends Component {
 	  this.prev = this.prev.bind(this);
 	  this.switchVideo = this.switchVideo.bind(this);
 	  this.playVideo = this.playVideo.bind(this);
+	  this.closeStep = this.closeStep.bind(this);
 	}
 	render() {
 		let  {imgSrc,steps} = this.props;
 		return (
 			<div className="fly-video-C" ref='fly-video-C'>
-				<div className='fly-close'></div>
+				<div className='fly-close' onTouchTap={this.closeStep}></div>
 				<section>
 					<video ref='video' id="vjs_video_3_html5_api" className="" 
 						src={steps[this.state.currentVideoIndex].imgSrc}
@@ -99,6 +100,10 @@ class FlyVideo extends Component {
 				</footer>
 			</div>
 		);
+	}
+	closeStep(e){
+		let {obserable} = this.props;
+		obserable.trigger({type:'closeStep',data:e})		
 	}
 	componentDidMount() {
 		let video = this.refs['video'];

@@ -225,6 +225,10 @@ import FlyVideo from './video.jsx';
 	componentDidMount(){
 		let {obserable} = this.props;
 
+		obserable.on('closeStep',(e)=>{
+			this.closeCook(e);
+		})
+
 		obserable.on('showBookDetailIsEnableDrag',(flag)=>{
 			this.setState({
 				isEnableDrag:flag
