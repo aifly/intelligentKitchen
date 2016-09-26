@@ -11,14 +11,16 @@ import FlyCountdown from './countdown.jsx';
 		this.state = {
 			showBoard:false,
 			showWeight:false,
-			isShow:true,
-			showCanvas:false
+			isShow:false,
+			showCanvas:false,
+			showCountdown:false
 		}
 		this.showWeight = this.showWeight.bind(this);
 		this.showBoard = this.showBoard.bind(this);
 		this.netWeight = this.netWeight.bind(this);//去皮
 		this.getWeight = this.getWeight.bind(this);//去皮
 		this.hideCanvas = this.hideCanvas.bind(this);
+		this.showCountdown = this.showCountdown.bind(this);
 	}
 	
 	render() {
@@ -34,10 +36,11 @@ import FlyCountdown from './countdown.jsx';
 							<img  src='./assets/images/broad-btn.png' onTouchTap={this.showBoard} onTouchStart={this.props.touchStart} onTouchEnd={this.props.touchEnd}/>
 						</figure>
 						<figure>
-							<img  src='./assets/images/time-info.png' onTouchStart={this.props.touchStart} onTouchEnd={this.props.touchEnd}/>
+							<img  src='./assets/images/time-info.png' onTouchTap={this.showCountdown} onTouchStart={this.props.touchStart} onTouchEnd={this.props.touchEnd}/>
 						</figure>
 					</div>
 					<div className='fly-show-countdown-top' style={{display:this.state.showCanvas?'block':'none'}}>
+						<canvas ref='clock-ico'></canvas>						
 						<span className='fly-close-countdown' onTouchTap={this.hideCanvas}></span>
 						<canvas ref='canvas'></canvas>
 					</div>
@@ -54,7 +57,7 @@ import FlyCountdown from './countdown.jsx';
 									<div onTouchTap={this.getWeight}>确定</div>
 								</div>
 							</div>
-							<div className="fly-countdown-C">
+							<div className="fly-countdown-C" style={{display:this.state.showCountdown?'block':'none'}}>
 								<FlyCountdown {...this.props}></FlyCountdown>
 							</div>
 						</div>
@@ -68,6 +71,14 @@ import FlyCountdown from './countdown.jsx';
 		this.setState({
 			showCanvas:false
 		});
+	}
+
+	showCountdown(){
+		this.setState({
+			showCountdown:true,
+			showWeight:false,
+			showBoard:false
+		})
 	}
 
 	componentDidMount(){
@@ -84,7 +95,16 @@ import FlyCountdown from './countdown.jsx';
 
 		let {obserable} = this.props;
 
+		
+
 		obserable.on('getTopCountdownCanvas',()=>{
+			setTimeout(()=>{
+				let canvasIco = this.refs['clock-ico'];
+				let size =this.refs['canvas'].height;
+				canvasIco.width = size;
+				canvasIco.height = size;
+				this.drawClockIco(canvasIco,size);
+			},10);
 			return this.refs['canvas'];
 		});
 
@@ -106,6 +126,36 @@ import FlyCountdown from './countdown.jsx';
 				isShow:flag
 			})
 		});
+	}
+
+	drawClockIco(canvas,size){ //绘制时钟图标。
+		var context = canvas.getContext('2d');
+		let r = size / 2.8;
+		let center = size/2;
+		context.strokeStyle='#fff';
+		context.lineWidth = 3;
+		context.beginPath();
+		context.arc(center,center,r,0,Math.PI*2,false);
+		context.closePath();
+		context.stroke();
+
+
+		context.beginPath();
+		context.moveTo(center,r / 1.5);
+		context.lineTo(center,center);
+		context.lineTo(r/1+r,center*1.2);
+		context.stroke();
+
+		context.beginPath();
+		context.arc(center,center,r*1.3,-70*Math.PI/180,-40*Math.PI/180,false);
+		context.stroke();
+
+		context.beginPath();
+		context.arc(center,center,r*1.3,220*Math.PI/180,250*Math.PI/180,false);
+		context.stroke();
+
+
+
 	}
 
 	netWeight(e){//去皮
@@ -162,7 +212,8 @@ import FlyCountdown from './countdown.jsx';
 		
 		this.setState({
 			showWeight:true,
-			showBoard:false
+			showBoard:false,
+			showCountdown:false
 		});
 		
 	}
@@ -170,7 +221,8 @@ import FlyCountdown from './countdown.jsx';
 	showBoard(){
 		this.setState({
 			showWeight:false,
-			showBoard:true
+			showBoard:true,
+			showCountdown:false
 		});
 	}
 	closeWeight (){

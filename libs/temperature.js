@@ -1,14 +1,13 @@
 
 import numberData from './number.js';
 
+const docWidth = window.innerWidth;
 export default class Temperature{
 	constructor(options = {}){
 		let s = this;
 		s.canvas = options.canvas;
-		s.margin  = 9;
-		s.r = 5;
-		
-
+		s.margin  = 9*docWidth/3840;
+		s.r = options.r || 5*docWidth/3840;
 		
 	}
 
@@ -31,10 +30,7 @@ export default class Temperature{
 	}
 
 	draw(num,context,id){
-		let s = this;
-
-		
-		
+		let s = this; 
 		for(var i = 0;i<9;i++){
 			for(var j = 0;j<34;j++){
 				context.save();

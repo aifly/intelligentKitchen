@@ -46,7 +46,8 @@
     transform-origin: top;
     -webkit-transform: rotateX(-6deg);
     transform: rotateX(-6deg);
-    backface-visibility: hidden; }
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden; }
 
 .round > div {
   top: 0;
@@ -92,6 +93,10 @@
   border-radius: 30px;
   padding: 8px 40px;
   font-size: .08rem; }
+
+.fly-cancel {
+  right: .2rem;
+  bottom: .074rem; }
 
 .fly-countdown-canvas {
   position: absolute;

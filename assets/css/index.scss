@@ -151,9 +151,8 @@ body{
   color:$baseColor;
 }
 $nav-height:13.3vh;
-#fly-main{
-  margin-top: -3rem;
-  margin-left: -6rem;
+#fly-main{  
+
   .fly-nav-mask{
     @include pos(a);
     height: 100vh - $nav-height;

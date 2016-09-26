@@ -241,6 +241,12 @@ $size:.3rem;
    padding: 8px 40px;
    font-size: .08rem;
 }
+
+.fly-cancel{
+   right: .2rem;
+   bottom: .074rem;;
+}
+
 .fly-countdown-canvas{
   @include pos(a);
   width: 90%;

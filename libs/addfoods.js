@@ -70,7 +70,7 @@ var addFoods = [
       },
 			{
         stepName:'第二步',
-        imgSrc:'./assets/videos/1.webm',
+        imgSrc:'./assets/videos/2.webm',
         poster:'./assets/images/poster.png'
       },
       {
@@ -80,7 +80,7 @@ var addFoods = [
       },
       {
         stepName:'第四步',
-        imgSrc:'./assets/videos/1.webm',
+        imgSrc:'./assets/videos/2.webm',
         poster:'./assets/images/poster.png'
       },
       {

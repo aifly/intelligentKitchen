@@ -580,6 +580,9 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 		data.programa.on('touchstart',e=>{
 
 			
+			if(e.target.nodeName=== "SPAN" && $(e.target).parents('.fly-video-scroll-C').length){
+				return;
+			}
 			var timer = setTimeout(()=>{
 			
 				self.setState({
@@ -619,15 +622,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 				if(!self.state.isEnableDrag){
 					return;
 				}
-
-				setTimeout(()=>{
-					
-					//data.programa.removeClass('active');
-					//sort && sort.destroy();					
-					$(document).off('touchmove touchend');
-					return;
-					
-				},1)
+				$(document).off('touchmove touchend');
 			});
 
 		});

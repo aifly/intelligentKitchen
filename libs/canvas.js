@@ -8,7 +8,7 @@ export default class Time{
 		let s = this;
 		s.canvas = options.canvas;
 		s.obserable = options.obserable;
-		s.margin  = 9;
+		s.margin  = 9*docWidth/3840;
 		s.isTime = options.isTime;
 		s.r = options.r || 5*docWidth/3840;
 		var num = numberData[10];
@@ -29,7 +29,10 @@ export default class Time{
 				},500);
 				hours === 0 && mins === 0 && seconds === 0 && s.obserable.trigger({type:'updateCalendar'});
 
-				s.obserable.trigger({type:"timingdown"})
+				s.obserable.trigger({type:"timingdown"});//倒计时
+				s.obserable.trigger({type:'videoPlay'});
+
+
 				
 			},1000);
 		}
@@ -88,7 +91,6 @@ export default class Time{
 			minsTen =  numbers[2],
 			minsOne = numbers[3],
 			seconds = numbers[4];
-
 		s.drawTiming({
 			num:ten,
 			context,

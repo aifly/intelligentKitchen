@@ -276,21 +276,24 @@ import $ from 'jquery';
 
 		});
 
-
 	}
 
-	getFoodById(e){
+	getFoodById(e,obj){
 
 		let target = '';
-		switch(e.target.nodeName){
-			case "DIV":
-				target = e.target;
-			break;
-			case "SPAN":
-			case "IMG":
-				target = e.target.parentNode;
-			break;
-		};
+		if(e){
+			switch(e.target.nodeName){
+				case "DIV":
+					target = e.target;
+				break;
+				case "SPAN":
+				case "IMG":
+					target = e.target.parentNode;
+				break;
+			};
+		}else{
+			target = obj;
+		}
 
 		if(!target.classList){
 			return;

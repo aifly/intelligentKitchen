@@ -142,252 +142,253 @@ body {
   font-family: 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif;
   color: #d1bdbd; }
 
-#fly-main {
-  margin-top: -3rem;
-  margin-left: -6rem; }
-  #fly-main .fly-nav-mask {
-    position: absolute;
-    height: 86.7vh;
-    width: 100%;
-    background: transparent;
-    z-index: -1;
-    -webkit-transform: translate3d(0, 120%, 0);
-    transform: translate3d(0, 120%, 0);
-    top: 13.3vh; }
-    #fly-main .fly-nav-mask.active {
-      z-index: 10000;
+#fly-main .fly-nav-mask {
+  position: absolute;
+  height: 86.7vh;
+  width: 100%;
+  background: transparent;
+  z-index: -1;
+  -webkit-transform: translate3d(0, 120%, 0);
+  transform: translate3d(0, 120%, 0);
+  top: 13.3vh; }
+  #fly-main .fly-nav-mask.active {
+    z-index: 10000;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); }
+#fly-main .fly-nav {
+  width: 10rem;
+  height: 13.3vh;
+  background: #fff9f3;
+  z-index: 9999;
+  position: absolute;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);
+  transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01); }
+  #fly-main .fly-nav.active {
+    -webkit-transform: translate3d(0, -86%, 0);
+    transform: translate3d(0, -86%, 0); }
+  #fly-main .fly-nav ul {
+    -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);
+    transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);
+    -webkit-transform: translate3d(0, 100px, 0);
+    transform: translate3d(0, 100px, 0);
+    opacity: 0;
+    -webkit-transition: 0.8s;
+    transition: 0.8s;
+    float: left;
+    display: -webkit-box;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    -webkit-box-orient: horizontal;
+    width: 4.2rem; }
+    #fly-main .fly-nav ul.show {
+      opacity: 1;
       -webkit-transform: translate3d(0, 0, 0);
       transform: translate3d(0, 0, 0); }
-  #fly-main .fly-nav {
-    width: 10rem;
-    height: 13.3vh;
-    background: #fff9f3;
-    z-index: 9999;
+    #fly-main .fly-nav ul li {
+      -webkit-box-flex: 1;
+      text-align: center;
+      position: relative; }
+      #fly-main .fly-nav ul li img {
+        margin-top: 1vh; }
+      #fly-main .fly-nav ul li span {
+        color: #e89e79;
+        font-size: .06rem;
+        bottom: 6px;
+        position: absolute;
+        left: 34%; }
+    #fly-main .fly-nav ul:nth-of-type(2) {
+      width: 1.2rem;
+      float: right; }
+  #fly-main .fly-nav .fly-menu-bar {
     position: absolute;
-    -webkit-transition: -webkit-transform 0.5s;
-    transition: transform 0.5s;
-    -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);
-    transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01); }
-    #fly-main .fly-nav.active {
-      -webkit-transform: translate3d(0, -86%, 0);
-      transform: translate3d(0, -86%, 0); }
-    #fly-main .fly-nav ul {
-      -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);
-      transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);
-      -webkit-transform: translate3d(0, 100px, 0);
-      transform: translate3d(0, 100px, 0);
-      opacity: 0;
-      -webkit-transition: 0.8s;
-      transition: 0.8s;
+    width: 1.4rem;
+    left: 50%;
+    top: 99%;
+    margin-left: -0.7rem;
+    text-align: center;
+    font-size: .06rem;
+    background: inherit;
+    border-radius: 10px; }
+    #fly-main .fly-nav .fly-menu-bar div:nth-of-type(2) {
+      width: 40px;
+      -webkit-transform: rotate(90deg) translateY(-0.66rem) scaleY(2);
+      transform: rotate(90deg) translateY(-0.66rem) scaleY(2); }
+    #fly-main .fly-nav .fly-menu-bar .fly-sure {
+      height: .15rem;
+      font-size: .08rem; }
+#fly-main .fly-close-drag {
+  position: absolute;
+  left: 1rem;
+  padding: .05rem;
+  border-radius: 5px;
+  z-index: 10001;
+  color: #fff;
+  top: -10px;
+  background: #d1bdbd;
+  -webkit-transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0);
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+  -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);
+  transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01); }
+  #fly-main .fly-close-drag.active {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); }
+#fly-main .fly-cook-book-C {
+  width: 10rem;
+  height: 42vh;
+  background: #f9e0ca;
+  position: relative;
+  padding-top: 5vh;
+  display: -webkit-box;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  -webkit-box-orient: horizontal; }
+  #fly-main .fly-cook-book-C > li {
+    height: 100%; }
+    #fly-main .fly-cook-book-C > li.active {
+      -webkit-animation: shake-little 200ms ease-in-out infinite;
+      animation: shake-little 200ms ease-in-out infinite; }
+    #fly-main .fly-cook-book-C > li.near {
+      border: 1px solid red; }
+    #fly-main .fly-cook-book-C > li .fly-cook-book-item-C {
+      width: 100%;
+      height: 100%; }
+    #fly-main .fly-cook-book-C > li > li:nth-of-type(1) {
+      -webkit-animation-delay: 100ms;
+      animation-delay: 100ms; }
+    #fly-main .fly-cook-book-C > li > li:nth-of-type(2) {
+      -webkit-animation-delay: 200ms;
+      animation-delay: 200ms; }
+    #fly-main .fly-cook-book-C > li > li:nth-of-type(3) {
+      -webkit-animation-delay: 300ms;
+      animation-delay: 300ms; }
+    #fly-main .fly-cook-book-C > li .fly-city-C {
+      width: 80%;
+      margin: .1rem auto;
+      height: .15rem;
+      line-height: .15rem; }
+    #fly-main .fly-cook-book-C > li .fly-city-scroll-C {
+      width: 88%;
+      height: .15rem;
       float: left;
+      overflow: hidden; }
+      #fly-main .fly-cook-book-C > li .fly-city-scroll-C ul li {
+        width: .6rem;
+        float: left;
+        text-align: center; }
+    #fly-main .fly-cook-book-C > li .fly-add {
+      float: left;
+      width: 2vh;
+      height: 2vh;
+      text-align: center; }
+  #fly-main .fly-cook-book-C .fly-food {
+    width: 3.4rem;
+    position: relative; }
+    #fly-main .fly-cook-book-C .fly-food .fly-food-item {
+      width: 70%;
+      height: 80%;
+      background: #fff;
+      position: absolute;
+      border-radius: 30px;
+      -webkit-transform-origin: right;
+      transform-origin: right;
+      left: 13%;
+      top: 8%;
+      box-shadow: 0 0 1.1rem rgba(232, 158, 121, 0.4);
+      z-index: 1; }
+      #fly-main .fly-cook-book-C .fly-food .fly-food-item:after {
+        content: '推荐食材';
+        position: absolute;
+        width: .1rem;
+        z-index: -1;
+        font-size: .08rem;
+        padding: .05rem .04rem .05rem .05rem;
+        top: 40%;
+        border-radius: 12px;
+        background: inherit;
+        left: 98%; }
+    #fly-main .fly-cook-book-C .fly-food .fly-top1 {
+      left: 20%;
+      z-index: 0; }
+    #fly-main .fly-cook-book-C .fly-food .fly-top2 {
+      left: 13%;
+      z-index: 1; }
+    #fly-main .fly-cook-book-C .fly-food .fly-top3 {
+      left: 6%;
+      z-index: 2; }
+    #fly-main .fly-cook-book-C .fly-food .fly-weather:after {
+      content: '时间 / 天气';
+      top: 5%; }
+    #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-weather-C {
+      width: 90%;
+      margin: 10px auto;
       display: -webkit-box;
       -webkit-box-align: center;
       -webkit-box-pack: center;
       -webkit-box-orient: horizontal;
-      width: 4.2rem; }
-      #fly-main .fly-nav ul.show {
-        opacity: 1;
-        -webkit-transform: translate3d(0, 0, 0);
-        transform: translate3d(0, 0, 0); }
-      #fly-main .fly-nav ul li {
+      border-bottom: 1px solid #ccc; }
+      #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-weather-C li {
         -webkit-box-flex: 1;
-        text-align: center;
-        position: relative; }
-        #fly-main .fly-nav ul li img {
-          margin-top: 1vh; }
-        #fly-main .fly-nav ul li span {
-          color: #e89e79;
-          font-size: .06rem;
-          bottom: 6px;
-          position: absolute;
-          left: 34%; }
-      #fly-main .fly-nav ul:nth-of-type(2) {
-        width: 1.2rem;
-        float: right; }
-    #fly-main .fly-nav .fly-menu-bar {
-      position: absolute;
-      width: 1.4rem;
-      left: 50%;
-      top: 99%;
-      margin-left: -0.7rem;
-      text-align: center;
-      font-size: .06rem;
-      background: inherit;
-      border-radius: 10px; }
-      #fly-main .fly-nav .fly-menu-bar div:nth-of-type(2) {
-        width: 40px;
-        -webkit-transform: rotate(90deg) translateY(-0.66rem) scaleY(2);
-        transform: rotate(90deg) translateY(-0.66rem) scaleY(2); }
-      #fly-main .fly-nav .fly-menu-bar .fly-sure {
-        height: .15rem;
-        font-size: .08rem; }
-  #fly-main .fly-close-drag {
-    position: absolute;
-    left: 1rem;
-    padding: .05rem;
-    border-radius: 5px;
-    z-index: 10001;
-    color: #fff;
-    top: -10px;
-    background: #d1bdbd;
-    -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0);
-    -webkit-transition: -webkit-transform 0.3s;
-    transition: transform 0.3s;
-    -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);
-    transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01); }
-    #fly-main .fly-close-drag.active {
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0); }
-  #fly-main .fly-cook-book-C {
-    width: 10rem;
-    height: 42vh;
-    background: #f9e0ca;
-    position: relative;
-    padding-top: 5vh;
-    display: -webkit-box;
-    -webkit-box-align: center;
-    -webkit-box-pack: center;
-    -webkit-box-orient: horizontal; }
-    #fly-main .fly-cook-book-C > li {
-      height: 100%; }
-      #fly-main .fly-cook-book-C > li.active {
-        -webkit-animation: shake-little 200ms ease-in-out infinite;
-        animation: shake-little 200ms ease-in-out infinite; }
-      #fly-main .fly-cook-book-C > li.near {
-        border: 1px solid red; }
-      #fly-main .fly-cook-book-C > li .fly-cook-book-item-C {
-        width: 100%;
+        padding: 0.09rem 0.12rem 0.04rem 0.12rem;
+        box-sizing: border-content; }
+        #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-weather-C li img {
+          height: .2rem;
+          width: auto; }
+        #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-weather-C li span {
+          margin-left: -10px; }
+    #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C {
+      width: 90%;
+      margin: .1rem auto;
+      display: -webkit-box;
+      -webkit-box-align: center;
+      -webkit-box-pack: center;
+      -webkit-box-orient: horizontal;
+      height: 15vh; }
+      #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C .fly-time {
+        -webkit-box-flex: 1;
+        width: 60%;
         height: 100%; }
-      #fly-main .fly-cook-book-C > li > li:nth-of-type(1) {
-        -webkit-animation-delay: 100ms;
-        animation-delay: 100ms; }
-      #fly-main .fly-cook-book-C > li > li:nth-of-type(2) {
-        -webkit-animation-delay: 200ms;
-        animation-delay: 200ms; }
-      #fly-main .fly-cook-book-C > li > li:nth-of-type(3) {
-        -webkit-animation-delay: 300ms;
-        animation-delay: 300ms; }
-      #fly-main .fly-cook-book-C > li .fly-city-C {
-        width: 80%;
-        margin: .1rem auto;
-        height: .15rem;
-        line-height: .15rem; }
-      #fly-main .fly-cook-book-C > li .fly-city-scroll-C {
-        width: 88%;
-        height: .15rem;
-        float: left;
-        overflow: hidden; }
-        #fly-main .fly-cook-book-C > li .fly-city-scroll-C ul li {
-          width: .6rem;
-          float: left;
-          text-align: center; }
-      #fly-main .fly-cook-book-C > li .fly-add {
-        float: left;
-        width: 2vh;
+      #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C .fly-date {
+        -webkit-box-flex: 1;
+        width: 35%;
+        padding-left: 2%; }
+      #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C h1 {
+        font-weight: normal;
+        font-size: .1rem;
+        color: #e29978;
         height: 2vh;
-        text-align: center; }
-    #fly-main .fly-cook-book-C .fly-food {
-      width: 3.4rem;
-      position: relative; }
-      #fly-main .fly-cook-book-C .fly-food .fly-food-item {
-        width: 70%;
-        height: 80%;
-        background: #fff;
-        position: absolute;
-        border-radius: 30px;
-        -webkit-transform-origin: right;
-        transform-origin: right;
-        left: 13%;
-        top: 8%;
-        box-shadow: 0 0 1.1rem rgba(232, 158, 121, 0.4);
-        z-index: 1; }
-        #fly-main .fly-cook-book-C .fly-food .fly-food-item:after {
-          content: '推荐食材';
-          position: absolute;
-          width: .1rem;
-          z-index: -1;
-          font-size: .08rem;
-          padding: .05rem .04rem .05rem .05rem;
-          top: 40%;
-          border-radius: 12px;
-          background: inherit;
-          left: 98%; }
-      #fly-main .fly-cook-book-C .fly-food .fly-top1 {
-        left: 20%;
-        z-index: 0; }
-      #fly-main .fly-cook-book-C .fly-food .fly-top2 {
-        left: 13%;
-        z-index: 1; }
-      #fly-main .fly-cook-book-C .fly-food .fly-top3 {
-        left: 6%;
-        z-index: 2; }
-      #fly-main .fly-cook-book-C .fly-food .fly-weather:after {
-        content: '时间 / 天气';
-        top: 5%; }
-      #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-weather-C {
+        line-height: 2vh; }
+      #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C .fly-rec-food-container {
+        height: 7vh;
         width: 90%;
-        margin: 10px auto;
-        display: -webkit-box;
-        -webkit-box-align: center;
-        -webkit-box-pack: center;
-        -webkit-box-orient: horizontal;
-        border-bottom: 1px solid #ccc; }
-        #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-weather-C li {
-          -webkit-box-flex: 1;
-          padding: 0.09rem 0.12rem 0.04rem 0.12rem;
-          box-sizing: border-content; }
-          #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-weather-C li img {
-            height: .2rem;
-            width: auto; }
-          #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-weather-C li span {
-            margin-left: -10px; }
-      #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C {
-        width: 90%;
-        margin: .1rem auto;
-        display: -webkit-box;
-        -webkit-box-align: center;
-        -webkit-box-pack: center;
-        -webkit-box-orient: horizontal;
-        height: 15vh; }
-        #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C .fly-time {
-          -webkit-box-flex: 1;
-          width: 60%;
-          height: 100%; }
-        #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C .fly-date {
-          -webkit-box-flex: 1;
-          width: 35%;
-          padding-left: 2%; }
-        #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C h1 {
-          font-weight: normal;
-          font-size: .1rem;
-          color: #e29978;
-          height: 2vh;
-          line-height: 2vh; }
-        #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C .fly-rec-food-container {
-          height: 7vh;
-          width: 90%;
-          margin-top: 1vh;
-          overflow: hidden;
-          font-size: .06rem; }
-          #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C .fly-rec-food-container li {
-            float: left;
-            margin: 10px;
-            border: 1px solid #cfbbbc;
-            padding: 6px 20px;
-            border-radius: 30px; }
-      #fly-main .fly-cook-book-C .fly-food .fly-rec-food:after {
-        content: '推荐食材';
-        top: 60%; }
-      #fly-main .fly-cook-book-C .fly-food .fly-rec-menu:after {
-        content: '推荐菜谱';
-        top: 35%; }
-    #fly-main .fly-cook-book-C .fly-cook-list {
-      width: 3.82rem;
-      left: 3.4rem; }
-    #fly-main .fly-cook-book-C .fly-cook-detail {
-      width: 2.78rem;
-      left: 7.22rem; }
+        margin-top: 1vh;
+        overflow: hidden;
+        font-size: .06rem; }
+        #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C .fly-rec-food-container li {
+          float: left;
+          margin: 10px;
+          border: 1px solid #cfbbbc;
+          padding: 6px 20px;
+          border-radius: 30px; }
+    #fly-main .fly-cook-book-C .fly-food .fly-rec-food:after {
+      content: '推荐食材';
+      top: 60%; }
+    #fly-main .fly-cook-book-C .fly-food .fly-rec-menu:after {
+      content: '推荐菜谱';
+      top: 35%; }
+  #fly-main .fly-cook-book-C .fly-cook-list {
+    width: 3.82rem;
+    left: 3.4rem; }
+  #fly-main .fly-cook-book-C .fly-cook-detail {
+    width: 2.78rem;
+    left: 7.22rem; }
 
 .fly-main-operator-C {
   display: -webkit-box;

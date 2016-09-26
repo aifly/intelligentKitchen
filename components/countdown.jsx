@@ -63,7 +63,7 @@ export default class FlyCountdown extends Component {
 		let docWidth = window.innerWidth;
 		let {obserable} = this.props;
 		this.timer = null;
-		this.iNow = 60;
+		this.iNow = 0;
 		setTimeout(()=>{
 			const canvas = this.refs['canvas'];
 			const canvas1 = obserable.trigger({type:'getTopCountdownCanvas'})
@@ -94,33 +94,36 @@ export default class FlyCountdown extends Component {
  				}
  				if(!this.timer){
  					this.iNow--;
-	 				let st = this.iNow / 10 | 0;
-	 				let so = this.iNow % 10;
-	 				let mt = this.state.mins / 10 | 0;  //w分钟的十位数
-	 				let mo = this.state.mins % 10;
-	 				let mh = this.state.hours;
+	 				let st = 0; 
+					let so = 0;
+					let mt = 0;
+					let mo = 0;
+					let mh = 0;
+
 	 				if(this.iNow <= 0){
-	 					this.iNow = 59;
-	 					if(mo <=0){
-	 						if(mt <=0 ){
-		 						if(mh <=0 && mo <=0 && mt <=0 && so <=0 && st<=0){
-		 							console.log('倒计时结束');
-		 							this.timer =  1;
-		 						}
-		 						else{
-	 								mh--;
-		 						}
-		 					}
-		 					else{
-	 							mt--;
-		 					}
+	 					if(this.state.hours<=0 && this.state.mins <= 0 && this.iNow <=0){
+ 							console.log('倒计时结束');
+ 							this.timer = 1;
 	 					}
 	 					else{
-	 						mo--;
+	 						this.state.mins--;
+		 					if(this.state.mins<=0){
+	 							this.state.mins = 59;
+	 							this.state.hours--;
+	 						}	
+	 						this.iNow = 59;
 	 					}
 	 				}
-					timing.initTiming([mh,mt,mo-1,st,so]);
-					timing1.initTiming([mh,mt,mo-1,st,so]);
+
+	 				 st = this.iNow / 10 | 0;
+	 				 so = this.iNow % 10;
+	 				 mt = this.state.mins / 10 | 0;  //w分钟的十位数
+	 				 mo = this.state.mins % 10; //分钟的个位
+	 				 mh = this.state.hours;
+	 				 
+
+					timing.initTiming([mh,mt,mo,st,so]);
+					timing1.initTiming([mh,mt,mo,st,so]);
  				}
  			});
 		},1);
@@ -246,7 +249,8 @@ export default class FlyCountdown extends Component {
 			 	roundWrap.querySelector('.hours-'+((t1 + 12) / 6-3)%60) && (roundWrap.querySelector('.hours-'+((t1 + 12) / 6-3)%60).style.opacity = .1);
 			 	roundWrap.querySelector('.hours-'+((t1 + 12) / 6+3)%60) && (roundWrap.querySelector('.hours-'+((t1 + 12) / 6+3)%60).style.opacity = .1);
 				round.style.WebkitTransform = 'rotateX('+t+'deg)';
-				this.hours = (t1 + 12) / 6 % 60;
+				this.hours = (t1 + 12) / 6 % 60 % 10;
+				
 				$(document).off('touchmove touchend');
 			});			
 

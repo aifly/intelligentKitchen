@@ -119,6 +119,33 @@ $baseColor1:#e89e79;
 $maxIndex:9999;
 $fontColor:#a16d56;
   .fly-video-C{
+  
+    .fly-close{
+       display: block;
+        @include pos(a);
+        $size:.15rem;
+        width: $size;
+        height: $size;
+        line-height: $size;
+        text-align: center;
+        background: #fff;
+        right:.1rem;
+        top : -$size /1.8;
+        @include br(50%);
+        &:after,&:before{
+          content:'';
+          @include pos(a);
+          width: 80%;
+          left: 10%;
+          top: 50%;
+          border-top: 2px solid $baseColor1;
+          @include transform(rotate(45deg));
+        }
+        &:after{
+          @include transform(rotate(-45deg));
+        }
+    }
+
     $width:2.5rem;
     background:#727171;
     width: $width;
@@ -198,10 +225,147 @@ $fontColor:#a16d56;
       @include br(30px);
     }
     .fly-video-control-C{
-       height: .2rem;
+       height: .25rem;
+
        width: 100%;
        background:#fff;
+       z-index: 100;
        border-bottom-right-radius:30px;
        border-bottom-left-radius:30px;
+       @include pos(r);
+       .fly-video-scroll-C,.voice-C{
+          @include pos(a);
+          width: 100%;
+          height: .01rem;
+          z-index: 100;
+          background:#918986;
+          .fly-video-progress{
+            width: 1px;
+            height: .01rem;
+            background:$baseColor1;
+            @include transformOrigin(left);
+            @include pos(a);
+            left: 0;
+          }
+          span{
+            $size:.1rem;
+            width: $size;
+            height: $size;
+            background:#f0eeed;
+            border:2px solid #cdb9b9;
+            @include br(50%);
+            @include pos(a);
+            box-sizing:border-box;
+            top:-($size - .01)/2;
+          }
+       }
+       .fly-control{
+          width: 90%;
+          height: .18rem;
+          @include pos(r);
+          top: .035rem;
+          margin-left: .1rem;
+           @include displayBox(horizontal);
+           section{
+              -webkit-box-flex: 1;
+              height: .2rem;
+           }
+           .fly-voice{
+             @include displayBox(horizontal);
+             .voice-ico{
+                width: .12rem;
+                margin:0 .05rem;
+                img{
+                  display: block;
+                }
+             }
+              .voice-C{
+                @include pos(r);
+                width: 70%
+              }
+          }
+          .fly-video-btns{
+            margin-left: .4rem;
+             @include displayBox(horizontal);
+             .fly-prev-btn,.fly-next-btn{
+                display: inline-block;
+                width: .2rem;
+                @include displayBox(horizontal);
+                .prev-ico{
+                    width: 0;
+                    height: 0;
+                    $size:.06rem;
+                    border-top:$size - .02 solid transparent;
+                    border-right: $size solid #cebabb;
+                    border-bottom: $size - .02 solid transparent;
+                    @include pos(r);
+                    &:before{
+                      content:'';
+                       @include pos(a);
+                        width: 0;
+                        height: 0;
+                        $scale:1.5;
+                        left: 0.0134rem;
+                        top:-.026rem;
+                        border-top:($size - .02) / $scale solid transparent;
+                        border-right: $size / $scale solid #fff;
+                        border-bottom: ($size - .02) / $scale solid transparent;
+                    }
+                }
+             }
+             .fly-next-btn{
+                .prev-ico{
+                    @include transform(rotateY(180deg));
+                }
+             }
+          }
+
+          .fly-play-btn{
+              $size:.14rem;
+               width: $size;
+               height: $size;
+               @include br(50%);
+               @include pos(r);
+               border:2px solid #cebabb;
+               &:after,&:before{
+                  content:'';
+                  @include pos(a);
+                  width:0;
+                  height: $size - .06;
+                  border:2px solid #cebabb;
+                  border-top:none;
+                  border-bottom: none;
+                  top:.03rem;
+                  left: .045rem;
+               }
+               &:after{
+                  left: .085rem;
+               }
+            &.active{
+                &:after{
+                  content:'';
+                  @include pos(a);
+                   width: 0;
+                    height: 0;
+                    $scale:1.5;
+                    left: 0.05rem;
+                    $size:.08rem;
+                    border-top:($size - .02) / $scale solid transparent;
+                    border-left: $size / $scale solid #cebabb;
+                    border-bottom: ($size - .02) / $scale solid transparent;
+                    border-right:none;
+               }
+               &:before{
+                  display: none;
+               }
+            }
+          }
+
+          .fly-video-time{
+             line-height: .2rem;
+             text-align: center;
+             font-size:.08rem;
+          }
+       }
     }
   }

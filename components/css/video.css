@@ -4,6 +4,29 @@
   display: block;
   margin: .18rem auto;
   border-radius: 30px; }
+  .fly-video-C .fly-close {
+    display: block;
+    position: absolute;
+    width: 0.15rem;
+    height: 0.15rem;
+    line-height: 0.15rem;
+    text-align: center;
+    background: #fff;
+    right: .1rem;
+    top: -0.08333rem;
+    border-radius: 50%; }
+    .fly-video-C .fly-close:after, .fly-video-C .fly-close:before {
+      content: '';
+      position: absolute;
+      width: 80%;
+      left: 10%;
+      top: 50%;
+      border-top: 2px solid #e89e79;
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg); }
+    .fly-video-C .fly-close:after {
+      -webkit-transform: rotate(-45deg);
+      transform: rotate(-45deg); }
   .fly-video-C section {
     position: relative; }
     .fly-video-C section .fly-video-list {
@@ -69,10 +92,128 @@
     margin: 0 auto;
     border-radius: 30px; }
   .fly-video-C .fly-video-control-C {
-    height: .2rem;
+    height: .25rem;
     width: 100%;
     background: #fff;
+    z-index: 100;
     border-bottom-right-radius: 30px;
-    border-bottom-left-radius: 30px; }
+    border-bottom-left-radius: 30px;
+    position: relative; }
+    .fly-video-C .fly-video-control-C .fly-video-scroll-C, .fly-video-C .fly-video-control-C .voice-C {
+      position: absolute;
+      width: 100%;
+      height: .01rem;
+      z-index: 100;
+      background: #918986; }
+      .fly-video-C .fly-video-control-C .fly-video-scroll-C .fly-video-progress, .fly-video-C .fly-video-control-C .voice-C .fly-video-progress {
+        width: 1px;
+        height: .01rem;
+        background: #e89e79;
+        -webkit-transform-origin: left;
+        transform-origin: left;
+        position: absolute;
+        left: 0; }
+      .fly-video-C .fly-video-control-C .fly-video-scroll-C span, .fly-video-C .fly-video-control-C .voice-C span {
+        width: 0.1rem;
+        height: 0.1rem;
+        background: #f0eeed;
+        border: 2px solid #cdb9b9;
+        border-radius: 50%;
+        position: absolute;
+        box-sizing: border-box;
+        top: -0.045rem; }
+    .fly-video-C .fly-video-control-C .fly-control {
+      width: 90%;
+      height: .18rem;
+      position: relative;
+      top: .035rem;
+      margin-left: .1rem;
+      display: -webkit-box;
+      -webkit-box-align: center;
+      -webkit-box-pack: center;
+      -webkit-box-orient: horizontal; }
+      .fly-video-C .fly-video-control-C .fly-control section {
+        -webkit-box-flex: 1;
+        height: .2rem; }
+      .fly-video-C .fly-video-control-C .fly-control .fly-voice {
+        display: -webkit-box;
+        -webkit-box-align: center;
+        -webkit-box-pack: center;
+        -webkit-box-orient: horizontal; }
+        .fly-video-C .fly-video-control-C .fly-control .fly-voice .voice-ico {
+          width: .12rem;
+          margin: 0 .05rem; }
+          .fly-video-C .fly-video-control-C .fly-control .fly-voice .voice-ico img {
+            display: block; }
+        .fly-video-C .fly-video-control-C .fly-control .fly-voice .voice-C {
+          position: relative;
+          width: 70%; }
+      .fly-video-C .fly-video-control-C .fly-control .fly-video-btns {
+        margin-left: .4rem;
+        display: -webkit-box;
+        -webkit-box-align: center;
+        -webkit-box-pack: center;
+        -webkit-box-orient: horizontal; }
+        .fly-video-C .fly-video-control-C .fly-control .fly-video-btns .fly-prev-btn, .fly-video-C .fly-video-control-C .fly-control .fly-video-btns .fly-next-btn {
+          display: inline-block;
+          width: .2rem;
+          display: -webkit-box;
+          -webkit-box-align: center;
+          -webkit-box-pack: center;
+          -webkit-box-orient: horizontal; }
+          .fly-video-C .fly-video-control-C .fly-control .fly-video-btns .fly-prev-btn .prev-ico, .fly-video-C .fly-video-control-C .fly-control .fly-video-btns .fly-next-btn .prev-ico {
+            width: 0;
+            height: 0;
+            border-top: 0.04rem solid transparent;
+            border-right: 0.06rem solid #cebabb;
+            border-bottom: 0.04rem solid transparent;
+            position: relative; }
+            .fly-video-C .fly-video-control-C .fly-control .fly-video-btns .fly-prev-btn .prev-ico:before, .fly-video-C .fly-video-control-C .fly-control .fly-video-btns .fly-next-btn .prev-ico:before {
+              content: '';
+              position: absolute;
+              width: 0;
+              height: 0;
+              left: 0.0134rem;
+              top: -.026rem;
+              border-top: 0.02667rem solid transparent;
+              border-right: 0.04rem solid #fff;
+              border-bottom: 0.02667rem solid transparent; }
+        .fly-video-C .fly-video-control-C .fly-control .fly-video-btns .fly-next-btn .prev-ico {
+          -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg); }
+      .fly-video-C .fly-video-control-C .fly-control .fly-play-btn {
+        width: 0.14rem;
+        height: 0.14rem;
+        border-radius: 50%;
+        position: relative;
+        border: 2px solid #cebabb; }
+        .fly-video-C .fly-video-control-C .fly-control .fly-play-btn:after, .fly-video-C .fly-video-control-C .fly-control .fly-play-btn:before {
+          content: '';
+          position: absolute;
+          width: 0;
+          height: 0.08rem;
+          border: 2px solid #cebabb;
+          border-top: none;
+          border-bottom: none;
+          top: .03rem;
+          left: .045rem; }
+        .fly-video-C .fly-video-control-C .fly-control .fly-play-btn:after {
+          left: .085rem; }
+        .fly-video-C .fly-video-control-C .fly-control .fly-play-btn.active:after {
+          content: '';
+          position: absolute;
+          width: 0;
+          height: 0;
+          left: 0.05rem;
+          border-top: 0.04rem solid transparent;
+          border-left: 0.05333rem solid #cebabb;
+          border-bottom: 0.04rem solid transparent;
+          border-right: none; }
+        .fly-video-C .fly-video-control-C .fly-control .fly-play-btn.active:before {
+          display: none; }
+      .fly-video-C .fly-video-control-C .fly-control .fly-video-time {
+        line-height: .2rem;
+        text-align: center;
+        font-size: .08rem; }
 
 /*# sourceMappingURL=video.css.map */
