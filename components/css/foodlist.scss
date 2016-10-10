@@ -220,7 +220,8 @@ $foodlist-height:1.6rem;
 	overflow:hidden;
 	float:left;
 	@include br(20px);
-	box-shadow:0 0 1.1rem rgba(232,158,121,.6),0 0 .1rem rgba(232,158,121,.2) inset;
+	//box-shadow:0 0 2.2rem rgba(232,158,121,.2);
+  
 }
 .foodlist-next{
 	float:left;

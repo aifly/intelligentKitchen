@@ -194,6 +194,7 @@ $nav-height:11.76vh;
       li{
         -webkit-box-flex: 1;
         height: 10vh;
+        
         img{
           margin-top: 1vh;
         }
@@ -277,14 +278,10 @@ $nav-height:11.76vh;
         .fly-cook-book-item-C{
           width: 100%;
           height: 100%;
-          
-
         }
         @for $i from 1 through 3{
           &>li:nth-of-type(#{$i}){
-              
               @include animationDelay($i * 100ms);   
-             
           }
         }
 
@@ -336,17 +333,24 @@ $nav-height:11.76vh;
             @include transformOrigin(right);
             left: 13%;
             top:8%;
-            box-shadow:0 0 1.1rem rgba(232,158,121,.4);
-            &:after{
-              content:'推荐食材';
+            &:before{
+              content:'';
+              @include pos(a);
+              width: 100%;
+              z-index: 1;
+
+              height: 100%;
+              box-shadow:0 0 1rem rgba(232,158,121,.4);
+            }
+            span.tag{
               @include pos(a);
               width: .1rem;
-              z-index: -1;
+              z-index: 6;
               font-size:.08rem;
               padding: .05rem .04rem .05rem .05rem;
               top: 40%;
               @include br(12px);
-              background:inherit;
+              background:#fff;
               left: 98%;
             }
             z-index: 1;
@@ -367,13 +371,11 @@ $nav-height:11.76vh;
         }
         //<!--天气-->
         .fly-weather{
-             &:after{
-              content:'时间 / 天气';
+             span.tag{
+               
               top: 5%;
             }
 
-           
-            
             .fly-weather-C{
                width: 90%;
                margin: 10px auto;
@@ -437,16 +439,14 @@ $nav-height:11.76vh;
         }
         //<!--推荐食材-->
         .fly-rec-food{
-          &:after{
-              content:'推荐食材';
+          span.tag{
               top: 60%;
             }
              
         }
         //<!--推荐菜谱-->
         .fly-rec-menu{
-            &:after{
-              content:'推荐菜谱';
+            span.tag{
                top: 35%;
             }
         } 

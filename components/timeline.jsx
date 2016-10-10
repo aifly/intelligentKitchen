@@ -189,7 +189,7 @@ class FlyTimeLine extends Component {
 			return;
 		}
 
-
+		
 
 		let {obserable,index} = this.props,
 			iNow = index(e.target.parentNode,null,'article');

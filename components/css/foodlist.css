@@ -8,8 +8,7 @@
   height: 1.6rem;
   overflow: hidden;
   float: left;
-  border-radius: 20px;
-  box-shadow: 0 0 1.1rem rgba(232, 158, 121, 0.6), 0 0 0.1rem rgba(232, 158, 121, 0.2) inset; }
+  border-radius: 20px; }
   .foodlist-C section {
     display: -webkit-box;
     -webkit-box-align: center;

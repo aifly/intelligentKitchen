@@ -302,18 +302,23 @@ body {
       transform-origin: right;
       left: 13%;
       top: 8%;
-      box-shadow: 0 0 1.1rem rgba(232, 158, 121, 0.4);
       z-index: 1; }
-      #fly-main .fly-cook-book-C .fly-food .fly-food-item:after {
-        content: '推荐食材';
+      #fly-main .fly-cook-book-C .fly-food .fly-food-item:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+        height: 100%;
+        box-shadow: 0 0 1rem rgba(232, 158, 121, 0.4); }
+      #fly-main .fly-cook-book-C .fly-food .fly-food-item span.tag {
         position: absolute;
         width: .1rem;
-        z-index: -1;
+        z-index: 6;
         font-size: .08rem;
         padding: .05rem .04rem .05rem .05rem;
         top: 40%;
         border-radius: 12px;
-        background: inherit;
+        background: #fff;
         left: 98%; }
     #fly-main .fly-cook-book-C .fly-food .fly-top1 {
       left: 20%;
@@ -324,8 +329,7 @@ body {
     #fly-main .fly-cook-book-C .fly-food .fly-top3 {
       left: 6%;
       z-index: 2; }
-    #fly-main .fly-cook-book-C .fly-food .fly-weather:after {
-      content: '时间 / 天气';
+    #fly-main .fly-cook-book-C .fly-food .fly-weather span.tag {
       top: 5%; }
     #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-weather-C {
       width: 90%;
@@ -378,11 +382,9 @@ body {
           border: 1px solid #cfbbbc;
           padding: 6px 20px;
           border-radius: 30px; }
-    #fly-main .fly-cook-book-C .fly-food .fly-rec-food:after {
-      content: '推荐食材';
+    #fly-main .fly-cook-book-C .fly-food .fly-rec-food span.tag {
       top: 60%; }
-    #fly-main .fly-cook-book-C .fly-food .fly-rec-menu:after {
-      content: '推荐菜谱';
+    #fly-main .fly-cook-book-C .fly-food .fly-rec-menu span.tag {
       top: 35%; }
   #fly-main .fly-cook-book-C .fly-cook-list {
     width: 3.82rem;
