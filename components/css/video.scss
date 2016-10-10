@@ -128,6 +128,7 @@ $fontColor:#a16d56;
         height: $size;
         line-height: $size;
         text-align: center;
+        z-index: 100;
         background: #fff;
         right:.1rem;
         top : -$size /1.8;
