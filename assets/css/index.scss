@@ -150,9 +150,8 @@ body{
   font-family: 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif;
   color:$baseColor;
 }
-$nav-height:13.3vh;
+$nav-height:11.76vh;
 #fly-main{  
-
   .fly-nav-mask{
     @include pos(a);
     height: 100vh - $nav-height;
@@ -191,9 +190,10 @@ $nav-height:13.3vh;
        @include transition(.8s);
        float: left;
        @include displayBox(horizontal);
-       width: 4.2rem;
+       width: 5rem;
       li{
         -webkit-box-flex: 1;
+        height: 10vh;
         img{
           margin-top: 1vh;
         }
@@ -202,9 +202,9 @@ $nav-height:13.3vh;
         span{
           color:$baseColor1;
           font-size: .06rem;
-          bottom:6px;
+          bottom:0;
           @include pos(a);
-          left: 34%;
+          left: 38%;
         }
 
       }

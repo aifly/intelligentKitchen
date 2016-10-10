@@ -29,6 +29,7 @@ class FlyVideo extends Component {
 	  this.prev = this.prev.bind(this);
 	  this.switchVideo = this.switchVideo.bind(this);
 	  this.playVideo = this.playVideo.bind(this);
+	  this.nextVideo = this.nextVideo.bind(this);
 	}
 	render() {
 		let  {imgSrc,steps} = this.props;
@@ -86,7 +87,7 @@ class FlyVideo extends Component {
 								<div className='prev-ico'></div>
 							</div>
 							<div className={'fly-play-btn '+ (this.state.playing ?'':'active')} onTouchTap={this.playVideo}></div>
-							<div className='fly-next-btn' onTouchTap={this.next}>
+							<div className='fly-next-btn' onTouchTap={this.nextVideo}>
 								<div className='prev-ico'></div>
 								<div className='prev-ico'></div>
 							</div>
@@ -192,7 +193,7 @@ class FlyVideo extends Component {
 
 				obserable.trigger({type:'updateTimeSpan',data:new Date().getTime()-this.startTime});
 
-				obserable.trigger({type:'showTimespan',data:((new Date().getTime() - this.startTime) / 1000|0 + 1)/ 60|0 + 1});
+				this.showTimespan();
 
 				if(this.state.currentVideoIndex === this.props.steps.length-1){
 					
@@ -230,6 +231,11 @@ class FlyVideo extends Component {
 			this.bindDrag($(this.refs['fly-voice-bar']),$doc,this.transX1,voiceProgress,vioceWidth,progressBarWidth,'voice');
 
 		},1);
+	}
+
+	showTimespan(){
+		let {obserable} = this.props;
+		obserable.trigger({type:'showTimespan',data:((new Date().getTime() - this.startTime) / 1000|0 + 1)/ 60|0 + 1});
 	}
 
 	bindDrag(progressBar,$doc,transX,videoProgress,videoWidth,progressBarWidth,type){
@@ -335,6 +341,12 @@ class FlyVideo extends Component {
 		});
 	}
 
+
+	nextVideo(){
+		this.next();
+		this.showTimespan();
+	}
+
 	next(){
 
 		if(this.state.currentVideoIndex > this.props.steps.length-1){
@@ -345,6 +357,8 @@ class FlyVideo extends Component {
 			currentVideoIndex:this.state.currentVideoIndex + 1
 		},()=>{
 			let {obserable} = this.props;
+
+
 
 			obserable.trigger({type:'updateStep',data:this.state.currentVideoIndex});
 			this.reload();

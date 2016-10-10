@@ -361,10 +361,8 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 			timerCanvas.height = temperatureCanvas.height=  height;
 
 			this.timerCanvasStart(timerCanvas);
-			this.temperatureCanvasStart(temperatureCanvas,27);
+			this.temperatureCanvasStart(temperatureCanvas,17);
 
-			 
-			
 
 	/*
 			var scrollC = data.cityScrollC.find('ul');

@@ -8,6 +8,19 @@ injectTapEventPlugin();
 	constructor(option){
 		super(option);
 		this.state = {
+			operatorArr:[
+				{
+					curSrc:'./assets/images/nav10.png',
+					src:'./assets/images/nav10.png',
+					_src:'./assets/images/nav10-1.png',
+					menu:'设置'
+				},{
+					curSrc:'./assets/images/nav11.png',
+					src:'./assets/images/nav11.png',
+					_src:'./assets/images/nav11-1.png',
+					menu:'开/关'
+				}
+			],
 			menusArr:[
 				{	
 					curSrc:'./assets/images/nav1.png',
@@ -69,16 +82,23 @@ injectTapEventPlugin();
 		this.menuBarHandler = this.menuBarHandler.bind(this);
 		this.closeMenu = this.closeMenu.bind(this);
 		this.menuChange = this.menuChange.bind(this);
+		this.operatorChange = this.operatorChange.bind(this);
 	}
 	render(){
 
 		let renderArr = this.state.menusArr.map((item,i)=>{
 			return (
-				<li key={i}>
-					<img src={item.curSrc}/>
+				<li key={i} style={{background:'url('+item.curSrc+') no-repeat center center'}}>
 					<span>{item.menu}</span>
 				</li>
 			)
+		}),
+		operatorArr = this.state.operatorArr.map((item,i)=>{
+			return (
+				<li key={i} style={{background:'url('+item.curSrc+') no-repeat center center'}}>
+					<span>{item.menu}</span>
+				</li>
+			);
 		});
 
 
@@ -88,31 +108,43 @@ injectTapEventPlugin();
 					<ul ref='fly-menu-C' className='' onTouchTap={this.menuChange}>
 						{renderArr}
 					</ul>
-					<ul ref='fly-menu-C1'>
-						<li>
-							<img src="./assets/images/nav10.png" />
-							<span>设置</span>
-						</li>
-						<li>
-							<img src="./assets/images/nav11.png" />
-							<span>开/关</span>
-						</li>
+					<ul ref='fly-menu-C1' onTouchTap={this.operatorChange}>
+						{operatorArr}
 					</ul>
 				</div>
 				<div className='fly-menu-bar' onTouchTap={this.menuBarHandler}>
 					<div className={this.state.isEnableDrag ? 'fly-sure':''}>{this.state.isEnableDrag ? '确定':'下拉菜单'}</div>
 					<div>{this.state.isEnableDrag ? '':'>'}</div>
 				</div>
-				<div className="fly-nav-mask" ref="fly-nav-mask" onTouchTap={this.closeMenu}></div>
+				<div className="fly-nav-mask" ref="fly-nav-mask" onTouchStart={this.closeMenu}></div>
 			</nav>
 		)
 	}
 
-	menuChange(e){
-		e.preventDefault();
+
+	getIndex(e,parentNode){
 		let {index,obserable} = this.props,
 			iNow = -1;
-		iNow = index(e.target.parentNode,this.refs['fly-menu-C'],'li');
+		let parent = e.target.nodeName === "SPAN"?e.target.parentNode:e.target;
+		iNow = index(parent,parentNode,'li');
+
+		return iNow;
+	}
+
+	operatorChange(e){
+		e.preventDefault();
+		var iNow = this.getIndex(e,this.refs['fly-menu-C1']);
+		if(iNow<=-1){
+			return;
+		}
+		this.state.operatorArr[iNow].curSrc = this.state.operatorArr[iNow].curSrc === this.state.operatorArr[iNow].src? this.state.operatorArr[iNow]._src:this.state.operatorArr[iNow].src;
+		this.forceUpdate();
+	}
+
+	menuChange(e){
+		e.preventDefault();
+		let {obserable} = this.props;
+		var iNow = this.getIndex(e,this.refs['fly-menu-C']);
 		if(iNow<=-1){
 			return;
 		}

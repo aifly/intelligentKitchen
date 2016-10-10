@@ -144,20 +144,20 @@ body {
 
 #fly-main .fly-nav-mask {
   position: absolute;
-  height: 86.7vh;
+  height: 88.24vh;
   width: 100%;
   background: transparent;
   z-index: -1;
   -webkit-transform: translate3d(0, 120%, 0);
   transform: translate3d(0, 120%, 0);
-  top: 13.3vh; }
+  top: 11.76vh; }
   #fly-main .fly-nav-mask.active {
     z-index: 10000;
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0); }
 #fly-main .fly-nav {
   width: 10rem;
-  height: 13.3vh;
+  height: 11.76vh;
   background: #fff9f3;
   z-index: 9999;
   position: absolute;
@@ -183,13 +183,14 @@ body {
     -webkit-box-align: center;
     -webkit-box-pack: center;
     -webkit-box-orient: horizontal;
-    width: 4.2rem; }
+    width: 5rem; }
     #fly-main .fly-nav ul.show {
       opacity: 1;
       -webkit-transform: translate3d(0, 0, 0);
       transform: translate3d(0, 0, 0); }
     #fly-main .fly-nav ul li {
       -webkit-box-flex: 1;
+      height: 10vh;
       text-align: center;
       position: relative; }
       #fly-main .fly-nav ul li img {
@@ -197,9 +198,9 @@ body {
       #fly-main .fly-nav ul li span {
         color: #e89e79;
         font-size: .06rem;
-        bottom: 6px;
+        bottom: 0;
         position: absolute;
-        left: 34%; }
+        left: 38%; }
     #fly-main .fly-nav ul:nth-of-type(2) {
       width: 1.2rem;
       float: right; }

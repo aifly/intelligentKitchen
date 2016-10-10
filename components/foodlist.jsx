@@ -16,7 +16,7 @@ import IScroll from 'iscroll';
 			],
 			ulWidth:500,
 			currentIndex:-1,//当前选中的菜谱
-			currentTimeSlot:0,//当前时间段　0:早餐,1:中餐,2:晚餐。
+			currentTimeSlot:0,//当前时间段　0:早餐,1:中餐,2:晚餐。如果type为推荐食材或推荐食谱的时候，currentTimeSlot=-1;
 		};
 		this.next = this.next.bind(this);
 		this.changeTimeSlot = this.changeTimeSlot.bind(this);
@@ -25,7 +25,8 @@ import IScroll from 'iscroll';
 	}
 
 	changeTimeSlot(e){
-		var target = e.target;
+		var target = e.target; 
+
 		if(target.nodeName === "LI" ){
 			var index =	this.props.getIndex(e.target.parentNode.children,e.target);
 			this.setState({
@@ -38,7 +39,6 @@ import IScroll from 'iscroll';
 		let style ={
 			width:((this.state.dataSource.length/2|0)+1)*100
 		}
-
 		return (
 			
 			<div className='foodlist'>
@@ -81,11 +81,14 @@ import IScroll from 'iscroll';
 
 		let {type,getTimeSlot} = this.props;
 		this.state.currentTimeSlot = getTimeSlot;
+
 		switch(type){
 			case 'rec-food':
+				this.state.currentTimeSlot = 0;
 				this.state.dataSource[this.state.currentTimeSlot]= addFoods;
 			break;
 			case 'rec-menu':
+				this.state.currentTimeSlot = 0;
 				this.state.dataSource[this.state.currentTimeSlot]= addFoods;
 			break;
 			case 'my-collect': // 我的收藏。
