@@ -1,7 +1,6 @@
 @charset "UTF-8";
 /*步骤开始。开始制作*/
 .book-item-C {
-  box-shadow: 0 0 1.1rem rgba(232, 158, 121, 0.6);
   overflow: hidden;
   width: 84%;
   margin: 0 auto;

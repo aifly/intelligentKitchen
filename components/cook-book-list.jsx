@@ -35,7 +35,7 @@ import $ from 'jquery';
 	}
 	change(e){//切换
 
-		if( !this.state.currentPannel && e.target.classList.contains('book-list-C')){
+		if( !this.state.currentPannel && e.target.classList.contains('tag')){
 			this.setState({
 				currentPannel:1
 			})
@@ -43,7 +43,8 @@ import $ from 'jquery';
 	}
 
 	changeMyCollectTop(e){
-		if(this.state.currentPannel && e.target.classList.contains('fly-collect-C')){
+
+		if(this.state.currentPannel && e.target.classList.contains('tag')){
 			this.setState({
 				currentPannel:0
 			})	
@@ -70,6 +71,7 @@ import $ from 'jquery';
 					<div style={{position:'relative',opacity:this.state.isShow?1:0}}>
 						<div className="fly-cook-book-item-C">
 							<article className={"book-list-C add-collect "+(this.state.currentPannel?'active':'') } onTouchTap={this.change}>
+								<span onTouchTap={this.changeMyCollectTop} className='tag'>已加入菜谱</span>
 								<aside className='booklist-left-C' onTouchTap={this.changeTimeSlot}>
 									<div className={this.state.currentTimeSlot===0?'active':''}>早餐</div>
 									<div className={this.state.currentTimeSlot===1?'active':''}>中餐</div>
@@ -123,7 +125,7 @@ import $ from 'jquery';
 												{this.state.addFoods[this.state.currentTimeSlot].map((item,i)=>{
 													return (
 														<li key={i} onTouchTap={this.getFoodById}>
-															<div data-index={i} style={{background:'  url('+item.imgSrc+') no-repeat center',backgroundSize:'cover'}}>
+															<div data-index={i} style={{background:' url('+item.imgSrc+') no-repeat center top',backgroundSize:'cover'}}>
 																<span>{item.name}</span>
 																{item.type === 'video' && <img className='fly-play-ico' src='./assets/images/play.png'/>}
 															</div>	
@@ -220,7 +222,11 @@ import $ from 'jquery';
 		$(this.refs['fly-cook-list']).on('touchstart',e=>{
 			
 			let $target=$(e.target);
-			if($target.hasClass('bl-food-scroll') || $target.parents('.bl-food-scroll').length || $target.hasClass('foodlist-content') || $target.parents('.foodlist-content').length){
+			//!$(e.target).parents('.active').length && !$(e.target).hasClass('active')) 
+			//这里判断是为了不能直接拖拽下面的块。
+
+			if((!$(e.target).parents('.active').length && !$(e.target).hasClass('active')) || $target.hasClass('bl-food-scroll') || $target.parents('.bl-food-scroll').length || $target.hasClass('foodlist-content') || $target.parents('.foodlist-content').length){
+
 				return;
 			}
 
@@ -263,15 +269,12 @@ import $ from 'jquery';
 					});										
 				}
 
-				target.addClass('startMove').on('webkitAnimationEnd',()=>{
+
+				target.removeClass('startMove').addClass('startMove').off('webkitAnimationEnd').on('webkitAnimationEnd',()=>{
 					target.css({
 						WebkitTransform:'translate3d(0,0,0)'
 					});
 				});
-				
-
-				
-				
 			});
 
 		});
@@ -359,6 +362,9 @@ import $ from 'jquery';
 		obserable.trigger({
 			type:'clearPlates'
 		});
+
+
+		obserable.trigger({type:'clearAllTime'});//清空总时间
 
 
 	}

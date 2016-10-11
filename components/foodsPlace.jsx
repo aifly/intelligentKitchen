@@ -13,11 +13,15 @@ export default class FlyFoodsPlace extends Component {
 	  	trashClass:'',
 	  	plateDemoStyle:{
 	  		left:"94%",
-	  		top:0
+	  		top:0,
+	  		background:'url(./assets/images/plat.png) no-repeat center center',
+	  		backgroundSize:'contain'
 	  	},
 	  	plateSMStyle:{
 	  		left:'95%',
-	  		top:'1rem'
+	  		top:'1rem',
+	  		background:'url(./assets/images/plat.png) no-repeat center center',
+	  		backgroundSize:'contain'
 	  	}
 	  };
 	  this.onTouchStart = this.onTouchStart.bind(this);
@@ -54,7 +58,8 @@ export default class FlyFoodsPlace extends Component {
 				</ol>
 
 				{this.state.plates.map((item,i)=>{
-					return <div key={i}  style={{left:this.state.plates[i].left,top:this.state.plates[i].top}} className={'fly-plate-item '+ this.state.plates[i].className}></div>
+					return <div key={i}  style={{left:this.state.plates[i].left,top:this.state.plates[i].top,background:'url(./assets/images/plat.png) no-repeat center center',
+	  		backgroundSize:'contain'}} className={'fly-plate-item '+ this.state.plates[i].className}></div>
 				})}
 				
 				{/*垃圾桶图标实现*/}

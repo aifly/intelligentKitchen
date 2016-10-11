@@ -50,7 +50,7 @@ export default class Time{
 	initWeight(numbers){ //体重数据
 
 		let s = this;
-		let id = 2;
+		let id = 0;
 		var context = s.canvas.getContext('2d');
 		context.clearRect(0,0,s.canvas.width,s.canvas.height);
 		let D =new Date();
@@ -68,14 +68,12 @@ export default class Time{
 		
 		id += numberData[10][0].length+1;
 		s.draw(minsTen,context,id);
-		var index = id;
+		
 
 		id += numberData[minsTen][0].length+1;
 		s.draw(minsOne,context,id,true);
 
-
-
-		id += numberData[minsTen][0].length;
+		id += numberData[minsOne][0].length;
 		s.draw(12,context,id);		
 
 	}

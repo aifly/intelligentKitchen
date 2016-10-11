@@ -120,11 +120,11 @@ $baseColor:#d1bdbd;
 $baseColor1:#e89e79;
 $maxIndex:9999;
 
-$foodlist-height:1.6rem;
+$foodlist-height:1.9rem;
 
 .foodlist{
-	margin:.13rem auto;
-  
+	margin:0 auto;
+  height: 100%;
 }
 .foodlist-C{
   $width:35%;
@@ -171,21 +171,34 @@ $foodlist-height:1.6rem;
     }
 
     overflow: hidden;
-    height:1.6rem;
-    width:100 - $width;
-
+    height:1.9rem;
+    width:100 - $width - 1;
+    ul{
+      height: 1.8rem;
+      margin-top: .045rem;
+      //margin-left: .04rem;
+    }
     
     li{
   
       width:.675rem;
       float: left;
-      height:($foodlist-height ) / 2;
-      overflow: hidden;
+      height:.9rem;
+       padding:0;
+      @include transform(scale(.90));
       box-sizing:border-box;
-      padding:10px;;
       div.active{
         box-sizing:border-box;
         border:8px solid rgb(232, 158, 121);
+        z-index: 1;
+        overflow: hidden;
+        @include pos(r);
+        span{
+          @include transition_transform(.1s);
+          @include transform(translate3d(0,-14px,0));
+          border-bottom-left-radius:0;
+          border-bottom-right-radius:0;
+        }
       }
       div{
         @include transition(border .1s);
@@ -193,24 +206,37 @@ $foodlist-height:1.6rem;
         @include br(20px);
         height:100%;
         @include pos(r);
-        overflow: hidden;
       }
       span{
-        font-size:.08rem;
-        @include pos(a);
-        left: 0;
+       font-size:.06rem;
         bottom:0;
         display:block;
         width:100%;
+        @include pos(r);
         color:#cfbbba;
+        top: .75rem;
         text-align: center;
         height: .15rem;
         line-height: .15rem;
         background:rgba(255,255,255,1);
+         border-bottom-left-radius:20px;
+        border-bottom-right-radius:20px;
       }
       &.food-top{
         margin-top: 0.01rem;  
       }
+
+         &:before{
+          content:'';
+          box-shadow:0 0 .2rem rgba(232, 158, 121,.4);
+          @include br(20px);
+          @include pos(a);
+          width: 100%;
+          height: 100%;
+          z-index: -1;
+          left: 0;
+          top: 0;  
+        }
     }
   }
 
@@ -220,13 +246,22 @@ $foodlist-height:1.6rem;
 	overflow:hidden;
 	float:left;
 	@include br(20px);
-	box-shadow:0 0 1.1rem rgba(232,158,121,.6),0 0 .1rem rgba(232,158,121,.2) inset;
+	@include pos(r);
+  &:before{
+    content:'';
+    box-shadow:0 0 .3rem rgba(232,158,121,.2);
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;    
+  }
+  
 }
 .foodlist-next{
 	float:left;
 	height:$foodlist-height / 4;
 	line-height: $foodlist-height / 4;
-	margin-top: .56rem;
+	margin-top: .66rem;
 	padding:0 20px;
 	@include transform(scaleY(2.4));
 	//margin-top: $foodlist-height /2 ;

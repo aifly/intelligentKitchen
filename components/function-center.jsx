@@ -133,6 +133,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 				<div style={{position:'absolute',width:'100%',height:'100%',zIndex:1000,display:(!this.state.isShow || this.state.isEnableDrag)?'block':'none'}}></div>
 				<div className="fly-cook-book-item-C" ref='fly-cook-book-item-C' style={{opacity:this.state.isShow?1:0}}> 
 					<div className="fly-weather  fly-food-item fly-top3" ref='weather'>
+						<span className='tag'>时间 / 天气</span>
 						<article style={{position:'absolute',left:0,top:0,width:'100%',height:'100%',overflow:'hidden'}}>
 							<section>
 							<ol className="fly-weather-C">
@@ -272,9 +273,11 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 						</article>
 					</div>
 					<div className="fly-rec-food fly-food-item fly-top2" ref='rec-food'>
+						<span className='tag'>推荐食材</span>
 						<FlyFoodList {...recProps}></FlyFoodList>
 					</div>
 					<div className="fly-rec-menu fly-food-item fly-top1" ref='rec-menu'>
+						<span className='tag'>推荐菜谱</span>
 						<FlyFoodList {...recMenuProps}></FlyFoodList>
 					</div>	
 				</div>
@@ -361,10 +364,8 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 			timerCanvas.height = temperatureCanvas.height=  height;
 
 			this.timerCanvasStart(timerCanvas);
-			this.temperatureCanvasStart(temperatureCanvas,27);
+			this.temperatureCanvasStart(temperatureCanvas,17);
 
-			 
-			
 
 	/*
 			var scrollC = data.cityScrollC.find('ul');
@@ -473,12 +474,11 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 
 			//self.startChangeMenu($(e.target),$(e.target).index('.fly-food-item'));
 			let $target = $(e.target),
-				index = $target.index('.fly-food-item')*1,
+				index = $target.parent().index('.fly-food-item')*1,
 				iNow = this.iNow % 3;
 				this.removeTopClass();
 				data.foods.eq(index).css({
-					WebkitTransitionDuration:'.5s',
-					//WebkitTransform:'translate3d(100%,0,0)',
+					WebkitTransitionDuration:'.1s',
 					opacity:0.3
 				}).addClass('fly-top3');
 				setTimeout(()=>{
@@ -487,7 +487,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 						opacity:1
 					});
 				},140);
-				
+
 				this.iNow = index;
 
 				switch(index){
@@ -522,6 +522,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 			if(!isTop || $(e.target).hasClass('fly-city-scroll-C')||$(e.target).parents('.fly-city-scroll-C').length>0
 				|| $(e.target).hasClass('foodlist-content')|| $(e.target).parents('.foodlist-content').length>0
 				 || $(e.target).hasClass("fly-hotcity-list") || $(e.target).parents('.fly-hotcity-list').length){
+
 				return;
 			}
 

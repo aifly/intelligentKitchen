@@ -4,6 +4,9 @@ import { PublicShadow } from './public-shadow.jsx';
 import numberData from '../libs/number';
 import Time from '../libs/canvas';
 import FlyCountdown from './countdown.jsx';
+import URL from '../libs/url';
+import $ from 'jquery';
+
  class FlyOperatorCenter extends Component {
 	constructor(option){
 		super(option);
@@ -18,7 +21,7 @@ import FlyCountdown from './countdown.jsx';
 		this.showWeight = this.showWeight.bind(this);
 		this.showBoard = this.showBoard.bind(this);
 		this.netWeight = this.netWeight.bind(this);//去皮
-		this.getWeight = this.getWeight.bind(this);//去皮
+		this.getWeight = this.getWeight.bind(this);//称重
 		this.hideCanvas = this.hideCanvas.bind(this);
 		this.showCountdown = this.showCountdown.bind(this);
 	}
@@ -112,13 +115,13 @@ import FlyCountdown from './countdown.jsx';
 			this.setState({showCanvas:flag});
 		});
 
-
+/*
 		setTimeout(()=>{//测试称重返回结果重新计算
 
 
-			//this.initCanvas(canvas,123);
+			//this.initCanvas(canvas,13);
 
-		},2000)
+		},2000)*/
 
 
 		obserable.on('showOperater',(flag)=>{
@@ -161,14 +164,42 @@ import FlyCountdown from './countdown.jsx';
 	netWeight(e){//去皮
 		if(this.state.isShow){
 			this.props.shadow(e.target);
+			$.ajax({
+				type:'POST',
+				url:URL.weightstart,
+				success(data){
+					if(data.getret === 1){
+						//console.log('success');
+					}
+				}
+			});
 		}	
 	}
 
 
-	getWeight(){
+	getWeight(e){
 		//开始称重。
 		if(this.state.isShow){
 			this.props.shadow(e.target);
+			console.log(URL.weightend);
+			let s = this;
+			let canvas = this.refs['weight'];
+			$.ajax({
+				type:'POST',
+				url:URL.weightend,
+				success(data){
+					if(data.getret === 1){
+						let weight= data.foodweight*1|0;
+						var iNow = weight - 10 < 0?0:weight-10;
+						var t = setInterval(()=>{
+							s.initCanvas(canvas,++iNow);
+							if(iNow >=weight){
+								clearInterval(t);
+							}
+						},20);
+					}
+				}
+			});
 		}	
 	}
 
@@ -180,7 +211,7 @@ import FlyCountdown from './countdown.jsx';
 			(number % 1000 % 100 / 10) | 0,//十位
 			number % 10 | 0//个位
 		];
-		
+
 		this.weight  = this.weight || new Time({
 			canvas:canvas,
 			obserable:this.props.obserable,
