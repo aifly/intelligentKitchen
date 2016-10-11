@@ -189,6 +189,7 @@ import $ from 'jquery';
 				url:URL.weightend,
 				success(data){
 					if(data.getret === 1){
+						console.log(data);
 						let weight= data.foodweight*1|0;
 						var iNow = weight - 10 < 0?0:weight-10;
 						var t = setInterval(()=>{

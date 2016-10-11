@@ -115,10 +115,6 @@ export default class FlyCountdown extends Component {
 		 							this.state.mins = 59;
 		 							this.state.hours--;	
 		 						}
-		 						else{
-		 							console.log('倒计时结束');
- 									this.timer = 1;
-		 						}
 	 						}
 	 						this.iNow = 59;
 	 						
