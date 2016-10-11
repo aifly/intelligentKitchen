@@ -103,7 +103,7 @@ class FlyVideo extends Component {
 	}
 	closeStep(e){
 		let {obserable} = this.props;
-		obserable.trigger({type:'closeStep',data:e})		
+		obserable.trigger({type:'closeStep',data:e});		
 	}
 	componentDidMount() {
 		let video = this.refs['video'];
