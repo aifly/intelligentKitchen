@@ -28,7 +28,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 				
 			],
 			currentData:'',
-			isShow:true,
+			isShow:false,
 			isEnableDrag:false //是否启用了拖拽
 			
 		}
@@ -522,6 +522,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 			if(!isTop || $(e.target).hasClass('fly-city-scroll-C')||$(e.target).parents('.fly-city-scroll-C').length>0
 				|| $(e.target).hasClass('foodlist-content')|| $(e.target).parents('.foodlist-content').length>0
 				 || $(e.target).hasClass("fly-hotcity-list") || $(e.target).parents('.fly-hotcity-list').length){
+
 				return;
 			}
 

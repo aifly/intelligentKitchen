@@ -152,6 +152,7 @@ body{
 }
 $nav-height:11.76vh;
 #fly-main{  
+ 
   .fly-nav-mask{
     @include pos(a);
     height: 100vh - $nav-height;
@@ -337,10 +338,10 @@ $nav-height:11.76vh;
               content:'';
               @include pos(a);
               width: 100%;
-              z-index: 1;
+              z-index: -1;
 
               height: 100%;
-              box-shadow:0 0 1rem rgba(232,158,121,.4);
+              box-shadow:0 0 .3rem rgba(232,158,121,.4);
             }
             span.tag{
               @include pos(a);

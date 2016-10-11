@@ -13,15 +13,15 @@ import $ from 'jquery';
 
 		this.state = {
 			showBoard:false,
-			showWeight:true,
-			isShow:true,
+			showWeight:false,
+			isShow:false,
 			showCanvas:false,
 			showCountdown:false
 		}
 		this.showWeight = this.showWeight.bind(this);
 		this.showBoard = this.showBoard.bind(this);
 		this.netWeight = this.netWeight.bind(this);//去皮
-		this.getWeight = this.getWeight.bind(this);//去皮
+		this.getWeight = this.getWeight.bind(this);//称重
 		this.hideCanvas = this.hideCanvas.bind(this);
 		this.showCountdown = this.showCountdown.bind(this);
 	}

@@ -55,7 +55,8 @@ import IScroll from 'iscroll';
 								{this.state.dataSource[this.state.currentTimeSlot].map((data,i)=>{
 									return (
 										<li  key={i} className={i<=Math.floor(this.state.dataSource[this.state.currentTimeSlot].length/2)?'':'food-top'}>
-											<div data-index={i}  style={{background:'url('+data.imgSrc+') no-repeat center',backgroundSize:'cover'}} className={i===this.state.currentIndex ? 'active':''}>
+											<div data-index={i}  style={{background:'url('+data.imgSrc+') no-repeat center bottom',backgroundSize:'cover'}} className={i===this.state.currentIndex ? 'active':''}>
+
 												<span>{data.name}</span>
 												{data.type === 'video' && <img className='fly-play-ico' src='./assets/images/play.png'/>}
 											</div>
@@ -203,6 +204,8 @@ import IScroll from 'iscroll';
 			type:'initProgress',
 			data:-1
 		});
+
+		obserable.trigger({type:'clearAllTime'});//清空总时间
 		 
 
 	}

@@ -1,14 +1,16 @@
 @charset "UTF-8";
 .foodlist {
-  margin: .13rem auto; }
+  margin: 0 auto;
+  height: 100%; }
 
 .foodlist-C {
   width: 86%;
   margin-left: .1rem;
-  height: 1.6rem;
+  height: 1.9rem;
   overflow: hidden;
   float: left;
-  border-radius: 20px; }
+  border-radius: 20px;
+  position: relative; }
   .foodlist-C section {
     display: -webkit-box;
     -webkit-box-align: center;
@@ -38,8 +40,8 @@
         right: 10px; }
   .foodlist-C .foodlist-content {
     overflow: hidden;
-    height: 1.6rem;
-    width: 65%; }
+    height: 1.9rem;
+    width: 64%; }
     .foodlist-C .foodlist-content .fly-play-ico {
       bottom: .15rem; }
     .foodlist-C .foodlist-content.no-data:before {
@@ -48,44 +50,78 @@
       margin-top: 50%;
       margin-left: 20%;
       display: block; }
+    .foodlist-C .foodlist-content ul {
+      height: 1.8rem;
+      margin-top: .045rem; }
     .foodlist-C .foodlist-content li {
       width: .675rem;
       float: left;
-      height: 0.8rem;
-      overflow: hidden;
-      box-sizing: border-box;
-      padding: 10px; }
+      height: .9rem;
+      padding: 0;
+      -webkit-transform: scale(0.9);
+      transform: scale(0.9);
+      box-sizing: border-box; }
       .foodlist-C .foodlist-content li div.active {
         box-sizing: border-box;
-        border: 8px solid #e89e79; }
+        border: 8px solid #e89e79;
+        z-index: 1;
+        overflow: hidden;
+        position: relative; }
+        .foodlist-C .foodlist-content li div.active span {
+          -webkit-transition: -webkit-transform 0.1s;
+          transition: -webkit-transform 0.1s;
+          transition: transform 0.1s;
+          transition: transform 0.1s, -webkit-transform 0.1s;
+          -webkit-transform: translate3d(0, -14px, 0);
+          transform: translate3d(0, -14px, 0);
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0; }
       .foodlist-C .foodlist-content li div {
         -webkit-transition: border 0.1s;
         transition: border 0.1s;
         width: 100%;
         border-radius: 20px;
         height: 100%;
-        position: relative;
-        overflow: hidden; }
+        position: relative; }
       .foodlist-C .foodlist-content li span {
-        font-size: .08rem;
-        position: absolute;
-        left: 0;
+        font-size: .06rem;
         bottom: 0;
         display: block;
         width: 100%;
+        position: relative;
         color: #cfbbba;
+        top: .75rem;
         text-align: center;
         height: .15rem;
         line-height: .15rem;
-        background: white; }
+        background: white;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px; }
       .foodlist-C .foodlist-content li.food-top {
         margin-top: 0.01rem; }
+      .foodlist-C .foodlist-content li:before {
+        content: '';
+        box-shadow: 0 0 0.2rem rgba(232, 158, 121, 0.4);
+        border-radius: 20px;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        left: 0;
+        top: 0; }
+  .foodlist-C:before {
+    content: '';
+    box-shadow: 0 0 0.3rem rgba(232, 158, 121, 0.2);
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0; }
 
 .foodlist-next {
   float: left;
-  height: 0.4rem;
-  line-height: 0.4rem;
-  margin-top: .56rem;
+  height: 0.475rem;
+  line-height: 0.475rem;
+  margin-top: .66rem;
   padding: 0 20px;
   -webkit-transform: scaleY(2.4);
   transform: scaleY(2.4); }

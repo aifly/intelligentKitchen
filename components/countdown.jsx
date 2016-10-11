@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+	import React, { Component } from 'react';
 import './css/countdown.css';
 import   '../libs/touchScroll.js';
 import $ from 'jquery';
@@ -101,17 +101,27 @@ export default class FlyCountdown extends Component {
 					let mh = 0;
 
 	 				if(this.iNow <= 0){
+
+
 	 					if(this.state.hours<=0 && this.state.mins <= 0 && this.iNow <=0){
  							console.log('倒计时结束');
  							this.timer = 1;
 	 					}
 	 					else{
+
 	 						this.state.mins--;
 		 					if(this.state.mins<=0){
-	 							this.state.mins = 59;
-	 							this.state.hours--;
-	 						}	
+		 						if(this.state.housr>0){
+		 							this.state.mins = 59;
+		 							this.state.hours--;	
+		 						}
+		 						else{
+		 							console.log('倒计时结束');
+ 									this.timer = 1;
+		 						}
+	 						}
 	 						this.iNow = 59;
+	 						
 	 					}
 	 				}
 

@@ -111,7 +111,13 @@ class FlyTimeLine extends Component {
 							mins = step.timespan.split(':')[1]*1;
 						time += hour*60 + mins;
 					}
+			});
+
+			obserable.on('clearAllTime',()=>{
+				this.setState({
+					allTime:-1
 				});
+			});
 				
 
 				//清空盘子。

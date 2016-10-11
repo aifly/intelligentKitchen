@@ -307,9 +307,9 @@ body {
         content: '';
         position: absolute;
         width: 100%;
-        z-index: 1;
+        z-index: -1;
         height: 100%;
-        box-shadow: 0 0 1rem rgba(232, 158, 121, 0.4); }
+        box-shadow: 0 0 0.3rem rgba(232, 158, 121, 0.4); }
       #fly-main .fly-cook-book-C .fly-food .fly-food-item span.tag {
         position: absolute;
         width: .1rem;

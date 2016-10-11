@@ -3,7 +3,7 @@
   width: .2rem;
   position: absolute;
   right: 0;
-  bottom: .2rem; }
+  bottom: .15rem; }
 
 @-webkit-keyframes move {
   50% {
@@ -16,6 +16,17 @@
   -webkit-animation: move 0.3s ease;
   animation: move 0.3s ease; }
 
+.fly-cook-book-item-C span.tag {
+  position: absolute;
+  background: #fff;
+  z-index: 0;
+  width: 0.1rem;
+  right: -0.2rem;
+  padding: 20px 20px 20px 40px;
+  font-size: .08rem;
+  top: .1rem;
+  border-radius: 14px; }
+
 .book-list-C {
   width: 88%;
   z-index: 1;
@@ -25,25 +36,22 @@
   background: #FFF;
   border-radius: 30px;
   position: relative;
-  z-index: 1;
   display: -webkit-box;
   -webkit-box-align: center;
   -webkit-box-pack: center;
   -webkit-box-orient: horizontal; }
+  .book-list-C:before {
+    content: '';
+    box-shadow: 0 0 0.3rem rgba(232, 158, 121, 0.8);
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 30px;
+    width: 100%;
+    height: 100%; }
   .book-list-C.active {
     z-index: 2;
     left: -.2rem; }
-  .book-list-C:before {
-    content: '已加入菜谱';
-    background: inherit;
-    position: absolute;
-    z-index: -1;
-    width: 0.1rem;
-    right: -0.2rem;
-    padding: 20px 20px 20px 40px;
-    font-size: .08rem;
-    top: .1rem;
-    border-radius: 14px; }
   .book-list-C .booklist-left-C {
     width: 25%;
     height: 100%;
@@ -75,7 +83,8 @@
     display: -webkit-box;
     -webkit-box-align: center;
     -webkit-box-pack: center;
-    -webkit-box-orient: vertical; }
+    -webkit-box-orient: vertical;
+    position: relative; }
     .book-list-C .booklist-right-C .bl-calendar {
       width: 100%;
       -webkit-box-flex: 1;
@@ -140,8 +149,7 @@
         width: 90%;
         height: 100%;
         overflow: hidden;
-        background: rgba(232, 158, 121, 0.1);
-        box-shadow: 0 0 1.1rem rgba(232, 158, 121, 0.6), 0 0 2rem rgba(232, 158, 121, 0.5) inset;
+        position: relative;
         border-radius: 20px;
         margin-top: -.14rem; }
         .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll.no-data:before {
@@ -150,40 +158,70 @@
           margin-left: 40%;
           margin-top: 15%;
           display: block; }
+        .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll:before {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          left: 0;
+          top: 0; }
         .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll ul {
-          margin-top: -.07rem; }
+          margin-top: -.01rem; }
           .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll ul li {
             width: .731rem;
+            -webkit-transform: scale(0.9);
+            transform: scale(0.9);
             float: left;
-            height: 1rem;
+            height: .9rem;
             position: relative;
-            box-sizing: border-box;
-            background: rgba(232, 158, 121, 0.1); }
+            box-sizing: border-box; }
             .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll ul li div {
-              box-shadow: 0 0 0.1rem rgba(232, 158, 121, 0.6);
               position: absolute;
               border-radius: 20px;
               width: 90%;
-              overflow: hidden;
               height: 90%;
               left: 10%;
               top: 10%;
-              -webkit-transition: border 0.2s;
-              transition: border 0.2s;
+              -webkit-transition: border 0.1s;
+              transition: border 0.1s;
               box-sizing: border-box; }
+              .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll ul li div:before {
+                content: '';
+                box-shadow: 0 0 0.1rem rgba(232, 158, 121, 0.4);
+                position: absolute;
+                border-radius: 20px;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%; }
               .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll ul li div.active {
-                border: 8px solid #e89e79; }
+                box-sizing: border-box;
+                border: 8px solid #e89e79;
+                z-index: 1;
+                overflow: hidden;
+                position: relative; }
+                .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll ul li div.active span {
+                  -webkit-transition: -webkit-transform 0.1s;
+                  transition: -webkit-transform 0.1s;
+                  transition: transform 0.1s;
+                  transition: transform 0.1s, -webkit-transform 0.1s;
+                  -webkit-transform: translate3d(0, -14px, 0);
+                  transform: translate3d(0, -14px, 0);
+                  border-bottom-left-radius: 0;
+                  border-bottom-right-radius: 0; }
             .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll ul li span {
+              font-size: .06rem;
               display: block;
-              position: absolute;
-              bottom: 0;
-              background: #fff;
-              color: #cfbbba;
               width: 100%;
-              height: .2rem;
-              line-height: .2rem;
-              font-size: .08rem;
-              padding-left: 20px; }
+              position: relative;
+              color: #cfbbba;
+              top: .665rem;
+              text-align: center;
+              height: .15rem;
+              line-height: .15rem;
+              background: white;
+              border-bottom-left-radius: 20px;
+              border-bottom-right-radius: 20px; }
       .book-list-C .booklist-right-C .bl-food-list .bl-food-next {
         width: 10%;
         height: 40%;
