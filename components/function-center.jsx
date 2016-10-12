@@ -571,7 +571,6 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 						WebkitTransitionTimingFunction:"cubic-bezier(0, 0.9, 0.17, 1.01)",
 						WebkitTransform:'translate3d(0,0,0)'
 					});
-				 
 				}
 				
 			});
@@ -641,13 +640,14 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 		this.foods.css({WebkitTransition:'.3s',WebkitTransitionTimingFunction:"cubic-bezier(0, 0.9, 0.17, 1.01)"})
 		$target.css({
 			WebkitTransform:'translate3d(-100%,0,0)',
-			opacity:0
+			opacity:0,
 		});
+		self.setClass();
 		setTimeout(()=>{
-			self.setClass();
 			$target.css({
 				WebkitTransform:'translate3d(0,0,0)',
-				opacity:1
+				opacity:1,
+
 			});
 
 		},200)

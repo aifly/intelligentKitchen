@@ -9,7 +9,7 @@ export default class FlyMyCollect extends Component {
 		return (
 			<div className={'fly-collect-C add-collect ' + this.props.className} onTouchTap={this.props.changeMyCollectTop}>
 				<span className='tag'>我的收藏</span>
-				<FlyFoodList isShowTimeline={false} type='my-collect'  obserable={this.props.obserable}></FlyFoodList>
+				<FlyFoodList isShowTimeline={false} type='my-collect' {...this.props}></FlyFoodList>
 			</div>
 		);
 	}

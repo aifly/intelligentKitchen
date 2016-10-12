@@ -23,8 +23,8 @@ import $ from 'jquery';
 				[],//中餐
 				[]　//晚餐
 			],//已添加的菜谱
-			currentPannel:1,
-			isShow:false,
+			currentPannel:0,
+			isShow:true,
 			isEnableDrag:false
 		}
 		this.next = this.next.bind(this);
@@ -139,7 +139,7 @@ import $ from 'jquery';
 								</aside>
 							</article>
 						</div>
-						<FlyMyCollect changeMyCollectTop={this.changeMyCollectTop} obserable={this.props.obserable} className={this.state.currentPannel?'':'active'}></FlyMyCollect>
+						<FlyMyCollect changeMyCollectTop={this.changeMyCollectTop} {...this.props} className={this.state.currentPannel?'':'active'}></FlyMyCollect>
 					</div>
 				</div>
 			</li>
@@ -231,8 +231,6 @@ import $ from 'jquery';
 			}
 
 			var target = $(e.target).hasClass('add-collect')?$(e.target):$(e.target).parents('.add-collect');
-			
-
 
 			var e = e.originalEvent ? e.originalEvent.changedTouches[0]:e.changedTarget[0];
 			var disX = e.pageX;// - $target.offset().left;
@@ -349,10 +347,10 @@ import $ from 'jquery';
 		});
 
 		obserable.trigger({
-			type:'fillAlimentationData',
+			type:'fillMaterialsData',
 			data:{
 				materials:this.state.addFoods[this.state.currentTimeSlot][index].foodMaterial,
-				scaleData:this.state.addFoods[this.state.currentTimeSlot][index].scaleData
+				//scaleData:this.state.addFoods[this.state.currentTimeSlot][index].scaleData
 			}
 		});
 

@@ -132,6 +132,7 @@ $maxIndex:9999;
       canvas{
         @include pos(a); 
         left: 3%;
+        top:-.15rem;
       }
 
 
@@ -150,7 +151,7 @@ $maxIndex:9999;
   }
 
    div.fly-m-name{
-     width: 70%;
+     width: 74%;
      @include pos(a);
      right: .2rem;
      overflow: hidden;
@@ -181,12 +182,24 @@ $maxIndex:9999;
        }
      }
      .active{
-         border-color:$baseColor1 /1.4;
-        color:$baseColor1 / 1.4;
+        border-color:transparent;
         &:after{
           color:#fff;
         }
-        -webkit-animation: blur 1s linear infinite alternate;
+        &:before{
+          content:'';
+           border:2px solid $baseColor1 /1.4;
+           color:$baseColor1 / 1.4;
+          -webkit-animation: blur 1s linear infinite alternate;
+          @include pos(a);
+          width: 100%;
+          box-shadow:0 0 .1rem rgba(232,158,121,.5);
+          @include br(30px);
+          height: 100%;
+          left: 0;
+          top: 0;
+        }
+        
      }
      .shadow{
       box-shadow:0 0 1.1rem rgba(232,158,121,.7);
@@ -209,7 +222,7 @@ $maxIndex:9999;
    .fly-circle-center{
       @include pos(a);
       left: 3%;
-      top: 0;
+      top: -.15rem;;
       border:2px solid #fff;
       @include br(50%);
       -webkit-filter: blur(0px);
@@ -225,5 +238,7 @@ $maxIndex:9999;
    to{
       border-color:$baseColor1;
       color:$baseColor1;
+      -webkit-filter:blur(1px);
+      
    }
 }

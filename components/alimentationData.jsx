@@ -133,7 +133,7 @@ import { PublicShadow } from './public-shadow.jsx';
 					<ul ref='fly-m-scroll' onTouchTap={this.checkMaterial} style={{width:this.state.alimentatonData.materials.length*this.state.liWidth}}>
 						{this.state.alimentatonData.materials.map((item,i)=>{
 							return (
-								<li key={i}>{item.name}</li>
+								<li className={i===0 ? 'active':''} key={i}>{item.name}</li>
 							);
 						})}
 					</ul>
@@ -235,15 +235,15 @@ import { PublicShadow } from './public-shadow.jsx';
 				}
 			});
 			textArr[index-1<0?7:index-1].color ='#fff';
-			textArr[index-1<0?7:index-1].font ='.1rem Arial';
-			textArr[index].font ='.12rem Arial';
+			textArr[index-1<0?7:index-1].font ="38px 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif";
+			textArr[index].font ="46px 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif";
 			textArr[index].color='#f90';
 
 		}
 
 
 		ball.x =ball.centerX - ball.ballWidth/2 + ball.r * Math.sin(this.iNow/180*Math.PI);
-		ball.y =ball.centerY - ball.ballHeight/2 + ball.r * Math.cos(this.iNow/180*Math.PI);
+		ball.y =ball.centerY-(.15*384) - ball.ballHeight/2 + ball.r * Math.cos(this.iNow/180*Math.PI);
 
 		this.iNow -=.5;
 		if(this.iNow<-180){
@@ -256,6 +256,8 @@ import { PublicShadow } from './public-shadow.jsx';
 	}
 
 	componentDidMount() {
+
+
 
 		setTimeout(()=>{
 
@@ -271,10 +273,19 @@ import { PublicShadow } from './public-shadow.jsx';
 			let {obserable} = this.props;
 
 			obserable.on('fillAlimentationData',(data)=>{
-				this.state.alimentatonData.materials = data.materials;
+
 				this.state.alimentatonData.currentFoodData = [];
 				this.state.alimentatonData.scaleData = data.scaleData;
 
+				this.forceUpdate();
+				
+				this.stage.removeAllChildren();
+				this.drawSector(true,'',this.drawCorner());
+			});
+
+			obserable.on('fillMaterialsData',(data)=>{
+				this.state.alimentatonData.materials = data.materials;
+				//this.state.alimentatonData.currentFoodData = [];
 				this.forceUpdate();
 
 				setTimeout(()=>{
@@ -292,14 +303,13 @@ import { PublicShadow } from './public-shadow.jsx';
 						this.scroll.refresh();
 					}
 				},10);
-				this.stage.removeAllChildren();
-				this.drawSector(true,'',this.drawCorner());
 			});
+
 			createjs.Ticker.timingMode = createjs.Ticker.RAF;
 
 			createjs.Ticker.on("tick", ()=>{
 				this.ball &&  this.ballCircularMotion(this.ball);
-				this.ball && (obserable.trigger({type:'prepareFood'}))
+				obserable.trigger({type:'prepareFood'})
 				this.stage.update();
 			});
 
@@ -332,8 +342,6 @@ import { PublicShadow } from './public-shadow.jsx';
 
 			container.on('mousedown',e=>{
 				let index = e.currentTarget.name*1;
-
-
 				if (last>-1 && last !== index) {
 					createjs.Tween.get(obj[last],{loop:false})
 					.to({scaleX:1,scaleY:1},500, createjs.Ease.elasticOut).call(()=>{
@@ -341,27 +349,28 @@ import { PublicShadow } from './public-shadow.jsx';
 					});
 
 					textArr[last].color="#fff";
-					textArr[last].font=".1rem Arial";
+					textArr[last].font="38px 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif";
 					
 				}
 
-					if(last !== index){
+				if(last !== index){
  					createjs.Tween.get(obj[index],{loop:false})
 						.to({scaleX:1.4,scaleY:1.4},500, createjs.Ease.elasticOut).call(()=>{
 						});
 
 					textArr[index].color="#f90";
-					textArr[index].font=".12rem Arial";			
-					}
-					else{
-						iNow++;
-						let flag =iNow%2 > 0;
-						createjs.Tween.get(obj[index],{loop:false})
-						.to({scaleX:flag?1:1.4,scaleY:flag?1:1.4},500, createjs.Ease.elasticOut).call(()=>{
-						});
-						textArr[index].color=flag?"#fff":"#f90";
-						textArr[index].font=flag?".1rem Arial":".12rem Arial";	
-					}
+					textArr[index].font="46px 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif";			
+				}
+				else{
+					iNow++;
+					let flag =iNow % 2 > 0;
+					createjs.Tween.get(obj[index],{loop:false})
+					.to({scaleX:flag?1:1.4,scaleY:flag?1:1.4},500, createjs.Ease.elasticOut).call(()=>{
+					});
+					textArr[index].color=flag?"#fff":"#f90";
+					textArr[index].font=flag?"38px 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif":"46px 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif";	
+				}
+
 				last = index;
 				 
 			});
@@ -382,18 +391,20 @@ import { PublicShadow } from './public-shadow.jsx';
 		    
 		let height = this.canvas.height,
 			width = this.canvas.width;
-		let R =radius*1.4;
+		let R =radius*1.5;
 		if(flag){//绘制单个菜的营养成份
 			this.shapeArr =  [];
 			let textArr = [];
 			
 			let shapeContainer = new createjs.Container();
 			this.stage.addChild(shapeContainer);		
+
 			for(var i =0;i<8;i++){
+
 				let sector = new Sector({
 						x:width/2,
 						y:height/2,
-						r:data[i].scale*height*1.8,
+						r:data[i].scale*height*.8,
 						color:this.state.alimentatonData.colors[i%2],
 						rotate:i*45,
 						scale:0,
@@ -408,7 +419,7 @@ import { PublicShadow } from './public-shadow.jsx';
 
 				let index = i;
 
-				var text = new createjs.Text(data[index].name+data[index].weight+data[index].unit, ".1rem Arial", "#fff");
+				var text = new createjs.Text(data[index].name+data[index].weight+data[index].unit, "38px 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif", "#fff");
 						
 					text.x= width/2 + Math.sin((22.5+45*index)/180*Math.PI)*R;
 					
@@ -419,9 +430,20 @@ import { PublicShadow } from './public-shadow.jsx';
 							case 7:
 								text.y+=60;
 							break;
+							case 2:
+							break;
 							case 3:
+								text.y -=50;
+								text.x +=60;
+							break;
 							case 4:
-								text.y-=30;
+								text.y-=50;
+							break;
+							case 5:
+								text.x -=30;
+							break;
+							case 6:
+								text.x-=60;
 							break;
 					}
 
@@ -437,109 +459,10 @@ import { PublicShadow } from './public-shadow.jsx';
 
 			shapeContainer.y = height/2;
 			shapeContainer.rotation = -90;
-
 			
 			this.bindEvent(this.shapeArr,textArr);
-			
 
 		}
-		else{
-
-			let currentData = this.state.alimentatonData.currentFoodData,
-				containerData =  [];
-
-
-				this.textArr = this.textArr || [];
-
-		 	
-		 	R+=30;
-
-			for(var i =0;i<16;i++){
-
-				let isEven = i % 2 === 0;
-
-				if(isEven){
-					var name = (i/2|0);
-					var c = new createjs.Container();
-					c.name = name;
-					containerData.push(c);
-				}
-
-				let index =  containerData.length -1;
-				let r = isEven ? data[index].scale*height*1.8:
-										data[index].scale*height*1.8*currentData[index].scale;
-
-
-				let sector = new Sector({
-						x:width/2,
-						y:height/2,
-						r:r,
-						color: !isEven ? this.state.alimentatonData.colors[index % 2]: color,
-						rotate:index*45
-					}).shape;
-				sector.name = index;
-
-				containerData[index].addChild(sector);
-
-				containerData[index].x = width/2;
-				containerData[index].y = height/2;
-
-				containerData[index].regX = width/2;
-				containerData[index].regY = height/2;
-
-				containerData[index].scaleX = containerData[index].scaleY = containerData[index].alpha= 0;
-
-
-				containerData[index].rotation = -90;
-
-			  	isEven && this.allDataContainer.addChild(containerData[index]);
-
-			  	if(isEven){
-
-					var text = new createjs.Text(data[index].name+data[index].weight+data[index].unit+'--'+currentData[index].weight+currentData[index].unit, ".1rem Arial", "#fff");
-						
-						text.x= width/2 + Math.sin((22.5+45*index)/180*Math.PI)*R;
-						
-						text.y= R - Math.cos((22.5+45*index)/180*Math.PI)*R  - 10 ;
-						switch(index){
-							case 0:
-							case 7:
-								text.y+=60;
-							break;
-							case 1:
-								text.x+=60;
-							break;
-							case 3:
-								text.y-=70;
-								text.x+=60;
-							break;
-							case 4:
-								text.y-=70;
-								text.x-=60;
-							break;
-							case 5:
-								text.x-=60;
-								text.y-=20;
-							break;
-							case 6:
-								text.x-=60;
-							break;
-						}
-						text.textAlign= 'center';	
-						this.allDataContainer.addChild(text);
-
-						this.textArr.push(text);
-				}
-			  	
-			}
-
-			this.bindEvent(containerData,this.textArr);
-
-			
-			 
-
-		}
-
 	}
 
 }

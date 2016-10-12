@@ -37,6 +37,8 @@ import FlyVideo from './video.jsx';
 
 		let foodData = this.state.foodData,
 			steps = this.state.steps;
+
+
 		let background = {
 			background:foodData.detailSrc?'url('+foodData.detailSrc+') no-repeat center  / cover':'none'
 		};
@@ -179,8 +181,8 @@ import FlyVideo from './video.jsx';
 
 	beginDo(){
 		let {obserable} = this.props;
+
 		setTimeout(()=>{
-			
 			this.setState({
 				currentStep:0,
 				defaultWidth:$(".fly-cook-steps-C").width()
@@ -261,11 +263,13 @@ import FlyVideo from './video.jsx';
 		});
 
 		obserable.on('fillFood',(data)=>{
+
 			this.setState({
 				foodData:data,
 				steps:data.steps,
 				currentStep : -1
 			},()=>{
+
 				this.scroll = this.scroll || new IScroll(this.refs['material-scroll']);
 				this.scroll && this.scroll.refresh();//重新刷新滚动条。
 				let scrollC = this.refs['steps-C'];

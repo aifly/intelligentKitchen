@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './css/foodlist.css';
 import {FlyPublicData} from './public-data.jsx';
 import IScroll from 'iscroll';
+import $ from 'jquery';
 /*import addFoods from '../libs/addfoods.js';//*/
 
 //第一部分切换的菜谱和食材列表组件。
@@ -80,9 +81,9 @@ import IScroll from 'iscroll';
 	}
 	componentDidMount(){
 
-		let {type,getTimeSlot} = this.props;
+		let {type,getTimeSlot,URL,userId} = this.props;
 		this.state.currentTimeSlot = getTimeSlot;
-
+		let s = this;
 		switch(type){
 			case 'rec-food':
 				this.state.currentTimeSlot = 0;
@@ -93,17 +94,32 @@ import IScroll from 'iscroll';
 				this.state.dataSource[this.state.currentTimeSlot]= addFoods;
 			break;
 			case 'my-collect': // 我的收藏。
-				this.state.dataSource[this.state.currentTimeSlot]= addFoods;
+
+				$.ajax({
+					url:URL.getCollection,
+					data:{
+						Userid:userId,
+						food_type:'collection'
+					},
+					success(data){
+						s.state.dataSource[s.state.currentTimeSlot] = data;
+						s.forceUpdate(()=>{
+							s.ajaxEnd(s);
+						});
+					}
+				})
 			break;
 		}
 
+	}
 
+	ajaxEnd(_this){
 		setTimeout(()=>{
-			this.setState({
-				ulWidth:this.refs['foodlist-content'].children[0].children[0].clientWidth*(Math.ceil(this.state.dataSource[this.state.currentTimeSlot].length/2))+2
+			_this.setState({
+				ulWidth:_this.refs['foodlist-content'].children[0].children[0].clientWidth*(Math.ceil(_this.state.dataSource[_this.state.currentTimeSlot].length/2))+2
 			});
-			this.liWidth = this.refs['foodlist-content'].children[0].children[0].clientWidth;
-			this.scroll = new IScroll(this.refs['foodlist-content'],{
+			_this.liWidth = _this.refs['foodlist-content'].children[0].children[0].clientWidth;
+			_this.scroll = new IScroll(_this.refs['foodlist-content'],{
 				scrollX:true,
 				scrollY:false,
 				click:false,
@@ -111,9 +127,15 @@ import IScroll from 'iscroll';
 				//momentum:false,//是否开启动量动画，关闭可以提升效率。
 				fadeScrollbars:false,//是否渐隐滚动条，关掉可以加速
 			});
-		},1);
+
+		},10);
+		
 	}
+
 	getFoodById(e){
+
+
+
 		let target = '';
 		switch(e.target.nodeName){
 			case "DIV":
@@ -131,7 +153,6 @@ import IScroll from 'iscroll';
 
 
 		let {obserable,index} = this.props;
-		
 
 		let cIndex = index(target,null,'li');
 
@@ -150,10 +171,9 @@ import IScroll from 'iscroll';
 
 		var iNow = target.querySelector('div').getAttribute('data-index');
 
-
-		
-
 		let targetData =  this.state.dataSource[this.state.currentTimeSlot][iNow];
+
+
 
 		switch(targetData.type){
 			case "image":
@@ -185,10 +205,9 @@ import IScroll from 'iscroll';
 		});*/
 
 		obserable.trigger({ //填充饼图
-			type:'fillAlimentationData',
+			type:'fillMaterialsData',
 			data:{
-				materials:this.state.dataSource[this.state.currentTimeSlot][iNow].foodMaterial,
-				scaleData:this.state.dataSource[this.state.currentTimeSlot][iNow].scaleData
+				materials:this.state.dataSource[this.state.currentTimeSlot][iNow].foodMaterial
 			}
 		});
 

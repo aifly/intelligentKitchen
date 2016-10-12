@@ -138,14 +138,13 @@ img {
 }
 
 .fly-back{
-
-    
+    height: .2rem;
     span{
        margin-left: .1rem;
        text-align:left;
        width: .2rem;
        height: 4px;
-       margin-top: 20px;
+       margin-top: .1rem;
        background:#d1bdbd;
        @include br(4px);
        @include pos(r);

@@ -51,15 +51,22 @@ class FlyTimeLine extends Component {
 	}
 	componentDidMount() {
 
+
+
 		this.lastIndex = 0;
+		let {obserable} = this.props;
+
 		setTimeout(()=>{
 			/*this.setState({
 				progressLeft:this.refs['prepare'].offsetWidth / 2
 			});*/
 
-			let {obserable} = this.props;
+			
+			
+		},1);
 
-			this.isStop = false;
+
+		this.isStop = false;
 
 			obserable.on('initProgress',(data)=>{//初始化进度条
 
@@ -113,11 +120,9 @@ class FlyTimeLine extends Component {
 					}
 			});
 
-			obserable.on('clearAllTime',()=>{
-				this.setState({
-					allTime:-1
-				});
-			});
+
+
+
 				
 
 				//清空盘子。
@@ -143,12 +148,14 @@ class FlyTimeLine extends Component {
 			obserable.on('startProgress',()=>{
 				this.isStop =  false;
 			});
+				
 
 			obserable.on('prepareFood',()=>{
 				let currentStep = obserable.trigger({type:"getCurrentStep"});
 				if(currentStep <= -1){//当前还没有开始第一步。
 					return;	
 				}
+
 
 				let x = this.state.width + .4;
 
@@ -184,8 +191,16 @@ class FlyTimeLine extends Component {
 				this.forceUpdate();
 			});
 
-		},1);
 
+
+		obserable.on('clearAllTime',()=>{
+			this.state.steps.forEach((item)=>{
+				item.timespan='';
+			});
+
+			this.state.allTime = -1;
+			this.forceUpdate();
+		});
 
 	}
 

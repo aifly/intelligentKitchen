@@ -27,6 +27,7 @@
 			.lineTo(s.x,s.y)
 			.endFill().endStroke();
 		//s.stage.addChild(shape);
+		
 		this.shape = shape;
 		shape.rotation = s.rotate;
 		shape.alpha = s.alpha;

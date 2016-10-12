@@ -46,6 +46,8 @@
 
 	'use strict';
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 	var _get = function get(_x3, _x4, _x5) { var _again = true; _function: while (_again) { var object = _x3, property = _x4, receiver = _x5; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x3 = parent; _x4 = property; _x5 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
@@ -109,6 +111,10 @@
 
 	var _componentsTimelineJsx2 = _interopRequireDefault(_componentsTimelineJsx);
 
+	var _libsUrl = __webpack_require__(228);
+
+	var _libsUrl2 = _interopRequireDefault(_libsUrl);
+
 	var obserable = new _libsObserableJs2['default']();
 
 	var App = (function (_React$Component) {
@@ -118,13 +124,17 @@
 			_classCallCheck(this, App);
 
 			_get(Object.getPrototypeOf(App.prototype), 'constructor', this).call(this, option);
+			this.state = {
+				userId: 2
+			};
 		}
 
 		_createClass(App, [{
 			key: 'render',
 			value: function render() {
 				var data = {
-					obserable: obserable
+					obserable: obserable,
+					URL: _libsUrl2['default']
 				};
 				return _react2['default'].createElement(
 					'div',
@@ -133,17 +143,17 @@
 					_react2['default'].createElement(
 						'ul',
 						{ className: 'fly-cook-book-C' },
-						_react2['default'].createElement(_componentsFunctionCenterJsx2['default'], data),
-						_react2['default'].createElement(_componentsCookBookListJsx2['default'], data),
-						_react2['default'].createElement(_componentsCookBookItemJsx2['default'], data)
+						_react2['default'].createElement(_componentsFunctionCenterJsx2['default'], _extends({}, data, this.state)),
+						_react2['default'].createElement(_componentsCookBookListJsx2['default'], _extends({}, data, this.state)),
+						_react2['default'].createElement(_componentsCookBookItemJsx2['default'], _extends({}, data, this.state))
 					),
-					_react2['default'].createElement(_componentsTimelineJsx2['default'], data),
+					_react2['default'].createElement(_componentsTimelineJsx2['default'], _extends({}, data, this.state)),
 					_react2['default'].createElement(
 						'ul',
 						{ className: 'fly-main-operator-C' },
-						_react2['default'].createElement(_componentsAlimentationDataJsx2['default'], data),
-						_react2['default'].createElement(_componentsOperatorCenterJsx2['default'], data),
-						_react2['default'].createElement(_componentsFoodsPlaceJsx2['default'], data)
+						_react2['default'].createElement(_componentsAlimentationDataJsx2['default'], _extends({}, data, this.state)),
+						_react2['default'].createElement(_componentsOperatorCenterJsx2['default'], _extends({}, data, this.state)),
+						_react2['default'].createElement(_componentsFoodsPlaceJsx2['default'], _extends({}, data, this.state))
 					)
 				);
 			}
@@ -33720,11 +33730,12 @@
 					WebkitTransform: 'translate3d(-100%,0,0)',
 					opacity: 0
 				});
+				self.setClass();
 				setTimeout(function () {
-					self.setClass();
 					$target.css({
 						WebkitTransform: 'translate3d(0,0,0)',
 						opacity: 1
+
 					});
 				}, 200);
 			}
@@ -36954,6 +36965,10 @@
 
 	var _iscroll2 = _interopRequireDefault(_iscroll);
 
+	var _jquery = __webpack_require__(172);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
 	/*import addFoods from '../libs/addfoods.js';//*/
 
 	//第一部分切换的菜谱和食材列表组件。
@@ -36995,7 +37010,7 @@
 		}, {
 			key: 'render',
 			value: function render() {
-				var _this = this;
+				var _this2 = this;
 
 				var style = {
 					width: ((this.state.dataSource.length / 2 | 0) + 1) * 100
@@ -37037,10 +37052,10 @@
 									this.state.dataSource[this.state.currentTimeSlot].map(function (data, i) {
 										return _react2['default'].createElement(
 											'li',
-											{ key: i, className: i <= Math.floor(_this.state.dataSource[_this.state.currentTimeSlot].length / 2) ? '' : 'food-top' },
+											{ key: i, className: i <= Math.floor(_this2.state.dataSource[_this2.state.currentTimeSlot].length / 2) ? '' : 'food-top' },
 											_react2['default'].createElement(
 												'div',
-												{ 'data-index': i, style: { background: 'url(' + data.imgSrc + ') no-repeat center bottom', backgroundSize: 'cover' }, className: i === _this.state.currentIndex ? 'active' : '' },
+												{ 'data-index': i, style: { background: 'url(' + data.imgSrc + ') no-repeat center bottom', backgroundSize: 'cover' }, className: i === _this2.state.currentIndex ? 'active' : '' },
 												_react2['default'].createElement(
 													'span',
 													null,
@@ -37072,14 +37087,14 @@
 		}, {
 			key: 'componentDidMount',
 			value: function componentDidMount() {
-				var _this2 = this;
-
 				var _props = this.props;
 				var type = _props.type;
 				var getTimeSlot = _props.getTimeSlot;
+				var URL = _props.URL;
+				var userId = _props.userId;
 
 				this.state.currentTimeSlot = getTimeSlot;
-
+				var s = this;
 				switch (type) {
 					case 'rec-food':
 						this.state.currentTimeSlot = 0;
@@ -37091,16 +37106,32 @@
 						break;
 					case 'my-collect':
 						// 我的收藏。
-						this.state.dataSource[this.state.currentTimeSlot] = addFoods;
+
+						_jquery2['default'].ajax({
+							url: URL.getCollection,
+							data: {
+								Userid: userId,
+								food_type: 'collection'
+							},
+							success: function success(data) {
+								s.state.dataSource[s.state.currentTimeSlot] = data;
+								s.forceUpdate(function () {
+									s.ajaxEnd(s);
+								});
+							}
+						});
 						break;
 				}
-
+			}
+		}, {
+			key: 'ajaxEnd',
+			value: function ajaxEnd(_this) {
 				setTimeout(function () {
-					_this2.setState({
-						ulWidth: _this2.refs['foodlist-content'].children[0].children[0].clientWidth * Math.ceil(_this2.state.dataSource[_this2.state.currentTimeSlot].length / 2) + 2
+					_this.setState({
+						ulWidth: _this.refs['foodlist-content'].children[0].children[0].clientWidth * Math.ceil(_this.state.dataSource[_this.state.currentTimeSlot].length / 2) + 2
 					});
-					_this2.liWidth = _this2.refs['foodlist-content'].children[0].children[0].clientWidth;
-					_this2.scroll = new _iscroll2['default'](_this2.refs['foodlist-content'], {
+					_this.liWidth = _this.refs['foodlist-content'].children[0].children[0].clientWidth;
+					_this.scroll = new _iscroll2['default'](_this.refs['foodlist-content'], {
 						scrollX: true,
 						scrollY: false,
 						click: false,
@@ -37108,11 +37139,12 @@
 						//momentum:false,//是否开启动量动画，关闭可以提升效率。
 						fadeScrollbars: false });
 				}, //是否渐隐滚动条，关掉可以加速
-				1);
+				10);
 			}
 		}, {
 			key: 'getFoodById',
 			value: function getFoodById(e) {
+
 				var target = '';
 				switch (e.target.nodeName) {
 					case "DIV":
@@ -37177,10 +37209,9 @@
 	   });*/
 
 				obserable.trigger({ //填充饼图
-					type: 'fillAlimentationData',
+					type: 'fillMaterialsData',
 					data: {
-						materials: this.state.dataSource[this.state.currentTimeSlot][iNow].foodMaterial,
-						scaleData: this.state.dataSource[this.state.currentTimeSlot][iNow].scaleData
+						materials: this.state.dataSource[this.state.currentTimeSlot][iNow].foodMaterial
 					}
 				});
 
@@ -37476,7 +37507,7 @@
 
 
 	// module
-	exports.push([module.id, "html, body, div, p, ul, li, ol, dl, dt, dd, header, footer, video, h1, h2, h3, h4, canvas, section, figure {\r\n  padding: 0;\r\n  margin: 0; }\r\n\r\na {\r\n  text-decoration: none; }\r\n\r\nli {\r\n  list-style: none; }\r\n\r\nhtml, body {\r\n  height: 100%; }\r\n\r\nimg {\r\n  border: none;\r\n  vertical-align: top;\r\n  width: 100%;\r\n  height: auto; }\r\n\r\n.fly-back span {\r\n  margin-left: .1rem;\r\n  text-align: left;\r\n  width: .2rem;\r\n  height: 4px;\r\n  margin-top: 20px;\r\n  background: #d1bdbd;\r\n  border-radius: 4px;\r\n  position: relative; }\r\n  .fly-back span:before {\r\n    content: '';\r\n    position: absolute;\r\n    left: 0;\r\n    top: 0;\r\n    height: .05rem;\r\n    width: 2px;\r\n    background: inherit;\r\n    top: -.05rem;\r\n    border-radius: 4px;\r\n    border: 1px solid #d1bdbd;\r\n    -webkit-transform: rotate(45deg);\r\n    transform: rotate(45deg);\r\n    -webkit-transform-origin: bottom;\r\n    transform-origin: bottom; }\r\n\r\n/*# sourceMappingURL=back.css.map */", ""]);
+	exports.push([module.id, "html, body, div, p, ul, li, ol, dl, dt, dd, header, footer, video, h1, h2, h3, h4, canvas, section, figure {\r\n  padding: 0;\r\n  margin: 0; }\r\n\r\na {\r\n  text-decoration: none; }\r\n\r\nli {\r\n  list-style: none; }\r\n\r\nhtml, body {\r\n  height: 100%; }\r\n\r\nimg {\r\n  border: none;\r\n  vertical-align: top;\r\n  width: 100%;\r\n  height: auto; }\r\n\r\n.fly-back {\r\n  height: .2rem; }\r\n  .fly-back span {\r\n    margin-left: .1rem;\r\n    text-align: left;\r\n    width: .2rem;\r\n    height: 4px;\r\n    margin-top: .1rem;\r\n    background: #d1bdbd;\r\n    border-radius: 4px;\r\n    position: relative; }\r\n    .fly-back span:before {\r\n      content: '';\r\n      position: absolute;\r\n      left: 0;\r\n      top: 0;\r\n      height: .05rem;\r\n      width: 2px;\r\n      background: inherit;\r\n      top: -.05rem;\r\n      border-radius: 4px;\r\n      border: 1px solid #d1bdbd;\r\n      -webkit-transform: rotate(45deg);\r\n      transform: rotate(45deg);\r\n      -webkit-transform-origin: bottom;\r\n      transform-origin: bottom; }\r\n\r\n/*# sourceMappingURL=back.css.map */", ""]);
 
 	// exports
 
@@ -37794,6 +37825,7 @@
 
 				var foodData = this.state.foodData,
 				    steps = this.state.steps;
+
 				var background = {
 					background: foodData.detailSrc ? 'url(' + foodData.detailSrc + ') no-repeat center  / cover' : 'none'
 				};
@@ -38020,7 +38052,6 @@
 				var obserable = this.props.obserable;
 
 				setTimeout(function () {
-
 					_this3.setState({
 						currentStep: 0,
 						defaultWidth: (0, _jquery2['default'])(".fly-cook-steps-C").width()
@@ -38105,11 +38136,13 @@
 				});
 
 				obserable.on('fillFood', function (data) {
+
 					_this4.setState({
 						foodData: data,
 						steps: data.steps,
 						currentStep: -1
 					}, function () {
+
 						_this4.scroll = _this4.scroll || new _iscroll2['default'](_this4.refs['material-scroll']);
 						_this4.scroll && _this4.scroll.refresh(); //重新刷新滚动条。
 						var scrollC = _this4.refs['steps-C'];
@@ -38815,6 +38848,8 @@
 		value: true
 	});
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
@@ -38867,8 +38902,8 @@
 				[], //中餐
 				[] //晚餐
 				], //已添加的菜谱
-				currentPannel: 1,
-				isShow: false,
+				currentPannel: 0,
+				isShow: true,
 				isEnableDrag: false
 			};
 			this.next = this.next.bind(this);
@@ -39100,7 +39135,7 @@
 									)
 								)
 							),
-							_react2['default'].createElement(_mycollectJsx2['default'], { changeMyCollectTop: this.changeMyCollectTop, obserable: this.props.obserable, className: this.state.currentPannel ? '' : 'active' })
+							_react2['default'].createElement(_mycollectJsx2['default'], _extends({ changeMyCollectTop: this.changeMyCollectTop }, this.props, { className: this.state.currentPannel ? '' : 'active' }))
 						)
 					)
 				);
@@ -39308,16 +39343,16 @@
 				});
 
 				obserable.trigger({
-					type: 'fillAlimentationData',
+					type: 'fillMaterialsData',
 					data: {
-						materials: this.state.addFoods[this.state.currentTimeSlot][index].foodMaterial,
-						scaleData: this.state.addFoods[this.state.currentTimeSlot][index].scaleData
+						materials: this.state.addFoods[this.state.currentTimeSlot][index].foodMaterial
 					}
 				});
 
 				//obserable.trigger({type:'closeStep',data:e});//关闭步骤
 
 				//清空盘子。
+				//scaleData:this.state.addFoods[this.state.currentTimeSlot][index].scaleData
 				obserable.trigger({
 					type: 'clearPlates'
 				});
@@ -39390,6 +39425,8 @@
 		value: true
 	});
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
@@ -39433,7 +39470,7 @@
 						{ className: 'tag' },
 						'我的收藏'
 					),
-					_react2['default'].createElement(_foodlistJsx2['default'], { isShowTimeline: false, type: 'my-collect', obserable: this.props.obserable })
+					_react2['default'].createElement(_foodlistJsx2['default'], _extends({ isShowTimeline: false, type: 'my-collect' }, this.props))
 				);
 			}
 		}]);
@@ -39659,7 +39696,7 @@
 							this.state.alimentatonData.materials.map(function (item, i) {
 								return _react2['default'].createElement(
 									'li',
-									{ key: i },
+									{ className: i === 0 ? 'active' : '', key: i },
 									item.name
 								);
 							})
@@ -39770,14 +39807,14 @@
 							}
 						});
 						textArr[index - 1 < 0 ? 7 : index - 1].color = '#fff';
-						textArr[index - 1 < 0 ? 7 : index - 1].font = '.1rem Arial';
-						textArr[index].font = '.12rem Arial';
+						textArr[index - 1 < 0 ? 7 : index - 1].font = "38px 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif";
+						textArr[index].font = "46px 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif";
 						textArr[index].color = '#f90';
 					})();
 				}
 
 				ball.x = ball.centerX - ball.ballWidth / 2 + ball.r * Math.sin(this.iNow / 180 * Math.PI);
-				ball.y = ball.centerY - ball.ballHeight / 2 + ball.r * Math.cos(this.iNow / 180 * Math.PI);
+				ball.y = ball.centerY - .15 * 384 - ball.ballHeight / 2 + ball.r * Math.cos(this.iNow / 180 * Math.PI);
 
 				this.iNow -= .5;
 				if (this.iNow < -180) {
@@ -39802,10 +39839,19 @@
 					var obserable = _this2.props.obserable;
 
 					obserable.on('fillAlimentationData', function (data) {
-						_this2.state.alimentatonData.materials = data.materials;
+
 						_this2.state.alimentatonData.currentFoodData = [];
 						_this2.state.alimentatonData.scaleData = data.scaleData;
 
+						_this2.forceUpdate();
+
+						_this2.stage.removeAllChildren();
+						_this2.drawSector(true, '', _this2.drawCorner());
+					});
+
+					obserable.on('fillMaterialsData', function (data) {
+						_this2.state.alimentatonData.materials = data.materials;
+						//this.state.alimentatonData.currentFoodData = [];
 						_this2.forceUpdate();
 
 						setTimeout(function () {
@@ -39822,14 +39868,13 @@
 								_this2.scroll.refresh();
 							}
 						}, 10);
-						_this2.stage.removeAllChildren();
-						_this2.drawSector(true, '', _this2.drawCorner());
 					});
+
 					createjs.Ticker.timingMode = createjs.Ticker.RAF;
 
 					createjs.Ticker.on("tick", function () {
 						_this2.ball && _this2.ballCircularMotion(_this2.ball);
-						_this2.ball && obserable.trigger({ type: 'prepareFood' });
+						obserable.trigger({ type: 'prepareFood' });
 						_this2.stage.update();
 					});
 				}, 1);
@@ -39857,26 +39902,26 @@
 
 					container.on('mousedown', function (e) {
 						var index = e.currentTarget.name * 1;
-
 						if (last > -1 && last !== index) {
 							createjs.Tween.get(obj[last], { loop: false }).to({ scaleX: 1, scaleY: 1 }, 500, createjs.Ease.elasticOut).call(function () {});
 
 							textArr[last].color = "#fff";
-							textArr[last].font = ".1rem Arial";
+							textArr[last].font = "38px 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif";
 						}
 
 						if (last !== index) {
 							createjs.Tween.get(obj[index], { loop: false }).to({ scaleX: 1.4, scaleY: 1.4 }, 500, createjs.Ease.elasticOut).call(function () {});
 
 							textArr[index].color = "#f90";
-							textArr[index].font = ".12rem Arial";
+							textArr[index].font = "46px 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif";
 						} else {
 							iNow++;
 							var flag = iNow % 2 > 0;
 							createjs.Tween.get(obj[index], { loop: false }).to({ scaleX: flag ? 1 : 1.4, scaleY: flag ? 1 : 1.4 }, 500, createjs.Ease.elasticOut).call(function () {});
 							textArr[index].color = flag ? "#fff" : "#f90";
-							textArr[index].font = flag ? ".1rem Arial" : ".12rem Arial";
+							textArr[index].font = flag ? "38px 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif" : "46px 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif";
 						}
+
 						last = index;
 					});
 				});
@@ -39898,7 +39943,7 @@
 
 				var height = this.canvas.height,
 				    width = this.canvas.width;
-				var R = radius * 1.4;
+				var R = radius * 1.5;
 				if (flag) {
 					//绘制单个菜的营养成份
 					this.shapeArr = [];
@@ -39906,11 +39951,13 @@
 
 					var shapeContainer = new createjs.Container();
 					this.stage.addChild(shapeContainer);
+
 					for (var i = 0; i < 8; i++) {
+
 						var sector = new _libsSector.Sector({
 							x: width / 2,
 							y: height / 2,
-							r: data[i].scale * height * 1.8,
+							r: data[i].scale * height * .8,
 							color: this.state.alimentatonData.colors[i % 2],
 							rotate: i * 45,
 							scale: 0,
@@ -39923,7 +39970,7 @@
 
 						var index = i;
 
-						var text = new createjs.Text(data[index].name + data[index].weight + data[index].unit, ".1rem Arial", "#fff");
+						var text = new createjs.Text(data[index].name + data[index].weight + data[index].unit, "38px 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif", "#fff");
 
 						text.x = width / 2 + Math.sin((22.5 + 45 * index) / 180 * Math.PI) * R;
 
@@ -39934,9 +39981,20 @@
 							case 7:
 								text.y += 60;
 								break;
+							case 2:
+								break;
 							case 3:
+								text.y -= 50;
+								text.x += 60;
+								break;
 							case 4:
-								text.y -= 30;
+								text.y -= 50;
+								break;
+							case 5:
+								text.x -= 30;
+								break;
+							case 6:
+								text.x -= 60;
 								break;
 						}
 
@@ -39953,91 +40011,6 @@
 					shapeContainer.rotation = -90;
 
 					this.bindEvent(this.shapeArr, textArr);
-				} else {
-
-					var currentData = this.state.alimentatonData.currentFoodData,
-					    containerData = [];
-
-					this.textArr = this.textArr || [];
-
-					R += 30;
-
-					for (var i = 0; i < 16; i++) {
-
-						var isEven = i % 2 === 0;
-
-						if (isEven) {
-							var name = i / 2 | 0;
-							var c = new createjs.Container();
-							c.name = name;
-							containerData.push(c);
-						}
-
-						var index = containerData.length - 1;
-						var r = isEven ? data[index].scale * height * 1.8 : data[index].scale * height * 1.8 * currentData[index].scale;
-
-						var sector = new _libsSector.Sector({
-							x: width / 2,
-							y: height / 2,
-							r: r,
-							color: !isEven ? this.state.alimentatonData.colors[index % 2] : color,
-							rotate: index * 45
-						}).shape;
-						sector.name = index;
-
-						containerData[index].addChild(sector);
-
-						containerData[index].x = width / 2;
-						containerData[index].y = height / 2;
-
-						containerData[index].regX = width / 2;
-						containerData[index].regY = height / 2;
-
-						containerData[index].scaleX = containerData[index].scaleY = containerData[index].alpha = 0;
-
-						containerData[index].rotation = -90;
-
-						isEven && this.allDataContainer.addChild(containerData[index]);
-
-						if (isEven) {
-
-							var text = new createjs.Text(data[index].name + data[index].weight + data[index].unit + '--' + currentData[index].weight + currentData[index].unit, ".1rem Arial", "#fff");
-
-							text.x = width / 2 + Math.sin((22.5 + 45 * index) / 180 * Math.PI) * R;
-
-							text.y = R - Math.cos((22.5 + 45 * index) / 180 * Math.PI) * R - 10;
-							switch (index) {
-								case 0:
-								case 7:
-									text.y += 60;
-									break;
-								case 1:
-									text.x += 60;
-									break;
-								case 3:
-									text.y -= 70;
-									text.x += 60;
-									break;
-								case 4:
-									text.y -= 70;
-									text.x -= 60;
-									break;
-								case 5:
-									text.x -= 60;
-									text.y -= 20;
-									break;
-								case 6:
-									text.x -= 60;
-									break;
-							}
-							text.textAlign = 'center';
-							this.allDataContainer.addChild(text);
-
-							this.textArr.push(text);
-						}
-					}
-
-					this.bindEvent(containerData, this.textArr);
 				}
 			}
 		}]);
@@ -40090,6 +40063,7 @@
 
 				shape.graphics.beginFill(s.color).moveTo(s.x, s.y).lineTo(s.x + s.r * Math.cos(s.startAngle), s.y + s.y * Math.sin(s.startAngle)).arc(s.x, s.y, s.r, s.startAngle, s.endAngle, 0).lineTo(s.x, s.y).endFill().endStroke();
 				//s.stage.addChild(shape);
+
 				this.shape = shape;
 				shape.rotation = s.rotate;
 				shape.alpha = s.alpha;
@@ -40143,7 +40117,7 @@
 
 
 	// module
-	exports.push([module.id, ".fly-alimentation-data {\r\n  display: -webkit-box;\r\n  -webkit-box-align: center;\r\n  -webkit-box-pack: center;\r\n  -webkit-box-orient: vertical;\r\n  position: relative;\r\n  width: 3.2rem !important; }\r\n  .fly-alimentation-data div.fly-data-C {\r\n    height: 2.4rem;\r\n    width: 100%; }\r\n    .fly-alimentation-data div.fly-data-C canvas {\r\n      position: absolute;\r\n      left: 3%; }\r\n  .fly-alimentation-data div.fly-all {\r\n    position: absolute;\r\n    left: .1rem;\r\n    border: 2px solid #fff;\r\n    border-radius: 30px;\r\n    height: .2rem;\r\n    line-height: .2rem;\r\n    width: .5rem;\r\n    text-align: center;\r\n    color: #fff; }\r\n  .fly-alimentation-data div.fly-m-name {\r\n    width: 70%;\r\n    position: absolute;\r\n    right: .2rem;\r\n    overflow: hidden; }\r\n    .fly-alimentation-data div.fly-m-name li {\r\n      width: .5rem;\r\n      float: left;\r\n      color: #fff;\r\n      height: .2rem;\r\n      line-height: .2rem;\r\n      text-align: center;\r\n      border: 2px solid #fff;\r\n      border-radius: 30px;\r\n      margin: 0 20px;\r\n      position: relative; }\r\n      .fly-alimentation-data div.fly-m-name li:after {\r\n        content: \"...\";\r\n        position: absolute;\r\n        left: 104%;\r\n        top: -15%; }\r\n      .fly-alimentation-data div.fly-m-name li:last-of-type:after {\r\n        content: \"\"; }\r\n    .fly-alimentation-data div.fly-m-name .active {\r\n      border-color: #a67156;\r\n      color: #a67156;\r\n      -webkit-animation: blur 1s linear infinite alternate; }\r\n      .fly-alimentation-data div.fly-m-name .active:after {\r\n        color: #fff; }\r\n    .fly-alimentation-data div.fly-m-name .shadow {\r\n      box-shadow: 0 0 1.1rem rgba(232, 158, 121, 0.7); }\r\n  .fly-alimentation-data .fly-circle {\r\n    width: .1rem;\r\n    height: .1rem;\r\n    background: #fff;\r\n    border-radius: 50%;\r\n    position: absolute;\r\n    left: 3%;\r\n    top: 0;\r\n    opacity: 0;\r\n    -webkit-filter: blur(7px); }\r\n  .fly-alimentation-data .fly-circle-center {\r\n    position: absolute;\r\n    left: 3%;\r\n    top: 0;\r\n    border: 2px solid #fff;\r\n    border-radius: 50%;\r\n    -webkit-filter: blur(0px);\r\n    box-shadow: 0 0 0.2rem rgba(232, 158, 121, 0.2), 0 0 0.2rem rgba(232, 158, 121, 0.2) inset;\r\n    z-index: -1; }\r\n\r\n@-webkit-keyframes blur {\r\n  to {\r\n    border-color: #e89e79;\r\n    color: #e89e79; } }\r\n\r\n/*# sourceMappingURL=alimentationdata.css.map */", ""]);
+	exports.push([module.id, ".fly-alimentation-data {\r\n  display: -webkit-box;\r\n  -webkit-box-align: center;\r\n  -webkit-box-pack: center;\r\n  -webkit-box-orient: vertical;\r\n  position: relative;\r\n  width: 3.2rem !important; }\r\n  .fly-alimentation-data div.fly-data-C {\r\n    height: 2.4rem;\r\n    width: 100%; }\r\n    .fly-alimentation-data div.fly-data-C canvas {\r\n      position: absolute;\r\n      left: 3%;\r\n      top: -.15rem; }\r\n  .fly-alimentation-data div.fly-all {\r\n    position: absolute;\r\n    left: .1rem;\r\n    border: 2px solid #fff;\r\n    border-radius: 30px;\r\n    height: .2rem;\r\n    line-height: .2rem;\r\n    width: .5rem;\r\n    text-align: center;\r\n    color: #fff; }\r\n  .fly-alimentation-data div.fly-m-name {\r\n    width: 74%;\r\n    position: absolute;\r\n    right: .2rem;\r\n    overflow: hidden; }\r\n    .fly-alimentation-data div.fly-m-name li {\r\n      width: .5rem;\r\n      float: left;\r\n      color: #fff;\r\n      height: .2rem;\r\n      line-height: .2rem;\r\n      text-align: center;\r\n      border: 2px solid #fff;\r\n      border-radius: 30px;\r\n      margin: 0 20px;\r\n      position: relative; }\r\n      .fly-alimentation-data div.fly-m-name li:after {\r\n        content: \"...\";\r\n        position: absolute;\r\n        left: 104%;\r\n        top: -15%; }\r\n      .fly-alimentation-data div.fly-m-name li:last-of-type:after {\r\n        content: \"\"; }\r\n    .fly-alimentation-data div.fly-m-name .active {\r\n      border-color: transparent; }\r\n      .fly-alimentation-data div.fly-m-name .active:after {\r\n        color: #fff; }\r\n      .fly-alimentation-data div.fly-m-name .active:before {\r\n        content: '';\r\n        border: 2px solid #a67156;\r\n        color: #a67156;\r\n        -webkit-animation: blur 1s linear infinite alternate;\r\n        position: absolute;\r\n        width: 100%;\r\n        box-shadow: 0 0 0.1rem rgba(232, 158, 121, 0.5);\r\n        border-radius: 30px;\r\n        height: 100%;\r\n        left: 0;\r\n        top: 0; }\r\n    .fly-alimentation-data div.fly-m-name .shadow {\r\n      box-shadow: 0 0 1.1rem rgba(232, 158, 121, 0.7); }\r\n  .fly-alimentation-data .fly-circle {\r\n    width: .1rem;\r\n    height: .1rem;\r\n    background: #fff;\r\n    border-radius: 50%;\r\n    position: absolute;\r\n    left: 3%;\r\n    top: 0;\r\n    opacity: 0;\r\n    -webkit-filter: blur(7px); }\r\n  .fly-alimentation-data .fly-circle-center {\r\n    position: absolute;\r\n    left: 3%;\r\n    top: -.15rem;\r\n    border: 2px solid #fff;\r\n    border-radius: 50%;\r\n    -webkit-filter: blur(0px);\r\n    box-shadow: 0 0 0.2rem rgba(232, 158, 121, 0.2), 0 0 0.2rem rgba(232, 158, 121, 0.2) inset;\r\n    z-index: -1; }\r\n\r\n@-webkit-keyframes blur {\r\n  to {\r\n    border-color: #e89e79;\r\n    color: #e89e79;\r\n    -webkit-filter: blur(1px); } }\r\n\r\n/*# sourceMappingURL=alimentationdata.css.map */", ""]);
 
 	// exports
 
@@ -40187,10 +40161,6 @@
 	var _countdownJsx = __webpack_require__(224);
 
 	var _countdownJsx2 = _interopRequireDefault(_countdownJsx);
-
-	var _libsUrl = __webpack_require__(228);
-
-	var _libsUrl2 = _interopRequireDefault(_libsUrl);
 
 	var _jquery = __webpack_require__(172);
 
@@ -40393,11 +40363,13 @@
 			key: 'netWeight',
 			value: function netWeight(e) {
 				//去皮
+				var URL = this.props.URL;
+
 				if (this.state.isShow) {
 					this.props.shadow(e.target);
 					_jquery2['default'].ajax({
 						type: 'POST',
-						url: _libsUrl2['default'].weightstart,
+						url: URL.weightstart,
 						success: function success(data) {
 							if (data.getret === 1) {
 								//console.log('success');
@@ -40412,15 +40384,18 @@
 				var _this2 = this;
 
 				//开始称重。
+				var _props = this.props;
+				var obserable = _props.obserable;
+				var URL = _props.URL;
+
 				if (this.state.isShow) {
 					(function () {
 						_this2.props.shadow(e.target);
-						console.log(_libsUrl2['default'].weightend);
 						var s = _this2;
 						var canvas = _this2.refs['weight'];
 						_jquery2['default'].ajax({
 							type: 'POST',
-							url: _libsUrl2['default'].weightend,
+							url: URL.weightend,
 							success: function success(data) {
 								if (data.getret === 1) {
 									var iNow;
@@ -40428,11 +40403,19 @@
 
 									(function () {
 										var weight = data.foodweight * 1 | 0;
+										console.log(weight);
 										iNow = weight - 10 < 0 ? 0 : weight - 10;
 										t = setInterval(function () {
 											s.initCanvas(canvas, ++iNow);
 											if (iNow >= weight) {
+												obserable.trigger({ //填充饼图
+													type: 'fillAlimentationData',
+													data: {
+														scaleData: data.scaleData
+													}
+												});
 												clearInterval(t);
+												s.initCanvas(canvas, weight);
 											}
 										}, 20);
 									})();
@@ -40720,9 +40703,6 @@
 										if (_this.state.housr > 0) {
 											_this.state.mins = 59;
 											_this.state.hours--;
-										} else {
-											console.log('倒计时结束');
-											_this.timer = 1;
 										}
 									}
 									_this.iNow = 59;
@@ -41058,9 +41038,10 @@
 
 	var URL = {
 		weightstart: 'http://115.28.44.74:8080/kitchen/kb/kitchen/weighstart.ht', //去皮接口
-		weightend: 'http://115.28.44.74:8080/kitchen/kb/kitchen/weighend.ht' };
+		weightend: 'http://115.28.44.74:8080/kitchen/kb/kitchen/weighend.ht', //确定称重。
+		getCollection: 'http://115.28.44.74:8080/kitchen/kb/kitchen/getcookbook.ht' };
 
-	//确定称重。
+	//获取用户收藏列表。
 	exports['default'] = URL;
 	module.exports = exports['default'];
 
@@ -41587,136 +41568,140 @@
 				var _this2 = this;
 
 				this.lastIndex = 0;
+				var obserable = this.props.obserable;
+
 				setTimeout(function () {
 					/*this.setState({
 	    	progressLeft:this.refs['prepare'].offsetWidth / 2
 	    });*/
 
-					var obserable = _this2.props.obserable;
-
-					_this2.isStop = false;
-
-					obserable.on('initProgress', function (data) {
-						//初始化进度条
-
-						var state = {
-							width: 0,
-							currentStep: data
-						};
-						if (data === -1) {
-							state.progressLeft = 0;
-						}
-						_this2.setState(state);
-					});
-
-					obserable.on('fillSteps', function (steps) {
-
-						_this2.setState({
-							steps: steps
-						}, function () {
-							var points = _this2.refs['fly-points-C'].querySelectorAll('article');
-							_this2.posArr = [];
-							_this2.width = _this2.refs['prepare'].offsetWidth;
-							for (var i = 1, len = points.length; i < len; i++) {
-								_this2.posArr.push({ x: _this2.width });
-							}
-
-							_this2.setState({
-								articleWidth: points[0].offsetWidth / 2 //> 320 ? 320 : points[0].offsetWidth/2
-							});
-						});
-					});
-
-					obserable.on('stopProgress', function () {
-						_this2.isStop = true;
-						_this2.setState({
-							width: _this2.posArr[_this2.state.currentStep].x,
-							progressLeft: _this2.state.currentStep * _this2.width
-						});
-					});
-
-					obserable.on('showAllTime', function () {
-
-						var time = 0;
-						_this2.state.steps.forEach(function (step) {
-
-							if (step.timespan) {
-								var hour = step.timespan.split(':')[0] * 1,
-								    mins = step.timespan.split(':')[1] * 1;
-								time += hour * 60 + mins;
-							}
-						});
-
-						obserable.on('clearAllTime', function () {
-							_this2.setState({
-								allTime: -1
-							});
-						});
-
-						//清空盘子。
-						obserable.trigger({
-							type: 'clearPlates'
-						});
-
-						time = ((time / 60 | 0) < 10 ? '0' + (time / 60 | 0) : time / 60 | 0) + " : " + (time % 60 < 10 ? '0' + time % 60 : time % 60);
-
-						_this2.setState({
-							allTime: time
-						});
-					});
-
-					obserable.on('pauseProgress', function (step) {
-						_this2.isStop = true;
-						_this2.setState({
-							width: _this2.posArr[_this2.state.currentStep].x,
-							progressLeft: _this2.state.currentStep * _this2.width
-						});
-					});
-
-					obserable.on('startProgress', function () {
-						_this2.isStop = false;
-					});
-
-					obserable.on('prepareFood', function () {
-						var currentStep = obserable.trigger({ type: "getCurrentStep" });
-						if (currentStep <= -1) {
-							//当前还没有开始第一步。
-							return;
-						}
-
-						var x = _this2.state.width + .4;
-
-						//x>= this.posArr[currentStep].x && (x =  20 && return false);
-
-						if (x >= _this2.posArr[currentStep].x) {
-							x = 0;
-						}
-
-						!_this2.isStop && _this2.setState({
-							width: x,
-							progressLeft: currentStep * _this2.width
-						});
-					});
-
-					obserable.on('clearTimespan', function (data) {
-
-						_this2.state.steps[data].timespan = "00:00";
-
-						_this2.forceUpdate();
-					});
-
-					obserable.on('showTimespan', function (timespan) {
-						//每一个步骤完成后显示时间
-						var result = '';
-						if (timespan * 1 === 0) {
-							result = "00:00";
-						} else {
-							result = ((timespan / 60 | 0) < 10 ? '0' + (timespan / 60 | 0) : timespan / 60 | 0) + " : " + (timespan % 60 < 10 ? '0' + timespan % 60 : timespan % 60);
-						}
-						_this2.state.steps[_this2.state.currentStep].timespan = result;
-						_this2.forceUpdate();
-					});
 				}, 1);
+
+				this.isStop = false;
+
+				obserable.on('initProgress', function (data) {
+					//初始化进度条
+
+					var state = {
+						width: 0,
+						currentStep: data
+					};
+					if (data === -1) {
+						state.progressLeft = 0;
+					}
+					_this2.setState(state);
+				});
+
+				obserable.on('fillSteps', function (steps) {
+
+					_this2.setState({
+						steps: steps
+					}, function () {
+						var points = _this2.refs['fly-points-C'].querySelectorAll('article');
+						_this2.posArr = [];
+						_this2.width = _this2.refs['prepare'].offsetWidth;
+						for (var i = 1, len = points.length; i < len; i++) {
+							_this2.posArr.push({ x: _this2.width });
+						}
+
+						_this2.setState({
+							articleWidth: points[0].offsetWidth / 2 //> 320 ? 320 : points[0].offsetWidth/2
+						});
+					});
+				});
+
+				obserable.on('stopProgress', function () {
+					_this2.isStop = true;
+					_this2.setState({
+						width: _this2.posArr[_this2.state.currentStep].x,
+						progressLeft: _this2.state.currentStep * _this2.width
+					});
+				});
+
+				obserable.on('showAllTime', function () {
+
+					var time = 0;
+					_this2.state.steps.forEach(function (step) {
+
+						if (step.timespan) {
+							var hour = step.timespan.split(':')[0] * 1,
+							    mins = step.timespan.split(':')[1] * 1;
+							time += hour * 60 + mins;
+						}
+					});
+
+					//清空盘子。
+					obserable.trigger({
+						type: 'clearPlates'
+					});
+
+					time = ((time / 60 | 0) < 10 ? '0' + (time / 60 | 0) : time / 60 | 0) + " : " + (time % 60 < 10 ? '0' + time % 60 : time % 60);
+
+					_this2.setState({
+						allTime: time
+					});
+				});
+
+				obserable.on('pauseProgress', function (step) {
+					_this2.isStop = true;
+					_this2.setState({
+						width: _this2.posArr[_this2.state.currentStep].x,
+						progressLeft: _this2.state.currentStep * _this2.width
+					});
+				});
+
+				obserable.on('startProgress', function () {
+					_this2.isStop = false;
+				});
+
+				obserable.on('prepareFood', function () {
+					var currentStep = obserable.trigger({ type: "getCurrentStep" });
+					if (currentStep <= -1) {
+						//当前还没有开始第一步。
+						return;
+					}
+
+					var x = _this2.state.width + .4;
+
+					//x>= this.posArr[currentStep].x && (x =  20 && return false);
+
+					if (x >= _this2.posArr[currentStep].x) {
+						x = 0;
+					}
+
+					!_this2.isStop && _this2.setState({
+						width: x,
+						progressLeft: currentStep * _this2.width
+					});
+				});
+
+				obserable.on('clearTimespan', function (data) {
+
+					_this2.state.steps[data].timespan = "00:00";
+
+					_this2.forceUpdate();
+				});
+
+				obserable.on('showTimespan', function (timespan) {
+					//每一个步骤完成后显示时间
+					var result = '';
+					if (timespan * 1 === 0) {
+						result = "00:00";
+					} else {
+						result = ((timespan / 60 | 0) < 10 ? '0' + (timespan / 60 | 0) : timespan / 60 | 0) + " : " + (timespan % 60 < 10 ? '0' + timespan % 60 : timespan % 60);
+					}
+					_this2.state.steps[_this2.state.currentStep].timespan = result;
+					_this2.forceUpdate();
+				});
+
+				obserable.on('clearAllTime', function () {
+					_this2.state.steps.forEach(function (item) {
+						item.timespan = '';
+					});
+
+					_this2.state.allTime = -1;
+					_this2.forceUpdate();
+				});
 			}
 		}, {
 			key: 'updateStep',

@@ -15,34 +15,37 @@ import FlyAlimentationData from './components/alimentationData.jsx';
 import FlyOperatorCenter from './components/operatorCenter.jsx';
 import FlyFoodsPlace from './components/foodsPlace.jsx';
 import FlyTimeLine from './components/timeline.jsx';
-
+import URL from './libs/url';
 
 let obserable=  new Obserable();
 
 
-
 class App extends React.Component{
 	constructor(option){
-		super(option)
+		super(option);
+		this.state = {
+			userId:2
+		}
 	}
 	render(){
 		let data= {
-			obserable:obserable
+			obserable:obserable,
+			URL:URL
 		};
 		return (
 			<div>
 				<FlyNav {...data}></FlyNav>
 				
 				<ul className="fly-cook-book-C">
-					<FlyFunctionCenter {...data}></FlyFunctionCenter>
-					<FlyCookBookList {...data}></FlyCookBookList>
-					<FlyCookBookItem {...data}></FlyCookBookItem>
+					<FlyFunctionCenter {...data} {...this.state}></FlyFunctionCenter>
+					<FlyCookBookList {...data}  {...this.state}></FlyCookBookList>
+					<FlyCookBookItem {...data}  {...this.state}></FlyCookBookItem>
 				</ul>
-				<FlyTimeLine {...data}></FlyTimeLine>
+				<FlyTimeLine {...data}  {...this.state}></FlyTimeLine>
 				<ul className='fly-main-operator-C'>
-					<FlyAlimentationData {...data}></FlyAlimentationData>
-					<FlyOperatorCenter {...data}></FlyOperatorCenter>
-					<FlyFoodsPlace {...data}></FlyFoodsPlace>
+					<FlyAlimentationData {...data}  {...this.state}></FlyAlimentationData>
+					<FlyOperatorCenter {...data} {...this.state}></FlyOperatorCenter>
+					<FlyFoodsPlace {...data}  {...this.state}></FlyFoodsPlace>
 				</ul>
 			</div>
 		)

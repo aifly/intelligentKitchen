@@ -4,7 +4,6 @@ import { PublicShadow } from './public-shadow.jsx';
 import numberData from '../libs/number';
 import Time from '../libs/canvas';
 import FlyCountdown from './countdown.jsx';
-import URL from '../libs/url';
 import $ from 'jquery';
 
  class FlyOperatorCenter extends Component {
@@ -162,6 +161,7 @@ import $ from 'jquery';
 	}
 
 	netWeight(e){//去皮
+		let {URL} = this.props;
 		if(this.state.isShow){
 			this.props.shadow(e.target);
 			$.ajax({
@@ -179,9 +179,9 @@ import $ from 'jquery';
 
 	getWeight(e){
 		//开始称重。
+		let {obserable,URL} = this.props;
 		if(this.state.isShow){
 			this.props.shadow(e.target);
-			console.log(URL.weightend);
 			let s = this;
 			let canvas = this.refs['weight'];
 			$.ajax({
@@ -189,13 +189,20 @@ import $ from 'jquery';
 				url:URL.weightend,
 				success(data){
 					if(data.getret === 1){
-						console.log(data);
 						let weight= data.foodweight*1|0;
+						console.log(weight)
 						var iNow = weight - 10 < 0?0:weight-10;
 						var t = setInterval(()=>{
 							s.initCanvas(canvas,++iNow);
 							if(iNow >=weight){
+								obserable.trigger({ //填充饼图
+									type:'fillAlimentationData',
+									data:{
+										scaleData:data.scaleData
+									}
+								});
 								clearInterval(t);
+								s.initCanvas(canvas,weight);
 							}
 						},20);
 					}
