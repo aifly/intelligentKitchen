@@ -16,15 +16,7 @@ import { PublicShadow } from './public-shadow.jsx';
 	  	liWidth:0,
 	  	 alimentatonData : {
 	  	 	materials:[
-	  	 		/*{name:'小番茄',weight:'30g'},
-				{name:'鸡蛋',weight:'40g'},
-				{name:'生菜',weight:'70g'},
-				{name:'生菜',weight:'70g'},
-				{name:'生菜',weight:'70g'},
-				{name:'生菜',weight:'70g'},
-				{name:'生菜',weight:'70g'},
-				{name:'培根',weight:'50g'},
-				{name:'吐丝',weight:'25g'}*/
+	  	 		
 	  	 	],
 	  	 	colors : ['#f3e5dc','#f1e0d6'],
 	  	 	currentFoodData:[
@@ -171,7 +163,7 @@ import { PublicShadow } from './public-shadow.jsx';
 		line2.regX = x;
 		line2.regY = y;
 		line2.x = x;
-		line2.y = y;
+		line2.y = y-.15*38.4;
 
 		return line2;
 	}

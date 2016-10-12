@@ -88,10 +88,12 @@ import $ from 'jquery';
 			case 'rec-food':
 				this.state.currentTimeSlot = 0;
 				this.state.dataSource[this.state.currentTimeSlot]= addFoods;
+				s.ajaxEnd(s);
 			break;
 			case 'rec-menu':
 				this.state.currentTimeSlot = 0;
 				this.state.dataSource[this.state.currentTimeSlot]= addFoods;
+				s.ajaxEnd(s);
 			break;
 			case 'my-collect': // 我的收藏。
 

@@ -41,7 +41,7 @@ export default class FlyFoodsPlace extends Component {
 	}
 	render() {
 		return (
-			<li className='fly-operator-item fly-plate-C' ref='fly-plate-C'>
+			<li className='fly-operator-item fly-plate-C' ref='fly-plate-C' onTouchTap={this.removePlat.bind(this)}>
 				<div className='fly-plate-demo' ref='fly-plate-demo' style={this.state.plateDemoStyle} ></div>
 				<div className='fly-plate-demo fly-plate-sm' ref='fly-plate-sm' style={this.state.plateSMStyle} ></div>
 				
@@ -85,6 +85,12 @@ export default class FlyFoodsPlace extends Component {
 		);
 	}
 
+	removePlat(e){//移除盘子
+		var target= e.target;
+		if(target.classList.contains('fly-plate-item')){
+			target.classList.add('delete');
+		};
+	}
 	getDis(x1,y1,x2,y2){
 		const m =  Math;
 		return m.sqrt(m.pow((x1-x2),2)+m.pow((y1-y2),2));
