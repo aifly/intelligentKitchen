@@ -103,15 +103,15 @@
 
 	var _componentsOperatorCenterJsx2 = _interopRequireDefault(_componentsOperatorCenterJsx);
 
-	var _componentsFoodsPlaceJsx = __webpack_require__(229);
+	var _componentsFoodsPlaceJsx = __webpack_require__(228);
 
 	var _componentsFoodsPlaceJsx2 = _interopRequireDefault(_componentsFoodsPlaceJsx);
 
-	var _componentsTimelineJsx = __webpack_require__(232);
+	var _componentsTimelineJsx = __webpack_require__(231);
 
 	var _componentsTimelineJsx2 = _interopRequireDefault(_componentsTimelineJsx);
 
-	var _libsUrl = __webpack_require__(228);
+	var _libsUrl = __webpack_require__(234);
 
 	var _libsUrl2 = _interopRequireDefault(_libsUrl);
 
@@ -307,25 +307,40 @@
 	var cachedSetTimeout;
 	var cachedClearTimeout;
 
+	function defaultSetTimout() {
+	    throw new Error('setTimeout has not been defined');
+	}
+	function defaultClearTimeout () {
+	    throw new Error('clearTimeout has not been defined');
+	}
 	(function () {
 	    try {
-	        cachedSetTimeout = setTimeout;
-	    } catch (e) {
-	        cachedSetTimeout = function () {
-	            throw new Error('setTimeout is not defined');
+	        if (typeof setTimeout === 'function') {
+	            cachedSetTimeout = setTimeout;
+	        } else {
+	            cachedSetTimeout = defaultSetTimout;
 	        }
+	    } catch (e) {
+	        cachedSetTimeout = defaultSetTimout;
 	    }
 	    try {
-	        cachedClearTimeout = clearTimeout;
-	    } catch (e) {
-	        cachedClearTimeout = function () {
-	            throw new Error('clearTimeout is not defined');
+	        if (typeof clearTimeout === 'function') {
+	            cachedClearTimeout = clearTimeout;
+	        } else {
+	            cachedClearTimeout = defaultClearTimeout;
 	        }
+	    } catch (e) {
+	        cachedClearTimeout = defaultClearTimeout;
 	    }
 	} ())
 	function runTimeout(fun) {
 	    if (cachedSetTimeout === setTimeout) {
 	        //normal enviroments in sane situations
+	        return setTimeout(fun, 0);
+	    }
+	    // if setTimeout wasn't available but was latter defined
+	    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+	        cachedSetTimeout = setTimeout;
 	        return setTimeout(fun, 0);
 	    }
 	    try {
@@ -346,6 +361,11 @@
 	function runClearTimeout(marker) {
 	    if (cachedClearTimeout === clearTimeout) {
 	        //normal enviroments in sane situations
+	        return clearTimeout(marker);
+	    }
+	    // if clearTimeout wasn't available but was latter defined
+	    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+	        cachedClearTimeout = clearTimeout;
 	        return clearTimeout(marker);
 	    }
 	    try {
@@ -31654,7 +31674,7 @@
 
 
 	// module
-	exports.push([module.id, "@charset \"UTF-8\";\r\nhtml, body, div, p, ul, li, ol, dl, dt, dd, header, footer, video, h1, h2, h3, h4, canvas, section, figure {\r\n  padding: 0;\r\n  margin: 0; }\r\n\r\na {\r\n  text-decoration: none; }\r\n\r\nli {\r\n  list-style: none; }\r\n\r\nhtml, body {\r\n  height: 100%; }\r\n\r\nimg {\r\n  border: none;\r\n  vertical-align: top;\r\n  width: 100%;\r\n  height: auto; }\r\n\r\n.shake-little {\r\n  display: inline-block;\r\n  -webkit-transform-origin: center center; }\r\n\r\n.shake-freeze, .shake-constant.shake-constant--hover:hover, .shake-trigger:hover .shake-constant.shake-constant--hover {\r\n  -webkit-animation-play-state: paused; }\r\n\r\n.shake-freeze:hover, .shake-trigger:hover .shake-freeze, .shake-little:hover, .shake-trigger:hover .shake-little {\r\n  -webkit-animation-play-state: running; }\r\n\r\n@-webkit-keyframes shake-little {\r\n  2% {\r\n    -webkit-transform: translate(0px, 1px) rotate(0.5deg); }\r\n  4% {\r\n    -webkit-transform: translate(1px, 1px) rotate(0.5deg); }\r\n  6% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  8% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  10% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  12% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  14% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  16% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  18% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  20% {\r\n    -webkit-transform: translate(0px, 1px) rotate(0.5deg); }\r\n  22% {\r\n    -webkit-transform: translate(0px, 1px) rotate(0.5deg); }\r\n  24% {\r\n    -webkit-transform: translate(1px, 1px) rotate(0.5deg); }\r\n  26% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  28% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  30% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  32% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  34% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  36% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  38% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  40% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  42% {\r\n    -webkit-transform: translate(1px, 1px) rotate(0.5deg); }\r\n  44% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  46% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  48% {\r\n    -webkit-transform: translate(0px, 1px) rotate(0.5deg); }\r\n  50% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  52% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  54% {\r\n    -webkit-transform: translate(0px, 1px) rotate(0.5deg); }\r\n  56% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  58% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  60% {\r\n    -webkit-transform: translate(0px, 1px) rotate(0.5deg); }\r\n  62% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  64% {\r\n    -webkit-transform: translate(1px, 1px) rotate(0.5deg); }\r\n  66% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  68% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  70% {\r\n    -webkit-transform: translate(1px, 1px) rotate(0.5deg); }\r\n  72% {\r\n    -webkit-transform: translate(0px, 1px) rotate(0.5deg); }\r\n  74% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  76% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  78% {\r\n    -webkit-transform: translate(0px, 1px) rotate(0.5deg); }\r\n  80% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  82% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  84% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  86% {\r\n    -webkit-transform: translate(0px, 1px) rotate(0.5deg); }\r\n  88% {\r\n    -webkit-transform: translate(1px, 1px) rotate(0.5deg); }\r\n  90% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  92% {\r\n    -webkit-transform: translate(1px, 1px) rotate(0.5deg); }\r\n  94% {\r\n    -webkit-transform: translate(1px, 1px) rotate(0.5deg); }\r\n  96% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  98% {\r\n    -webkit-transform: translate(0px, 1px) rotate(0.5deg); }\r\n  0%,100% {\r\n    -webkit-transform: translate(0, 0) rotate(0); } }\r\n.shake-little:hover, .shake-trigger:hover .shake-little, .shake-little.shake-freeze, .shake-little.shake-constant {\r\n  -webkit-animation-duration: 100ms;\r\n  -webkit-animation-iteration-count: infinite;\r\n  -webkit-animation-name: shake-little;\r\n  -webkit-animation-timing-function: ease-in-out; }\r\n\r\nbody {\r\n  background: #EACFBB;\r\n  overflow: hidden;\r\n  font-size: .1rem;\r\n  font-family: 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif;\r\n  color: #d1bdbd; }\r\n\r\n#fly-main .fly-nav-mask {\r\n  position: absolute;\r\n  height: 88.24vh;\r\n  width: 100%;\r\n  background: transparent;\r\n  z-index: -1;\r\n  -webkit-transform: translate3d(0, 120%, 0);\r\n  transform: translate3d(0, 120%, 0);\r\n  top: 11.76vh; }\r\n  #fly-main .fly-nav-mask.active {\r\n    z-index: 10000;\r\n    -webkit-transform: translate3d(0, 0, 0);\r\n    transform: translate3d(0, 0, 0); }\r\n#fly-main .fly-nav {\r\n  width: 10rem;\r\n  height: 11.76vh;\r\n  background: #fff9f3;\r\n  z-index: 9999;\r\n  position: absolute;\r\n  -webkit-transition: -webkit-transform 0.5s;\r\n  transition: -webkit-transform 0.5s;\r\n  transition: transform 0.5s;\r\n  transition: transform 0.5s, -webkit-transform 0.5s;\r\n  -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);\r\n  transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01); }\r\n  #fly-main .fly-nav.active {\r\n    -webkit-transform: translate3d(0, -86%, 0);\r\n    transform: translate3d(0, -86%, 0); }\r\n  #fly-main .fly-nav ul {\r\n    -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);\r\n    transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);\r\n    -webkit-transform: translate3d(0, 100px, 0);\r\n    transform: translate3d(0, 100px, 0);\r\n    opacity: 0;\r\n    -webkit-transition: 0.8s;\r\n    transition: 0.8s;\r\n    float: left;\r\n    display: -webkit-box;\r\n    -webkit-box-align: center;\r\n    -webkit-box-pack: center;\r\n    -webkit-box-orient: horizontal;\r\n    width: 5rem; }\r\n    #fly-main .fly-nav ul.show {\r\n      opacity: 1;\r\n      -webkit-transform: translate3d(0, 0, 0);\r\n      transform: translate3d(0, 0, 0); }\r\n    #fly-main .fly-nav ul li {\r\n      -webkit-box-flex: 1;\r\n      height: 10vh;\r\n      text-align: center;\r\n      position: relative; }\r\n      #fly-main .fly-nav ul li img {\r\n        margin-top: 1vh; }\r\n      #fly-main .fly-nav ul li span {\r\n        color: #e89e79;\r\n        font-size: .06rem;\r\n        bottom: 0;\r\n        position: absolute;\r\n        left: 38%; }\r\n    #fly-main .fly-nav ul:nth-of-type(2) {\r\n      width: 1.2rem;\r\n      float: right; }\r\n  #fly-main .fly-nav .fly-menu-bar {\r\n    position: absolute;\r\n    width: 1.4rem;\r\n    left: 50%;\r\n    top: 99%;\r\n    margin-left: -0.7rem;\r\n    text-align: center;\r\n    font-size: .06rem;\r\n    background: inherit;\r\n    border-radius: 10px; }\r\n    #fly-main .fly-nav .fly-menu-bar div:nth-of-type(2) {\r\n      width: 40px;\r\n      -webkit-transform: rotate(90deg) translateY(-0.66rem) scaleY(2);\r\n      transform: rotate(90deg) translateY(-0.66rem) scaleY(2); }\r\n    #fly-main .fly-nav .fly-menu-bar .fly-sure {\r\n      height: .15rem;\r\n      font-size: .08rem; }\r\n#fly-main .fly-close-drag {\r\n  position: absolute;\r\n  left: 1rem;\r\n  padding: .05rem;\r\n  border-radius: 5px;\r\n  z-index: 10001;\r\n  color: #fff;\r\n  top: -10px;\r\n  background: #d1bdbd;\r\n  -webkit-transform: translate3d(0, -100%, 0);\r\n  transform: translate3d(0, -100%, 0);\r\n  -webkit-transition: -webkit-transform 0.3s;\r\n  transition: -webkit-transform 0.3s;\r\n  transition: transform 0.3s;\r\n  transition: transform 0.3s, -webkit-transform 0.3s;\r\n  -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);\r\n  transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01); }\r\n  #fly-main .fly-close-drag.active {\r\n    -webkit-transform: translate3d(0, 0, 0);\r\n    transform: translate3d(0, 0, 0); }\r\n#fly-main .fly-cook-book-C {\r\n  width: 10rem;\r\n  height: 42vh;\r\n  background: #f9e0ca;\r\n  position: relative;\r\n  padding-top: 5vh;\r\n  display: -webkit-box;\r\n  -webkit-box-align: center;\r\n  -webkit-box-pack: center;\r\n  -webkit-box-orient: horizontal; }\r\n  #fly-main .fly-cook-book-C > li {\r\n    height: 100%; }\r\n    #fly-main .fly-cook-book-C > li.active {\r\n      -webkit-animation: shake-little 200ms ease-in-out infinite;\r\n      animation: shake-little 200ms ease-in-out infinite; }\r\n    #fly-main .fly-cook-book-C > li.near {\r\n      border: 1px solid red; }\r\n    #fly-main .fly-cook-book-C > li .fly-cook-book-item-C {\r\n      width: 100%;\r\n      height: 100%; }\r\n    #fly-main .fly-cook-book-C > li > li:nth-of-type(1) {\r\n      -webkit-animation-delay: 100ms;\r\n      animation-delay: 100ms; }\r\n    #fly-main .fly-cook-book-C > li > li:nth-of-type(2) {\r\n      -webkit-animation-delay: 200ms;\r\n      animation-delay: 200ms; }\r\n    #fly-main .fly-cook-book-C > li > li:nth-of-type(3) {\r\n      -webkit-animation-delay: 300ms;\r\n      animation-delay: 300ms; }\r\n    #fly-main .fly-cook-book-C > li .fly-city-C {\r\n      width: 80%;\r\n      margin: .1rem auto;\r\n      height: .15rem;\r\n      line-height: .15rem; }\r\n    #fly-main .fly-cook-book-C > li .fly-city-scroll-C {\r\n      width: 88%;\r\n      height: .15rem;\r\n      float: left;\r\n      overflow: hidden; }\r\n      #fly-main .fly-cook-book-C > li .fly-city-scroll-C ul li {\r\n        width: .6rem;\r\n        float: left;\r\n        text-align: center; }\r\n    #fly-main .fly-cook-book-C > li .fly-add {\r\n      float: left;\r\n      width: 2vh;\r\n      height: 2vh;\r\n      text-align: center; }\r\n  #fly-main .fly-cook-book-C .fly-food {\r\n    width: 3.4rem;\r\n    position: relative; }\r\n    #fly-main .fly-cook-book-C .fly-food .fly-food-item {\r\n      width: 70%;\r\n      height: 80%;\r\n      background: #fff;\r\n      position: absolute;\r\n      border-radius: 30px;\r\n      -webkit-transform-origin: right;\r\n      transform-origin: right;\r\n      left: 13%;\r\n      top: 8%;\r\n      z-index: 1; }\r\n      #fly-main .fly-cook-book-C .fly-food .fly-food-item:before {\r\n        content: '';\r\n        position: absolute;\r\n        width: 100%;\r\n        z-index: -1;\r\n        height: 100%;\r\n        box-shadow: 0 0 0.3rem rgba(232, 158, 121, 0.4); }\r\n      #fly-main .fly-cook-book-C .fly-food .fly-food-item span.tag {\r\n        position: absolute;\r\n        width: .1rem;\r\n        z-index: 6;\r\n        font-size: .08rem;\r\n        padding: .05rem .04rem .05rem .05rem;\r\n        top: 40%;\r\n        border-radius: 12px;\r\n        background: #fff;\r\n        left: 98%; }\r\n    #fly-main .fly-cook-book-C .fly-food .fly-top1 {\r\n      left: 20%;\r\n      z-index: 0; }\r\n    #fly-main .fly-cook-book-C .fly-food .fly-top2 {\r\n      left: 13%;\r\n      z-index: 1; }\r\n    #fly-main .fly-cook-book-C .fly-food .fly-top3 {\r\n      left: 6%;\r\n      z-index: 2; }\r\n    #fly-main .fly-cook-book-C .fly-food .fly-weather span.tag {\r\n      top: 5%; }\r\n    #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-weather-C {\r\n      width: 90%;\r\n      margin: 10px auto;\r\n      display: -webkit-box;\r\n      -webkit-box-align: center;\r\n      -webkit-box-pack: center;\r\n      -webkit-box-orient: horizontal;\r\n      border-bottom: 1px solid #ccc; }\r\n      #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-weather-C li {\r\n        -webkit-box-flex: 1;\r\n        padding: 0.09rem 0.12rem 0.04rem 0.12rem;\r\n        box-sizing: border-content; }\r\n        #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-weather-C li img {\r\n          height: .2rem;\r\n          width: auto; }\r\n        #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-weather-C li span {\r\n          margin-left: -10px; }\r\n    #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C {\r\n      width: 90%;\r\n      margin: .1rem auto;\r\n      display: -webkit-box;\r\n      -webkit-box-align: center;\r\n      -webkit-box-pack: center;\r\n      -webkit-box-orient: horizontal;\r\n      height: 15vh; }\r\n      #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C .fly-time {\r\n        -webkit-box-flex: 1;\r\n        width: 60%;\r\n        height: 100%; }\r\n      #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C .fly-date {\r\n        -webkit-box-flex: 1;\r\n        width: 35%;\r\n        padding-left: 2%; }\r\n      #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C h1 {\r\n        font-weight: normal;\r\n        font-size: .1rem;\r\n        color: #e29978;\r\n        height: 2vh;\r\n        line-height: 2vh; }\r\n      #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C .fly-rec-food-container {\r\n        height: 7vh;\r\n        width: 90%;\r\n        margin-top: 1vh;\r\n        overflow: hidden;\r\n        font-size: .06rem; }\r\n        #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C .fly-rec-food-container li {\r\n          float: left;\r\n          margin: 10px;\r\n          border: 1px solid #cfbbbc;\r\n          padding: 6px 20px;\r\n          border-radius: 30px; }\r\n    #fly-main .fly-cook-book-C .fly-food .fly-rec-food span.tag {\r\n      top: 60%; }\r\n    #fly-main .fly-cook-book-C .fly-food .fly-rec-menu span.tag {\r\n      top: 35%; }\r\n  #fly-main .fly-cook-book-C .fly-cook-list {\r\n    width: 3.82rem;\r\n    left: 3.4rem; }\r\n  #fly-main .fly-cook-book-C .fly-cook-detail {\r\n    width: 2.78rem;\r\n    left: 7.22rem; }\r\n\r\n.fly-main-operator-C {\r\n  display: -webkit-box;\r\n  -webkit-box-align: center;\r\n  -webkit-box-pack: center;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-align: start; }\r\n  .fly-main-operator-C li.fly-operator-item {\r\n    width: 2.9rem;\r\n    height: 100%; }\r\n    .fly-main-operator-C li.fly-operator-item:nth-of-type(2) {\r\n      width: 3.4rem; }\r\n    .fly-main-operator-C li.fly-operator-item:nth-of-type(3) {\r\n      width: 3.4rem; }\r\n\r\n.fly-hotcity-list {\r\n  -webkit-transform: translate3d(-100%, 0, 0);\r\n  transform: translate3d(-100%, 0, 0);\r\n  opacity: 0;\r\n  -webkit-transition: 0.5s;\r\n  transition: 0.5s;\r\n  -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);\r\n  transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);\r\n  position: absolute;\r\n  left: 0;\r\n  top: 0;\r\n  width: 100%;\r\n  height: 100%;\r\n  background: #fff;\r\n  border-radius: 30px; }\r\n  .fly-hotcity-list.active {\r\n    -webkit-transform: translate3d(0, 0, 0);\r\n    transform: translate3d(0, 0, 0);\r\n    opacity: 1; }\r\n  .fly-hotcity-list .fly-hotcity-title {\r\n    width: 100%;\r\n    height: 12%;\r\n    display: -webkit-box;\r\n    -webkit-box-align: center;\r\n    -webkit-box-pack: center;\r\n    -webkit-box-orient: horizontal; }\r\n    .fly-hotcity-list .fly-hotcity-title span {\r\n      width: 33%;\r\n      display: block;\r\n      font-weight: normal;\r\n      text-align: center; }\r\n      .fly-hotcity-list .fly-hotcity-title span:nth-of-type(3) {\r\n        margin-right: 20px; }\r\n  .fly-hotcity-list .fly-hotcity-C {\r\n    width: 100%;\r\n    height: 88%;\r\n    display: -webkit-box;\r\n    -webkit-box-align: center;\r\n    -webkit-box-pack: center;\r\n    -webkit-box-orient: horizontal; }\r\n    .fly-hotcity-list .fly-hotcity-C .fly-hotcity-scroll {\r\n      width: 90%;\r\n      height: 98%;\r\n      overflow: hidden; }\r\n      .fly-hotcity-list .fly-hotcity-C .fly-hotcity-scroll li.fly-first-spell {\r\n        text-indent: .5em;\r\n        background: #eee9e9; }\r\n      .fly-hotcity-list .fly-hotcity-C .fly-hotcity-scroll li.active:after {\r\n        content: \"\\221A\";\r\n        float: right;\r\n        margin-right: .1rem; }\r\n      .fly-hotcity-list .fly-hotcity-C .fly-hotcity-scroll li.fly-city-item {\r\n        height: .2rem;\r\n        line-height: .2rem;\r\n        text-indent: .5em;\r\n        border-bottom: 1px solid #ccc; }\r\n    .fly-hotcity-list .fly-hotcity-C .fly-hotcity-spell {\r\n      width: 8%; }\r\n      .fly-hotcity-list .fly-hotcity-C .fly-hotcity-spell li {\r\n        font-size: .0478rem;\r\n        text-align: center; }\r\n\r\n/*# sourceMappingURL=index.css.map */", ""]);
+	exports.push([module.id, "@charset \"UTF-8\";\r\nhtml, body, div, p, ul, li, ol, dl, dt, dd, header, footer, video, h1, h2, h3, h4, canvas, section, figure {\r\n  padding: 0;\r\n  margin: 0; }\r\n\r\na {\r\n  text-decoration: none; }\r\n\r\nli {\r\n  list-style: none; }\r\n\r\nhtml, body {\r\n  height: 100%; }\r\n\r\nimg {\r\n  border: none;\r\n  vertical-align: top;\r\n  width: 100%;\r\n  height: auto; }\r\n\r\n.shake-little {\r\n  display: inline-block;\r\n  -webkit-transform-origin: center center; }\r\n\r\n.shake-freeze, .shake-constant.shake-constant--hover:hover, .shake-trigger:hover .shake-constant.shake-constant--hover {\r\n  -webkit-animation-play-state: paused; }\r\n\r\n.shake-freeze:hover, .shake-trigger:hover .shake-freeze, .shake-little:hover, .shake-trigger:hover .shake-little {\r\n  -webkit-animation-play-state: running; }\r\n\r\n@-webkit-keyframes shake-little {\r\n  2% {\r\n    -webkit-transform: translate(0px, 1px) rotate(0.5deg); }\r\n  4% {\r\n    -webkit-transform: translate(1px, 1px) rotate(0.5deg); }\r\n  6% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  8% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  10% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  12% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  14% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  16% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  18% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  20% {\r\n    -webkit-transform: translate(0px, 1px) rotate(0.5deg); }\r\n  22% {\r\n    -webkit-transform: translate(0px, 1px) rotate(0.5deg); }\r\n  24% {\r\n    -webkit-transform: translate(1px, 1px) rotate(0.5deg); }\r\n  26% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  28% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  30% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  32% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  34% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  36% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  38% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  40% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  42% {\r\n    -webkit-transform: translate(1px, 1px) rotate(0.5deg); }\r\n  44% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  46% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  48% {\r\n    -webkit-transform: translate(0px, 1px) rotate(0.5deg); }\r\n  50% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  52% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  54% {\r\n    -webkit-transform: translate(0px, 1px) rotate(0.5deg); }\r\n  56% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  58% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  60% {\r\n    -webkit-transform: translate(0px, 1px) rotate(0.5deg); }\r\n  62% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  64% {\r\n    -webkit-transform: translate(1px, 1px) rotate(0.5deg); }\r\n  66% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  68% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  70% {\r\n    -webkit-transform: translate(1px, 1px) rotate(0.5deg); }\r\n  72% {\r\n    -webkit-transform: translate(0px, 1px) rotate(0.5deg); }\r\n  74% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  76% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  78% {\r\n    -webkit-transform: translate(0px, 1px) rotate(0.5deg); }\r\n  80% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  82% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  84% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  86% {\r\n    -webkit-transform: translate(0px, 1px) rotate(0.5deg); }\r\n  88% {\r\n    -webkit-transform: translate(1px, 1px) rotate(0.5deg); }\r\n  90% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  92% {\r\n    -webkit-transform: translate(1px, 1px) rotate(0.5deg); }\r\n  94% {\r\n    -webkit-transform: translate(1px, 1px) rotate(0.5deg); }\r\n  96% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  98% {\r\n    -webkit-transform: translate(0px, 1px) rotate(0.5deg); }\r\n  0%,100% {\r\n    -webkit-transform: translate(0, 0) rotate(0); } }\r\n.shake-little:hover, .shake-trigger:hover .shake-little, .shake-little.shake-freeze, .shake-little.shake-constant {\r\n  -webkit-animation-duration: 100ms;\r\n  -webkit-animation-iteration-count: infinite;\r\n  -webkit-animation-name: shake-little;\r\n  -webkit-animation-timing-function: ease-in-out; }\r\n\r\nbody {\r\n  background: #EACFBB;\r\n  overflow: hidden;\r\n  font-size: .1rem;\r\n  font-family: 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif;\r\n  color: #d1bdbd; }\r\n\r\n#fly-main {\r\n  width: 10rem; }\r\n  #fly-main .fly-nav-mask {\r\n    position: absolute;\r\n    height: 88.24vh;\r\n    width: 100%;\r\n    background: transparent;\r\n    z-index: -1;\r\n    -webkit-transform: translate3d(0, 120%, 0);\r\n    transform: translate3d(0, 120%, 0);\r\n    top: 11.76vh; }\r\n    #fly-main .fly-nav-mask.active {\r\n      z-index: 10000;\r\n      -webkit-transform: translate3d(0, 0, 0);\r\n      transform: translate3d(0, 0, 0); }\r\n  #fly-main .fly-nav {\r\n    width: 10rem;\r\n    height: 11.76vh;\r\n    background: #fff9f3;\r\n    z-index: 9999;\r\n    position: absolute;\r\n    -webkit-transition: -webkit-transform 0.5s;\r\n    transition: transform 0.5s;\r\n    -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);\r\n    transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01); }\r\n    #fly-main .fly-nav.active {\r\n      -webkit-transform: translate3d(0, -86%, 0);\r\n      transform: translate3d(0, -86%, 0); }\r\n    #fly-main .fly-nav ul {\r\n      -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);\r\n      transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);\r\n      -webkit-transform: translate3d(0, 100px, 0);\r\n      transform: translate3d(0, 100px, 0);\r\n      opacity: 0;\r\n      -webkit-transition: 0.8s;\r\n      transition: 0.8s;\r\n      float: left;\r\n      display: -webkit-box;\r\n      -webkit-box-align: center;\r\n      -webkit-box-pack: center;\r\n      -webkit-box-orient: horizontal;\r\n      width: 5rem; }\r\n      #fly-main .fly-nav ul.show {\r\n        opacity: 1;\r\n        -webkit-transform: translate3d(0, 0, 0);\r\n        transform: translate3d(0, 0, 0); }\r\n      #fly-main .fly-nav ul li {\r\n        -webkit-box-flex: 1;\r\n        height: 10vh;\r\n        text-align: center;\r\n        position: relative; }\r\n        #fly-main .fly-nav ul li img {\r\n          margin-top: 1vh; }\r\n        #fly-main .fly-nav ul li span {\r\n          color: #e89e79;\r\n          font-size: .06rem;\r\n          bottom: 0;\r\n          position: absolute;\r\n          left: 38%; }\r\n      #fly-main .fly-nav ul:nth-of-type(2) {\r\n        width: 1.2rem;\r\n        float: right; }\r\n    #fly-main .fly-nav .fly-menu-bar {\r\n      position: absolute;\r\n      width: 1.4rem;\r\n      left: 50%;\r\n      top: 99%;\r\n      margin-left: -0.7rem;\r\n      text-align: center;\r\n      font-size: .06rem;\r\n      background: inherit;\r\n      border-radius: 10px; }\r\n      #fly-main .fly-nav .fly-menu-bar div:nth-of-type(2) {\r\n        width: 40px;\r\n        -webkit-transform: rotate(90deg) translateY(-0.66rem) scaleY(2);\r\n        transform: rotate(90deg) translateY(-0.66rem) scaleY(2); }\r\n      #fly-main .fly-nav .fly-menu-bar .fly-sure {\r\n        height: .15rem;\r\n        font-size: .08rem; }\r\n  #fly-main .fly-close-drag {\r\n    position: absolute;\r\n    left: 1rem;\r\n    padding: .05rem;\r\n    border-radius: 5px;\r\n    z-index: 10001;\r\n    color: #fff;\r\n    top: -10px;\r\n    background: #d1bdbd;\r\n    -webkit-transform: translate3d(0, -100%, 0);\r\n    transform: translate3d(0, -100%, 0);\r\n    -webkit-transition: -webkit-transform 0.3s;\r\n    transition: transform 0.3s;\r\n    -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);\r\n    transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01); }\r\n    #fly-main .fly-close-drag.active {\r\n      -webkit-transform: translate3d(0, 0, 0);\r\n      transform: translate3d(0, 0, 0); }\r\n  #fly-main .fly-cook-book-C {\r\n    width: 10rem;\r\n    height: 42vh;\r\n    background: #f9e0ca;\r\n    position: relative;\r\n    padding-top: 5vh;\r\n    display: -webkit-box;\r\n    -webkit-box-align: center;\r\n    -webkit-box-pack: center;\r\n    -webkit-box-orient: horizontal; }\r\n    #fly-main .fly-cook-book-C > li {\r\n      height: 100%; }\r\n      #fly-main .fly-cook-book-C > li.active {\r\n        -webkit-animation: shake-little 200ms ease-in-out infinite;\r\n        animation: shake-little 200ms ease-in-out infinite; }\r\n      #fly-main .fly-cook-book-C > li.near {\r\n        border: 1px solid red; }\r\n      #fly-main .fly-cook-book-C > li .fly-cook-book-item-C {\r\n        width: 100%;\r\n        height: 100%; }\r\n      #fly-main .fly-cook-book-C > li > li:nth-of-type(1) {\r\n        -webkit-animation-delay: 100ms;\r\n        animation-delay: 100ms; }\r\n      #fly-main .fly-cook-book-C > li > li:nth-of-type(2) {\r\n        -webkit-animation-delay: 200ms;\r\n        animation-delay: 200ms; }\r\n      #fly-main .fly-cook-book-C > li > li:nth-of-type(3) {\r\n        -webkit-animation-delay: 300ms;\r\n        animation-delay: 300ms; }\r\n      #fly-main .fly-cook-book-C > li .fly-city-C {\r\n        width: 80%;\r\n        margin: .1rem auto;\r\n        height: .15rem;\r\n        line-height: .15rem; }\r\n      #fly-main .fly-cook-book-C > li .fly-city-scroll-C {\r\n        width: 88%;\r\n        height: .15rem;\r\n        float: left;\r\n        overflow: hidden; }\r\n        #fly-main .fly-cook-book-C > li .fly-city-scroll-C ul li {\r\n          width: .6rem;\r\n          float: left;\r\n          text-align: center; }\r\n      #fly-main .fly-cook-book-C > li .fly-add {\r\n        float: left;\r\n        width: 2vh;\r\n        height: 2vh;\r\n        text-align: center; }\r\n    #fly-main .fly-cook-book-C .fly-food {\r\n      width: 3.4rem;\r\n      position: relative; }\r\n      #fly-main .fly-cook-book-C .fly-food .fly-food-item {\r\n        width: 70%;\r\n        height: 80%;\r\n        background: #fff;\r\n        position: absolute;\r\n        border-radius: 30px;\r\n        -webkit-transform-origin: right;\r\n        transform-origin: right;\r\n        left: 13%;\r\n        top: 8%;\r\n        z-index: 1; }\r\n        #fly-main .fly-cook-book-C .fly-food .fly-food-item:before {\r\n          content: '';\r\n          position: absolute;\r\n          width: 100%;\r\n          z-index: -1;\r\n          height: 100%;\r\n          box-shadow: 0 0 0.3rem rgba(232, 158, 121, 0.4); }\r\n        #fly-main .fly-cook-book-C .fly-food .fly-food-item span.tag {\r\n          position: absolute;\r\n          width: .1rem;\r\n          z-index: 6;\r\n          font-size: .08rem;\r\n          padding: .05rem .04rem .05rem .05rem;\r\n          top: 40%;\r\n          border-radius: 12px;\r\n          background: #fff;\r\n          left: 98%; }\r\n      #fly-main .fly-cook-book-C .fly-food .fly-top1 {\r\n        left: 20%;\r\n        z-index: 0; }\r\n      #fly-main .fly-cook-book-C .fly-food .fly-top2 {\r\n        left: 13%;\r\n        z-index: 1; }\r\n      #fly-main .fly-cook-book-C .fly-food .fly-top3 {\r\n        left: 6%;\r\n        z-index: 2; }\r\n      #fly-main .fly-cook-book-C .fly-food .fly-weather span.tag {\r\n        top: 5%; }\r\n      #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-weather-C {\r\n        width: 90%;\r\n        margin: 10px auto;\r\n        display: -webkit-box;\r\n        -webkit-box-align: center;\r\n        -webkit-box-pack: center;\r\n        -webkit-box-orient: horizontal;\r\n        border-bottom: 1px solid #ccc; }\r\n        #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-weather-C li {\r\n          -webkit-box-flex: 1;\r\n          padding: 0.09rem 0.12rem 0.04rem 0.12rem;\r\n          box-sizing: border-content; }\r\n          #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-weather-C li img {\r\n            height: .2rem;\r\n            width: auto; }\r\n          #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-weather-C li span {\r\n            margin-left: -10px; }\r\n      #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C {\r\n        width: 90%;\r\n        margin: .1rem auto;\r\n        display: -webkit-box;\r\n        -webkit-box-align: center;\r\n        -webkit-box-pack: center;\r\n        -webkit-box-orient: horizontal;\r\n        height: 15vh; }\r\n        #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C .fly-time {\r\n          -webkit-box-flex: 1;\r\n          width: 60%;\r\n          height: 100%; }\r\n        #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C .fly-date {\r\n          -webkit-box-flex: 1;\r\n          width: 35%;\r\n          padding-left: 2%; }\r\n        #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C h1 {\r\n          font-weight: normal;\r\n          font-size: .1rem;\r\n          color: #e29978;\r\n          height: 2vh;\r\n          line-height: 2vh; }\r\n        #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C .fly-rec-food-container {\r\n          height: 7vh;\r\n          width: 90%;\r\n          margin-top: 1vh;\r\n          overflow: hidden;\r\n          font-size: .06rem; }\r\n          #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C .fly-rec-food-container li {\r\n            float: left;\r\n            margin: 10px;\r\n            border: 1px solid #cfbbbc;\r\n            padding: 6px 20px;\r\n            border-radius: 30px; }\r\n      #fly-main .fly-cook-book-C .fly-food .fly-rec-food span.tag {\r\n        top: 60%; }\r\n      #fly-main .fly-cook-book-C .fly-food .fly-rec-menu span.tag {\r\n        top: 35%; }\r\n    #fly-main .fly-cook-book-C .fly-cook-list {\r\n      width: 3.82rem;\r\n      left: 3.4rem; }\r\n    #fly-main .fly-cook-book-C .fly-cook-detail {\r\n      width: 2.78rem;\r\n      left: 7.22rem; }\r\n\r\n.fly-main-operator-C {\r\n  display: -webkit-box;\r\n  -webkit-box-align: center;\r\n  -webkit-box-pack: center;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-align: start; }\r\n  .fly-main-operator-C li.fly-operator-item {\r\n    width: 2.9rem;\r\n    height: 100%; }\r\n    .fly-main-operator-C li.fly-operator-item:nth-of-type(2) {\r\n      width: 3.4rem; }\r\n    .fly-main-operator-C li.fly-operator-item:nth-of-type(3) {\r\n      width: 3.4rem; }\r\n\r\n.fly-hotcity-list {\r\n  -webkit-transform: translate3d(-100%, 0, 0);\r\n  transform: translate3d(-100%, 0, 0);\r\n  opacity: 0;\r\n  -webkit-transition: 0.5s;\r\n  transition: 0.5s;\r\n  -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);\r\n  transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);\r\n  position: absolute;\r\n  left: 0;\r\n  top: 0;\r\n  width: 100%;\r\n  height: 100%;\r\n  background: #fff;\r\n  border-radius: 30px; }\r\n  .fly-hotcity-list.active {\r\n    -webkit-transform: translate3d(0, 0, 0);\r\n    transform: translate3d(0, 0, 0);\r\n    opacity: 1; }\r\n  .fly-hotcity-list .fly-hotcity-title {\r\n    width: 100%;\r\n    height: 12%;\r\n    display: -webkit-box;\r\n    -webkit-box-align: center;\r\n    -webkit-box-pack: center;\r\n    -webkit-box-orient: horizontal; }\r\n    .fly-hotcity-list .fly-hotcity-title span {\r\n      width: 33%;\r\n      display: block;\r\n      font-weight: normal;\r\n      text-align: center; }\r\n      .fly-hotcity-list .fly-hotcity-title span:nth-of-type(3) {\r\n        margin-right: 20px; }\r\n  .fly-hotcity-list .fly-hotcity-C {\r\n    width: 100%;\r\n    height: 88%;\r\n    display: -webkit-box;\r\n    -webkit-box-align: center;\r\n    -webkit-box-pack: center;\r\n    -webkit-box-orient: horizontal; }\r\n    .fly-hotcity-list .fly-hotcity-C .fly-hotcity-scroll {\r\n      width: 90%;\r\n      height: 98%;\r\n      overflow: hidden; }\r\n      .fly-hotcity-list .fly-hotcity-C .fly-hotcity-scroll li.fly-first-spell {\r\n        text-indent: .5em;\r\n        background: #eee9e9; }\r\n      .fly-hotcity-list .fly-hotcity-C .fly-hotcity-scroll li.active:after {\r\n        content: \"\\221A\";\r\n        float: right;\r\n        margin-right: .1rem; }\r\n      .fly-hotcity-list .fly-hotcity-C .fly-hotcity-scroll li.fly-city-item {\r\n        height: .2rem;\r\n        line-height: .2rem;\r\n        text-indent: .5em;\r\n        border-bottom: 1px solid #ccc; }\r\n    .fly-hotcity-list .fly-hotcity-C .fly-hotcity-spell {\r\n      width: 8%; }\r\n      .fly-hotcity-list .fly-hotcity-C .fly-hotcity-spell li {\r\n        font-size: .0478rem;\r\n        text-align: center; }\r\n\r\n/*# sourceMappingURL=index.css.map */\r\n", ""]);
 
 	// exports
 
@@ -32163,7 +32183,8 @@
 							'ul',
 							{ ref: 'fly-menu-C1', onTouchTap: this.operatorChange },
 							operatorArr
-						)
+						),
+						document.documentElement.clientWidth + '--' + document.documentElement.clientHeight
 					),
 					_react2['default'].createElement(
 						'div',
@@ -37099,10 +37120,12 @@
 					case 'rec-food':
 						this.state.currentTimeSlot = 0;
 						this.state.dataSource[this.state.currentTimeSlot] = addFoods;
+						s.ajaxEnd(s);
 						break;
 					case 'rec-menu':
 						this.state.currentTimeSlot = 0;
 						this.state.dataSource[this.state.currentTimeSlot] = addFoods;
+						s.ajaxEnd(s);
 						break;
 					case 'my-collect':
 						// 我的收藏。
@@ -38903,7 +38926,7 @@
 				[] //晚餐
 				], //已添加的菜谱
 				currentPannel: 0,
-				isShow: true,
+				isShow: false,
 				isEnableDrag: false
 			};
 			this.next = this.next.bind(this);
@@ -39570,17 +39593,7 @@
 			this.state = {
 				liWidth: 0,
 				alimentatonData: {
-					materials: [
-						/*{name:'小番茄',weight:'30g'},
-	     {name:'鸡蛋',weight:'40g'},
-	     {name:'生菜',weight:'70g'},
-	     {name:'生菜',weight:'70g'},
-	     {name:'生菜',weight:'70g'},
-	     {name:'生菜',weight:'70g'},
-	     {name:'生菜',weight:'70g'},
-	     {name:'培根',weight:'50g'},
-	     {name:'吐丝',weight:'25g'}*/
-					],
+					materials: [],
 					colors: ['#f3e5dc', '#f1e0d6'],
 					currentFoodData: [{
 						unit: 'g',
@@ -39734,7 +39747,7 @@
 				line2.regX = x;
 				line2.regY = y;
 				line2.x = x;
-				line2.y = y;
+				line2.y = y - .15 * 38.4;
 
 				return line2;
 			}
@@ -41028,25 +41041,6 @@
 
 /***/ },
 /* 228 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-		value: true
-	});
-
-	var URL = {
-		weightstart: 'http://115.28.44.74:8080/kitchen/kb/kitchen/weighstart.ht', //去皮接口
-		weightend: 'http://115.28.44.74:8080/kitchen/kb/kitchen/weighend.ht', //确定称重。
-		getCollection: 'http://115.28.44.74:8080/kitchen/kb/kitchen/getcookbook.ht' };
-
-	//获取用户收藏列表。
-	exports['default'] = URL;
-	module.exports = exports['default'];
-
-/***/ },
-/* 229 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41069,7 +41063,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	__webpack_require__(230);
+	__webpack_require__(229);
 
 	var _jquery = __webpack_require__(172);
 
@@ -41124,7 +41118,7 @@
 
 				return _react2['default'].createElement(
 					'li',
-					{ className: 'fly-operator-item fly-plate-C', ref: 'fly-plate-C' },
+					{ className: 'fly-operator-item fly-plate-C', ref: 'fly-plate-C', onTouchTap: this.removePlat.bind(this) },
 					_react2['default'].createElement('div', { className: 'fly-plate-demo', ref: 'fly-plate-demo', style: this.state.plateDemoStyle }),
 					_react2['default'].createElement('div', { className: 'fly-plate-demo fly-plate-sm', ref: 'fly-plate-sm', style: this.state.plateSMStyle }),
 					_react2['default'].createElement(
@@ -41167,6 +41161,15 @@
 						_react2['default'].createElement('div', null)
 					)
 				);
+			}
+		}, {
+			key: 'removePlat',
+			value: function removePlat(e) {
+				//移除盘子
+				var target = e.target;
+				if (target.classList.contains('fly-plate-item')) {
+					target.classList.add('delete');
+				};
 			}
 		}, {
 			key: 'getDis',
@@ -41423,13 +41426,13 @@
 	/*垃圾桶图标实现*/
 
 /***/ },
-/* 230 */
+/* 229 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(231);
+	var content = __webpack_require__(230);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(176)(content, {});
@@ -41449,7 +41452,7 @@
 	}
 
 /***/ },
-/* 231 */
+/* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(175)();
@@ -41463,7 +41466,7 @@
 
 
 /***/ },
-/* 232 */
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41486,7 +41489,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	__webpack_require__(233);
+	__webpack_require__(232);
 
 	var _publicMethodsJsx = __webpack_require__(185);
 
@@ -41740,13 +41743,13 @@
 	/*<div style={{left:-this.state.articleWidth}} className="fly-step-C">{step.stepContent}</div>*/
 
 /***/ },
-/* 233 */
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(234);
+	var content = __webpack_require__(233);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(176)(content, {});
@@ -41766,7 +41769,7 @@
 	}
 
 /***/ },
-/* 234 */
+/* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(175)();
@@ -41778,6 +41781,25 @@
 
 	// exports
 
+
+/***/ },
+/* 234 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+
+	var URL = {
+		weightstart: 'http://115.28.44.74:8080/kitchen/kb/kitchen/weighstart.ht', //去皮接口
+		weightend: 'http://115.28.44.74:8080/kitchen/kb/kitchen/weighend.ht', //确定称重。
+		getCollection: 'http://115.28.44.74:8080/kitchen/kb/kitchen/getcookbook.ht' };
+
+	//获取用户收藏列表。
+	exports['default'] = URL;
+	module.exports = exports['default'];
 
 /***/ }
 /******/ ]);

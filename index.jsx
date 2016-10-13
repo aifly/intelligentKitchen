@@ -19,7 +19,6 @@ import URL from './libs/url';
 
 let obserable=  new Obserable();
 
-
 class App extends React.Component{
 	constructor(option){
 		super(option);
