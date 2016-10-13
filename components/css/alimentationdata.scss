@@ -132,7 +132,7 @@ $maxIndex:9999;
       canvas{
         @include pos(a); 
         left: 3%;
-        top:-.15rem;
+       // top:-.15rem;
       }
 
 
@@ -202,7 +202,17 @@ $maxIndex:9999;
         
      }
      .shadow{
-      box-shadow:0 0 1.1rem rgba(232,158,121,.7);
+        @include pos(r);
+       &:before{
+          content:'';
+           @include pos(a);
+          width: 100%;
+          box-shadow:0 0 .1rem rgba(232,158,121,.7);
+          @include br(30px);
+          height: 100%;
+          left: 0;
+          top: 0;
+       }
     }
    }
 
@@ -222,11 +232,19 @@ $maxIndex:9999;
    .fly-circle-center{
       @include pos(a);
       left: 3%;
-      top: -.15rem;;
+      top: 0;
       border:2px solid #fff;
       @include br(50%);
       -webkit-filter: blur(0px);
-      box-shadow:0 0 .2rem rgba(232,158,121,.2),0 0 .2rem rgba(232,158,121,.2) inset;
+      &:before{
+        content:'';
+        box-shadow:0 0 .2rem rgba(232,158,121,.2),0 0 .2rem rgba(232,158,121,.2) inset;
+        @include pos(a);
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+      }
       z-index: -1;
    }
 }

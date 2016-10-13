@@ -30,15 +30,16 @@ import $ from 'jquery';
 		return (
 			<li className='fly-operator-item fly-weight' style={{position:'relative'}}>
 				<div style={{opacity:this.state.isShow ? 1:0}}>
+					<h1></h1>
 					<div className='fly-btns-C'>
 						<figure>
-							<img  src='./assets/images/weight-btn.png' onTouchTap={this.showWeight} onTouchStart={this.props.touchStart} onTouchEnd={this.props.touchEnd}/>
+							<img  src='./assets/images/weight-btn.png' onTouchTap={this.showWeight} />
 						</figure>
 						<figure>
-							<img  src='./assets/images/broad-btn.png' onTouchTap={this.showBoard} onTouchStart={this.props.touchStart} onTouchEnd={this.props.touchEnd}/>
+							<img  src='./assets/images/broad-btn.png' onTouchTap={this.showBoard}/>
 						</figure>
 						<figure>
-							<img  src='./assets/images/time-info.png' onTouchTap={this.showCountdown} onTouchStart={this.props.touchStart} onTouchEnd={this.props.touchEnd}/>
+							<img  src='./assets/images/time-info.png' onTouchTap={this.showCountdown}/>
 						</figure>
 					</div>
 					<div className='fly-show-countdown-top' style={{display:this.state.showCanvas?'block':'none'}}>
@@ -75,7 +76,9 @@ import $ from 'jquery';
 		});
 	}
 
-	showCountdown(){
+	showCountdown(e){
+
+		this.props.shadow(e.target.parentNode);
 		this.setState({
 			showCountdown:true,
 			showWeight:false,
@@ -245,19 +248,18 @@ import $ from 'jquery';
 		
 	}
 
-
-
-	showWeight(){
+	showWeight(e){
 		
 		this.setState({
 			showWeight:true,
 			showBoard:false,
 			showCountdown:false
 		});
-		
+		this.props.shadow(e.target.parentNode);
 	}
 
-	showBoard(){
+	showBoard(e){
+		this.props.shadow(e.target.parentNode);
 		this.setState({
 			showWeight:false,
 			showBoard:true,

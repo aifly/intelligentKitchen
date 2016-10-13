@@ -274,11 +274,11 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 					</div>
 					<div className="fly-rec-food fly-food-item fly-top2" ref='rec-food'>
 						<span className='tag'>推荐食材</span>
-						<FlyFoodList {...recProps}></FlyFoodList>
+						<FlyFoodList {...recProps} {...this.props}></FlyFoodList>
 					</div>
 					<div className="fly-rec-menu fly-food-item fly-top1" ref='rec-menu'>
 						<span className='tag'>推荐菜谱</span>
-						<FlyFoodList {...recMenuProps}></FlyFoodList>
+						<FlyFoodList {...recMenuProps}  {...this.props}></FlyFoodList>
 					</div>	
 				</div>
 
@@ -474,8 +474,13 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 
 			//self.startChangeMenu($(e.target),$(e.target).index('.fly-food-item'));
 			let $target = $(e.target),
-				index = $target.parent().index('.fly-food-item')*1,
+				index = $target.parents('.fly-food-item').index('.fly-food-item')*1,
 				iNow = this.iNow % 3;
+
+				if(index<0){
+					return;
+				}
+
 				this.removeTopClass();
 				data.foods.eq(index).css({
 					WebkitTransitionDuration:'.1s',
@@ -600,7 +605,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 				self.sort = new Sortable(data.cookBookC[0],{group:'omega'});
 				//self.props.obserable.trigger({type:'showDone'})
 
-			},1000);
+			},3000);
 				var e = e.originalEvent ? e.originalEvent.changedTouches[0]:e.changedTarget[0];
 			let $target = $(e.target).hasClass('fly-cook-book-item')?$(e.target):$(e.target).parents('.fly-cook-book-item'),
 				iNow = 0;

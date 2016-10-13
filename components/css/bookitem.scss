@@ -348,7 +348,17 @@ $fontColor:#a16d56;
     }
 
     .shadow{
-      box-shadow:0 0 1.1rem rgba(232,158,121,.6);
+       &:before{
+          content:'';
+          @include pos(a);
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          box-shadow:0 0 .3rem rgba(232,158,121,.6);  
+          @include br(50%);
+       }
+       @include transform(scale(.95));
     }
 
     .fly-next{
@@ -427,7 +437,16 @@ $fontColor:#a16d56;
         }
 
         .shadow{
-           box-shadow:0 0 1.1rem rgba(232,158,121,.6);
+           @include pos(r);
+           &:before{
+               content:'';
+              @include pos(a);
+              left: 0;
+              top: 0;
+              width: 100%;
+              height: 100%;
+              box-shadow:0 0 .3rem rgba(232,158,121,.6);   
+           }
          }
     }
 

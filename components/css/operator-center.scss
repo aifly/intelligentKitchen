@@ -121,14 +121,20 @@ $baseColor1:#e89e79;
 $maxIndex:9999;
 
 .fly-weight{
+  h1{
+    height: .5rem;
+  }
 	@include displayBox(vertical);
 	.fly-btns-C{
-		width:60%;
+		width:50%;
+    @include pos(a);
+    top:0;
+    left: .4rem;;
 	//	margin-left: -20%;
-        
     height: .5rem;
 		@include displayBox(horizontal);
 		figure{
+      @include pos(r);
 			margin:0 .05rem;
 			img{@include br(50%);}
       &:first-of-type{
@@ -137,7 +143,17 @@ $maxIndex:9999;
 		}
 	}
 	.shadow{
-		box-shadow:0 0 .1rem rgba(232,158,121,.7);
+     @include transform(scale(.95));
+     &:before{
+        content:'';
+        @include pos(a);
+        width: 100%;
+        height: 100%;
+        box-shadow:0 0 .4rem rgba(232,158,121,.7);
+        left: 0;
+        @include br(50%);
+        top:0;
+     }
 	}
 
 	.fly-operator-C{

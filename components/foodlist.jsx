@@ -82,23 +82,57 @@ import $ from 'jquery';
 	componentDidMount(){
 
 		let {type,getTimeSlot,URL,userId} = this.props;
+
 		this.state.currentTimeSlot = getTimeSlot;
 		let s = this;
-		switch(type){
+		switch(type){//推荐食材
 			case 'rec-food':
+
 				this.state.currentTimeSlot = 0;
+
+				$.ajax({
+					url:URL.getCookBookList,
+					data:{
+						Userid:userId,
+						food_type:'rec'
+					},
+					success(data){
+					//	s.state.dataSource[s.state.currentTimeSlot] = data;
+						s.forceUpdate(()=>{
+							s.ajaxEnd(s);
+						});
+					}
+				})
+				
 				this.state.dataSource[this.state.currentTimeSlot]= addFoods;
 				s.ajaxEnd(s);
 			break;
-			case 'rec-menu':
+			case 'rec-menu'://推荐菜谱
 				this.state.currentTimeSlot = 0;
+				$.ajax({
+					url:URL.getCookBookList,
+					data:{
+						Userid:userId,
+						food_type:'men'
+					},
+					success(data){
+						//s.state.dataSource[s.state.currentTimeSlot] = data;
+						s.forceUpdate(()=>{
+							s.ajaxEnd(s);
+						});
+					}
+				})
+
 				this.state.dataSource[this.state.currentTimeSlot]= addFoods;
+
+
+
 				s.ajaxEnd(s);
 			break;
 			case 'my-collect': // 我的收藏。
 
 				$.ajax({
-					url:URL.getCollection,
+					url:URL.getCookBookList,
 					data:{
 						Userid:userId,
 						food_type:'collection'
@@ -109,7 +143,7 @@ import $ from 'jquery';
 							s.ajaxEnd(s);
 						});
 					}
-				})
+				});
 			break;
 		}
 

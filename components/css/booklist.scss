@@ -272,24 +272,26 @@ $maxIndex:9999;
                     @include br(50%);
                     @include pos(a);
                     right: .01rem;
-                    top: .01rem;
-
-
+                    top: .01rem;  
                   }
               }
+
+              div{
+                background:transparent;
+                  width: .25rem;
+                  height: .25rem;
+                  @include br(50%);
+                  @include pos(a);
+                  left: .023rem;
+                  top: .05rem;
+               }
            }
            .today{
               color:$baseColor1;
               
-             div{
-              background:#efefef;
-                width: .25rem;
-                height: .25rem;
-                @include br(50%);
-                @include pos(a);
-                left: .023rem;
-                top: .05rem;
-             }
+               div{
+                background:#efefef;
+               }
               span{
                 color:inherit;
               }

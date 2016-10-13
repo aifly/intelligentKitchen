@@ -163,7 +163,7 @@ import { PublicShadow } from './public-shadow.jsx';
 		line2.regX = x;
 		line2.regY = y;
 		line2.x = x;
-		line2.y = y-.15*38.4;
+		line2.y = y;
 
 		return line2;
 	}
@@ -235,7 +235,7 @@ import { PublicShadow } from './public-shadow.jsx';
 
 
 		ball.x =ball.centerX - ball.ballWidth/2 + ball.r * Math.sin(this.iNow/180*Math.PI);
-		ball.y =ball.centerY-(.15*384) - ball.ballHeight/2 + ball.r * Math.cos(this.iNow/180*Math.PI);
+		ball.y =ball.centerY - ball.ballHeight/2 + ball.r * Math.cos(this.iNow/180*Math.PI);
 
 		this.iNow -=.5;
 		if(this.iNow<-180){

@@ -31,6 +31,7 @@ class App extends React.Component{
 			obserable:obserable,
 			URL:URL
 		};
+		
 		return (
 			<div>
 				<FlyNav {...data}></FlyNav>

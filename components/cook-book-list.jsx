@@ -1,5 +1,5 @@
 import React from 'react';
-import {GetLunarDay,GetDateStr} from '../libs/Calendar.js';
+import {GetLunarDay,GetDateStr,getFullDate} from '../libs/Calendar.js';
 /*import addFoods from '../libs/addFoods.js'; //测试数据*/
 import './css/booklist.css';
 import IScroll from 'iscroll';
@@ -24,7 +24,8 @@ import $ from 'jquery';
 				[]　//晚餐
 			],//已添加的菜谱
 			currentPannel:0,
-			isShow:true,
+			isShow:false,
+			currentDate:GetDateStr(0),
 			isEnableDrag:false
 		}
 		this.next = this.next.bind(this);
@@ -91,11 +92,11 @@ import $ from 'jquery';
 													<th>六</th>
 												</tr>
 											</thead>
-											<tbody>
+											<tbody onTouchTap={this.getCurrentCookBookByDate.bind(this)}>
 												<tr>
 													{this.state.dates1.map((item,i)=>{
 														return (
-															<td key={i} className={item.isToday?'today':''}>
+															<td key={i} data-date={item.date} className={this.state.currentDate === item.date?'today':''}>
 																<div className={item.isHasFood?'hasfood':''}>
 																	<span>{item.date}</span>
 																	<span>{item.lunar}</span>
@@ -107,7 +108,7 @@ import $ from 'jquery';
 												<tr>
 													{this.state.dates2.map((item,i)=>{
 														return (
-															<td key={i}>
+															<td key={i} data-date={item.date}  className={this.state.currentDate === item.date?'today':''}>
 																<div className={item.isHasFood?'hasfood':''}>
 																	<span>{item.date}</span>
 																	<span>{item.lunar}</span>
@@ -147,6 +148,9 @@ import $ from 'jquery';
 	}
 
 	updateCalendar(){
+
+		let {URL,userId} = this.props;
+
 		var D =new Date();
 		var yy=D.getFullYear();
 		var mm=D.getMonth()+1;
@@ -163,24 +167,121 @@ import $ from 'jquery';
 				lunar:i===0?'今天':GetLunarDay(yy,mm,dd+i),
 				id:'',
 				isToday: i === 0 ? true : false,
-				isHasFood:i % 3 === 0
+				isHasFood:false
 			});	
 		}
+
 
 		for(var j = i;j<14-week;j++){
 			this.state.dates2.push({
 				date:GetDateStr(j),
-				lunar:GetLunarDay(yy,mm,dd+j),
+				lunar:GetLunarDay(yy,mm,dd+j)==='廿'?'廿十':GetLunarDay(yy,mm,dd+j),
 				id:'',
-				isHasFood:j % 2 === 0
+				isHasFood:false
 			});	
 		}
+		let s = this;
+		$.ajax({
+			url:URL.getBookList,
+			type:'POST',
+			data:{
+				Userid:userId,
+				bydate:getFullDate(-week)
+			},
+			success(data){
+				for(var i =0,len = data.getdate.length/2 ;i<len;i++){
+					s.state.dates1[i].isHasFood = data.getdate[i];
+				}
+				for(var i =0,len = data.getdate.length/2 ;i<len;i++){
+					s.state.dates2[i].isHasFood = data.getdate[i+len];	
+				}
+				s.forceUpdate();
+			}
+		});
 
+
+	}
+
+	getFoodListByDate(date){
+		
+		let {URL,userId} = this.props,
+			s = this;
+		s.state.addFoods.forEach(food=>{
+			food.length = 0;
+		});
+		s.forceUpdate();
+		$.ajax({
+			type:"POST",
+			url:URL.getCookBookList,
+			data:{
+				food_type:'Join',//注意J大写。
+				Userid:userId,
+				typeid:date
+			},
+			success(data){
+
+				data.forEach((item)=>{
+					s.state.addFoods[item.foodMtype].push(item);
+				});
+
+				console.log(data)
+
+				//s.state.addFoods[s.state.currentTimeSlot] = data;
+
+				s.forceUpdate(()=>{
+					
+					if(s.state.addFoods[s.state.currentTimeSlot].length<=0){
+						return;
+					}
+					let liWidth = s.refs['foods-C'].children[0].offsetWidth;
+					s.setState({
+						liWidth:liWidth
+					});
+
+					s.scroll = new IScroll(s.refs['scroll'],{
+						scrollX:true,
+						scrollY:false,
+					});
+
+				});
+
+				
+			}
+		})
+	}
+
+	getCurrentCookBookByDate(e){
+		this.lastDate = this.lastDate || this.state.currentDate;
+		var date = $(e.target).parents('td').data('date');
+		if(!date){
+			return;
+		}
+
+		if(this.lastDate === date){
+
+			return;
+		}
+
+		this.setState({
+			currentDate:date
+		});
+		var D = new Date();
+		var year = D.getFullYear()+'',
+			month = D.getMonth()+1;
+			month<10&&(month='0'+month);
+			date<10&&(date='0'+date);
+		var d = year + month + date;
+
+		this.lastDate = date;
+
+		this.getFoodListByDate(d);
 	}
 
 	componentDidMount() {
 
 		let {obserable,getTimeSlot} = this.props;//getTimeSlot是从高街组件中得到的属性。
+
+		this.getFoodListByDate(getFullDate(0));//获取当天的加入的菜谱列表
 
 
 		obserable.on('showIsEnableDrag',(flag)=>{
@@ -202,21 +303,7 @@ import $ from 'jquery';
 		
 		this.updateCalendar();
 
-		this.state.addFoods[this.state.currentTimeSlot] = addFoods;
-
-		this.forceUpdate();
-
-		setTimeout(()=>{
-			let liWidth = this.refs['foods-C'].children[0].offsetWidth;
-			this.setState({
-				liWidth:liWidth
-			});
-
-			this.scroll = new IScroll(this.refs['scroll'],{
-				scrollX:true,
-				scrollY:false,
-			});
-		},1);
+		
 
 
 		$(this.refs['fly-cook-list']).on('touchstart',e=>{

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './css/timeline.css';
 import {PublicMethods} from './public-methods.jsx';
-
+import $ from 'jquery';
 import Time from '../libs/canvas';
 
 class FlyTimeLine extends Component {
@@ -51,145 +51,154 @@ class FlyTimeLine extends Component {
 	}
 	componentDidMount() {
 
-
-
 		this.lastIndex = 0;
-		let {obserable} = this.props;
-
-		setTimeout(()=>{
-			/*this.setState({
-				progressLeft:this.refs['prepare'].offsetWidth / 2
-			});*/
-
-			
-			
-		},1);
-
-
+		let {obserable,URL,userId} = this.props;
+ 
 		this.isStop = false;
 
-			obserable.on('initProgress',(data)=>{//初始化进度条
+		obserable.on('initProgress',(data)=>{//初始化进度条
 
-				let state = {
-					width:0,
-					currentStep : data
+			let state = {
+				width:0,
+				currentStep : data
+			}
+			if(data === -1){
+				state.progressLeft = 0;
+			}
+			this.setState(state);
+
+		});
+
+
+		obserable.on('fillSteps',(steps)=>{
+
+			this.setState({
+				steps:steps
+			},()=>{
+
+				let points = this.refs['fly-points-C'].querySelectorAll('article');
+			 	this.posArr = [];
+				this.width =this.refs['prepare'].offsetWidth;
+				for(var i =1 ,len = points.length;i<len;i++){
+					this.posArr.push({x:this.width});
 				}
-				if(data === -1){
-					state.progressLeft = 0;
-				}
-				this.setState(state);
-
-			});
-
-
-			obserable.on('fillSteps',(steps)=>{
 
 				this.setState({
-					steps:steps
-				},()=>{
-					let points = this.refs['fly-points-C'].querySelectorAll('article');
-				 	this.posArr = [];
-					this.width =this.refs['prepare'].offsetWidth;
-					for(var i =1 ,len = points.length;i<len;i++){
-						this.posArr.push({x:this.width});
-					}
-
-					this.setState({
-						articleWidth:points[0].offsetWidth/2 //> 320 ? 320 : points[0].offsetWidth/2
-					});
+					articleWidth:points[0].offsetWidth/2 //> 320 ? 320 : points[0].offsetWidth/2
 				});
 			});
+		});
 
-			obserable.on('stopProgress',()=>{
-				this.isStop =  true;
-				this.setState({
-					width:this.posArr[this.state.currentStep].x,
-					progressLeft:this.state.currentStep*this.width
-				});
+		obserable.on('stopProgress',()=>{
+			this.isStop =  true;
+			this.setState({
+				width:this.posArr[this.state.currentStep].x,
+				progressLeft:this.state.currentStep*this.width
 			});
-
-			obserable.on('showAllTime',()=>{
-
-				let time = 0;
-				this.state.steps.forEach(step=>{
-					
-					if(step.timespan){
-						let hour = step.timespan.split(':')[0]*1,
-							mins = step.timespan.split(':')[1]*1;
-						time += hour*60 + mins;
-					}
-			});
+		});
 
 
 
+		obserable.on('showAllTime',()=>{
 
+			let time = 0;
+			this.state.steps.forEach(step=>{
 				
-
-				//清空盘子。
-				obserable.trigger({
-					type:'clearPlates'
-				});
-
-				time = ((time / 60 | 0) < 10 ? '0'+(time / 60 | 0):(time / 60 | 0)) + " : " +  (time % 60 < 10 ? '0' + time % 60 : time % 60)
-
-				this.setState({
-					allTime:time
-				})
-			});
-
-			obserable.on('pauseProgress',(step)=>{
-				this.isStop =  true;
-				this.setState({
-					width:this.posArr[this.state.currentStep].x,
-					progressLeft:this.state.currentStep * this.width 
-				});
-			});
-
-			obserable.on('startProgress',()=>{
-				this.isStop =  false;
-			});
-				
-
-			obserable.on('prepareFood',()=>{
-				let currentStep = obserable.trigger({type:"getCurrentStep"});
-				if(currentStep <= -1){//当前还没有开始第一步。
-					return;	
+				if(step.timespan){
+					let hour = step.timespan.split(':')[0]*1,
+						mins = step.timespan.split(':')[1]*1;
+					time += hour*60 + mins;
 				}
+			});
+			let s=  this,
+				foodId = obserable.trigger({type:'getFoodId'});
+			
 
 
-				let x = this.state.width + .4;
-
-				//x>= this.posArr[currentStep].x && (x =  20 && return false);
-
-				if(x>= this.posArr[currentStep].x){
-					x = 0;
-				}
-				
-				!this.isStop &&	this.setState({
-					width:x,
-					progressLeft:currentStep*this.width
-				});
+			//清空盘子。
+			obserable.trigger({
+				type:'clearPlates'
 			});
 
-			obserable.on('clearTimespan',(data)=>{
+			time = ((time / 60 | 0) < 10 ? '0'+(time / 60 | 0):(time / 60 | 0)) + " : " +  (time % 60 < 10 ? '0' + time % 60 : time % 60)
 
-				this.state.steps[data].timespan = "00:00";
-
-				this.forceUpdate();
+			this.setState({
+				allTime:time
 			});
 
 
-			obserable.on('showTimespan',(timespan)=>{//每一个步骤完成后显示时间
-				var result = '';
-				if(timespan*1 === 0 ){
-					result = "00:00";
-				}
-				else{
-					result = ((timespan / 60 | 0) < 10 ? '0'+(timespan / 60 | 0):(timespan / 60 | 0)) + " : " +  (timespan % 60 < 10 ? '0' + timespan % 60 : timespan % 60);
-				}
-				this.state.steps[this.state.currentStep].timespan = result;
-				this.forceUpdate();
+			var times = [];
+			this.state.steps.forEach((item)=>{
+				times.push(item.timespan.split(':')[0]*10 + item.timespan.split(':')[1]*1);
 			});
+			
+			$.ajax({
+				url:URL.getimespan,
+				type:"POST",
+				data:{
+					Userid:userId,
+					Id:foodId,
+					Timespan:times+'' , //字符串类似于 => '1,2,3,4'
+				},
+				success(data){
+					console.log(data);
+				}
+			});
+		});
+
+		obserable.on('pauseProgress',(step)=>{
+			this.isStop =  true;
+			this.setState({
+				width:this.posArr[this.state.currentStep].x,
+				progressLeft:this.state.currentStep * this.width 
+			});
+		});
+
+		obserable.on('startProgress',()=>{
+			this.isStop =  false;
+		});
+			
+
+		obserable.on('prepareFood',()=>{
+			let currentStep = obserable.trigger({type:"getCurrentStep"});
+			if(currentStep <= -1){//当前还没有开始第一步。
+				return;	
+			}
+
+
+			let x = this.state.width + .4;
+
+			//x>= this.posArr[currentStep].x && (x =  20 && return false);
+
+			if(x>= this.posArr[currentStep].x){
+				x = 0;
+			}
+			
+			!this.isStop &&	this.setState({
+				width:x,
+				progressLeft:currentStep*this.width
+			});
+		});
+
+		obserable.on('clearTimespan',(data)=>{
+
+			this.state.steps[data].timespan = "00:00";
+
+			this.forceUpdate();
+		});
+
+
+		obserable.on('showTimespan',(timespan)=>{//每一个步骤完成后显示时间
+			var result = '';
+			if(timespan*1 === 0 ){
+				result = "00:00";
+			}
+			else{
+				result = ((timespan / 60 | 0) < 10 ? '0'+(timespan / 60 | 0):(timespan / 60 | 0)) + " : " +  (timespan % 60 < 10 ? '0' + timespan % 60 : timespan % 60);
+			}
+			this.state.steps[this.state.currentStep].timespan = result;
+			this.forceUpdate();
+		});
 
 
 
@@ -214,12 +223,14 @@ class FlyTimeLine extends Component {
 
 		let {obserable,index} = this.props,
 			iNow = index(e.target.parentNode,null,'article');
+
 		obserable.trigger({type:'updateStep',data:iNow-1});
 
 		if(iNow - this.lastIndex  !== 1){
 			for(var i = 0; i < iNow  ;i++){
+
 				//this.state.steps[i].timespan = '00:00';
-				obserable.trigger('clearTimespan',i);
+				obserable.trigger({type:'clearTimespan',data:i});//从头开始了 ，记时清0
 			}
 			obserable.trigger({type:'enableTimespan',data:iNow});//防止点击了圆点，后面又点上一步，下一步
 		}

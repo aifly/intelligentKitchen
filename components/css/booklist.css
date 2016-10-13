@@ -126,16 +126,18 @@
               position: absolute;
               right: .01rem;
               top: .01rem; }
-        .book-list-C .booklist-right-C .bl-calendar table .today {
-          color: #e89e79; }
-          .book-list-C .booklist-right-C .bl-calendar table .today div {
-            background: #efefef;
+          .book-list-C .booklist-right-C .bl-calendar table td div {
+            background: transparent;
             width: .25rem;
             height: .25rem;
             border-radius: 50%;
             position: absolute;
             left: .023rem;
             top: .05rem; }
+        .book-list-C .booklist-right-C .bl-calendar table .today {
+          color: #e89e79; }
+          .book-list-C .booklist-right-C .bl-calendar table .today div {
+            background: #efefef; }
           .book-list-C .booklist-right-C .bl-calendar table .today span {
             color: inherit; }
     .book-list-C .booklist-right-C .bl-food-list {

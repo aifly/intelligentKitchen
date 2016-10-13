@@ -160,7 +160,8 @@ import FlyVideo from './video.jsx';
 			//this.state.stepTimeSpan.push(new Date().getTime() - this.startTime);//	
 			obserable.trigger({type:'stopProgress'});
 
-			obserable.trigger({type:'showAllTime'});
+			obserable.trigger({type:'showAllTime'});//
+
 			
 			return;
 		}
@@ -225,7 +226,10 @@ import FlyVideo from './video.jsx';
 	}
 
 	componentDidMount(){
-		let {obserable} = this.props;
+
+
+		let {obserable} = this.props,
+			foodId = -1;
 
 		obserable.on('closeStep',(e)=>{
 			this.closeCook(e);
@@ -263,13 +267,13 @@ import FlyVideo from './video.jsx';
 		});
 
 		obserable.on('fillFood',(data)=>{
-
+			foodId = data.id;
 			this.setState({
 				foodData:data,
 				steps:data.steps,
 				currentStep : -1
 			},()=>{
-
+				
 				this.scroll = this.scroll || new IScroll(this.refs['material-scroll']);
 				this.scroll && this.scroll.refresh();//重新刷新滚动条。
 				let scrollC = this.refs['steps-C'];
@@ -359,12 +363,19 @@ import FlyVideo from './video.jsx';
 		});
 
 		obserable.on('fillFoodByVideo',data=>{
+			foodId = data.id;
 			this.setState({
 				foodData:data,
 				steps:data.steps,
 				currentStep : -1
 			});
 		}); 
+
+		obserable.on('getFoodId',()=>{//返回当前菜谱的ID
+			return foodId;
+		});
+
+
 		
 	}
 }
