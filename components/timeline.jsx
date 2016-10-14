@@ -126,7 +126,7 @@ class FlyTimeLine extends Component {
 				allTime:time
 			});
 
-
+			
 			var times = [];
 			this.state.steps.forEach((item)=>{
 				times.push(item.timespan.split(':')[0]*10 + item.timespan.split(':')[1]*1);

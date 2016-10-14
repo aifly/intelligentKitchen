@@ -221,10 +221,14 @@ import $ from 'jquery';
 			success(data){
 
 				data.forEach((item)=>{
+					//console.log(item.foodMtype);
+					
+					item.detailSrc = URL.baseURL + item.detailSrc;
+					item.imgSrc = URL.baseURL + item.imgSrc;
 					s.state.addFoods[item.foodMtype].push(item);
 				});
 
-				console.log(data)
+				
 
 				//s.state.addFoods[s.state.currentTimeSlot] = data;
 

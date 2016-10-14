@@ -191,9 +191,10 @@ import $ from 'jquery';
 				type:'POST',
 				url:URL.weightend,
 				success(data){
+					console.log(data);
 					if(data.getret === 1){
 						let weight= data.foodweight*1|0;
-						console.log(weight)
+						console.log(data)
 						var iNow = weight - 10 < 0?0:weight-10;
 						var t = setInterval(()=>{
 							s.initCanvas(canvas,++iNow);
@@ -202,7 +203,7 @@ import $ from 'jquery';
 									type:'fillAlimentationData',
 									data:{
 										scaleData:data.scaleData
-									}
+									 }
 								});
 								clearInterval(t);
 								s.initCanvas(canvas,weight);

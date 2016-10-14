@@ -53,7 +53,7 @@ import $ from 'jquery';
 						</ol>}
 						<div className={this.state.dataSource[this.state.currentTimeSlot].length?'foodlist-content':'foodlist-content no-data'} ref='foodlist-content'>
 							<ul style={{width:this.state.ulWidth}} onTouchTap={this.getFoodById}>
-								{this.state.dataSource[this.state.currentTimeSlot].map((data,i)=>{
+								{this.state.dataSource[this.state.currentTimeSlot].length&&this.state.dataSource[this.state.currentTimeSlot].map((data,i)=>{
 									return (
 										<li  key={i} className={i<=Math.floor(this.state.dataSource[this.state.currentTimeSlot].length/2)?'':'food-top'}>
 											<div data-index={i}  style={{background:'url('+data.imgSrc+') no-repeat center bottom',backgroundSize:'cover'}} className={i===this.state.currentIndex ? 'active':''}>
@@ -90,7 +90,7 @@ import $ from 'jquery';
 
 				this.state.currentTimeSlot = 0;
 
-				$.ajax({
+				/*$.ajax({
 					url:URL.getCookBookList,
 					data:{
 						Userid:userId,
@@ -102,13 +102,13 @@ import $ from 'jquery';
 							s.ajaxEnd(s);
 						});
 					}
-				})
+				})*/
 				
 				this.state.dataSource[this.state.currentTimeSlot]= addFoods;
 				s.ajaxEnd(s);
 			break;
 			case 'rec-menu'://推荐菜谱
-				this.state.currentTimeSlot = 0;
+				/*
 				$.ajax({
 					url:URL.getCookBookList,
 					data:{
@@ -121,11 +121,9 @@ import $ from 'jquery';
 							s.ajaxEnd(s);
 						});
 					}
-				})
-
+				})*/
+				this.state.currentTimeSlot = 0;
 				this.state.dataSource[this.state.currentTimeSlot]= addFoods;
-
-
 
 				s.ajaxEnd(s);
 			break;
@@ -138,12 +136,15 @@ import $ from 'jquery';
 						food_type:'collection'
 					},
 					success(data){
-						s.state.dataSource[s.state.currentTimeSlot] = data;
+						//s.state.dataSource[s.state.currentTimeSlot] = data;
 						s.forceUpdate(()=>{
-							s.ajaxEnd(s);
+							
 						});
 					}
 				});
+
+				s.state.dataSource[s.state.currentTimeSlot] = addFoods;
+				s.ajaxEnd(s);
 			break;
 		}
 

@@ -146,13 +146,14 @@ $maxIndex:9999;
 body{
 	background:#EACFBB;
   overflow: hidden;
-  font-size: .1rem;
+  font-size: .1 * 10vw ;
   font-family: 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif;
   color:$baseColor;
 }
 $nav-height:11.76vh;
 #fly-main{  
-   width: 10rem;
+   width: 10 * 10vw ;
+   overflow: hidden;
   .fly-nav-mask{
     @include pos(a);
     height: 100vh - $nav-height;
@@ -169,12 +170,12 @@ $nav-height:11.76vh;
 
   .fly-nav{
     $navBg:#fff9f3;
-    width: 10rem;
+    width: 10 * 10vw ;
     height: $nav-height;//1224/9202*100=13.3
     background:$navBg;
     z-index: $maxIndex;
     @include pos(a);
-    @include transition_transform(.5s);
+    @include transition_transform(.2s);
     @include transitionTimingFunction();
     &.active{
       @include transform(translate3d(0,-86%,0));
@@ -191,7 +192,7 @@ $nav-height:11.76vh;
        @include transition(.8s);
        float: left;
        @include displayBox(horizontal);
-       width: 5rem;
+       width: 5 * 10vw ;
       li{
         -webkit-box-flex: 1;
         height: 10vh;
@@ -203,7 +204,7 @@ $nav-height:11.76vh;
         @include pos(r);
         span{
           color:$baseColor1;
-          font-size: .06rem;
+          font-size: .06 * 10vw ;
           bottom:0;
           @include pos(a);
           left: 38%;
@@ -213,20 +214,20 @@ $nav-height:11.76vh;
  
 
       &:nth-of-type(2){
-          width: 1.2rem;
+          width: 1.2 * 10vw ;
           float: right;
       }
     }
 
     .fly-menu-bar{
-        $barWidth : 1.4rem;
+        $barWidth : 1.4 * 10vw ;
         @include pos(a);
         width: $barWidth;
         left: 50%;
         top: 99%;
         margin-left: - $barWidth / 2;
         text-align: center;
-        font-size:.06rem;
+        font-size:.06 * 10vw ;
         background:inherit;
         @include br(10px);
         div:nth-of-type(2){
@@ -235,15 +236,15 @@ $nav-height:11.76vh;
           @include transform(rotate(90deg) translateY(-$barWidth/2 + .04) scaleY(2));
         }
         .fly-sure{
-          height: .15rem;
-          font-size:.08rem;
+          height: .15 * 10vw ;
+          font-size:.08 * 10vw ;
         }
     }
   }
   .fly-close-drag{
     @include pos(a);
-    left: 1rem;
-    padding: .05rem;
+    left: 1 * 10vw ;
+    padding: .05 * 10vw ;
     @include br(5px);
     z-index:$maxIndex+2;
     color:#fff;
@@ -259,7 +260,7 @@ $nav-height:11.76vh;
   }
   .fly-cook-book-C{
 
-      width: 10rem;
+      width: 10 * 10vw ;
       height: 42vh;
       background:#f9e0ca;
       @include pos(r);
@@ -288,21 +289,21 @@ $nav-height:11.76vh;
 
         .fly-city-C{
           width:80%;
-          margin:.1rem auto;
-          height: .15rem;
-          line-height: .15rem;
+          margin:.1 * 10vw  auto;
+          height: .15 * 10vw ;
+          line-height: .15 * 10vw ;
         }
 
         .fly-city-scroll-C{
           width:88%;
-          height: .15rem;
+          height: .15 * 10vw ;
           
           float: left;
           overflow: hidden;
           
           ul{
             li{
-              width: .6rem;
+              width: .6 * 10vw ;
               float: left;  
               text-align: center
             }
@@ -320,7 +321,7 @@ $nav-height:11.76vh;
 
       .fly-food{
 
-          width: 3.4rem;
+          width: 3.4 * 10vw ;
           @include pos(r);
         
         .fly-food-item{
@@ -341,14 +342,14 @@ $nav-height:11.76vh;
               z-index: -1;
 
               height: 100%;
-              box-shadow:0 0 .3rem rgba(232,158,121,.4);
+              box-shadow:0 0 .3 * 10vw  rgba(232,158,121,.4);
             }
             span.tag{
               @include pos(a);
-              width: .1rem;
+              width: .1 * 10vw ;
               z-index: 6;
-              font-size:.08rem;
-              padding: .05rem .04rem .05rem .05rem;
+              font-size:.08 * 10vw ;
+              padding: .05 * 10vw  .04 * 10vw  .05 * 10vw  .05 * 10vw ;
               top: 40%;
               @include br(12px);
               background:#fff;
@@ -384,11 +385,11 @@ $nav-height:11.76vh;
                border-bottom: 1px solid #ccc;
                li{
                  -webkit-box-flex:1;
-                 $padding:.12rem;
-                 padding: $padding - .03rem $padding .04rem $padding;
+                 $padding:.12 * 10vw ;
+                 padding: $padding - .03 * 10vw  $padding .04 * 10vw  $padding;
                  box-sizing:border-content;
                  img{
-                   height: .2rem;
+                   height: .2 * 10vw ;
                    width: auto;
                  }
                  span{
@@ -399,7 +400,7 @@ $nav-height:11.76vh;
 
             .fly-time-C{//时间
                 width: 90%;
-                margin: .1rem auto;
+                margin: .1 * 10vw  auto;
                 @include displayBox(horizontal);
 
                 height: 15vh;
@@ -416,7 +417,7 @@ $nav-height:11.76vh;
                 }
                 h1{
                   font-weight: normal;
-                  font-size: .1rem;
+                  font-size: .1 * 10vw ;
                   color:#e29978;
                   height: 2vh;
                   line-height: 2vh;
@@ -427,7 +428,7 @@ $nav-height:11.76vh;
                   margin-top: 1vh;
 
                   overflow: hidden;
-                  font-size:.06rem;
+                  font-size:.06 * 10vw ;
                   li{
                     float:left;
                     margin: 10px;
@@ -453,12 +454,12 @@ $nav-height:11.76vh;
         } 
       }
       .fly-cook-list{
-          width: 3.82rem;
-          left: 3.4rem;
+          width: 3.82 * 10vw ;
+          left: 3.4 * 10vw ;
       }
       .fly-cook-detail{
-        width: 2.78rem;
-        left: 7.22rem;
+        width: 2.78 * 10vw ;
+        left: 7.22 * 10vw ;
       }
   }
 }
@@ -471,13 +472,13 @@ $nav-height:11.76vh;
   -webkit-box-align:start;
 
   li.fly-operator-item{
-    width: 2.9rem;
+    width: 2.9 * 10vw ;
     height: 100%;
     &:nth-of-type(2){
-      width: 3.4rem;
+      width: 3.4 * 10vw ;
     }
     &:nth-of-type(3){
-      width: 3.4rem; 
+      width: 3.4 * 10vw ; 
     }
 
   }
@@ -538,12 +539,12 @@ $nav-height:11.76vh;
          &:after{
           content:"√";
           float: right;
-          margin-right: .1rem;
+          margin-right: .1 * 10vw ;
          }
       }
       li.fly-city-item{
-        height: .2rem;
-        line-height: .2rem;
+        height: .2 * 10vw ;
+        line-height: .2 * 10vw ;
         text-indent: .5em;
         border-bottom:1px solid #ccc;
       }
@@ -551,7 +552,7 @@ $nav-height:11.76vh;
      .fly-hotcity-spell{
         width: 8%;
         li{
-          font-size:.0478rem;
+          font-size:.0478 * 10vw ;
           text-align: center;
         }
      }

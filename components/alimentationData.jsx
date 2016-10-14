@@ -392,7 +392,7 @@ import { PublicShadow } from './public-shadow.jsx';
 			this.stage.addChild(shapeContainer);		
 
 			for(var i =0;i<8;i++){
-
+			
 				let sector = new Sector({
 						x:width/2,
 						y:height/2,

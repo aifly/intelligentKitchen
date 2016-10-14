@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import $ from 'jquery';
 import './assets/css/index.css';
-
+import $ from 'jquery';
 import Obserable from './libs/Obserable.js';
 /*import './libs/nav.js';
 import './libs/cookbook.js';*/
@@ -34,6 +33,7 @@ class App extends React.Component{
 		
 		return (
 			<div>
+				<div style={{textAlign:'center',color:'#fff',fontSize:'.14rem'}}>{this.state.width}</div>
 				<FlyNav {...data}></FlyNav>
 				
 				<ul className="fly-cook-book-C">
@@ -49,6 +49,14 @@ class App extends React.Component{
 				</ul>
 			</div>
 		)
+	}
+	componentDidMount() {
+	 
+	    //$('html').css({fontSize:384});
+		/*this.setState({
+			width:$('html').css('fontSize') +'----'
+		});*/
+
 	}
 }
 
@@ -69,7 +77,8 @@ let util = {
 		}
 	},
 	setDefault(width = data.viewWidth,height = data.viewHeigth){
-		$('html').css({fontSize:width/10});
+		//$('html').css({ fontSize:width / 10});
+
 	}
 };
 

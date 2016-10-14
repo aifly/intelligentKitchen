@@ -19,7 +19,7 @@ export default class FlyFoodsPlace extends Component {
 	  	},
 	  	plateSMStyle:{
 	  		left:'95%',
-	  		top:'1rem',
+	  		top:'10vw',
 	  		background:'url(./assets/images/plat.png) no-repeat center center',
 	  		backgroundSize:'contain'
 	  	}

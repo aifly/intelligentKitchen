@@ -1,21 +1,23 @@
 .fly-plate-C {
   position: relative;
-  height: 2.67rem !important; }
+  height: 26.7vw !important; }
   .fly-plate-C .fly-plate-demo {
     position: absolute;
-    width: 0.9rem;
-    height: 0.9rem;
+    width: 9vw;
+    height: 9vw;
     background: #fff;
     border-radius: 50%; }
   .fly-plate-C .fly-plate-item {
     position: absolute;
-    width: 0.9rem;
-    height: 0.9rem;
+    width: 9vw;
+    height: 9vw;
     background: #fff;
     z-index: 10;
     border-radius: 50%;
     -webkit-transition: -webkit-transform 0.5s;
+    transition: -webkit-transform 0.5s;
     transition: transform 0.5s;
+    transition: transform 0.5s, -webkit-transform 0.5s;
     -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);
     transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01); }
     .fly-plate-C .fly-plate-item.sm {
@@ -32,8 +34,8 @@
     position: absolute;
     right: 0;
     bottom: 0;
-    width: .8rem;
-    height: .8rem;
+    width: 8vw;
+    height: 8vw;
     border-radius: 50%;
     overflow: hidden;
     -webkit-transform-style: preserve-3d;
@@ -51,7 +53,9 @@
       background: #fff;
       z-index: -1;
       -webkit-transition: -webkit-transform 0.4s;
-      transition: transform 0.4s; }
+      transition: -webkit-transform 0.4s;
+      transition: transform 0.4s;
+      transition: transform 0.4s, -webkit-transform 0.4s; }
       .fly-plate-C .fly-broken-plate div:nth-of-type(2) {
         left: 50%; }
       .fly-plate-C .fly-broken-plate div:nth-of-type(3) {
@@ -63,22 +67,24 @@
       opacity: 1;
       z-index: 1; }
       .fly-plate-C .fly-broken-plate.active div {
-        -webkit-transform: translate3d(-0.1rem, -0.1rem, 3rem);
-        transform: translate3d(-0.1rem, -0.1rem, 3rem); }
+        -webkit-transform: translate3d(-1vw, -1vw, 30vw);
+        transform: translate3d(-1vw, -1vw, 30vw); }
         .fly-plate-C .fly-broken-plate.active div:nth-of-type(2) {
-          -webkit-transform: translate3d(0.1rem, -0.1rem, 3rem);
-          transform: translate3d(0.1rem, -0.1rem, 3rem); }
+          -webkit-transform: translate3d(1vw, -1vw, 30vw);
+          transform: translate3d(1vw, -1vw, 30vw); }
         .fly-plate-C .fly-broken-plate.active div:nth-of-type(3) {
-          -webkit-transform: translate3d(-0.1rem, 0.1rem, 3rem);
-          transform: translate3d(-0.1rem, 0.1rem, 3rem); }
+          -webkit-transform: translate3d(-1vw, 1vw, 30vw);
+          transform: translate3d(-1vw, 1vw, 30vw); }
         .fly-plate-C .fly-broken-plate.active div:nth-of-type(4) {
-          -webkit-transform: translate3d(0.1rem, 0.1rem, 3rem);
-          transform: translate3d(0.1rem, 0.1rem, 3rem); }
+          -webkit-transform: translate3d(1vw, 1vw, 30vw);
+          transform: translate3d(1vw, 1vw, 30vw); }
   .fly-plate-C .fly-draw-trash-C {
     z-index: -1;
     opacity: 0;
     -webkit-transition: -webkit-transform 1s;
+    transition: -webkit-transform 1s;
     transition: transform 1s;
+    transition: transform 1s, -webkit-transform 1s;
     -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);
     transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);
     -webkit-transform: scale(0.5);
@@ -87,8 +93,8 @@
     transform-origin: right bottom;
     right: 0;
     bottom: 0;
-    width: 1rem;
-    height: 1.2rem;
+    width: 10vw;
+    height: 12vw;
     position: absolute;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
@@ -101,7 +107,7 @@
       -webkit-transform: scale(0.7);
       transform: scale(0.7); }
       .fly-plate-C .fly-draw-trash-C.begin-trashed .trash-header {
-        border: 0.1rem solid #d9534f; }
+        border: 1vw solid #d9534f; }
       .fly-plate-C .fly-draw-trash-C.begin-trashed .hat {
         -webkit-transition: 0.2s;
         transition: 0.2s; }
@@ -113,68 +119,68 @@
       .fly-plate-C .fly-draw-trash-C.begin-trashed .trash-header-bar {
         background: #d9534f; }
       .fly-plate-C .fly-draw-trash-C.begin-trashed .trash-body {
-        border: 0.12rem solid #d9534f; }
+        border: 1.2vw solid #d9534f; }
       .fly-plate-C .fly-draw-trash-C.begin-trashed .trash-line {
-        border: 0.025rem solid #d9534f; }
+        border: 0.25vw solid #d9534f; }
       .fly-plate-C .fly-draw-trash-C.begin-trashed .trash-line1 {
-        border: 0.04rem solid #d9534f; }
+        border: 0.4vw solid #d9534f; }
       .fly-plate-C .fly-draw-trash-C.begin-trashed .trash-line2 {
-        border: 0.04rem solid #d9534f; }
+        border: 0.4vw solid #d9534f; }
     .fly-plate-C .fly-draw-trash-C .trash-header {
       width: 20%;
-      height: .05rem;
-      border: 0.1rem solid #fff;
-      border-radius: 0.12rem;
+      height: 0.5vw;
+      border: 1vw solid #fff;
+      border-radius: 1.2vw;
       left: 30%;
       position: absolute; }
     .fly-plate-C .fly-draw-trash-C .trash-header-bar {
       width: 100%;
       position: absolute;
       left: 0;
-      height: .1rem;
-      border-radius: 0.1rem;
+      height: 1vw;
+      border-radius: 1vw;
       background: #fff;
-      top: .15rem; }
+      top: 1.5vw; }
     .fly-plate-C .fly-draw-trash-C .trash-body {
       width: 86%;
-      height: 1.4rem;
+      height: 14vw;
       position: absolute;
-      top: .15rem;
+      top: 1.5vw;
       left: 7%;
       -webkit-transform-origin: top;
       transform-origin: top;
       -webkit-transform: rotateX(-35deg);
       transform: rotateX(-35deg);
-      border-bottom-left-radius: .2rem;
-      border-bottom-right-radius: .2rem;
-      border: 0.12rem solid #fff;
+      border-bottom-left-radius: 2vw;
+      border-bottom-right-radius: 2vw;
+      border: 1.2vw solid #fff;
       box-sizing: border-box; }
     .fly-plate-C .fly-draw-trash-C .trash-line {
       width: 40%;
       height: 0;
       position: absolute;
       left: 28%;
-      border-radius: 0.1rem;
-      border: 0.025rem solid #fff;
-      margin-top: .35rem; }
+      border-radius: 1vw;
+      border: 0.25vw solid #fff;
+      margin-top: 3.5vw; }
     .fly-plate-C .fly-draw-trash-C .trash-line1 {
       width: 0;
-      height: .4rem;
+      height: 4vw;
       position: absolute;
       left: 34%;
-      border-radius: 0.1rem;
-      border: 0.04rem solid #fff;
-      margin-top: .5rem;
+      border-radius: 1vw;
+      border: 0.4vw solid #fff;
+      margin-top: 5vw;
       -webkit-transform: rotate(-5deg);
       transform: rotate(-5deg); }
     .fly-plate-C .fly-draw-trash-C .trash-line2 {
       width: 0;
-      height: .4rem;
+      height: 4vw;
       position: absolute;
       left: 58%;
-      border-radius: 0.1rem;
-      border: 0.04rem solid #fff;
-      margin-top: .5rem;
+      border-radius: 1vw;
+      border: 0.4vw solid #fff;
+      margin-top: 5vw;
       -webkit-transform: rotate(5deg);
       transform: rotate(5deg); }
   .fly-plate-C .fly-grid-C {
@@ -182,7 +188,7 @@
     height: 100%; }
     .fly-plate-C .fly-grid-C li.fly-grid {
       width: 33%;
-      height: .9rem;
+      height: 9vw;
       float: left; }
 
 /*# sourceMappingURL=foodsplace.css.map */

@@ -18,13 +18,13 @@ img {
   height: auto; }
 
 .fly-back {
-  height: .2rem; }
+  height: 2vw; }
   .fly-back span {
-    margin-left: .1rem;
+    margin-left: 1vw;
     text-align: left;
-    width: .2rem;
+    width: 2vw;
     height: 4px;
-    margin-top: .1rem;
+    margin-top: 1vw;
     background: #d1bdbd;
     border-radius: 4px;
     position: relative; }
@@ -33,10 +33,10 @@ img {
       position: absolute;
       left: 0;
       top: 0;
-      height: .05rem;
+      height: 0.5vw;
       width: 2px;
       background: inherit;
-      top: -.05rem;
+      top: -0.5vw;
       border-radius: 4px;
       border: 1px solid #d1bdbd;
       -webkit-transform: rotate(45deg);

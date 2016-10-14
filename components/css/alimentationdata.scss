@@ -124,15 +124,15 @@ $maxIndex:9999;
 .fly-alimentation-data{
     @include displayBox(vertical);
     @include pos(r);
-    width: 3.2rem !important;
+    width: 3.2 * 10vw !important;
    div.fly-data-C{
-      height: 2.4rem;
+      height: 2.4 * 10vw;
       width:100%;
       
       canvas{
         @include pos(a); 
         left: 3%;
-       // top:-.15rem;
+       // top:-.15 * 10vw;
       }
 
 
@@ -140,12 +140,12 @@ $maxIndex:9999;
   
   div.fly-all{
      @include pos(a);
-     left: .1rem;
+     left: .1 * 10vw;
      border:2px solid #fff;
      @include br(30px);
-      height: .2rem;
-      line-height: .2rem;
-      width: .5rem;
+      height: .2 * 10vw;
+      line-height: .2 * 10vw;
+      width: .5 * 10vw;
       text-align: center;
      color:#fff;
   }
@@ -153,17 +153,17 @@ $maxIndex:9999;
    div.fly-m-name{
      width: 74%;
      @include pos(a);
-     right: .2rem;
+     right: .2 * 10vw;
      overflow: hidden;
      ul{
 
      }
      li{
-       width: .5rem;
+       width: .5 * 10vw;
        float: left;
        color:#fff;
-       height: .2rem;
-       line-height: .2rem;
+       height: .2 * 10vw;
+       line-height: .2 * 10vw;
        text-align: center;
        border:2px solid #fff;
        @include br(30px);
@@ -193,7 +193,7 @@ $maxIndex:9999;
           -webkit-animation: blur 1s linear infinite alternate;
           @include pos(a);
           width: 100%;
-          box-shadow:0 0 .1rem rgba(232,158,121,.5);
+          box-shadow:0 0 .1 * 10vw rgba(232,158,121,.5);
           @include br(30px);
           height: 100%;
           left: 0;
@@ -207,7 +207,7 @@ $maxIndex:9999;
           content:'';
            @include pos(a);
           width: 100%;
-          box-shadow:0 0 .1rem rgba(232,158,121,.7);
+          box-shadow:0 0 .1 * 10vw rgba(232,158,121,.7);
           @include br(30px);
           height: 100%;
           left: 0;
@@ -218,8 +218,8 @@ $maxIndex:9999;
 
 
    .fly-circle{
-      width: .1rem;
-      height: .1rem;
+      width: .1 * 10vw;
+      height: .1 * 10vw;
       background:#fff;
       @include br(50%);
       @include pos(a);
@@ -238,7 +238,7 @@ $maxIndex:9999;
       -webkit-filter: blur(0px);
       &:before{
         content:'';
-        box-shadow:0 0 .2rem rgba(232,158,121,.2),0 0 .2rem rgba(232,158,121,.2) inset;
+        box-shadow:0 0 .2 * 10vw rgba(232,158,121,.2),0 0 .2 * 10vw rgba(232,158,121,.2) inset;
         @include pos(a);
         left: 0;
         top: 0;

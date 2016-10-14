@@ -120,7 +120,7 @@ $baseColor:#d1bdbd;
 $baseColor1:#e89e79;
 $maxIndex:9999;
 
-$foodlist-height:1.9rem;
+$foodlist-height:1.9 * 10vw;
 
 .foodlist{
 	margin:0 auto;
@@ -135,7 +135,7 @@ $foodlist-height:1.9rem;
       li{
         margin:0 auto;
         text-align: center;
-        $size:.3rem;
+        $size:.3 * 10vw;
         height: $size;
         width: $size;
         @include br(50%);
@@ -160,7 +160,7 @@ $foodlist-height:1.9rem;
   .foodlist-content{
 
     .fly-play-ico{
-       bottom:.15rem;
+       bottom:.15 * 10vw;
     }
     &.no-data:before{
       content:'暂无数据';
@@ -171,19 +171,19 @@ $foodlist-height:1.9rem;
     }
 
     overflow: hidden;
-    height:1.9rem;
+    height:1.9 * 10vw;
     width:100 - $width - 1;
     ul{
-      height: 1.8rem;
-      margin-top: .045rem;
-      //margin-left: .04rem;
+      height: 1.8 * 10vw;
+      margin-top: .045 * 10vw;
+      //margin-left: .04 * 10vw;
     }
     
     li{
   
-      width:.675rem;
+      width:.675 * 10vw;
       float: left;
-      height:.9rem;
+      height:.9 * 10vw;
        padding:0;
       @include transform(scale(.90));
       box-sizing:border-box;
@@ -208,27 +208,27 @@ $foodlist-height:1.9rem;
         @include pos(r);
       }
       span{
-       font-size:.06rem;
+       font-size:.06 * 10vw;
         bottom:0;
         display:block;
         width:100%;
         @include pos(r);
         color:#cfbbba;
-        top: .75rem;
+        top: .75 * 10vw;
         text-align: center;
-        height: .15rem;
-        line-height: .15rem;
+        height: .15 * 10vw;
+        line-height: .15 * 10vw;
         background:rgba(255,255,255,1);
          border-bottom-left-radius:20px;
         border-bottom-right-radius:20px;
       }
       &.food-top{
-        margin-top: 0.01rem;  
+        margin-top: 0.01 * 10vw;  
       }
 
          &:before{
           content:'';
-          box-shadow:0 0 .2rem rgba(232, 158, 121,.4);
+          box-shadow:0 0 .2 * 10vw rgba(232, 158, 121,.4);
           @include br(20px);
           @include pos(a);
           width: 100%;
@@ -241,7 +241,7 @@ $foodlist-height:1.9rem;
   }
 
 	width:86%;
-	margin-left: .1rem;
+	margin-left: .1 * 10vw;
 	height:$foodlist-height;
 	overflow:hidden;
 	float:left;
@@ -249,7 +249,7 @@ $foodlist-height:1.9rem;
 	@include pos(r);
   &:before{
     content:'';
-    box-shadow:0 0 .3rem rgba(232,158,121,.2);
+    box-shadow:0 0 .3 * 10vw rgba(232,158,121,.2);
     width: 100%;
     height: 100%;
     left: 0;
@@ -261,7 +261,7 @@ $foodlist-height:1.9rem;
 	float:left;
 	height:$foodlist-height / 4;
 	line-height: $foodlist-height / 4;
-	margin-top: .66rem;
+	margin-top: .66 * 10vw;
 	padding:0 20px;
 	@include transform(scaleY(2.4));
 	//margin-top: $foodlist-height /2 ;

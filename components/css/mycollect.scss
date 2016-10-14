@@ -120,7 +120,7 @@ $baseColor:#d1bdbd;
 $baseColor1:#e89e79;
 $maxIndex:9999;
 
-$foodlist-height:1.6rem;
+$foodlist-height:1.6 * 10vw;
 
 /*我的收藏组件*/
 
@@ -131,15 +131,15 @@ $foodlist-height:1.6rem;
   }
   &.active{
     z-index: 3;
-    left: .02rem;
+    left: .02 * 10vw;
   }
-  left: .22rem;
+  left: .22 * 10vw;
   width: 88%;
-  height: 1.9rem;
+  height: 1.9 * 10vw;
   @include pos(a);
   
   &:before{
-    box-shadow:0 0 .3rem rgba(232,158,121,.6);
+    box-shadow:0 0 .3 * 10vw rgba(232,158,121,.6);
     @include pos(a);
     content:'';
     left: 0;
@@ -157,26 +157,26 @@ $foodlist-height:1.6rem;
   span.tag{
     
     @include pos(a);
-    right: -.2rem;
+    right: -.2 * 10vw;
     z-index: 0;
     top:50%;
     @include br(20px);
-    width: .1rem;
+    width: .1 * 10vw;
     background: #fFF;
     padding:20px 20px 20px 40px;
-    font-size: .08rem;
+    font-size: .08 * 10vw;
   }
 
   .foodlist-C{
-    height: 1.9rem;
+    height: 1.9 * 10vw;
   }
 
   .foodlist-content{
       width: 92%;
-      height: 1.9rem;
+      height: 1.9 * 10vw;
     .fly-play-ico{
-       bottom:.18rem;
-       right: .04rem;
+       bottom:.18 * 10vw;
+       right: .04 * 10vw;
     }
     &.no-data:before{
       content:'暂无数据';
@@ -190,9 +190,9 @@ $foodlist-height:1.6rem;
     width:100% !important;
 
    ul{
-     margin-top: .06rem;;
-     margin-left: .12rem;
-     height: 1.8rem;
+     margin-top: .06 * 10vw;;
+     margin-left: .12 * 10vw;
+     height: 1.8 * 10vw;
      width: 100%;
      @include br(20px);
      @include pos(r);
@@ -200,9 +200,9 @@ $foodlist-height:1.6rem;
     
     li{
 
-      width:.675rem;
+      width:.675 * 10vw;
       float: left;
-      height:.9rem;
+      height:.9 * 10vw;
       box-sizing:border-box;
       @include pos(r);
       padding:0;
@@ -224,7 +224,7 @@ $foodlist-height:1.6rem;
         
      &:before{
         content:'';
-        box-shadow:0 0 .2rem rgba(232, 158, 121,.4);
+        box-shadow:0 0 .2 * 10vw rgba(232, 158, 121,.4);
         @include br(20px);
         @include pos(a);
         width: 100%;
@@ -242,21 +242,21 @@ $foodlist-height:1.6rem;
        
       }
       span{
-        font-size:.06rem;
+        font-size:.06 * 10vw;
         bottom:0;
         display:block;
         width:100%;
         @include pos(r);
         color:#cfbbba;
-        top: .75rem;
+        top: .75 * 10vw;
         text-align: center;
-        height: .15rem;
-        line-height: .15rem;
+        height: .15 * 10vw;
+        line-height: .15 * 10vw;
         background:rgba(255,255,255,1);
        
       }
       &.food-top{
-        margin-top: 0rem;  
+        margin-top: 0 * 10vw;  
       }
 
 

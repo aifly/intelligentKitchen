@@ -123,14 +123,14 @@ $fontColor:#a16d56;
     .fly-close{
        display: block;
         @include pos(a);
-        $size:.15rem;
+        $size:.15 * 10vw;
         width: $size;
         height: $size;
         line-height: $size;
         text-align: center;
         z-index: 100;
         background: #fff;
-        right:.1rem;
+        right:.1 * 10vw;
         top : -$size /1.8;
         @include br(50%);
         &:after,&:before{
@@ -147,11 +147,11 @@ $fontColor:#a16d56;
         }
     }
 
-    $width:2.5rem;
+    $width:2.5 * 10vw;
     background:#727171;
     width: $width;
     display: block;
-    margin:.18rem auto;
+    margin:.18 * 10vw;auto;
     @include br(30px);
     section{
        @include pos(r);
@@ -168,22 +168,22 @@ $fontColor:#a16d56;
           border-top-left-radius:30px;
        }
         h1{
-          height: .25rem;
+          height: .25 * 10vw;
         }
         .fly-video-operator{
            width:80%;
-           margin: .1rem auto;
+           margin: .1 * 10vw;auto;
            @include displayBox(horizontal);
            div{
-             width: .25rem;
-             margin: 0 .1rem;
+             width: .25 * 10vw;
+             margin: 0 .1 * 10vw;
            }
         }
        .fly-video-list-scroll{
           width: 90%;
           margin:0 auto;
           overflow: hidden;
-          height: .8rem;
+          height: .8 * 10vw;
           ul{
              @include displayBox(horizontal);
           }
@@ -195,12 +195,12 @@ $fontColor:#a16d56;
             }
           }
           li{
-             width: .4rem;
-             height: .6rem;
+             width: .4 * 10vw;
+             height: .6 * 10vw;
              @include pos(r);
              margin: 0 10px;
              img{
-               width: .13rem;
+               width: .13 * 10vw;
                @include pos(a);
                left: 50%;
                top: 50%;
@@ -212,7 +212,7 @@ $fontColor:#a16d56;
                 display: block;
                 text-align: center;
                 width: 100%;
-                font-size: .08rem;
+                font-size: .08 * 10vw;
              }
 
           }
@@ -226,7 +226,7 @@ $fontColor:#a16d56;
       @include br(30px);
     }
     .fly-video-control-C{
-       height: .25rem;
+       height: .25 * 10vw;
 
        width: 100%;
        background:#fff;
@@ -237,19 +237,19 @@ $fontColor:#a16d56;
        .fly-video-scroll-C,.voice-C{
           @include pos(a);
           width: 100%;
-          height: .01rem;
+          height: .01 * 10vw;
           z-index: 100;
           background:#918986;
           .fly-video-progress{
             width: 1px;
-            height: .01rem;
+            height: .01 * 10vw;
             background:$baseColor1;
             @include transformOrigin(left);
             @include pos(a);
             left: 0;
           }
           span{
-            $size:.1rem;
+            $size:.1 * 10vw;
             width: $size;
             height: $size;
             background:#f0eeed;
@@ -262,20 +262,20 @@ $fontColor:#a16d56;
        }
        .fly-control{
           width: 90%;
-          height: .18rem;
+          height: .18 * 10vw;
           @include pos(r);
-          top: .035rem;
-          margin-left: .1rem;
+          top: .035 * 10vw;
+          margin-left: .1 * 10vw;
            @include displayBox(horizontal);
            section{
               -webkit-box-flex: 1;
-              height: .2rem;
+              height: .2 * 10vw;
            }
            .fly-voice{
              @include displayBox(horizontal);
              .voice-ico{
-                width: .12rem;
-                margin:0 .05rem;
+                width: .12 * 10vw;
+                margin:0 .05 * 10vw;
                 img{
                   display: block;
                 }
@@ -286,16 +286,16 @@ $fontColor:#a16d56;
               }
           }
           .fly-video-btns{
-            margin-left: .4rem;
+            margin-left: .4 * 10vw;
              @include displayBox(horizontal);
              .fly-prev-btn,.fly-next-btn{
                 display: inline-block;
-                width: .2rem;
+                width: .2 * 10vw;
                 @include displayBox(horizontal);
                 .prev-ico{
                     width: 0;
                     height: 0;
-                    $size:.06rem;
+                    $size:.06 * 10vw;
                     border-top:$size - .02 solid transparent;
                     border-right: $size solid #cebabb;
                     border-bottom: $size - .02 solid transparent;
@@ -306,8 +306,8 @@ $fontColor:#a16d56;
                         width: 0;
                         height: 0;
                         $scale:1.5;
-                        left: 0.0134rem;
-                        top:-.026rem;
+                        left: 0.0134 * 10vw;
+                        top:-.026 * 10vw;
                         border-top:($size - .02) / $scale solid transparent;
                         border-right: $size / $scale solid #fff;
                         border-bottom: ($size - .02) / $scale solid transparent;
@@ -322,7 +322,7 @@ $fontColor:#a16d56;
           }
 
           .fly-play-btn{
-              $size:.14rem;
+              $size:.14 * 10vw;
                width: $size;
                height: $size;
                @include br(50%);
@@ -336,11 +336,11 @@ $fontColor:#a16d56;
                   border:2px solid #cebabb;
                   border-top:none;
                   border-bottom: none;
-                  top:.03rem;
-                  left: .045rem;
+                  top:.03 * 10vw;
+                  left: .045 * 10vw;
                }
                &:after{
-                  left: .085rem;
+                  left: .085 * 10vw;
                }
             &.active{
                 &:after{
@@ -349,8 +349,8 @@ $fontColor:#a16d56;
                    width: 0;
                     height: 0;
                     $scale:1.5;
-                    left: 0.05rem;
-                    $size:.08rem;
+                    left: 0.05 * 10vw;
+                    $size:.08 * 10vw;
                     border-top:($size - .02) / $scale solid transparent;
                     border-left: $size / $scale solid #cebabb;
                     border-bottom: ($size - .02) / $scale solid transparent;
@@ -363,9 +363,9 @@ $fontColor:#a16d56;
           }
 
           .fly-video-time{
-             line-height: .2rem;
+             line-height: .2 * 10vw;
              text-align: center;
-             font-size:.08rem;
+             font-size:.08 * 10vw;
           }
        }
     }

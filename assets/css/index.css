@@ -138,12 +138,13 @@ img {
 body {
   background: #EACFBB;
   overflow: hidden;
-  font-size: .1rem;
+  font-size: 1vw;
   font-family: 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif;
   color: #d1bdbd; }
 
 #fly-main {
-  width: 10rem; }
+  width: 100vw;
+  overflow: hidden; }
   #fly-main .fly-nav-mask {
     position: absolute;
     height: 88.24vh;
@@ -158,13 +159,15 @@ body {
       -webkit-transform: translate3d(0, 0, 0);
       transform: translate3d(0, 0, 0); }
   #fly-main .fly-nav {
-    width: 10rem;
+    width: 100vw;
     height: 11.76vh;
     background: #fff9f3;
     z-index: 9999;
     position: absolute;
-    -webkit-transition: -webkit-transform 0.5s;
-    transition: transform 0.5s;
+    -webkit-transition: -webkit-transform 0.2s;
+    transition: -webkit-transform 0.2s;
+    transition: transform 0.2s;
+    transition: transform 0.2s, -webkit-transform 0.2s;
     -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);
     transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01); }
     #fly-main .fly-nav.active {
@@ -183,7 +186,7 @@ body {
       -webkit-box-align: center;
       -webkit-box-pack: center;
       -webkit-box-orient: horizontal;
-      width: 5rem; }
+      width: 50vw; }
       #fly-main .fly-nav ul.show {
         opacity: 1;
         -webkit-transform: translate3d(0, 0, 0);
@@ -197,34 +200,34 @@ body {
           margin-top: 1vh; }
         #fly-main .fly-nav ul li span {
           color: #e89e79;
-          font-size: .06rem;
+          font-size: 0.6vw;
           bottom: 0;
           position: absolute;
           left: 38%; }
       #fly-main .fly-nav ul:nth-of-type(2) {
-        width: 1.2rem;
+        width: 12vw;
         float: right; }
     #fly-main .fly-nav .fly-menu-bar {
       position: absolute;
-      width: 1.4rem;
+      width: 14vw;
       left: 50%;
       top: 99%;
-      margin-left: -0.7rem;
+      margin-left: -7vw;
       text-align: center;
-      font-size: .06rem;
+      font-size: 0.6vw;
       background: inherit;
       border-radius: 10px; }
       #fly-main .fly-nav .fly-menu-bar div:nth-of-type(2) {
         width: 40px;
-        -webkit-transform: rotate(90deg) translateY(-0.66rem) scaleY(2);
-        transform: rotate(90deg) translateY(-0.66rem) scaleY(2); }
+        -webkit-transform: rotate(90deg) translateY(-6.96vw) scaleY(2);
+        transform: rotate(90deg) translateY(-6.96vw) scaleY(2); }
       #fly-main .fly-nav .fly-menu-bar .fly-sure {
-        height: .15rem;
-        font-size: .08rem; }
+        height: 1.5vw;
+        font-size: 0.8vw; }
   #fly-main .fly-close-drag {
     position: absolute;
-    left: 1rem;
-    padding: .05rem;
+    left: 10vw;
+    padding: 0.5vw;
     border-radius: 5px;
     z-index: 10001;
     color: #fff;
@@ -233,14 +236,16 @@ body {
     -webkit-transform: translate3d(0, -100%, 0);
     transform: translate3d(0, -100%, 0);
     -webkit-transition: -webkit-transform 0.3s;
+    transition: -webkit-transform 0.3s;
     transition: transform 0.3s;
+    transition: transform 0.3s, -webkit-transform 0.3s;
     -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);
     transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01); }
     #fly-main .fly-close-drag.active {
       -webkit-transform: translate3d(0, 0, 0);
       transform: translate3d(0, 0, 0); }
   #fly-main .fly-cook-book-C {
-    width: 10rem;
+    width: 100vw;
     height: 42vh;
     background: #f9e0ca;
     position: relative;
@@ -270,16 +275,16 @@ body {
         animation-delay: 300ms; }
       #fly-main .fly-cook-book-C > li .fly-city-C {
         width: 80%;
-        margin: .1rem auto;
-        height: .15rem;
-        line-height: .15rem; }
+        margin: 1vw auto;
+        height: 1.5vw;
+        line-height: 1.5vw; }
       #fly-main .fly-cook-book-C > li .fly-city-scroll-C {
         width: 88%;
-        height: .15rem;
+        height: 1.5vw;
         float: left;
         overflow: hidden; }
         #fly-main .fly-cook-book-C > li .fly-city-scroll-C ul li {
-          width: .6rem;
+          width: 6vw;
           float: left;
           text-align: center; }
       #fly-main .fly-cook-book-C > li .fly-add {
@@ -288,7 +293,7 @@ body {
         height: 2vh;
         text-align: center; }
     #fly-main .fly-cook-book-C .fly-food {
-      width: 3.4rem;
+      width: 34vw;
       position: relative; }
       #fly-main .fly-cook-book-C .fly-food .fly-food-item {
         width: 70%;
@@ -307,13 +312,13 @@ body {
           width: 100%;
           z-index: -1;
           height: 100%;
-          box-shadow: 0 0 0.3rem rgba(232, 158, 121, 0.4); }
+          box-shadow: 0 0 3vw rgba(232, 158, 121, 0.4); }
         #fly-main .fly-cook-book-C .fly-food .fly-food-item span.tag {
           position: absolute;
-          width: .1rem;
+          width: 1vw;
           z-index: 6;
-          font-size: .08rem;
-          padding: .05rem .04rem .05rem .05rem;
+          font-size: 0.8vw;
+          padding: 0.5vw 0.4vw 0.5vw 0.5vw;
           top: 40%;
           border-radius: 12px;
           background: #fff;
@@ -339,16 +344,16 @@ body {
         border-bottom: 1px solid #ccc; }
         #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-weather-C li {
           -webkit-box-flex: 1;
-          padding: 0.09rem 0.12rem 0.04rem 0.12rem;
+          padding: 0.9vw 1.2vw 0.4vw 1.2vw;
           box-sizing: border-content; }
           #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-weather-C li img {
-            height: .2rem;
+            height: 2vw;
             width: auto; }
           #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-weather-C li span {
             margin-left: -10px; }
       #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C {
         width: 90%;
-        margin: .1rem auto;
+        margin: 1vw auto;
         display: -webkit-box;
         -webkit-box-align: center;
         -webkit-box-pack: center;
@@ -364,7 +369,7 @@ body {
           padding-left: 2%; }
         #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C h1 {
           font-weight: normal;
-          font-size: .1rem;
+          font-size: 1vw;
           color: #e29978;
           height: 2vh;
           line-height: 2vh; }
@@ -373,7 +378,7 @@ body {
           width: 90%;
           margin-top: 1vh;
           overflow: hidden;
-          font-size: .06rem; }
+          font-size: 0.6vw; }
           #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C .fly-rec-food-container li {
             float: left;
             margin: 10px;
@@ -385,11 +390,11 @@ body {
       #fly-main .fly-cook-book-C .fly-food .fly-rec-menu span.tag {
         top: 35%; }
     #fly-main .fly-cook-book-C .fly-cook-list {
-      width: 3.82rem;
-      left: 3.4rem; }
+      width: 38.2vw;
+      left: 34vw; }
     #fly-main .fly-cook-book-C .fly-cook-detail {
-      width: 2.78rem;
-      left: 7.22rem; }
+      width: 27.8vw;
+      left: 72.2vw; }
 
 .fly-main-operator-C {
   display: -webkit-box;
@@ -398,12 +403,12 @@ body {
   -webkit-box-orient: horizontal;
   -webkit-box-align: start; }
   .fly-main-operator-C li.fly-operator-item {
-    width: 2.9rem;
+    width: 29vw;
     height: 100%; }
     .fly-main-operator-C li.fly-operator-item:nth-of-type(2) {
-      width: 3.4rem; }
+      width: 34vw; }
     .fly-main-operator-C li.fly-operator-item:nth-of-type(3) {
-      width: 3.4rem; }
+      width: 34vw; }
 
 .fly-hotcity-list {
   -webkit-transform: translate3d(-100%, 0, 0);
@@ -455,16 +460,16 @@ body {
       .fly-hotcity-list .fly-hotcity-C .fly-hotcity-scroll li.active:after {
         content: "√";
         float: right;
-        margin-right: .1rem; }
+        margin-right: 1vw; }
       .fly-hotcity-list .fly-hotcity-C .fly-hotcity-scroll li.fly-city-item {
-        height: .2rem;
-        line-height: .2rem;
+        height: 2vw;
+        line-height: 2vw;
         text-indent: .5em;
         border-bottom: 1px solid #ccc; }
     .fly-hotcity-list .fly-hotcity-C .fly-hotcity-spell {
       width: 8%; }
       .fly-hotcity-list .fly-hotcity-C .fly-hotcity-spell li {
-        font-size: .0478rem;
+        font-size: 0.478vw;
         text-align: center; }
 
 /*# sourceMappingURL=index.css.map */

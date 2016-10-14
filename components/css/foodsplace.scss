@@ -121,8 +121,8 @@ $maxIndex:9999;
 .fly-plate-C{
   @include pos(r);
 
-  height: 2.67rem !important; 
-  $plateWidth:.9rem;
+  height: 2.67 * 10vw !important; 
+  $plateWidth:.9 * 10vw;
   .fly-plate-demo{
     @include pos(a);
     width:$plateWidth;
@@ -157,8 +157,8 @@ $maxIndex:9999;
       @include pos(a);
       right: 0;
       bottom:0;
-      width: .8rem;
-      height: .8rem;
+      width: .8 * 10vw;
+      height: .8 * 10vw;
       @include br(50%);
       overflow: hidden;
       @include transform3d();
@@ -190,15 +190,15 @@ $maxIndex:9999;
 
         z-index: 1;
         div{
-            @include transform(translate3d(-.1rem,-.1rem,3rem));   
+            @include transform(translate3d(-.1 * 10vw,-.1 * 10vw,3 * 10vw));   
             &:nth-of-type(2){
-              @include transform(translate3d(.1rem,-.1rem,3rem));   
+              @include transform(translate3d(.1 * 10vw,-.1 * 10vw,3 * 10vw));   
             }
             &:nth-of-type(3){
-              @include transform(translate3d(-.1rem,.1rem,3rem));   
+              @include transform(translate3d(-.1 * 10vw,.1 * 10vw,3 * 10vw));   
             }
             &:nth-of-type(4){
-             @include transform(translate3d(.1rem,.1rem,3rem));   
+             @include transform(translate3d(.1 * 10vw,.1 * 10vw,3 * 10vw));   
             }
             
           }
@@ -222,7 +222,7 @@ $maxIndex:9999;
       $trashColor :#d9534f;
       @include transform(scale(.7));
         .trash-header{
-           border:.1rem solid $trashColor;
+           border:.1 * 10vw solid $trashColor;
         }
         .hat{
            @include transition(.2s);
@@ -236,19 +236,19 @@ $maxIndex:9999;
            background:$trashColor;
         }
         .trash-body{
-           border:.12rem solid $trashColor;
+           border:.12 * 10vw solid $trashColor;
         }
 
         .trash-line{
-           border:.025rem solid $trashColor;
+           border:.025 * 10vw solid $trashColor;
         }
 
         .trash-line1{
-           border:.04rem solid $trashColor;
+           border:.04 * 10vw solid $trashColor;
         }
         
         .trash-line2{
-           border:.04rem solid $trashColor;
+           border:.04 * 10vw solid $trashColor;
         }
 
     }
@@ -260,16 +260,16 @@ $maxIndex:9999;
     bottom: 0;
 
     $trashColor:#fff;
-    width: 1rem;
-    height: 1.2rem;
+    width: 1 * 10vw;
+    height: 1.2 * 10vw;
     @include pos(a);
     @include transform3d();
     
     .trash-header{
        width: 20%;
-       height: .05rem;
-       border:.1rem solid $trashColor;
-       @include br(.12rem);
+       height: .05 * 10vw;
+       border:.1 * 10vw solid $trashColor;
+       @include br(.12 * 10vw);
        left: 30%;
        @include pos(a);
     }
@@ -277,25 +277,25 @@ $maxIndex:9999;
        width: 100%;
        @include pos(a);
        left: 0;
-       height: .1rem;
-       @include br(.1rem);
+       height: .1 * 10vw;
+       @include br(.1 * 10vw);
        background:$trashColor;
-       top:.15rem;
+       top:.15 * 10vw;
     }
     .trash-body{
        width: 86%;
-       height: 1.4rem;
+       height: 1.4 * 10vw;
        @include pos(a);
-       top: .15rem;
+       top: .15 * 10vw;
        left: 7%;
        @include transformOrigin(top);
        @include transform(rotateX(-35deg));
-       //@include br(.25rem);
+       //@include br(.25 * 10vw);
 
-       border-bottom-left-radius:.2rem;
-       border-bottom-right-radius:.2rem;
+       border-bottom-left-radius:.2 * 10vw;
+       border-bottom-right-radius:.2 * 10vw;
 
-       border:.12rem solid $trashColor;
+       border:.12 * 10vw solid $trashColor;
        box-sizing:border-box;
 
     }
@@ -305,30 +305,30 @@ $maxIndex:9999;
        height: 0;
        @include pos(a);
        left: 28%;
-       @include br(.1rem);
-       border:.025rem solid $trashColor;
-       margin-top: .35rem;
+       @include br(.1 * 10vw);
+       border:.025 * 10vw solid $trashColor;
+       margin-top: .35 * 10vw;
     }
 
     .trash-line1{
        width: 0;
-       height: .4rem;
+       height: .4 * 10vw;
        @include pos(a);
        left: 34%;
-       @include br(.1rem);
-       border:.04rem solid $trashColor;
-       margin-top: .5rem;
+       @include br(.1 * 10vw);
+       border:.04 * 10vw solid $trashColor;
+       margin-top: .5 * 10vw;
        @include transform(rotate(-5deg));
     }
     
     .trash-line2{
        width: 0;
-       height: .4rem;
+       height: .4 * 10vw;
        @include pos(a);
        left: 58%;
-       @include br(.1rem);
-       border:.04rem solid $trashColor;
-       margin-top: .5rem;
+       @include br(.1 * 10vw);
+       border:.04 * 10vw solid $trashColor;
+       margin-top: .5 * 10vw;
        @include transform(rotate(5deg));
     }
   }
@@ -338,7 +338,7 @@ $maxIndex:9999;
      height: 100%;
      li.fly-grid{
         width: 33%;
-        height:.9rem;
+        height:.9 * 10vw;
         float: left;
      }
    }

@@ -2,6 +2,9 @@ import React from 'react';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import {PublicMethods} from './public-methods.jsx';
 
+import {gotoActivity} from '../libs/android';
+ 
+
 injectTapEventPlugin();
 
  class FlyNav extends React.Component{
@@ -77,6 +80,7 @@ injectTapEventPlugin();
 					menu:'收藏'
 				}
 			],
+			isShow:false,
 			isEnableDrag:false
 		}
 		this.menuBarHandler = this.menuBarHandler.bind(this);
@@ -103,12 +107,12 @@ injectTapEventPlugin();
 
 
 		return (
-			<nav className="fly-nav active" ref='fly-menu'>
-				<div style={{overflow:' hidden'}}>
-					<ul ref='fly-menu-C' className='' onTouchTap={this.menuChange}>
+			<nav className={'fly-nav '+ (this.state.isShow?'':'active')} ref='fly-menu'>
+				<div style={{overflow:' hidden',height:'11.5vh'}}>
+					<ul ref='fly-menu-C' className={this.state.isShow?'show':''} onTouchTap={this.menuChange}>
 						{renderArr}
 					</ul>
-					<ul ref='fly-menu-C1' onTouchTap={this.operatorChange}>
+					<ul ref='fly-menu-C1' className={this.state.isShow?'show':''}  onTouchTap={this.operatorChange}>
 						{operatorArr}
 					</ul>
 				</div>
@@ -116,7 +120,7 @@ injectTapEventPlugin();
 					<div className={this.state.isEnableDrag ? 'fly-sure':''}>{this.state.isEnableDrag ? '确定':'下拉菜单'}</div>
 					<div>{this.state.isEnableDrag ? '':'>'}</div>
 				</div>
-				<div className="fly-nav-mask" ref="fly-nav-mask" onTouchStart={this.closeMenu}></div>
+				<div className={"fly-nav-mask "+ (this.state.isShow?'active':'') } ref="fly-nav-mask" onTouchStart={this.closeMenu}></div>
 			</nav>
 		)
 	}
@@ -138,6 +142,13 @@ injectTapEventPlugin();
 			return;
 		}
 		this.state.operatorArr[iNow].curSrc = this.state.operatorArr[iNow].curSrc === this.state.operatorArr[iNow].src? this.state.operatorArr[iNow]._src:this.state.operatorArr[iNow].src;
+		if(iNow === 0 ){
+			gotoActivity('setting');
+		}
+		else{
+			gotoActivity('openOrClose');
+		}
+		this.state.isShow = false;
 		this.forceUpdate();
 	}
 
@@ -145,9 +156,13 @@ injectTapEventPlugin();
 		e.preventDefault();
 		let {obserable} = this.props;
 		var iNow = this.getIndex(e,this.refs['fly-menu-C']);
-		if(iNow<=-1){
+
+		if(iNow<=-1 || !this.state.isShow){//this.state.isShow 表示菜单没有展开。不能执行点击事件。
+
 			return;
 		}
+
+
 		
 		switch(iNow){
 			case 0://称量
@@ -168,6 +183,11 @@ injectTapEventPlugin();
 			case 3://统计
 			case 7://无线
 				this.state.menusArr[iNow].curSrc = this.state.menusArr[iNow].curSrc === this.state.menusArr[iNow].src? this.state.menusArr[iNow]._src:this.state.menusArr[iNow].src;
+				if(iNow === 3){
+					gotoActivity('nutrition')
+				}else{
+					gotoActivity('wifi')
+				}				
 			break;
 			case 5://天气
 			case 6://时间
@@ -177,7 +197,7 @@ injectTapEventPlugin();
 				obserable.trigger({type:'showfunctionCenter',data:this.state.menusArr[5].curSrc !== this.state.menusArr[5].src});
 			break;
 		}
-
+		this.state.isShow = false;
 		this.forceUpdate();
 
 		
@@ -192,24 +212,16 @@ injectTapEventPlugin();
 			obserable.trigger({type:'closeDrag'});
 		}
 		else{
-			var menu = this.refs['fly-menu'];
-			var hasClass = menu.classList.contains('active');
-				menu.classList[hasClass?'remove':'add']('active');
-				this.refs['fly-menu-C'].classList[!hasClass?"remove":'add']('show');
-				this.refs['fly-menu-C1'].classList[!hasClass?"remove":'add']('show');
-				this.refs['fly-nav-mask'].classList[hasClass?'add':'remove']('active');
+			this.setState({
+				isShow:true
+			})
 		}
-	
-
 	}
 
 	closeMenu(){
-			
-			var menu = this.refs['fly-menu'];
-			var hasClass = menu.classList.contains('active');
-			hasClass && menu.classList.remove('active');
-			this.menuBarHandler();
-
+		this.setState({
+			isShow:false
+		});
 	}
 	componentDidMount(){
 		let {obserable} = this.props;

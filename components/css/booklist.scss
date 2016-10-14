@@ -123,10 +123,10 @@ $maxIndex:9999;
 
 
 .fly-play-ico{
-   width: .2rem;
+   width: .2 * 10vw;
    @include pos(a);
    right: 0;
-   bottom:.15rem;
+   bottom:.15 * 10vw;
 }
 
 @-webkit-keyframes move{
@@ -143,7 +143,7 @@ $maxIndex:9999;
 
 
 .fly-cook-book-item-C{
-  $width:.1rem;
+  $width:.1 * 10vw;
    span.tag{
         @include pos(a);
         background:#fff;
@@ -151,8 +151,8 @@ $maxIndex:9999;
         width:$width;
         right: -$width - .1 ;
         padding:20px 20px 20px 40px;
-        font-size: .08rem;
-        top:.1rem;
+        font-size: .08 * 10vw;
+        top:.1 * 10vw;
         @include br(14px);
    }
 }
@@ -162,7 +162,7 @@ $maxIndex:9999;
 
   &:before{
       content:'';
-      box-shadow:0 0 .3rem rgba(232,158,121,.8);
+      box-shadow:0 0 .3 * 10vw rgba(232,158,121,.8);
       @include pos(a);
       left: 0;
       top: 0;
@@ -174,12 +174,12 @@ $maxIndex:9999;
 	width:88%;
   &.active{
       z-index: 2;
-      left:-.2rem;
+      left:-.2 * 10vw;
   }
   z-index: 1;
-	height:1.9rem;
+	height:1.9 * 10vw;
 	margin:5% auto;
-	left:-.02rem;
+	left:-.02 * 10vw;
   background: #FFF;
 	@include br(30px);
 	@include pos(r);
@@ -203,7 +203,7 @@ $maxIndex:9999;
 
     }
     div{
-        $width:.3rem;
+        $width:.3 * 10vw;
         width:$width;
         height: $width;
         line-height: $width;
@@ -226,23 +226,23 @@ $maxIndex:9999;
         width: 100%;
         -webkit-box-flex: 1;
         table{
-           padding-top:.1rem;
+           padding-top:.1 * 10vw;
            width:90%;
            padding-left: 20px;
            box-sizing:border-box;
            text-align: center;
            th{
             font-weight: normal;
-            font-size: .08rem;
+            font-size: .08 * 10vw;
             border-bottom:1px solid #dcdcdc;
             padding-bottom:20px;
            }
            tbody{
               tr{
-                height: .28rem;
+                height: .28 * 10vw;
                 &:nth-of-type(1){
                   td{
-                    padding:.05rem 0;
+                    padding:.05 * 10vw 0;
                     border-bottom:1px solid #dcdcdc;
                     box-sizing:border-box;
                   }
@@ -253,9 +253,9 @@ $maxIndex:9999;
            td{
               span{
                 display:block;
-                font-size: .08rem;
+                font-size: .08 * 10vw;
                 &:nth-of-type(2){
-                  font-size: .07rem;
+                  font-size: .07 * 10vw;
                 }
               }
               @include pos(r);
@@ -265,25 +265,25 @@ $maxIndex:9999;
                 @include pos(r);
                   &:before{
                     content:'';
-                    $width:.05rem;
+                    $width:.05 * 10vw;
                     width:$width;
                     height: $width;
                     background:$baseColor1;
                     @include br(50%);
                     @include pos(a);
-                    right: .01rem;
-                    top: .01rem;  
+                    right: .01 * 10vw;
+                    top: .01 * 10vw;  
                   }
               }
 
               div{
                 background:transparent;
-                  width: .25rem;
-                  height: .25rem;
+                  width: .25 * 10vw;
+                  height: .25 * 10vw;
                   @include br(50%);
                   @include pos(a);
-                  left: .023rem;
-                  top: .05rem;
+                  left: .023 * 10vw;
+                  top: .05 * 10vw;
                }
            }
            .today{
@@ -327,7 +327,7 @@ $maxIndex:9999;
           @include pos(r);
           &:before{
             content:'';
-            //box-shadow:0 0 .3rem rgba(232,158,121,.3),0 0 .1rem rgba(232,158,121,.3) inset;
+            //box-shadow:0 0 .3 * 10vw rgba(232,158,121,.3),0 0 .1 * 10vw rgba(232,158,121,.3) inset;
             @include pos(a);
             width: 100%;
             height: 100%;
@@ -335,20 +335,20 @@ $maxIndex:9999;
             top:0;
           }
           @include br(20px);
-          margin-top: -.14rem;
+          margin-top: -.14 * 10vw;
           ul{
-            margin-top: -.01rem;
+            margin-top: -.01 * 10vw;
             li{
-              width: .731rem;
+              width: .731 * 10vw;
               @include transform(scale(.9));
               float: left;
-              height: .9rem;
+              height: .9 * 10vw;
               @include pos(r);
               box-sizing: border-box;
               div{
                 &:before{
                   content:'';
-                  box-shadow:0 0 .1rem rgba(232,158,121,.4);
+                  box-shadow:0 0 .1 * 10vw rgba(232,158,121,.4);
                   @include pos(a);
                   @include br(20px);
                   left: 0;
@@ -380,15 +380,15 @@ $maxIndex:9999;
                 box-sizing: border-box;
               }
               span{
-                 font-size:.06rem;
+                 font-size:.06 * 10vw;
                 display:block;
                 width:100%;
                 @include pos(r);
                 color:#cfbbba;
-                top: .665rem;
+                top: .665 * 10vw;
                 text-align: center;
-                height: .15rem;
-                line-height: .15rem;
+                height: .15 * 10vw;
+                line-height: .15 * 10vw;
                 background:rgba(255,255,255,1);
                  border-bottom-left-radius:20px;
                 border-bottom-right-radius:20px;

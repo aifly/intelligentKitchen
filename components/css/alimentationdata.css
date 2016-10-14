@@ -4,34 +4,34 @@
   -webkit-box-pack: center;
   -webkit-box-orient: vertical;
   position: relative;
-  width: 3.2rem !important; }
+  width: 32vw !important; }
   .fly-alimentation-data div.fly-data-C {
-    height: 2.4rem;
+    height: 24vw;
     width: 100%; }
     .fly-alimentation-data div.fly-data-C canvas {
       position: absolute;
       left: 3%; }
   .fly-alimentation-data div.fly-all {
     position: absolute;
-    left: .1rem;
+    left: 1vw;
     border: 2px solid #fff;
     border-radius: 30px;
-    height: .2rem;
-    line-height: .2rem;
-    width: .5rem;
+    height: 2vw;
+    line-height: 2vw;
+    width: 5vw;
     text-align: center;
     color: #fff; }
   .fly-alimentation-data div.fly-m-name {
     width: 74%;
     position: absolute;
-    right: .2rem;
+    right: 2vw;
     overflow: hidden; }
     .fly-alimentation-data div.fly-m-name li {
-      width: .5rem;
+      width: 5vw;
       float: left;
       color: #fff;
-      height: .2rem;
-      line-height: .2rem;
+      height: 2vw;
+      line-height: 2vw;
       text-align: center;
       border: 2px solid #fff;
       border-radius: 30px;
@@ -55,7 +55,7 @@
         -webkit-animation: blur 1s linear infinite alternate;
         position: absolute;
         width: 100%;
-        box-shadow: 0 0 0.1rem rgba(232, 158, 121, 0.5);
+        box-shadow: 0 0 1vw rgba(232, 158, 121, 0.5);
         border-radius: 30px;
         height: 100%;
         left: 0;
@@ -66,14 +66,14 @@
         content: '';
         position: absolute;
         width: 100%;
-        box-shadow: 0 0 0.1rem rgba(232, 158, 121, 0.7);
+        box-shadow: 0 0 1vw rgba(232, 158, 121, 0.7);
         border-radius: 30px;
         height: 100%;
         left: 0;
         top: 0; }
   .fly-alimentation-data .fly-circle {
-    width: .1rem;
-    height: .1rem;
+    width: 1vw;
+    height: 1vw;
     background: #fff;
     border-radius: 50%;
     position: absolute;
@@ -91,7 +91,7 @@
     z-index: -1; }
     .fly-alimentation-data .fly-circle-center:before {
       content: '';
-      box-shadow: 0 0 0.2rem rgba(232, 158, 121, 0.2), 0 0 0.2rem rgba(232, 158, 121, 0.2) inset;
+      box-shadow: 0 0 2vw rgba(232, 158, 121, 0.2), 0 0 2vw rgba(232, 158, 121, 0.2) inset;
       position: absolute;
       left: 0;
       top: 0;

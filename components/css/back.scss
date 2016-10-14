@@ -138,13 +138,13 @@ img {
 }
 
 .fly-back{
-    height: .2rem;
+    height: .2 * 10vw;
     span{
-       margin-left: .1rem;
+       margin-left: .1 * 10vw;
        text-align:left;
-       width: .2rem;
+       width: .2 * 10vw;
        height: 4px;
-       margin-top: .1rem;
+       margin-top: .1 * 10vw;
        background:#d1bdbd;
        @include br(4px);
        @include pos(r);
@@ -153,10 +153,10 @@ img {
          @include pos(a);
          left: 0;
          top:0;
-         height: .05rem;
+         height: .05 * 10vw;
          width: 2px;
          background:inherit;
-         top:-.05rem;
+         top:-.05 * 10vw;
          @include br(4px);
          border:1px solid #d1bdbd;
          @include transform(rotate(45deg));

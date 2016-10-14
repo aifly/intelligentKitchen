@@ -464,17 +464,18 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 		var data = this;
  
 
-		data.foods.on('tap',(e)=>{
+		data.foods.on('touchstart',(e)=>{
 			if(self.state.isEnableDrag){//
 				return;
 			}
-			var target = $(e.target).hasClass('fly-food-item')?$(e.target):$(e.target).parents('.fly-food-item');
+
+			let $target = $(e.target);
+			var target = $target.hasClass('fly-food-item')? $target:$target.parents('.fly-food-item');
 			var isTop = target.hasClass('fly-top3');
 			if(isTop){return;}
 
 			//self.startChangeMenu($(e.target),$(e.target).index('.fly-food-item'));
-			let $target = $(e.target),
-				index = $target.parents('.fly-food-item').index('.fly-food-item')*1,
+			let index = $target.parents('.fly-food-item').index('.fly-food-item')*1,
 				iNow = this.iNow % 3;
 
 				if(index<0){
@@ -483,37 +484,23 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 
 				this.removeTopClass();
 				data.foods.eq(index).css({
-					WebkitTransitionDuration:'.1s',
-					opacity:0.3
+					//WebkitTransitionDuration:'.1s',
 				}).addClass('fly-top3');
-				setTimeout(()=>{
-					data.foods.eq(index).css({
-						//WebkitTransform:'translate3d(0,0,0)',
-						opacity:1
-					});
-				},140);
 
 				this.iNow = index;
 
 				switch(index){
 					case 0:
-					
 						data.foods.eq(1).addClass('fly-top2');
 						data.foods.eq(2).addClass('fly-top1');
-
 					break;
 					case 1:
-						
 						data.foods.eq(0).addClass('fly-top1');
 						data.foods.eq(2).addClass('fly-top2');
-
-
 					break;
 					case 2:
-
 						data.foods.eq(0).addClass('fly-top2');
 						data.foods.eq(1).addClass('fly-top1');
-
 					break;
 				}
 		});

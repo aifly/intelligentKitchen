@@ -1,9 +1,9 @@
 @charset "UTF-8";
 .fly-play-ico {
-  width: .2rem;
+  width: 2vw;
   position: absolute;
   right: 0;
-  bottom: .15rem; }
+  bottom: 1.5vw; }
 
 @-webkit-keyframes move {
   50% {
@@ -20,19 +20,19 @@
   position: absolute;
   background: #fff;
   z-index: 0;
-  width: 0.1rem;
-  right: -0.2rem;
+  width: 1vw;
+  right: -1.1vw;
   padding: 20px 20px 20px 40px;
-  font-size: .08rem;
-  top: .1rem;
+  font-size: 0.8vw;
+  top: 1vw;
   border-radius: 14px; }
 
 .book-list-C {
   width: 88%;
   z-index: 1;
-  height: 1.9rem;
+  height: 19vw;
   margin: 5% auto;
-  left: -.02rem;
+  left: -0.2vw;
   background: #FFF;
   border-radius: 30px;
   position: relative;
@@ -42,7 +42,7 @@
   -webkit-box-orient: horizontal; }
   .book-list-C:before {
     content: '';
-    box-shadow: 0 0 0.3rem rgba(232, 158, 121, 0.8);
+    box-shadow: 0 0 3vw rgba(232, 158, 121, 0.8);
     position: absolute;
     left: 0;
     top: 0;
@@ -51,7 +51,7 @@
     height: 100%; }
   .book-list-C.active {
     z-index: 2;
-    left: -.2rem; }
+    left: -2vw; }
   .book-list-C .booklist-left-C {
     width: 25%;
     height: 100%;
@@ -69,9 +69,9 @@
       height: 100%;
       background: -webkit-gradient(linear, left top, left bottom, from(rgba(204, 204, 204, 0.3)), color-stop(0.5, #cccccc), to(rgba(204, 204, 204, 0.3))); }
     .book-list-C .booklist-left-C div {
-      width: 0.3rem;
-      height: 0.3rem;
-      line-height: 0.3rem;
+      width: 3vw;
+      height: 3vw;
+      line-height: 3vw;
       text-align: center;
       border-radius: 50%; }
       .book-list-C .booklist-left-C div.active {
@@ -91,49 +91,49 @@
       box-sizing: border-box;
       height: 50%; }
       .book-list-C .booklist-right-C .bl-calendar table {
-        padding-top: .1rem;
+        padding-top: 1vw;
         width: 90%;
         padding-left: 20px;
         box-sizing: border-box;
         text-align: center; }
         .book-list-C .booklist-right-C .bl-calendar table th {
           font-weight: normal;
-          font-size: .08rem;
+          font-size: 0.8vw;
           border-bottom: 1px solid #dcdcdc;
           padding-bottom: 20px; }
         .book-list-C .booklist-right-C .bl-calendar table tbody tr {
-          height: .28rem; }
+          height: 2.8vw; }
           .book-list-C .booklist-right-C .bl-calendar table tbody tr:nth-of-type(1) td {
-            padding: .05rem 0;
+            padding: 0.5vw 0;
             border-bottom: 1px solid #dcdcdc;
             box-sizing: border-box; }
         .book-list-C .booklist-right-C .bl-calendar table td {
           position: relative; }
           .book-list-C .booklist-right-C .bl-calendar table td span {
             display: block;
-            font-size: .08rem; }
+            font-size: 0.8vw; }
             .book-list-C .booklist-right-C .bl-calendar table td span:nth-of-type(2) {
-              font-size: .07rem; }
+              font-size: 0.7vw; }
           .book-list-C .booklist-right-C .bl-calendar table td .hasfood {
             border-radius: 50%;
             position: relative; }
             .book-list-C .booklist-right-C .bl-calendar table td .hasfood:before {
               content: '';
-              width: 0.05rem;
-              height: 0.05rem;
+              width: 0.5vw;
+              height: 0.5vw;
               background: #e89e79;
               border-radius: 50%;
               position: absolute;
-              right: .01rem;
-              top: .01rem; }
+              right: 0.1vw;
+              top: 0.1vw; }
           .book-list-C .booklist-right-C .bl-calendar table td div {
             background: transparent;
-            width: .25rem;
-            height: .25rem;
+            width: 2.5vw;
+            height: 2.5vw;
             border-radius: 50%;
             position: absolute;
-            left: .023rem;
-            top: .05rem; }
+            left: 0.23vw;
+            top: 0.5vw; }
         .book-list-C .booklist-right-C .bl-calendar table .today {
           color: #e89e79; }
           .book-list-C .booklist-right-C .bl-calendar table .today div {
@@ -153,7 +153,7 @@
         overflow: hidden;
         position: relative;
         border-radius: 20px;
-        margin-top: -.14rem; }
+        margin-top: -1.4vw; }
         .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll.no-data:before {
           content: '暂无数据';
           color: #f00;
@@ -168,13 +168,13 @@
           left: 0;
           top: 0; }
         .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll ul {
-          margin-top: -.01rem; }
+          margin-top: -0.1vw; }
           .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll ul li {
-            width: .731rem;
+            width: 7.31vw;
             -webkit-transform: scale(0.9);
             transform: scale(0.9);
             float: left;
-            height: .9rem;
+            height: 9vw;
             position: relative;
             box-sizing: border-box; }
             .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll ul li div {
@@ -189,7 +189,7 @@
               box-sizing: border-box; }
               .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll ul li div:before {
                 content: '';
-                box-shadow: 0 0 0.1rem rgba(232, 158, 121, 0.4);
+                box-shadow: 0 0 1vw rgba(232, 158, 121, 0.4);
                 position: absolute;
                 border-radius: 20px;
                 left: 0;
@@ -212,15 +212,15 @@
                   border-bottom-left-radius: 0;
                   border-bottom-right-radius: 0; }
             .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll ul li span {
-              font-size: .06rem;
+              font-size: 0.6vw;
               display: block;
               width: 100%;
               position: relative;
               color: #cfbbba;
-              top: .665rem;
+              top: 6.65vw;
               text-align: center;
-              height: .15rem;
-              line-height: .15rem;
+              height: 1.5vw;
+              line-height: 1.5vw;
               background: white;
               border-bottom-left-radius: 20px;
               border-bottom-right-radius: 20px; }

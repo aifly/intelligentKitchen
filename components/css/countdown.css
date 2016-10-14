@@ -1,5 +1,5 @@
 .fly-round {
-  height: 2.1rem;
+  height: 21vw;
   overflow: hidden;
   position: relative; }
   .fly-round:after {
@@ -14,32 +14,32 @@
           @include pos(a);
           top: $size; */ }
   .fly-round .fly-line1 {
-    top: 1.7rem; }
+    top: 17vw; }
 
 .roundWrap {
   -webkit-perspective: 1000px;
   float: left;
   perspective: 1000px;
-  width: 0.3rem;
+  width: 3vw;
   height: 65%;
-  margin-left: .56rem;
-  margin-top: .4rem;
+  margin-left: 5.6vw;
+  margin-top: 4vw;
   overflow: hidden; }
 
 .round {
-  width: 0.3rem;
-  height: 0.3rem;
+  width: 3vw;
+  height: 3vw;
   position: relative;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  -webkit-transform-origin: center center -2.85rem;
-  transform-origin: center center -2.85rem;
+  -webkit-transform-origin: center center -28.5vw;
+  transform-origin: center center -28.5vw;
   z-index: 2; }
   .round div {
     position: absolute;
     left: 0;
     width: 100%;
-    top: 0.3rem;
+    top: 3vw;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
     -webkit-transform-origin: top;
@@ -56,11 +56,11 @@
 
 .round span {
   box-sizing: border-box;
-  width: 0.3rem;
-  height: 0.3rem;
+  width: 3vw;
+  height: 3vw;
   text-align: center;
-  line-height: 0.3rem;
-  font-size: .1rem;
+  line-height: 3vw;
+  font-size: 1vw;
   color: #fff;
   display: block; }
 
@@ -71,32 +71,32 @@
   width: 90%;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
-  height: 0.3rem;
-  margin-top: -0.075rem;
-  line-height: 0.34rem;
+  height: 3vw;
+  margin-top: -0.75vw;
+  line-height: 3.04vw;
   z-index: -1; }
   .fly-time-unit-C span {
     color: #fff; }
     .fly-time-unit-C span:nth-of-type(1) {
-      margin-left: 0.66rem; }
+      margin-left: 6.6vw; }
     .fly-time-unit-C span:nth-of-type(2) {
-      margin-left: 0.66rem; }
+      margin-left: 6.6vw; }
 
 .fly-begin-clock, .fly-cancel {
   position: absolute;
-  right: .3rem;
+  right: 3vw;
   bottom: 0;
   color: #fff;
-  height: .1rem;
-  line-height: .1rem;
+  height: 1vw;
+  line-height: 1vw;
   border: 2px solid #fff;
   border-radius: 30px;
   padding: 8px 40px;
-  font-size: .08rem; }
+  font-size: 0.8vw; }
 
 .fly-cancel {
-  right: .2rem;
-  bottom: .074rem; }
+  right: 2vw;
+  bottom: 0.74vw; }
 
 .fly-countdown-canvas {
   position: absolute;
