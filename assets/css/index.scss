@@ -152,6 +152,7 @@ body{
 }
 $nav-height:11.76vh;
 #fly-main{  
+  
    width: 10 * 10vw ;
    overflow: hidden;
   .fly-nav-mask{
@@ -195,8 +196,7 @@ $nav-height:11.76vh;
        width: 5 * 10vw ;
       li{
         -webkit-box-flex: 1;
-        height: 10vh;
-        
+        height: 11vh;
         img{
           margin-top: 1vh;
         }

@@ -91,7 +91,6 @@
     z-index: -1; }
     .fly-alimentation-data .fly-circle-center:before {
       content: '';
-      box-shadow: 0 0 2vw rgba(232, 158, 121, 0.2), 0 0 2vw rgba(232, 158, 121, 0.2) inset;
       position: absolute;
       left: 0;
       top: 0;

@@ -238,7 +238,7 @@ $maxIndex:9999;
       -webkit-filter: blur(0px);
       &:before{
         content:'';
-        box-shadow:0 0 .2 * 10vw rgba(232,158,121,.2),0 0 .2 * 10vw rgba(232,158,121,.2) inset;
+       // box-shadow:0 0 .2 * 10vw rgba(232,158,121,.2),0 0 .2 * 10vw rgba(232,158,121,.2) inset;
         @include pos(a);
         left: 0;
         top: 0;
