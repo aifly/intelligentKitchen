@@ -130,7 +130,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 
 		return (
 			<li className="fly-food fly-cook-book-item">
-				<div style={{position:'absolute',width:'100%',height:'100%',zIndex:1000,display:(!this.state.isShow || this.state.isEnableDrag)?'block':'none'}}></div>
+				<div style={{position:'absolute',width:'100%',height:'100%',zIndex:(!this.state.isShow || this.state.isEnableDrag)?1000:-1}}></div>
 				<div className="fly-cook-book-item-C" ref='fly-cook-book-item-C' style={{opacity:this.state.isShow?1:0}}> 
 					<div className="fly-weather  fly-food-item fly-top3" ref='weather'>
 						<span className='tag'>时间 / 天气</span>
@@ -575,7 +575,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 			if(e.target.nodeName=== "SPAN" && $(e.target).parents('.fly-video-scroll-C').length){
 				return;
 			}
-			var timer = setTimeout(()=>{
+			/*var timer = setTimeout(()=>{
 			
 				self.setState({
 					isEnableDrag:true
@@ -592,13 +592,13 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 				self.sort = new Sortable(data.cookBookC[0],{group:'omega'});
 				//self.props.obserable.trigger({type:'showDone'})
 
-			},3000);
+			},3000);*/
 				var e = e.originalEvent ? e.originalEvent.changedTouches[0]:e.changedTarget[0];
 			let $target = $(e.target).hasClass('fly-cook-book-item')?$(e.target):$(e.target).parents('.fly-cook-book-item'),
 				iNow = 0;
 
 			$(document).on('touchmove',e=>{
-				clearTimeout(timer);
+				//clearTimeout(timer);
 				if(self.state.isEnableDrag){
 					if(iNow++ ===1){
 						$target.removeClass('active');	
@@ -609,8 +609,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 					
 				}
 			}).on('touchend',e=>{
-				
-				clearTimeout(timer);
+				//clearTimeout(timer);
 				if(!self.state.isEnableDrag){
 					return;
 				}

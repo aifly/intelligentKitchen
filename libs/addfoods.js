@@ -1,180 +1,97 @@
 var addFoods = [
 	{
-    foodMtype:1,//
-		name:"面包秀",//食谱名
+    foodMtype:0,//
+		name:"牛奶燕麦粥",//食谱名
 		imgSrc:"./assets/images/f4.png",//食谱图片
 		id:'',//id
 		//detailSrc:'./assets/images/food1.png', //最右侧的图片，如果是视频，这个字段没用
 		pageView:333,//浏览
 		discuss:124,//讨论
 		foodMaterial:[//食材
-			{name:'小番茄',weight:'30g',id:''},
-			{name:'鸡蛋',weight:'40g',id:''},
-			{name:'生菜',weight:'70g',id:''},
-			{name:'生菜',weight:'70g',id:''},
-			{name:'生菜',weight:'70g',id:''},
-			{name:'生菜',weight:'70g',id:''},
-			{name:'生菜',weight:'70g',id:''},
-			{name:'培根',weight:'50g',id:''},
-			{name:'吐丝',weight:'25g',id:''}
+			{name:'小番茄',weight:'30g',id:1},
+			{name:'鸡蛋',weight:'40g',id:2},
+			{name:'生菜',weight:'70g',id:3},
+			{name:'生菜',weight:'70g',id:4},
+			{name:'生菜',weight:'70g',id:5},
+			{name:'生菜',weight:'70g',id:6},
+			{name:'生菜',weight:'70g',id:7},
+			{name:'培根',weight:'50g',id:8},
+			{name:'吐丝',weight:'25g',id:9}
 		],
-		scaleData:[ //不用管//饼图数据
-  	 		{
-  	 			unit:'ka',
-  	 			weight:'30',
-  	 			scale:.11,
-  	 			name:'热量'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'60',
-  	 			scale:.14,
-  	 			name:'蛋白质'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'33',
-  	 			scale:.12,
-  	 			name:'脂肪'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'17',
-  	 			scale:.14,
-  	 			name:'碳水化合物'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'81',
-  	 			scale:.11,
-  	 			name:'膳食纤维'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'12',
-  	 			scale:.12,
-  	 			name:'微量元素'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'43',
-  	 			scale:.16,
-  	 			name:'维生素'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'20',
-  	 			scale:.1,
-  	 			name:'其它'
-  	 		}
-	  	],
     type:'video',//类型，图片or视频
 		steps:[//步骤
       {
         stepName:'切西红柿',
-        imgSrc:'./assets/videos/1.webm',
+        imgSrc:'./assets/videos/1.mp4',
         poster:'./assets/images/poster.png'
       },
 			{
         stepName:'第二步',
-        imgSrc:'./assets/videos/2.webm',
+        imgSrc:'./assets/videos/2.mp4',
         poster:'./assets/images/poster.png'
       },
       {
         stepName:'第三步',
-        imgSrc:'./assets/videos/1.webm',
+        imgSrc:'./assets/videos/1.mp4',
         poster:'./assets/images/poster.png'
       },
       {
         stepName:'第四步',
-        imgSrc:'./assets/videos/2.webm',
+        imgSrc:'./assets/videos/2.mp4',
         poster:'./assets/images/poster.png'
       },
       {
         stepName:'第五步',
-        imgSrc:'./assets/videos/1.webm',
+        imgSrc:'./assets/videos/1.mp4',
         poster:'./assets/images/poster.png'
       }
 		]
 	},
   {
-		name:"草莓蓝莓派",
-		imgSrc:"./assets/images/f5.png",
+    foodMtype:0,//
+		name:"牛奶燕麦粥",
+		imgSrc:"./assets/images/f4.png",
 		id:'',
 		detailSrc:'./assets/images/food1.png',
 		pageView:22,
 		discuss:224,//讨论
 		foodMaterial:[
-			{name:'小番茄',weight:'60g'},
-			{name:'鸡蛋',weight:'50g'},
-			{name:'生菜',weight:'20g'},
-			{name:'培根',weight:'20g'},
-			{name:'吐丝',weight:'25g'}
-		],scaleData:[
-  	 		{
-  	 			unit:'g',
-  	 			weight:'60',
-  	 			scale:.11,
-  	 			name:'热量'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'40',
-  	 			scale:.14,
-  	 			name:'蛋白质'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'29',
-  	 			scale:.12,
-  	 			name:'脂肪'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'24',
-  	 			scale:.14,
-  	 			name:'碳水化合物'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'30',
-  	 			scale:.11,
-  	 			name:'膳食纤维'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'26',
-  	 			scale:.12,
-  	 			name:'微量元素'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'24',
-  	 			scale:.16,
-  	 			name:'维生素'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'20',
-  	 			scale:.1,
-  	 			name:'其它'
-  	 		}
-	  	],
-      type:'image',
+	    {name:'小番茄',weight:'30g',id:1},
+      {name:'鸡蛋',weight:'40g',id:2},
+      {name:'生菜',weight:'70g',id:3},
+      {name:'生菜',weight:'70g',id:4},
+      {name:'生菜',weight:'70g',id:5},
+		],
+    type:'image',
 		steps:[
 			{
-        stepName:'第一步',
-        imgSrc:'./assets/images/food1.png',
-        stepContent:'西红柿切成片22'
+        stepName:'步骤1',
+        imgSrc:'./assets/images/s1.png',
+        stepContent:'称重牛奶'
       },
       {
-        stepName:'第二步',
-        imgSrc:'./assets/images/food2.png',
-        stepContent:'打好鸡蛋并且搅拌均匀22'
+        stepName:'步骤2',
+        imgSrc:'./assets/images/s2.png',
+        stepContent:'称重燕麦片'
       },
       {
-        stepName:'第三步',
-        imgSrc:'./assets/images/food3.png',
-        stepContent:'鸡蛋入锅，翻炒，剩出备用22'
+        stepName:'步骤3',
+        imgSrc:'./assets/images/s3.png',
+        stepContent:'牛奶倒入锅中，大火烧开'
       },
       {
-        stepName:'第四步',
-        imgSrc:'./assets/images/food4.png',
-        stepContent:'西红柿入锅22'
+        stepName:'步骤4',
+        imgSrc:'./assets/images/s4.png',
+        stepContent:'倒入燕麦片，搅拌均匀'
       },
       {
-        stepName:'第五步',
-        imgSrc:'./assets/images/food1.png',
-        stepContent:'倒入备用鸡蛋翻炒22'
+        stepName:'步骤5',
+        imgSrc:'./assets/images/s5.png',
+        stepContent:'出锅即食'
       }
 		]
 	},{
+    foodMtype:0,//
 		name:"西冷牛排",
 		imgSrc:"./assets/images/f1.png",
 		id:'',
@@ -182,355 +99,15 @@ var addFoods = [
 		pageView:283,
 		discuss:124,//讨论
 		foodMaterial:[
-			{name:'小番茄',weight:'60g'},
-			{name:'鸡蛋',weight:'50g'},
-			{name:'生菜',weight:'20g'},
-			{name:'培根',weight:'20g'},
-			{name:'吐丝',weight:'25g'}
+		  {name:'小番茄',weight:'20g',id:1},
+      {name:'鸡蛋',weight:'40g',id:2},
+      {name:'生菜',weight:'70g',id:3},
+      {name:'生菜',weight:'70g',id:4},
+      {name:'生菜',weight:'70g',id:5},
 		],scaleData:[
   	 		{
   	 			unit:'g',
   	 			weight:'22',
-  	 			scale:.11,
-  	 			name:'热量'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'40',
-  	 			scale:.14,
-  	 			name:'蛋白质'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'29',
-  	 			scale:.12,
-  	 			name:'脂肪'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'24',
-  	 			scale:.14,
-  	 			name:'碳水化合物'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'30',
-  	 			scale:.11,
-  	 			name:'膳食纤维'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'36',
-  	 			scale:.12,
-  	 			name:'微量元素'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'20',
-  	 			scale:.16,
-  	 			name:'维生素'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'20',
-  	 			scale:.1,
-  	 			name:'其它'
-  	 		}
-	  	],
-      type:'image',
-		steps:[
-			{
-        stepName:'第一步',
-        imgSrc:'./assets/images/food1.png',
-        stepContent:'西红柿切成片'
-      },
-      {
-        stepName:'第二步',
-        imgSrc:'./assets/images/food2.png',
-        stepContent:'打好鸡蛋并且搅拌均匀'
-      },
-      {
-        stepName:'第三步',
-        imgSrc:'./assets/images/food3.png',
-        stepContent:'鸡蛋入锅，翻炒，剩出备用'
-      },
-      {
-        stepName:'第四步',
-        imgSrc:'./assets/images/food4.png',
-        stepContent:'西红柿入锅'
-      },
-      {
-        stepName:'第五步',
-        imgSrc:'./assets/images/food1.png',
-        stepContent:'倒入备用鸡蛋翻炒'
-      }
-		]
-	},{
-		name:"面包秀",
-		imgSrc:"./assets/images/f1.png",
-		id:'',
-		detailSrc:'./assets/images/food1.png',
-		pageView:633,
-		discuss:124,//讨论
-		foodMaterial:[
-			{name:'小番茄',weight:'60g'},
-			{name:'鸡蛋',weight:'50g'},
-			{name:'生菜',weight:'20g'},
-			{name:'培根',weight:'20g'},
-			{name:'吐丝',weight:'25g'}
-		],
-		scaleData:[
-  	 		{
-  	 			unit:'g',
-  	 			weight:'60',
-  	 			scale:.11,
-  	 			name:'热量'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'40',
-  	 			scale:.14,
-  	 			name:'蛋白质'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'29',
-  	 			scale:.12,
-  	 			name:'脂肪'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'24',
-  	 			scale:.14,
-  	 			name:'碳水化合物'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'30',
-  	 			scale:.11,
-  	 			name:'膳食纤维'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'36',
-  	 			scale:.12,
-  	 			name:'微量元素'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'20',
-  	 			scale:.16,
-  	 			name:'维生素'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'20',
-  	 			scale:.1,
-  	 			name:'其它'
-  	 		}
-	  	],
-      type:'image',
-		steps:[
-			{
-        stepName:'第一步',
-        imgSrc:'./assets/images/food1.png',
-        stepContent:'西红柿切成片'
-      },
-      {
-        stepName:'第二步',
-        imgSrc:'./assets/images/food2.png',
-        stepContent:'打好鸡蛋并且搅拌均匀'
-      },
-      {
-        stepName:'第三步',
-        imgSrc:'./assets/images/food3.png',
-        stepContent:'鸡蛋入锅，翻炒，剩出备用'
-      },
-      {
-        stepName:'第四步',
-        imgSrc:'./assets/images/food4.png',
-        stepContent:'西红柿入锅'
-      },
-      {
-        stepName:'第五步',
-        imgSrc:'./assets/images/food1.png',
-        stepContent:'倒入备用鸡蛋翻炒'
-      }
-		]
-	},{
-		name:"草莓蓝莓派",
-		imgSrc:"./assets/images/f4.png",
-		id:'',
-		detailSrc:'./assets/images/food1.png',
-		pageView:126,
-		discuss:124,//讨论
-		foodMaterial:[
-			{name:'小番茄',weight:'60g'},
-			{name:'鸡蛋',weight:'50g'},
-			{name:'生菜',weight:'20g'},
-			{name:'培根',weight:'20g'},
-			{name:'吐丝',weight:'25g'}
-		],
-		scaleData:[
-  	 		{
-  	 			unit:'g',
-  	 			weight:'60',
-  	 			scale:.11,
-  	 			name:'热量'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'40',
-  	 			scale:.14,
-  	 			name:'蛋白质'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'29',
-  	 			scale:.12,
-  	 			name:'脂肪'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'24',
-  	 			scale:.14,
-  	 			name:'碳水化合物'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'30',
-  	 			scale:.11,
-  	 			name:'膳食纤维'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'36',
-  	 			scale:.12,
-  	 			name:'微量元素'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'20',
-  	 			scale:.16,
-  	 			name:'维生素'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'20',
-  	 			scale:.1,
-  	 			name:'其它'
-  	 		}
-	  	],
-      type:'image',
-		steps:[
-			{
-        stepName:'第一步',
-        imgSrc:'./assets/images/food1.png',
-        stepContent:'西红柿切成片'
-      },
-      {
-        stepName:'第二步',
-        imgSrc:'./assets/images/food2.png',
-        stepContent:'打好鸡蛋并且搅拌均匀'
-      },
-      {
-        stepName:'第三步',
-        imgSrc:'./assets/images/food3.png',
-        stepContent:'鸡蛋入锅，翻炒，剩出备用'
-      },
-      {
-        stepName:'第四步',
-        imgSrc:'./assets/images/food4.png',
-        stepContent:'西红柿入锅'
-      },
-      {
-        stepName:'第五步',
-        imgSrc:'./assets/images/food1.png',
-        stepContent:'倒入备用鸡蛋翻炒'
-      }
-		]
-	},{
-		name:"西冷牛排",
-		imgSrc:"./assets/images/f4.png",
-		id:'',
-		detailSrc:'./assets/images/food1.png',
-		pageView:852,
-		discuss:124,//讨论
-		foodMaterial:[
-			{name:'小番茄',weight:'60g'},
-			{name:'鸡蛋',weight:'50g'},
-			{name:'生菜',weight:'20g'},
-			{name:'培根',weight:'20g'},
-			{name:'吐丝',weight:'25g'}
-		],
-		scaleData:[
-  	 		{
-  	 			unit:'g',
-  	 			weight:'60',
-  	 			scale:.11,
-  	 			name:'热量'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'40',
-  	 			scale:.14,
-  	 			name:'蛋白质'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'29',
-  	 			scale:.12,
-  	 			name:'脂肪'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'24',
-  	 			scale:.14,
-  	 			name:'碳水化合物'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'30',
-  	 			scale:.11,
-  	 			name:'膳食纤维'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'36',
-  	 			scale:.12,
-  	 			name:'微量元素'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'20',
-  	 			scale:.16,
-  	 			name:'维生素'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'20',
-  	 			scale:.1,
-  	 			name:'其它'
-  	 		}
-	  	],
-      type:'image',
-		steps:[
-			{
-        stepName:'第一步',
-        imgSrc:'./assets/images/food1.png',
-        stepContent:'西红柿切成片'
-      },
-      {
-        stepName:'第二步',
-        imgSrc:'./assets/images/food2.png',
-        stepContent:'打好鸡蛋并且搅拌均匀'
-      },
-      {
-        stepName:'第三步',
-        imgSrc:'./assets/images/food3.png',
-        stepContent:'鸡蛋入锅，翻炒，剩出备用'
-      },
-      {
-        stepName:'第四步',
-        imgSrc:'./assets/images/food4.png',
-        stepContent:'西红柿入锅'
-      },
-      {
-        stepName:'第五步',
-        imgSrc:'./assets/images/food1.png',
-        stepContent:'倒入备用鸡蛋翻炒'
-      }
-		]
-	},{
-		name:"面包秀",
-		imgSrc:"./assets/images/f4.png",
-		id:'',
-		detailSrc:'./assets/images/food1.png',
-		pageView:133,
-		discuss:124,//讨论
-		foodMaterial:[
-			{name:'小番茄',weight:'60g'},
-			{name:'鸡蛋',weight:'50g'},
-			{name:'生菜',weight:'20g'},
-			{name:'培根',weight:'20g'},
-			{name:'吐丝',weight:'25g'}
-		],
-		scaleData:[
-  	 		{
-  	 			unit:'g',
-  	 			weight:'60',
   	 			scale:.11,
   	 			name:'热量'
   	 		},{

@@ -23,7 +23,7 @@ import $ from 'jquery';
 				[],//中餐
 				[]　//晚餐
 			],//已添加的菜谱
-			currentPannel:0,
+			currentPannel:1,
 			isShow:false,
 			currentDate:GetDateStr(0),
 			isEnableDrag:false
@@ -68,12 +68,12 @@ import $ from 'jquery';
 		return (
 			<li className="fly-cook-list fly-cook-book-item" ref='fly-cook-list'>
 				<div style={{position:'relative'}}>
-					<div style={{position:'absolute',width:'100%',height:'100%',zIndex:1000,display:isShow?'block':'none'}}></div>
+					<div style={{position:'absolute',width:'100%',height:'100%',zIndex:isShow?1000:-1}}></div>
 					<div style={{position:'relative',opacity:this.state.isShow?1:0}}>
 						<div className="fly-cook-book-item-C">
-							<article className={"book-list-C add-collect "+(this.state.currentPannel?'active':'') } onTouchTap={this.change}>
-								<span onTouchTap={this.changeMyCollectTop} className='tag'>已加入菜谱</span>
-								<aside className='booklist-left-C' onTouchTap={this.changeTimeSlot}>
+							<article className={"book-list-C add-collect "+(this.state.currentPannel?'active':'') } onTouchStart={this.change}>
+								<span onTouchStart={this.changeMyCollectTop} className='tag'>已加入菜谱</span>
+								<aside className='booklist-left-C' onTouchStart={this.changeTimeSlot}>
 									<div className={this.state.currentTimeSlot===0?'active':''}>早餐</div>
 									<div className={this.state.currentTimeSlot===1?'active':''}>中餐</div>
 									<div className={this.state.currentTimeSlot===2?'active':''}>晚餐</div>
@@ -92,7 +92,7 @@ import $ from 'jquery';
 													<th>六</th>
 												</tr>
 											</thead>
-											<tbody onTouchTap={this.getCurrentCookBookByDate.bind(this)}>
+											<tbody onTouchStart={this.getCurrentCookBookByDate.bind(this)}>
 												<tr>
 													{this.state.dates1.map((item,i)=>{
 														return (
@@ -125,7 +125,7 @@ import $ from 'jquery';
 											<ul ref='foods-C' style={{width:this.state.liWidth*this.state.addFoods[this.state.currentTimeSlot].length}}>
 												{this.state.addFoods[this.state.currentTimeSlot].map((item,i)=>{
 													return (
-														<li key={i} onTouchTap={this.getFoodById}>
+														<li key={i} onTouchStart={this.getFoodById}>
 															<div data-index={i} style={{background:' url('+item.imgSrc+') no-repeat center top',backgroundSize:'cover'}}>
 																<span>{item.name}</span>
 																{item.type === 'video' && <img className='fly-play-ico' src='./assets/images/play.png'/>}
@@ -135,7 +135,7 @@ import $ from 'jquery';
 												})}
 											</ul>
 										</div>
-										<div className='bl-food-next' onTouchTap={this.next}>></div>
+										<div className='bl-food-next' onTouchStart={this.next}>></div>
 									</div>
 								</aside>
 							</article>
@@ -220,17 +220,13 @@ import $ from 'jquery';
 			},
 			success(data){
 
-				data.forEach((item)=>{
+				/*data.forEach((item)=>{
 					//console.log(item.foodMtype);
 					
-					item.detailSrc = URL.baseURL + item.detailSrc;
-					item.imgSrc = URL.baseURL + item.imgSrc;
 					s.state.addFoods[item.foodMtype].push(item);
-				});
+				});*/
 
-				
-
-				//s.state.addFoods[s.state.currentTimeSlot] = data;
+				s.state.addFoods[s.state.currentTimeSlot] = data;
 
 				s.forceUpdate(()=>{
 					
@@ -285,7 +281,7 @@ import $ from 'jquery';
 
 		let {obserable,getTimeSlot} = this.props;//getTimeSlot是从高街组件中得到的属性。
 
-		this.getFoodListByDate(getFullDate(0));//获取当天的加入的菜谱列表
+		//this.getFoodListByDate(getFullDate(0));//获取当天的加入的菜谱列表
 
 
 		obserable.on('showIsEnableDrag',(flag)=>{
@@ -308,7 +304,25 @@ import $ from 'jquery';
 		this.updateCalendar();
 
 		
+		this.state.addFoods[0] = addFoods;//默认填充早餐
 
+		this.forceUpdate();
+
+		if(this.state.addFoods[this.state.currentTimeSlot].length){
+			setTimeout(()=>{
+				let liWidth = this.refs['foods-C'].children[0].offsetWidth;
+				this.setState({
+	 				liWidth:liWidth
+				});
+
+				this.scroll = new IScroll(this.refs['scroll'],{
+					scrollX:true,
+					scrollY:false,
+				});
+			},1);
+		}
+
+		
 
 		$(this.refs['fly-cook-list']).on('touchstart',e=>{
 			

@@ -22,7 +22,7 @@ class App extends React.Component{
 	constructor(option){
 		super(option);
 		this.state = {
-			userId:2
+			userId:1
 		}
 	}
 	render(){

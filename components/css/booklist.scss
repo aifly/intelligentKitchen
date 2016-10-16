@@ -363,7 +363,7 @@ $maxIndex:9999;
                 height: $width;
                 left: 100 - $width;
                 top: 100 - $width;
-                @include transition(border .1s);
+               // @include transition(border .1s);
                 &.active{
                    box-sizing:border-box;
                     border:8px solid rgb(232, 158, 121);
@@ -371,8 +371,8 @@ $maxIndex:9999;
                     overflow: hidden;
                     @include pos(r);
                     span{
-                      @include transition_transform(.1s);
-                      @include transform(translate3d(0,-14px,0));
+                      //@include transition_transform(.1s);
+                      @include transform(translate3d(0,-6px,0));
                       border-bottom-left-radius:0;
                       border-bottom-right-radius:0;
                     }

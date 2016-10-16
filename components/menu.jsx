@@ -105,20 +105,19 @@ injectTapEventPlugin();
 			);
 		});
 
-
 		return (
 			<nav className={'fly-nav '+ (this.state.isShow?'':'active')} ref='fly-menu'>
-				<div style={{overflow:' hidden',height:'11.5vh'}}>
-					<ul ref='fly-menu-C' className={this.state.isShow?'show':''} onTouchTap={this.menuChange}>
+				<div style={{overflowY:' hidden',overflowX:' auto',height:'11.5vh'}}>
+					<ul ref='fly-menu-C' className={this.state.isShow?'show':''} onTouchStart={this.menuChange}>
 						{renderArr}
 					</ul>
-					<ul ref='fly-menu-C1' className={this.state.isShow?'show':''}  onTouchTap={this.operatorChange}>
+					<ul ref='fly-menu-C1' className={this.state.isShow?'show':''}  onTouchStart={this.operatorChange}>
 						{operatorArr}
 					</ul>
 				</div>
-				<div className='fly-menu-bar' onTouchTap={this.menuBarHandler}>
+				<div className='fly-menu-bar' onTouchStart={this.menuBarHandler}>
 					<div className={this.state.isEnableDrag ? 'fly-sure':''}>{this.state.isEnableDrag ? '确定':'下拉菜单'}</div>
-					<div>{this.state.isEnableDrag ? '':'>'}</div>
+					<div style={{marginLeft:'-.45vw'}}>{this.state.isEnableDrag ? '':'>'}</div>
 				</div>
 				<div className={"fly-nav-mask "+ (this.state.isShow?'active':'') } ref="fly-nav-mask" onTouchStart={this.closeMenu}></div>
 			</nav>
@@ -168,21 +167,43 @@ injectTapEventPlugin();
 			case 0://称量
 			case 1://菜板
 			case 4://提醒
-
-				this.state.menusArr[0].curSrc = this.state.menusArr[0].curSrc === this.state.menusArr[0].src? this.state.menusArr[0]._src:this.state.menusArr[0].src;
-				this.state.menusArr[1].curSrc = this.state.menusArr[1].curSrc === this.state.menusArr[1].src? this.state.menusArr[1]._src:this.state.menusArr[1].src;
-				this.state.menusArr[4].curSrc = this.state.menusArr[4].curSrc === this.state.menusArr[4].src? this.state.menusArr[4]._src:this.state.menusArr[4].src;
+				if(this.state.menusArr[0].curSrc === this.state.menusArr[0].src){
+					this.state.menusArr[0].curSrc = this.state.menusArr[0]._src;
+					this.state.menusArr[1].curSrc = this.state.menusArr[1]._src;
+					this.state.menusArr[4].curSrc = this.state.menusArr[4]._src;
+				}
+				else{
+					this.state.menusArr[0].curSrc = this.state.menusArr[0].src;
+					this.state.menusArr[1].curSrc = this.state.menusArr[1].src;
+					this.state.menusArr[4].curSrc = this.state.menusArr[4].src;
+				}
+			
 				obserable.trigger({type:'showOperater',data:this.state.menusArr[0].curSrc !== this.state.menusArr[0].src});
 			break;
 			case 2://菜谱
 			case 8:
-				this.state.menusArr[2].curSrc = this.state.menusArr[2].curSrc === this.state.menusArr[2].src? this.state.menusArr[2]._src:this.state.menusArr[2].src;
-				this.state.menusArr[8].curSrc = this.state.menusArr[8].curSrc === this.state.menusArr[8].src? this.state.menusArr[8]._src:this.state.menusArr[8].src;
+
+				if(this.state.menusArr[2].curSrc === this.state.menusArr[2].src){
+					this.state.menusArr[2].curSrc = this.state.menusArr[2]._src;
+					this.state.menusArr[8].curSrc = this.state.menusArr[8]._src;
+				}
+				else{
+					this.state.menusArr[2].curSrc = this.state.menusArr[2].src;
+					this.state.menusArr[8].curSrc = this.state.menusArr[8].src;
+				}
 				obserable.trigger({type:'showCollect',data:this.state.menusArr[2].curSrc !== this.state.menusArr[2].src});
 			break;
 			case 3://统计
 			case 7://无线
-				this.state.menusArr[iNow].curSrc = this.state.menusArr[iNow].curSrc === this.state.menusArr[iNow].src? this.state.menusArr[iNow]._src:this.state.menusArr[iNow].src;
+				if(this.state.menusArr[3].curSrc === this.state.menusArr[3].src){
+					this.state.menusArr[3].curSrc = this.state.menusArr[3]._src;
+					this.state.menusArr[7].curSrc = this.state.menusArr[7]._src;
+				}
+				else{
+					this.state.menusArr[3].curSrc = this.state.menusArr[3].src;
+					this.state.menusArr[7].curSrc = this.state.menusArr[7].src;
+				}
+				///this.state.menusArr[iNow].curSrc = this.state.menusArr[iNow].curSrc === this.state.menusArr[iNow].src? this.state.menusArr[iNow]._src:this.state.menusArr[iNow].src;
 				if(iNow === 3){
 					gotoActivity('nutrition')
 				}else{
@@ -191,9 +212,14 @@ injectTapEventPlugin();
 			break;
 			case 5://天气
 			case 6://时间
-
-				this.state.menusArr[5].curSrc = this.state.menusArr[5].curSrc === this.state.menusArr[5].src? this.state.menusArr[5]._src:this.state.menusArr[5].src;
-				this.state.menusArr[6].curSrc = this.state.menusArr[6].curSrc === this.state.menusArr[6].src? this.state.menusArr[6]._src:this.state.menusArr[6].src;
+				if(this.state.menusArr[5].curSrc === this.state.menusArr[5].src){
+					this.state.menusArr[5].curSrc = this.state.menusArr[5]._src;
+					this.state.menusArr[6].curSrc = this.state.menusArr[6]._src;
+				}
+				else{
+					this.state.menusArr[5].curSrc = this.state.menusArr[5].src;
+					this.state.menusArr[6].curSrc = this.state.menusArr[6].src;
+				}
 				obserable.trigger({type:'showfunctionCenter',data:this.state.menusArr[5].curSrc !== this.state.menusArr[5].src});
 			break;
 		}

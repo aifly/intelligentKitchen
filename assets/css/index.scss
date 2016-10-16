@@ -152,7 +152,7 @@ body{
 }
 $nav-height:11.76vh;
 #fly-main{  
-  
+ // margin-left: -2rem;
    width: 10 * 10vw ;
    overflow: hidden;
   .fly-nav-mask{
@@ -194,11 +194,15 @@ $nav-height:11.76vh;
        float: left;
        @include displayBox(horizontal);
        width: 5 * 10vw ;
+       
       li{
-        -webkit-box-flex: 1;
-        height: 11vh;
-        img{
-          margin-top: 1vh;
+        
+        height: 10vh;
+        width: 10vh;
+       // @include br();
+        
+        &:last-of-type{
+         // @include br(50%);
         }
         text-align: center;
         @include pos(r);

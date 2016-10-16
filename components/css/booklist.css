@@ -184,8 +184,6 @@
               height: 90%;
               left: 10%;
               top: 10%;
-              -webkit-transition: border 0.1s;
-              transition: border 0.1s;
               box-sizing: border-box; }
               .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll ul li div:before {
                 content: '';
@@ -203,12 +201,8 @@
                 overflow: hidden;
                 position: relative; }
                 .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll ul li div.active span {
-                  -webkit-transition: -webkit-transform 0.1s;
-                  transition: -webkit-transform 0.1s;
-                  transition: transform 0.1s;
-                  transition: transform 0.1s, -webkit-transform 0.1s;
-                  -webkit-transform: translate3d(0, -14px, 0);
-                  transform: translate3d(0, -14px, 0);
+                  -webkit-transform: translate3d(0, -6px, 0);
+                  transform: translate3d(0, -6px, 0);
                   border-bottom-left-radius: 0;
                   border-bottom-right-radius: 0; }
             .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll ul li span {

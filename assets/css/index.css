@@ -165,7 +165,9 @@ body {
     z-index: 9999;
     position: absolute;
     -webkit-transition: -webkit-transform 0.2s;
+    transition: -webkit-transform 0.2s;
     transition: transform 0.2s;
+    transition: transform 0.2s, -webkit-transform 0.2s;
     -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);
     transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01); }
     #fly-main .fly-nav.active {
@@ -190,12 +192,10 @@ body {
         -webkit-transform: translate3d(0, 0, 0);
         transform: translate3d(0, 0, 0); }
       #fly-main .fly-nav ul li {
-        -webkit-box-flex: 1;
-        height: 11vh;
+        height: 10vh;
+        width: 10vh;
         text-align: center;
         position: relative; }
-        #fly-main .fly-nav ul li img {
-          margin-top: 1vh; }
         #fly-main .fly-nav ul li span {
           color: #e89e79;
           font-size: 0.6vw;
@@ -234,7 +234,9 @@ body {
     -webkit-transform: translate3d(0, -100%, 0);
     transform: translate3d(0, -100%, 0);
     -webkit-transition: -webkit-transform 0.3s;
+    transition: -webkit-transform 0.3s;
     transition: transform 0.3s;
+    transition: transform 0.3s, -webkit-transform 0.3s;
     -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);
     transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01); }
     #fly-main .fly-close-drag.active {

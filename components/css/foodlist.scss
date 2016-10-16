@@ -194,14 +194,14 @@ $foodlist-height:1.9 * 10vw;
         overflow: hidden;
         @include pos(r);
         span{
-          @include transition_transform(.1s);
-          @include transform(translate3d(0,-14px,0));
+          //@include transition_transform(.1s);
+          @include transform(translate3d(0,-6px,0));
           border-bottom-left-radius:0;
           border-bottom-right-radius:0;
         }
       }
       div{
-        @include transition(border .1s);
+        //@include transition(border .1s);
         width:100%;
         @include br(20px);
         height:100%;

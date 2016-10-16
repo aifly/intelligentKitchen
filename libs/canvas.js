@@ -31,9 +31,6 @@ export default class Time{
 
 				s.obserable.trigger({type:"timingdown"});//倒计时
 				s.obserable.trigger({type:'videoPlay'});
-
-
-				
 			},1000);
 		}
 		
@@ -58,23 +55,25 @@ export default class Time{
 			one = numbers[1],
 			minsTen =  numbers[2],
 			minsOne =  numbers[3];
-		s.draw(ten,context,id);
+		var tenFirst = (ten === 0);
+		s.drawWeight(ten,context,id,false,true,tenFirst);
 
+		var oneFirst = (tenFirst && one === 0);
 		id += numberData[ten][0].length+1;
-		s.draw(one,context,id);
+		s.drawWeight(one,context,id,false,true,oneFirst);
 		
 
 		id += 2;
-		
+		var minsTenFirst = oneFirst && minsTen === 0;
 		id += numberData[10][0].length+1;
-		s.draw(minsTen,context,id);
+		s.drawWeight(minsTen,context,id,false,true,minsTenFirst);
 		
 
 		id += numberData[minsTen][0].length+1;
-		s.draw(minsOne,context,id,true);
+		s.drawWeight(minsOne,context,id,true);
 
 		id += numberData[minsOne][0].length;
-		s.draw(12,context,id);		
+		s.drawWeight(12,context,id);		
 
 	}
 
@@ -204,6 +203,53 @@ export default class Time{
 				context.restore();
 			}
 		}
+	}
+
+
+	drawWeight(num,context,id,flag = false, isNeedTop = true,isFirst=false){
+		let s = this;
+
+		
+		for(var i = 0;i<15;i++){
+			for(var j = 0;j<38;j++){
+				context.save();
+				isNeedTop && context.translate(0,30);
+				context.beginPath();
+
+				context.arc((s.margin + s.r)*(j+id) + s.margin,i*(s.margin+s.r)+s.margin,s.r,0,Math.PI*2,false);
+				
+				context.closePath();
+
+				context.fillStyle  = "#f8f3ef";//f8f3ef
+
+				if(numberData[num][i] && numberData[num][i][j]){
+					
+					if(s.isTime){
+						context.fillStyle = "#df9977";
+					}
+					else{
+						if(num >= 0 || flag){
+							if(isFirst){
+								if(num>0){
+									context.fillStyle = "#df9977";
+								}
+							}
+							else{
+								if(num>=0){
+									context.fillStyle = "#df9977";
+								}
+							}
+						};
+						
+					}
+
+				}
+
+				context.fill();
+				context.restore();
+			}
+		}
+	
 	}
 
 	draw(num,context,id,flag = false, isNeedTop = true){

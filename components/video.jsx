@@ -36,7 +36,7 @@ class FlyVideo extends Component {
 		let  {imgSrc,steps} = this.props;
 		return (
 			<div className="fly-video-C" ref='fly-video-C'>
-				<div className='fly-close' onTouchTap={this.closeStep}></div>
+				<div className='fly-close' onTouchStart={this.closeStep}></div>
 				<section>
 					<video ref='video' id="vjs_video_3_html5_api" className="" 
 						src={steps[this.state.currentVideoIndex].imgSrc}
@@ -46,7 +46,7 @@ class FlyVideo extends Component {
 					<div className='fly-video-list' style={{display:this.state.isPlay?'none':'block'}}>
 						<h1></h1>	
 						<div className='fly-video-list-scroll' ref='fly-video-list-scroll'>
-							<ul onTouchTap={this.switchVideo}>
+							<ul onTouchStart={this.switchVideo}>
 								{steps.map((item,i)=>{
 									return (
 										<li className={'fly-video-item '+ (this.state.currentVideoIndex === i ? 'active':'')} key={i} style={{background:'url('+item.poster+') no-repeat center center',backgroundSize:'cover'}}>
@@ -58,10 +58,10 @@ class FlyVideo extends Component {
 							</ul>
 						</div>
 						<div className='fly-video-operator'>
-							<div className='fly-video-reload' onTouchTap={this.reload}>
+							<div className='fly-video-reload' onTouchStart={this.reload}>
 								<img src='./assets/images/reload.png'/>
 							</div>	
-							<div className='fly-video-next' onTouchTap={this.next}>
+							<div className='fly-video-next' onTouchStart={this.next}>
 								<img src='./assets/images/next.png'/>
 							</div>	
 						</div>
@@ -83,12 +83,12 @@ class FlyVideo extends Component {
 							</div>
 						</section>
 						<section className='fly-video-btns'>
-							<div className='fly-prev-btn' onTouchTap={this.prev}>
+							<div className='fly-prev-btn' onTouchStart={this.prev}>
 								<div className='prev-ico'></div>
 								<div className='prev-ico'></div>
 							</div>
-							<div className={'fly-play-btn '+ (this.state.playing ?'':'active')} onTouchTap={this.playVideo}></div>
-							<div className='fly-next-btn' onTouchTap={this.nextVideo}>
+							<div className={'fly-play-btn '+ (this.state.playing ?'':'active')} onTouchStart={this.playVideo}></div>
+							<div className='fly-next-btn' onTouchStart={this.nextVideo}>
 								<div className='prev-ico'></div>
 								<div className='prev-ico'></div>
 							</div>

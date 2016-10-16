@@ -14,6 +14,7 @@ import { PublicShadow } from './public-shadow.jsx';
 	
 	  this.state = {
 	  	liWidth:0,
+	 	currentMaterialId:1,
 	  	 alimentatonData : {
 	  	 	materials:[
 	  	 		
@@ -125,7 +126,7 @@ import { PublicShadow } from './public-shadow.jsx';
 					<ul ref='fly-m-scroll' onTouchTap={this.checkMaterial} style={{width:this.state.alimentatonData.materials.length*this.state.liWidth}}>
 						{this.state.alimentatonData.materials.map((item,i)=>{
 							return (
-								<li className={i===0 ? 'active':''} key={i}>{item.name}</li>
+								<li className={item.id===this.state.currentMaterialId ? 'active':''} key={i}>{item.name}</li>
 							);
 						})}
 					</ul>
@@ -273,6 +274,12 @@ import { PublicShadow } from './public-shadow.jsx';
 				
 				this.stage.removeAllChildren();
 				this.drawSector(true,'',this.drawCorner());
+			});
+
+			obserable.on('updateCurrentMaterialsId',(data)=>{
+				this.setState({
+					currentMaterialId:data
+				});
 			});
 
 			obserable.on('fillMaterialsData',(data)=>{

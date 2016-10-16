@@ -136,15 +136,16 @@ import $ from 'jquery';
 						food_type:'collection'
 					},
 					success(data){
-						//s.state.dataSource[s.state.currentTimeSlot] = data;
+						console.log(data)
+						s.state.dataSource[s.state.currentTimeSlot] = data;
 						s.forceUpdate(()=>{
-							
+							s.ajaxEnd(s);
 						});
 					}
 				});
 
-				s.state.dataSource[s.state.currentTimeSlot] = addFoods;
-				s.ajaxEnd(s);
+				//s.state.dataSource[s.state.currentTimeSlot] = addFoods;
+				
 			break;
 		}
 
@@ -153,7 +154,7 @@ import $ from 'jquery';
 	ajaxEnd(_this){
 		setTimeout(()=>{
 			_this.setState({
-				ulWidth:_this.refs['foodlist-content'].children[0].children[0].clientWidth*(Math.ceil(_this.state.dataSource[_this.state.currentTimeSlot].length/2))+2
+				ulWidth:(_this.refs['foodlist-content'].children[0].children[0].clientWidth+10)*(Math.ceil(_this.state.dataSource[_this.state.currentTimeSlot].length/2))+2
 			});
 			_this.liWidth = _this.refs['foodlist-content'].children[0].children[0].clientWidth;
 			_this.scroll = new IScroll(_this.refs['foodlist-content'],{

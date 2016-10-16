@@ -56,7 +56,7 @@ import $ from 'jquery';
 							<div style={{opacity:this.state.showWeight ? 1:0}} className='fly-img-weight'>
 								<img src='./assets/images/weight.png'/>
 								<div className='fly-weight-display'>
-									<div onTouchStart={ this.netWeight}>去皮</div>
+									<div onTouchStart={this.netWeight}>去皮</div>
 									<div className='weight'><canvas ref='weight'></canvas></div>
 									<div onTouchStart={this.getWeight}>确定</div>
 								</div>
@@ -253,15 +253,18 @@ import $ from 'jquery';
 	}
 
 	netWeight(e){//去皮
-		let {URL} = this.props;
 		if(this.state.isShow){
+			let {URL} = this.props;
+			let canvas = this.refs['weight'];
 			this.props.shadow(e.target,'shadow1');
+			let s = this;
 			$.ajax({
 				type:'POST',
 				url:URL.weightstart,
 				success(data){
 					if(data.getret === 1){
 						//console.log('success');
+						s.initCanvas(canvas,0);
 					}
 				}
 			});
@@ -276,11 +279,15 @@ import $ from 'jquery';
 			this.props.shadow(e.target,'shadow1');
 			let s = this;
 			let canvas = this.refs['weight'];
+			
 			$.ajax({
 				type:'POST',
 				url:URL.weightend,
+				error(){
+					s.initCanvas(canvas,0);
+				},
 				success(data){
-					console.log(data);
+					//console.log(data);
 					if(data.getret === 1){
 						let weight= data.foodweight*1|0;
 						console.log(data)
@@ -294,6 +301,10 @@ import $ from 'jquery';
 										scaleData:data.scaleData
 									 }
 								});
+								obserable.trigger({
+									type:"updateCurrentMaterialsId",
+									data:2
+								})
 								clearInterval(t);
 								s.initCanvas(canvas,weight);
 							}
