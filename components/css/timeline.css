@@ -18,20 +18,18 @@
     top: 50%;
     z-index: 22;
     margin-top: -3px;
-    height: 13px;
+    height: 8px;
     border-radius: 10px;
     background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0.1)), to(rgba(255, 255, 255, 0.5))); }
-    .fly-time-line-C .fly-progress:after {
-      content: '';
+    .fly-time-line-C .fly-progress span {
       position: absolute;
       width: 1vw;
       height: 1vw;
       border-radius: 50%;
       background: white;
-      right: -0.5vw;
-      top: -0.35vw;
+      right: 0vw;
+      top: -0.4vw;
       -webkit-filter: blur(8px);
-      box-shadow: 0 0 0 0.1vw rgba(255, 255, 255, 0.3);
       /* 
       */ }
   .fly-time-line-C .fly-points-C {
@@ -92,8 +90,8 @@
 
 @-webkit-keyframes sploosh {
   0% {
-    box-shadow: 0 0 0 0px rgba(255, 255, 255, 0); }
+    opacity: .7; }
   100% {
-    box-shadow: 0 0 0 0.8vw rgba(255, 255, 255, 0.8); } }
+    opacity: 1; } }
 
 /*# sourceMappingURL=timeline.css.map */

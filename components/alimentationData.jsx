@@ -120,13 +120,12 @@ import { PublicShadow } from './public-shadow.jsx';
 				<div ref='fly-data-C' className='fly-data-C'>
 					<canvas  id='alimentation-canvas'></canvas>
 				</div>
-
 				<div className='fly-all' style={{display:this.state.alimentatonData.materials.length ? 'block':'none'}}>显示全部</div>
 				<div className='fly-m-name' ref='fly-m-name'>
 					<ul ref='fly-m-scroll' onTouchTap={this.checkMaterial} style={{width:this.state.alimentatonData.materials.length*this.state.liWidth}}>
 						{this.state.alimentatonData.materials.map((item,i)=>{
 							return (
-								<li className={item.id===this.state.currentMaterialId ? 'active':''} key={i}>{item.name}</li>
+								<li className={item.id*1 === this.state.currentMaterialId*1 ? 'active':''} key={i}>{item.name}</li>
 							);
 						})}
 					</ul>
@@ -181,6 +180,8 @@ import { PublicShadow } from './public-shadow.jsx';
 		let domCircle = document.getElementById("fly-circle-center");
 		domCircle.style.width = r*2 +'px';
 		domCircle.style.height = r*2 +'px';
+	//	this.ball.style.width = r*2+'px';
+	//	this.ball.style.height = r*2+'px';
 		let circle = new createjs.DOMElement(domCircle);
 		circle.x= x -r;
 		circle.y = y -r ;
@@ -204,23 +205,43 @@ import { PublicShadow } from './public-shadow.jsx';
 			ballHeight = domBall.offsetHeight;
 		this.stage.addChild(dom);
 		dom.x = this.canvas.width/2 - ballWidth/2;
-		dom.y = this.canvas.height/2-r - ballHeight/2;
+		dom.y = this.canvas.height/2-r;
 		dom.r = r;
 		dom.domBall= domBall;
+
 		dom.ballWidth = ballWidth;
 		dom.ballHeight = ballHeight;
 		dom.centerX = this.canvas.width/2;
 		dom.centerY = this.canvas.height/2;
-
+		
+		domBall.style.top = (dom.centerX - r - ballWidth / 2 - 15) +'px';
 		this.ball = dom;
 	}
 
 	ballCircularMotion(ball){//小球做圆周运动
-		this.iNow = this.iNow===undefined? 180 : this.iNow;
+
+		this.iNow = this.iNow === undefined ? 180 : this.iNow;
 		
-		if((this.iNow+180)%45 === 0 ){
-			var index =8-(this.iNow+180)/45|0;
-			index === 8 && (index = 0);
+		if((this.iNow)%45 === 0 ){
+			var result = (this.iNow-180)/45;
+			var index=  result;
+			switch(result){
+				case -4:
+					index =4 ;
+				break;
+				case -3:
+					index = 5;
+				break;
+				case -2:
+					index = 6;
+				break;
+				case -1:
+					index = 7;
+				break;
+			}
+			
+		/*	var index =8-(this.iNow-180)/45|0;
+			index === 8 && (index = 0);*/
 			let textArr = [];
 			this.allDataContainer.children.forEach(item=>{
 				if(item.color){
@@ -231,26 +252,18 @@ import { PublicShadow } from './public-shadow.jsx';
 			textArr[index-1<0?7:index-1].font ="38px 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif";
 			textArr[index].font ="46px 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif";
 			textArr[index].color='#f90';
-
 		}
 
-
-		ball.x =ball.centerX - ball.ballWidth/2 + ball.r * Math.sin(this.iNow/180*Math.PI);
-		ball.y =ball.centerY - ball.ballHeight/2 + ball.r * Math.cos(this.iNow/180*Math.PI);
-
-		this.iNow -=.5;
-		if(this.iNow<-180){
-			this.iNow = 180;
-
-		}
-
-
+		ball.rotation = this.iNow;
 		
+
+		this.iNow +=1.25;
+		if(this.iNow>360){
+			this.iNow = 0;
+		}
 	}
 
 	componentDidMount() {
-
-
 
 		setTimeout(()=>{
 
@@ -427,7 +440,12 @@ import { PublicShadow } from './public-shadow.jsx';
 					switch(index){
 							case 0:
 							case 7:
-								text.y+=60;
+								if(index){
+									text.x -= 70;
+								}
+								else{
+									text.x += 70;	
+								}
 							break;
 							case 2:
 							break;

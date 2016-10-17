@@ -149,10 +149,10 @@ body{
   font-size: .1 * 10vw ;
   font-family: 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif;
   color:$baseColor;
+  -webkit-user-select: none;
 }
 $nav-height:11.76vh;
 #fly-main{  
- // margin-left: -2rem;
    width: 10 * 10vw ;
    overflow: hidden;
   .fly-nav-mask{

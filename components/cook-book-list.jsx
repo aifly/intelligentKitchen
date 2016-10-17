@@ -58,6 +58,8 @@ import $ from 'jquery';
 			var index =	this.props.getIndex(e.target.parentNode.children,e.target);
 			this.setState({
 				currentTimeSlot:index
+			},()=>{
+				this.scroll &&this.scroll.refresh();
 			})
 		}
 		//
@@ -164,7 +166,7 @@ import $ from 'jquery';
 		for(var i = -week;i<7-week;i++){
 			this.state.dates1.push({
 				date:GetDateStr(i),
-				lunar:i===0?'今天':GetLunarDay(yy,mm,dd+i),
+				lunar:i===0?'今天':(GetLunarDay(yy,mm,dd+i)==='廿'?'廿十':GetLunarDay(yy,mm,dd+i)),
 				id:'',
 				isToday: i === 0 ? true : false,
 				isHasFood:false
@@ -179,13 +181,14 @@ import $ from 'jquery';
 				id:'',
 				isHasFood:false
 			});	
+
 		}
 		let s = this;
 		$.ajax({
 			url:URL.getBookList,
 			type:'POST',
 			data:{
-				Userid:userId,
+				userid:userId,
 				bydate:getFullDate(-week)
 			},
 			success(data){
@@ -206,8 +209,8 @@ import $ from 'jquery';
 		
 		let {URL,userId} = this.props,
 			s = this;
-		s.state.addFoods.forEach(food=>{
-			food.length = 0;
+		s.state.addFoods.forEach((food,i)=>{
+			i>0 && (food.length = 0);
 		});
 		s.forceUpdate();
 		$.ajax({
@@ -216,18 +219,13 @@ import $ from 'jquery';
 			data:{
 				food_type:'Join',//注意J大写。
 				Userid:userId,
-				typeid:date
+				Typeid:date
 			},
 			success(data){
-
-				/*data.forEach((item)=>{
-					//console.log(item.foodMtype);
-					
-					s.state.addFoods[item.foodMtype].push(item);
-				});*/
-
-				s.state.addFoods[s.state.currentTimeSlot] = data;
-
+				data.forEach(d=>{
+					s.state.addFoods[d.foodMtype*1].push(d);	
+				});
+			
 				s.forceUpdate(()=>{
 					
 					if(s.state.addFoods[s.state.currentTimeSlot].length<=0){
@@ -242,6 +240,10 @@ import $ from 'jquery';
 						scrollX:true,
 						scrollY:false,
 					});
+
+					setTimeout(()=>{
+						s.scroll.refresh();
+					},100)
 
 				});
 
@@ -281,7 +283,7 @@ import $ from 'jquery';
 
 		let {obserable,getTimeSlot} = this.props;//getTimeSlot是从高街组件中得到的属性。
 
-		//this.getFoodListByDate(getFullDate(0));//获取当天的加入的菜谱列表
+		this.getFoodListByDate(getFullDate(0));//获取当天的加入的菜谱列表
 
 
 		obserable.on('showIsEnableDrag',(flag)=>{
@@ -324,7 +326,7 @@ import $ from 'jquery';
 
 		
 
-		$(this.refs['fly-cook-list']).on('touchstart',e=>{
+		/*$(this.refs['fly-cook-list']).on('touchstart',e=>{
 			
 			let $target=$(e.target);
 			//!$(e.target).parents('.active').length && !$(e.target).hasClass('active')) 
@@ -380,7 +382,7 @@ import $ from 'jquery';
 				});
 			});
 
-		});
+		});*/
 
 	}
 

@@ -462,7 +462,6 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 
 
 		var data = this;
- 
 
 		data.foods.on('touchstart',(e)=>{
 			if(self.state.isEnableDrag){//
@@ -506,7 +505,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 		});
 		
 		
-		$(this.refs['fly-cook-book-item-C']).on('touchstart',(e)=>{
+	/*	$(this.refs['fly-cook-book-item-C']).on('touchstart',(e)=>{
 
 			var target = $(e.target).hasClass('fly-food-item')?$(e.target):$(e.target).parents('.fly-food-item');
 			var isTop = target.hasClass('fly-top3');
@@ -575,7 +574,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 			if(e.target.nodeName=== "SPAN" && $(e.target).parents('.fly-video-scroll-C').length){
 				return;
 			}
-			/*var timer = setTimeout(()=>{
+			var timer = setTimeout(()=>{
 			
 				self.setState({
 					isEnableDrag:true
@@ -592,7 +591,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 				self.sort = new Sortable(data.cookBookC[0],{group:'omega'});
 				//self.props.obserable.trigger({type:'showDone'})
 
-			},3000);*/
+			},3000);
 				var e = e.originalEvent ? e.originalEvent.changedTouches[0]:e.changedTarget[0];
 			let $target = $(e.target).hasClass('fly-cook-book-item')?$(e.target):$(e.target).parents('.fly-cook-book-item'),
 				iNow = 0;
@@ -616,7 +615,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 				$(document).off('touchmove touchend');
 			});
 
-		});
+		});*/
 		
 
 	}

@@ -254,20 +254,26 @@ import $ from 'jquery';
 
 	netWeight(e){//去皮
 		if(this.state.isShow){
-			let {URL} = this.props;
 			let canvas = this.refs['weight'];
+			this.initCanvas(canvas,0);
+			this.t && clearInterval(this.t);
 			this.props.shadow(e.target,'shadow1');
-			let s = this;
-			$.ajax({
-				type:'POST',
-				url:URL.weightstart,
-				success(data){
-					if(data.getret === 1){
-						//console.log('success');
-						s.initCanvas(canvas,0);
+			setTimeout(()=>{
+				let {URL} = this.props;
+				let canvas = this.refs['weight'];
+				let s = this;
+				$.ajax({
+					type:'POST',
+					url:URL.weightstart,
+					success(data){
+						if(data.getret === 1){
+							//console.log('success');
+							//s.initCanvas(canvas,0);
+						}
 					}
-				}
-			});
+				});
+			},1000)
+			
 		}	
 	}
 
@@ -279,39 +285,41 @@ import $ from 'jquery';
 			this.props.shadow(e.target,'shadow1');
 			let s = this;
 			let canvas = this.refs['weight'];
-			
-			$.ajax({
+			var iNow = 0;
+			this.t = setInterval(()=>{
+				s.initCanvas(canvas,++iNow);
+			},20);
+			setTimeout(()=>{
+				$.ajax({
 				type:'POST',
 				url:URL.weightend,
-				error(){
+				error(e){
 					s.initCanvas(canvas,0);
 				},
 				success(data){
-					//console.log(data);
 					if(data.getret === 1){
 						let weight= data.foodweight*1|0;
-						console.log(data)
-						var iNow = weight - 10 < 0?0:weight-10;
-						var t = setInterval(()=>{
-							s.initCanvas(canvas,++iNow);
-							if(iNow >=weight){
-								obserable.trigger({ //填充饼图
-									type:'fillAlimentationData',
-									data:{
-										scaleData:data.scaleData
-									 }
-								});
-								obserable.trigger({
-									type:"updateCurrentMaterialsId",
-									data:2
-								})
-								clearInterval(t);
-								s.initCanvas(canvas,weight);
-							}
-						},20);
+						clearInterval(s.t);
+					
+						obserable.trigger({ //填充饼图
+							type:'fillAlimentationData',
+							data:{
+								scaleData:data.scaleData
+							 }
+						});
+						obserable.trigger({
+							type:"updateCurrentMaterialsId",
+							data:data.Materiaid*1
+						});
+						weight > 9999 && (weight = 9999);
+						s.initCanvas(canvas,weight);
+
+						
 					}
 				}
 			});
+			},4000);
+			
 		}	
 	}
 

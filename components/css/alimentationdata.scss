@@ -148,15 +148,20 @@ $maxIndex:9999;
       width: .5 * 10vw;
       text-align: center;
      color:#fff;
+     bottom:-1.58vw;
   }
 
    div.fly-m-name{
+    bottom:-2.6vw;
+    height: 4vw;
      width: 74%;
      @include pos(a);
      right: .2 * 10vw;
      overflow: hidden;
-     ul{
 
+     z-index: 100;
+     ul{
+        margin-top: .9vw;
      }
      li{
        width: .5 * 10vw;
@@ -183,8 +188,9 @@ $maxIndex:9999;
      }
      .active{
         border-color:transparent;
+         color:$baseColor1 / 1.4;
         &:after{
-          color:#fff;
+         
         }
         &:before{
           content:'';
@@ -193,7 +199,7 @@ $maxIndex:9999;
           -webkit-animation: blur 1s linear infinite alternate;
           @include pos(a);
           width: 100%;
-          box-shadow:0 0 .1 * 10vw rgba(232,158,121,.5);
+          box-shadow:0 0 .2 * 10vw rgba(232,158,121,.5);
           @include br(30px);
           height: 100%;
           left: 0;
@@ -218,15 +224,24 @@ $maxIndex:9999;
 
 
    .fly-circle{
-      width: .1 * 10vw;
-      height: .1 * 10vw;
-      background:#fff;
-      @include br(50%);
+      width: .1 * 1vw;
+      height: 300px;
+      //@include br(50%);
       @include pos(a);
       left: 3%;
-      top: 0;
       opacity:0;
-      -webkit-filter: blur(7px);
+      &:before{
+        content:'';
+        width: 1vw;
+        height: 1vw;
+        background:#fff;
+        -webkit-filter: blur(7px);
+        @include pos(a);
+        bottom: -.5vw;
+        left: -.5vw;
+        @include br(50%);
+      }
+      //
    }
 
    .fly-circle-center{
@@ -250,13 +265,13 @@ $maxIndex:9999;
 }
 
 
+
+
 @-webkit-keyframes blur{
   from {
   }
    to{
       border-color:$baseColor1;
       color:$baseColor1;
-      -webkit-filter:blur(1px);
-      
    }
 }

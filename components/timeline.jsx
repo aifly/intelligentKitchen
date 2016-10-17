@@ -28,7 +28,9 @@ class FlyTimeLine extends Component {
 		return (
 			<section className='fly-time-line-C' style={{opacity:this.state.steps.length ? 1:0}}>
 				<div className='line'></div>
-				<div className='fly-progress' style={{left:40+this.state.articleWidth - (document.documentElement.clientWidth / 10 * .1) / 2,marginLeft:this.state.progressLeft,width:this.state.width}}></div>
+				<div className='fly-progress' style={{left:40+this.state.articleWidth - (document.documentElement.clientWidth / 10 * .1) / 2,marginLeft:this.state.progressLeft}}>
+					<span style={{WebkitTransform:'translate3d('+this.state.width+'px,0,0)'}}></span>
+				</div>
 				<section className='fly-points-C' ref='fly-points-C' onTouchTap={this.updateStep}>
 					<article className='prepare' ref='prepare'>
 						<span className='active'></span>
@@ -166,7 +168,7 @@ class FlyTimeLine extends Component {
 			}
 
 
-			let x = this.state.width + .4;
+			let x = this.state.width + 1;
 
 			//x>= this.posArr[currentStep].x && (x =  20 && return false);
 

@@ -26,9 +26,10 @@
         height: 3vw;
         width: 3vw;
         border-radius: 50%;
-        line-height: 3vw; }
+        line-height: 3vw;
+        border: 3px solid #fff; }
         .foodlist-C section ol li.active {
-          border: 3px solid #e89e79; }
+          border-color: #e89e79; }
       .foodlist-C section ol:after {
         content: '';
         width: 2px;

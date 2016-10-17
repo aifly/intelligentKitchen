@@ -2,7 +2,7 @@ var addFoods = [
 	{
     foodMtype:0,//
 		name:"牛奶燕麦粥",//食谱名
-		imgSrc:"./assets/images/f4.png",//食谱图片
+		imgSrc:"./assets/images/f3.png",//食谱图片
 		id:'',//id
 		//detailSrc:'./assets/images/food1.png', //最右侧的图片，如果是视频，这个字段没用
 		pageView:333,//浏览
@@ -56,11 +56,8 @@ var addFoods = [
 		pageView:22,
 		discuss:224,//讨论
 		foodMaterial:[
-	    {name:'小番茄',weight:'30g',id:1},
-      {name:'鸡蛋',weight:'40g',id:2},
-      {name:'生菜',weight:'70g',id:3},
-      {name:'生菜',weight:'70g',id:4},
-      {name:'生菜',weight:'70g',id:5},
+	    {name:'牛奶',weight:'250',id:1},
+      {name:'燕麦',weight:'50g',id:2}
 		],
     type:'image',
 		steps:[
@@ -92,87 +89,39 @@ var addFoods = [
 		]
 	},{
     foodMtype:0,//
-		name:"西冷牛排",
-		imgSrc:"./assets/images/f1.png",
+		name:"三明治",
+		imgSrc:"./assets/images/f2.png",
 		id:'',
-		detailSrc:'./assets/images/food1.png',
+		detailSrc:'./assets/images/food2.png',
 		pageView:283,
 		discuss:124,//讨论
 		foodMaterial:[
-		  {name:'小番茄',weight:'20g',id:1},
-      {name:'鸡蛋',weight:'40g',id:2},
-      {name:'生菜',weight:'70g',id:3},
-      {name:'生菜',weight:'70g',id:4},
-      {name:'生菜',weight:'70g',id:5},
-		],scaleData:[
-  	 		{
-  	 			unit:'g',
-  	 			weight:'22',
-  	 			scale:.11,
-  	 			name:'热量'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'40',
-  	 			scale:.14,
-  	 			name:'蛋白质'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'29',
-  	 			scale:.12,
-  	 			name:'脂肪'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'24',
-  	 			scale:.14,
-  	 			name:'碳水化合物'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'30',
-  	 			scale:.11,
-  	 			name:'膳食纤维'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'36',
-  	 			scale:.12,
-  	 			name:'微量元素'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'20',
-  	 			scale:.16,
-  	 			name:'维生素'
-  	 		},{
-  	 			unit:'g',
-  	 			weight:'20',
-  	 			scale:.1,
-  	 			name:'其它'
-  	 		}
-	  	],
-      type:'image',
+		  {name:'面包',weight:'4片',id:1},
+      {name:'火腿',weight:'1片',id:2},
+      {name:'鸡蛋',weight:'1个',id:3},
+      {name:'生菜',weight:'20g',id:4}
+		],
+    type:'image',
 		steps:[
 			{
         stepName:'第一步',
-        imgSrc:'./assets/images/food1.png',
-        stepContent:'西红柿切成片'
+        imgSrc:'./assets/images/s6.png',
+        stepContent:'取两片土司单面涂满沙拉酱'
       },
       {
         stepName:'第二步',
-        imgSrc:'./assets/images/food2.png',
-        stepContent:'打好鸡蛋并且搅拌均匀'
+        imgSrc:'./assets/images/s7.png',
+        stepContent:'把午餐肉煎热，鸡蛋煎熟'
       },
       {
         stepName:'第三步',
-        imgSrc:'./assets/images/food3.png',
-        stepContent:'鸡蛋入锅，翻炒，剩出备用'
+        imgSrc:'./assets/images/s8.png',
+        stepContent:'按顺序放好'
       },
       {
         stepName:'第四步',
-        imgSrc:'./assets/images/food4.png',
-        stepContent:'西红柿入锅'
-      },
-      {
-        stepName:'第五步',
-        imgSrc:'./assets/images/food1.png',
-        stepContent:'倒入备用鸡蛋翻炒'
+        imgSrc:'./assets/images/s9.png',
+        stepContent:'牛奶微波炉加热40秒微热'
       }
 		]
 	}

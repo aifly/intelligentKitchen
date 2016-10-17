@@ -259,20 +259,24 @@ $maxIndex:9999;
                 }
               }
               @include pos(r);
-
+              div{
+                 @include pos(r);
+                &:before{
+                  content:'';
+                  $width:.05 * 10vw;
+                  width:$width;
+                  height: $width;
+                  @include br(50%);
+                  @include pos(a);
+                  right: .01 * 10vw;
+                  top: .01 * 10vw;  
+                }
+              }
               .hasfood{
                 @include br(50%);
-                @include pos(r);
+               
                   &:before{
-                    content:'';
-                    $width:.05 * 10vw;
-                    width:$width;
-                    height: $width;
                     background:$baseColor1;
-                    @include br(50%);
-                    @include pos(a);
-                    right: .01 * 10vw;
-                    top: .01 * 10vw;  
                   }
               }
 

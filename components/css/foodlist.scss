@@ -140,8 +140,9 @@ $foodlist-height:1.9 * 10vw;
         width: $size;
         @include br(50%);
         line-height: $size;
+        border:3px solid #fff;
         &.active{
-          border:3px solid $baseColor1;
+          border-color:$baseColor1;
         }
       }
       @include pos(r);

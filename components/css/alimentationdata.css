@@ -20,12 +20,18 @@
     line-height: 2vw;
     width: 5vw;
     text-align: center;
-    color: #fff; }
+    color: #fff;
+    bottom: -1.58vw; }
   .fly-alimentation-data div.fly-m-name {
+    bottom: -2.6vw;
+    height: 4vw;
     width: 74%;
     position: absolute;
     right: 2vw;
-    overflow: hidden; }
+    overflow: hidden;
+    z-index: 100; }
+    .fly-alimentation-data div.fly-m-name ul {
+      margin-top: .9vw; }
     .fly-alimentation-data div.fly-m-name li {
       width: 5vw;
       float: left;
@@ -45,9 +51,8 @@
       .fly-alimentation-data div.fly-m-name li:last-of-type:after {
         content: ""; }
     .fly-alimentation-data div.fly-m-name .active {
-      border-color: transparent; }
-      .fly-alimentation-data div.fly-m-name .active:after {
-        color: #fff; }
+      border-color: transparent;
+      color: #a67156; }
       .fly-alimentation-data div.fly-m-name .active:before {
         content: '';
         border: 2px solid #a67156;
@@ -55,7 +60,7 @@
         -webkit-animation: blur 1s linear infinite alternate;
         position: absolute;
         width: 100%;
-        box-shadow: 0 0 1vw rgba(232, 158, 121, 0.5);
+        box-shadow: 0 0 2vw rgba(232, 158, 121, 0.5);
         border-radius: 30px;
         height: 100%;
         left: 0;
@@ -72,15 +77,21 @@
         left: 0;
         top: 0; }
   .fly-alimentation-data .fly-circle {
-    width: 1vw;
-    height: 1vw;
-    background: #fff;
-    border-radius: 50%;
+    width: 0.1vw;
+    height: 300px;
     position: absolute;
     left: 3%;
-    top: 0;
-    opacity: 0;
-    -webkit-filter: blur(7px); }
+    opacity: 0; }
+    .fly-alimentation-data .fly-circle:before {
+      content: '';
+      width: 1vw;
+      height: 1vw;
+      background: #fff;
+      -webkit-filter: blur(7px);
+      position: absolute;
+      bottom: -.5vw;
+      left: -.5vw;
+      border-radius: 50%; }
   .fly-alimentation-data .fly-circle-center {
     position: absolute;
     left: 3%;
@@ -100,7 +111,6 @@
 @-webkit-keyframes blur {
   to {
     border-color: #e89e79;
-    color: #e89e79;
-    -webkit-filter: blur(1px); } }
+    color: #e89e79; } }
 
 /*# sourceMappingURL=alimentationdata.css.map */

@@ -31,8 +31,12 @@ import $ from 'jquery';
 		if(target.nodeName === "LI" ){
 			var index =	this.props.getIndex(e.target.parentNode.children,e.target);
 			this.setState({
-				currentTimeSlot:index
+				currentTimeSlot:index,
+				ulWidth:(this.refs['foodlist-content'].children[0].children[0].clientWidth+10)*(Math.ceil(this.state.dataSource[index].length/2))+2
+			},()=>{
+				this.scroll.refresh();
 			})
+
 		}
 		//
 	}
@@ -46,7 +50,7 @@ import $ from 'jquery';
 
 				<div ref='foodlist-C' className='foodlist-C'>
 					<section>
-						{this.props.isShowTimeline && <ol onTouchTap={this.changeTimeSlot}>
+						{this.props.isShowTimeline && <ol onTouchStart={this.changeTimeSlot}>
 							<li className={this.state.currentTimeSlot === 0 ? 'active':''}>{this.props.tags[0]}</li>
 							<li className={this.state.currentTimeSlot === 1 ? 'active':''}>{this.props.tags[1]}</li>
 							<li className={this.state.currentTimeSlot === 2 ? 'active':''}>{this.props.tags[2]}</li>
@@ -68,7 +72,7 @@ import $ from 'jquery';
 						</div>
 					</section>
 				</div>
-				<div className='foodlist-next' onTouchTap={this.next}>></div>
+				<div className='foodlist-next' onTouchStart={this.next}>></div>
 			</div>
 			
 		);
@@ -90,25 +94,28 @@ import $ from 'jquery';
 
 				this.state.currentTimeSlot = 0;
 
-				/*$.ajax({
+				$.ajax({
 					url:URL.getCookBookList,
 					data:{
 						Userid:userId,
 						food_type:'rec'
 					},
 					success(data){
-					//	s.state.dataSource[s.state.currentTimeSlot] = data;
+						data.forEach(d=>{
+							s.state.dataSource[d.foodMtype*1-1].push(d);	
+						});
+						//s.state.dataSource[s.state.currentTimeSlot] = data;
 						s.forceUpdate(()=>{
 							s.ajaxEnd(s);
 						});
 					}
-				})*/
+				})
 				
-				this.state.dataSource[this.state.currentTimeSlot]= addFoods;
-				s.ajaxEnd(s);
+				//this.state.dataSource[this.state.currentTimeSlot]= addFoods;
+				//s.ajaxEnd(s);
 			break;
 			case 'rec-menu'://推荐菜谱
-				/*
+				this.state.currentTimeSlot = 0;
 				$.ajax({
 					url:URL.getCookBookList,
 					data:{
@@ -116,16 +123,20 @@ import $ from 'jquery';
 						food_type:'men'
 					},
 					success(data){
+					//	console.log(data);
+						data.forEach(d=>{
+							s.state.dataSource[d.foodMtype*1].push(d);	
+						});
 						//s.state.dataSource[s.state.currentTimeSlot] = data;
 						s.forceUpdate(()=>{
 							s.ajaxEnd(s);
 						});
 					}
-				})*/
-				this.state.currentTimeSlot = 0;
-				this.state.dataSource[this.state.currentTimeSlot]= addFoods;
+				})
+				
+				//this.state.dataSource[this.state.currentTimeSlot]= addFoods;
 
-				s.ajaxEnd(s);
+				//s.ajaxEnd(s);
 			break;
 			case 'my-collect': // 我的收藏。
 
@@ -136,7 +147,6 @@ import $ from 'jquery';
 						food_type:'collection'
 					},
 					success(data){
-						console.log(data)
 						s.state.dataSource[s.state.currentTimeSlot] = data;
 						s.forceUpdate(()=>{
 							s.ajaxEnd(s);
@@ -153,9 +163,11 @@ import $ from 'jquery';
 
 	ajaxEnd(_this){
 		setTimeout(()=>{
+			
 			_this.setState({
-				ulWidth:(_this.refs['foodlist-content'].children[0].children[0].clientWidth+10)*(Math.ceil(_this.state.dataSource[_this.state.currentTimeSlot].length/2))+2
+				ulWidth:(_this.refs['foodlist-content'].children[0].children[0].clientWidth+10)*(Math.ceil(_this.state.dataSource[0].length/2))+2
 			});
+			
 			_this.liWidth = _this.refs['foodlist-content'].children[0].children[0].clientWidth;
 			_this.scroll = new IScroll(_this.refs['foodlist-content'],{
 				scrollX:true,

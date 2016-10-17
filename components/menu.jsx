@@ -232,7 +232,6 @@ injectTapEventPlugin();
 
 	menuBarHandler(){
 
-
 		if(this.state.isEnableDrag){
 			let {obserable} = this.props;
 			obserable.trigger({type:'closeDrag'});

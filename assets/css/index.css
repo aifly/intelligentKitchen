@@ -140,7 +140,8 @@ body {
   overflow: hidden;
   font-size: 1vw;
   font-family: 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif;
-  color: #d1bdbd; }
+  color: #d1bdbd;
+  -webkit-user-select: none; }
 
 #fly-main {
   width: 100vw;
