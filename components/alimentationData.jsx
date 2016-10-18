@@ -111,6 +111,7 @@ import { PublicShadow } from './public-shadow.jsx';
 	  };
 
 	  this.checkMaterial = this.checkMaterial.bind(this);
+	  this.showAllData = this.showAllData.bind(this);
 	}
 
 
@@ -120,7 +121,7 @@ import { PublicShadow } from './public-shadow.jsx';
 				<div ref='fly-data-C' className='fly-data-C'>
 					<canvas  id='alimentation-canvas'></canvas>
 				</div>
-				<div className='fly-all' style={{display:this.state.alimentatonData.materials.length ? 'block':'none'}}>显示全部</div>
+				<div className='fly-all' onTouchStart={this.showAllData} style={{display:this.state.alimentatonData.materials.length ? 'block':'none'}}>显示全部</div>
 				<div className='fly-m-name' ref='fly-m-name'>
 					<ul ref='fly-m-scroll' onTouchTap={this.checkMaterial} style={{width:this.state.alimentatonData.materials.length*this.state.liWidth}}>
 						{this.state.alimentatonData.materials.map((item,i)=>{
@@ -135,6 +136,40 @@ import { PublicShadow } from './public-shadow.jsx';
 
 			</li>
 		);
+	}
+
+	showAllData(){//显示全部
+		
+		let {URL,obserable} = this.props;
+
+		var data = obserable.trigger({type:'getWeightData'});
+		
+		data = data.concat(data);
+
+		var result = data[0],
+			allWeight = result[0].weight;
+
+		data.forEach((d,i)=>{
+			if(i>0){
+				d.forEach((sd,j)=>{
+					result[j].weight = sd.weight + result[j].weight;
+					allWeight += sd.weight;
+				});
+			}
+		});
+
+
+		result.forEach(r=>{
+			r.scale = r.weight / allWeight;
+		});
+
+		obserable.trigger({ //填充饼图
+			type:'fillAlimentationData',
+			data:{
+				scaleData:result
+			 }
+		});
+
 	}
 
 

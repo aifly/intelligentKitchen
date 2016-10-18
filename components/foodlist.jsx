@@ -106,7 +106,7 @@ import $ from 'jquery';
 						});
 						//s.state.dataSource[s.state.currentTimeSlot] = data;
 						s.forceUpdate(()=>{
-							s.ajaxEnd(s);
+							s.ajaxEnd(s,data.length);
 						});
 					}
 				})
@@ -129,7 +129,7 @@ import $ from 'jquery';
 						});
 						//s.state.dataSource[s.state.currentTimeSlot] = data;
 						s.forceUpdate(()=>{
-							s.ajaxEnd(s);
+							s.ajaxEnd(s,data.length);
 						});
 					}
 				})
@@ -147,9 +147,10 @@ import $ from 'jquery';
 						food_type:'collection'
 					},
 					success(data){
+
 						s.state.dataSource[s.state.currentTimeSlot] = data;
 						s.forceUpdate(()=>{
-							s.ajaxEnd(s);
+							s.ajaxEnd(s,data.length);
 						});
 					}
 				});
@@ -161,11 +162,10 @@ import $ from 'jquery';
 
 	}
 
-	ajaxEnd(_this){
+	ajaxEnd(_this,len){
 		setTimeout(()=>{
-			
 			_this.setState({
-				ulWidth:(_this.refs['foodlist-content'].children[0].children[0].clientWidth+10)*(Math.ceil(_this.state.dataSource[0].length/2))+2
+				ulWidth:(_this.refs['foodlist-content'].children[0].children[0].clientWidth+10)*(Math.ceil(len/2))+2
 			});
 			
 			_this.liWidth = _this.refs['foodlist-content'].children[0].children[0].clientWidth;

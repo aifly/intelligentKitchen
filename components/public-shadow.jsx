@@ -17,6 +17,10 @@ export let PublicShadow = ComponsedComponent => class extends Component{
 		e.target.classList.remove('shadow');
 	}
 
+	r(m, n) {
+        return (m + Math.random() * (n - m));
+    }
+
 	shadow(obj,className='shadow'){
 		obj.classList.add(className);
 		setTimeout(()=>{
@@ -29,7 +33,8 @@ export let PublicShadow = ComponsedComponent => class extends Component{
 		let methods = {
 			touchStart:this.touchStart,
 			touchEnd:this.touchEnd,
-			shadow:this.shadow
+			shadow:this.shadow,
+			r:this.r
 		}
 
 	  return <ComponsedComponent {...methods} {...this.props} {...this.state} />;

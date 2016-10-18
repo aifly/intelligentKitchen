@@ -200,7 +200,29 @@ $nav-height:11.76vh;
         height: 10vh;
         width: 10vh;
        // @include br();
-        
+        canvas{
+          @include br(50%);
+        }
+
+        div{
+          @include pos(r);
+          width: 140px;
+          height: 140px;
+          margin-top: 1.1vw;
+          margin-left: 1vw;
+          @include br(50%);
+          &:before{
+            content:'';
+            @include pos(a);
+            left: 0;
+            top:0;
+            @include br(50%);
+            width:100%;
+            height: 100%;
+            z-index: 100;
+            box-shadow:0 0 .2* 10vw rgba(232,158,121,.2);
+          }
+        }
         &:last-of-type{
          // @include br(50%);
         }
@@ -344,7 +366,7 @@ $nav-height:11.76vh;
               @include pos(a);
               width: 100%;
               z-index: -1;
-
+              @include br(30px);
               height: 100%;
               box-shadow:0 0 .3 * 10vw  rgba(232,158,121,.4);
             }

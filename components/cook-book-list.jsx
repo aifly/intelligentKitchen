@@ -36,20 +36,16 @@ import $ from 'jquery';
 	}
 	change(e){//切换
 
-		if( !this.state.currentPannel && e.target.classList.contains('tag')){
-			this.setState({
-				currentPannel:1
-			})
-		}
+		this.setState({
+			currentPannel:1
+		})
 	}
 
 	changeMyCollectTop(e){
 
-		if(this.state.currentPannel && e.target.classList.contains('tag')){
-			this.setState({
-				currentPannel:0
-			})	
-		}
+		this.setState({
+			currentPannel:0
+		})	
 	}
 
 	changeTimeSlot(e){
@@ -73,8 +69,8 @@ import $ from 'jquery';
 					<div style={{position:'absolute',width:'100%',height:'100%',zIndex:isShow?1000:-1}}></div>
 					<div style={{position:'relative',opacity:this.state.isShow?1:0}}>
 						<div className="fly-cook-book-item-C">
-							<article className={"book-list-C add-collect "+(this.state.currentPannel?'active':'') } onTouchStart={this.change}>
-								<span onTouchStart={this.changeMyCollectTop} className='tag'>已加入菜谱</span>
+							<article className={"book-list-C add-collect "+(this.state.currentPannel?'active':'') } >
+								<span onTouchStart={this.change} className='tag'>已加入菜谱</span>
 								<aside className='booklist-left-C' onTouchStart={this.changeTimeSlot}>
 									<div className={this.state.currentTimeSlot===0?'active':''}>早餐</div>
 									<div className={this.state.currentTimeSlot===1?'active':''}>中餐</div>

@@ -134,7 +134,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 				<div className="fly-cook-book-item-C" ref='fly-cook-book-item-C' style={{opacity:this.state.isShow?1:0}}> 
 					<div className="fly-weather  fly-food-item fly-top3" ref='weather'>
 						<span className='tag'>时间 / 天气</span>
-						<article style={{position:'absolute',left:0,top:0,width:'100%',height:'100%',overflow:'hidden'}}>
+						<article style={{borderRadius:30,position:'absolute',left:0,top:0,width:'100%',height:'100%',overflow:'hidden'}}>
 							<section>
 							<ol className="fly-weather-C">
 								{this.state.weatherData.map((item,i)=>{

@@ -12,6 +12,7 @@ export default class Time{
 		s.isTime = options.isTime;
 		s.r = options.r || 5*docWidth/3840;
 		var num = numberData[10];
+		var context = s.canvas.getContext('2d');
 		if(s.isTime){
 			var index = s.init();
 			setInterval(()=>{
@@ -19,11 +20,17 @@ export default class Time{
 				var hours = D.getHours(),
 					mins = D.getMinutes(),
 					seconds = D.getSeconds();
-
-
 				//!new Date().getSeconds() && (index = s.init());//当前秒数为0的时候，重新绘制时间。
-				s.canvas.getContext('2d').clearRect((s.margin + s.r)*(index-3),(s.margin + s.r)*5.4,15,s.canvas.height/14);
-				s.canvas.getContext('2d').clearRect((s.margin + s.r)*(index-3),(s.margin + s.r)*7.4,15,s.canvas.height/14);
+				
+				context.fillStyle = '#f8f3ef';
+				context.beginPath();//f8f3ef
+				context.arc((s.margin + .61 + s.r)*(index-3),(s.margin + s.r)*7.8,s.r+.2,0,Math.PI*2,false);
+				context.closePath();
+				context.fill();
+				context.beginPath();
+				context.arc((s.margin+ .61 + s.r)*(index-3),(s.margin + s.r)*5.8,s.r+.2,0,Math.PI*2,false);
+				context.closePath();
+				context.fill();
 				setTimeout(()=>{
 					index = s.init();
 				},500);

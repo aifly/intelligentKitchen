@@ -5,6 +5,7 @@ import numberData from '../libs/number';
 import Time from '../libs/canvas';
 import FlyCountdown from './countdown.jsx';
 import $ from 'jquery';
+import Ico from '../libs/ico';
 
  class FlyOperatorCenter extends Component {
 	constructor(option){
@@ -15,7 +16,8 @@ import $ from 'jquery';
 			showWeight:false,
 			isShow:false,
 			showCanvas:false,
-			showCountdown:false
+			showCountdown:false,
+			weightData:[] //称重后的数据。
 		}
 		this.showWeight = this.showWeight.bind(this);
 		this.showBoard = this.showBoard.bind(this);
@@ -86,92 +88,7 @@ import $ from 'jquery';
 			showBoard:false
 		})
 	}
-	drawCountdownIco(){
-		var canvas = this.refs['time-ico'];
-		var width = canvas.width;
-		var center = width / 2 ;
 
-		var stage = new createjs.Stage(canvas);
-		var rect = new createjs.Shape();
-		rect.graphics.setStrokeStyle(3).beginStroke('#fff').drawCircle(center,center,center/2);
-
-		var circle = new createjs.Shape();
-
-		circle.graphics.setStrokeStyle(3).beginStroke('#fff').drawCircle(center,center,center);
-
-		stage.addChild(rect,circle);
-
-		stage.update();
-
-		var context = canvas.getContext('2d');
-		context.lineWidth = 3;
-		context.strokeStyle= '#fff';
-		context.beginPath();
-		context.arc(center,center,center-26,210*Math.PI/180,240*Math.PI/180,false);
-		context.stroke();
-
-		context.beginPath();
-		context.arc(center,center,4,0,Math.PI*2,false);
-		context.fillStyle ='#fff';
-		context.fill();
-
-		context.beginPath();
-		context.arc(center,center,center/2-10,200*Math.PI/180,260*Math.PI/180,false);
-		context.stroke();
-
-		context.beginPath();
-		context.arc(center,center,center/2-10,20*Math.PI/180,80*Math.PI/180,false);
-		context.stroke();
-
-
-	}
-
-	drawBroadIco(){
-		var canvas = this.refs['broad-ico'];
-		var width = canvas.width;
-		var center = width / 2 ;
-		var stage = new createjs.Stage(canvas);
-		var rect = new createjs.Shape();
-		rect.graphics.setStrokeStyle(3).beginStroke('#fff').drawRoundRect(30,40,80,60,10);
-
-		var circle = new createjs.Shape();
-		circle.graphics.setStrokeStyle(3).beginStroke('#fff').drawCircle(center,center,center);
-
-		var text = new createjs.Text('+',"50px 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif",'#fff');
-		text.x = center - 18;
-		text.y = center - 35;
-		stage.addChild(rect,circle,text);
-		stage.update();
-	}
-
-	drawWeightIco(){
-		var canvas = this.refs['weight-ico'];
-		var width = canvas.width;
-		var center = width / 2 ;
-		var stage = new createjs.Stage(canvas);
-		var rect = new createjs.Shape();
-		rect.graphics.setStrokeStyle(3).beginStroke('#fff').drawRoundRect(30,30,80,80,10);
-
-		var circle = new createjs.Shape();
-		circle.graphics.setStrokeStyle(3).beginStroke('#fff').drawCircle(center,center,center);
-
-
-		stage.addChild(rect,circle);
-		stage.update();
-
-		var context = canvas.getContext('2d');
-		context.lineWidth = 3;
-		context.strokeStyle = '#fff';
-		context.beginPath();
-		context.arc(center,center-10,20,0,Math.PI,true);
-		
-		context.stroke();
-
-		context.beginPath();
-		context.moveTo(center,center-10);
-		context.lineTo(center-10,center-20);
-		context.stroke();
-	}
 
 	componentDidMount(){
 		let canvas = this.refs['weight'];
@@ -179,15 +96,19 @@ import $ from 'jquery';
 			canvas.width = canvas.parentNode.offsetWidth;
 			canvas.height = canvas.parentNode.offsetHeight;
 			this.initCanvas(canvas,0);
-			this.drawWeightIco();
-			this.drawBroadIco();
-			this.drawCountdownIco();
 
+			new Ico({canvas:this.refs['weight-ico']}).drawWeightIco();
+			new Ico({canvas:this.refs['broad-ico']}).drawBroadIco();
+			new Ico({canvas:this.refs['time-ico']}).drawCountdownIco();
 			//this.renderCanvas(1234,canvas);
 		},1);
 
 
 		let {obserable} = this.props;
+
+		obserable.on('getWeightData',()=>{
+			return this.state.weightData;
+		});
 
 		
 
@@ -276,24 +197,22 @@ import $ from 'jquery';
 			
 		}	
 	}
-
-
 	getWeight(e){
 		//开始称重。
-		let {obserable,URL} = this.props;
+		let {obserable,URL,r} = this.props;
 		if(this.state.isShow){
 			this.props.shadow(e.target,'shadow1');
 			let s = this;
 			let canvas = this.refs['weight'];
-			var iNow = 0;
 			this.t = setInterval(()=>{
-				s.initCanvas(canvas,++iNow);
+				s.initCanvas(canvas,r(40,55)|0);
 			},20);
 			setTimeout(()=>{
 				$.ajax({
 				type:'POST',
 				url:URL.weightend,
 				error(e){
+					clearInterval(s.t);
 					s.initCanvas(canvas,0);
 				},
 				success(data){
@@ -307,9 +226,19 @@ import $ from 'jquery';
 								scaleData:data.scaleData
 							 }
 						});
+						var hasMaterialsId = false;
+						s.state.weightData.forEach((item)=>{
+							if(item.Materiaid*1 === data.Materiaid*1){
+								item = data;
+								hasMaterialsId = true;
+							}
+						});
+
+						!hasMaterialsId && s.state.weightData.push(data.scaleData);
+
 						obserable.trigger({
 							type:"updateCurrentMaterialsId",
-							data:data.Materiaid*1
+							data:data.Materiaid*1 //服务器返回的识别到的食材的ID。
 						});
 						weight > 9999 && (weight = 9999);
 						s.initCanvas(canvas,weight);
@@ -318,7 +247,7 @@ import $ from 'jquery';
 					}
 				}
 			});
-			},4000);
+			},2000);
 			
 		}	
 	}

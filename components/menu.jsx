@@ -1,7 +1,7 @@
 import React from 'react';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import {PublicMethods} from './public-methods.jsx';
-
+import Ico from '../libs/ico';
 import {gotoActivity} from '../libs/android';
  
 
@@ -25,16 +25,16 @@ injectTapEventPlugin();
 				}
 			],
 			menusArr:[
-				{	
-					curSrc:'./assets/images/nav1.png',
-					src:'./assets/images/nav1.png',
-					_src:'./assets/images/nav1-1.png',
+				{
+					/*curSrc:'./assets/images/nav2.png',
+					src:'./assets/images/nav2.png',
+					_src:'./assets/images/nav2-1.png',*/
 					menu:'称量'
 				},
 				{
-					curSrc:'./assets/images/nav2.png',
+					/*curSrc:'./assets/images/nav2.png',
 					src:'./assets/images/nav2.png',
-					_src:'./assets/images/nav2-1.png',
+					_src:'./assets/images/nav2-1.png',*/
 					menu:'菜板'
 				},
 				{
@@ -44,15 +44,12 @@ injectTapEventPlugin();
 					menu:'菜谱'
 				},
 				{
-					curSrc:'./assets/images/nav4.png',
-					src:'./assets/images/nav4.png',
-					_src:'./assets/images/nav4-1.png',
 					menu:'统计'
 				},
 				{
-					curSrc:'./assets/images/nav5.png',
+					/*curSrc:'./assets/images/nav5.png',
 					src:'./assets/images/nav5.png',
-					_src:'./assets/images/nav5-1.png',
+					_src:'./assets/images/nav5-1.png',*/
 					menu:'提醒'
 				},
 				{
@@ -68,9 +65,9 @@ injectTapEventPlugin();
 					menu:'时间'
 				},
 				{
-					curSrc:'./assets/images/nav8.png',
+					/*curSrc:'./assets/images/nav8.png',
 					src:'./assets/images/nav8.png',
-					_src:'./assets/images/nav8-1.png',
+					_src:'./assets/images/nav8-1.png',*/
 					menu:'无线'
 				},
 				{
@@ -81,7 +78,11 @@ injectTapEventPlugin();
 				}
 			],
 			isShow:false,
-			isEnableDrag:false
+			isEnableDrag:false,
+			operatorBarShow:0,
+			statisticsShow:0,
+			wifiShow:0
+
 		}
 		this.menuBarHandler = this.menuBarHandler.bind(this);
 		this.closeMenu = this.closeMenu.bind(this);
@@ -91,8 +92,15 @@ injectTapEventPlugin();
 	render(){
 
 		let renderArr = this.state.menusArr.map((item,i)=>{
+			let style = {
+
+			}
+			if(item.curSrc){
+				style.background = 'url('+item.curSrc+') no-repeat center center';
+			}
 			return (
-				<li key={i} style={{background:'url('+item.curSrc+') no-repeat center center'}}>
+				<li key={i} style={style}>
+				{!item.curSrc && <div><canvas width='140' height='140' className={'canvas-'+i}></canvas></div>}
 					<span>{item.menu}</span>
 				</li>
 			)
@@ -128,9 +136,8 @@ injectTapEventPlugin();
 	getIndex(e,parentNode){
 		let {index,obserable} = this.props,
 			iNow = -1;
-		let parent = e.target.nodeName === "SPAN"?e.target.parentNode:e.target;
+		let parent =( e.target.nodeName === "SPAN" || e.target.nodeName === "DIV")?e.target.parentNode:e.target;
 		iNow = index(parent,parentNode,'li');
-
 		return iNow;
 	}
 
@@ -167,18 +174,13 @@ injectTapEventPlugin();
 			case 0://称量
 			case 1://菜板
 			case 4://提醒
-				if(this.state.menusArr[0].curSrc === this.state.menusArr[0].src){
-					this.state.menusArr[0].curSrc = this.state.menusArr[0]._src;
-					this.state.menusArr[1].curSrc = this.state.menusArr[1]._src;
-					this.state.menusArr[4].curSrc = this.state.menusArr[4]._src;
-				}
-				else{
-					this.state.menusArr[0].curSrc = this.state.menusArr[0].src;
-					this.state.menusArr[1].curSrc = this.state.menusArr[1].src;
-					this.state.menusArr[4].curSrc = this.state.menusArr[4].src;
-				}
-			
-				obserable.trigger({type:'showOperater',data:this.state.menusArr[0].curSrc !== this.state.menusArr[0].src});
+
+				this.state.operatorBarShow = !this.state.operatorBarShow;
+				
+				this.weightIco.fillWeightIco(this.state.operatorBarShow|0);
+				this.broadIco.fillBroadIco(this.state.operatorBarShow|0);
+				this.countdownIco.fillCountdownIco(this.state.operatorBarShow|0);
+				obserable.trigger({type:'showOperater',data:this.state.operatorBarShow });
 			break;
 			case 2://菜谱
 			case 8:
@@ -194,21 +196,16 @@ injectTapEventPlugin();
 				obserable.trigger({type:'showCollect',data:this.state.menusArr[2].curSrc !== this.state.menusArr[2].src});
 			break;
 			case 3://统计
-			case 7://无线
-				if(this.state.menusArr[3].curSrc === this.state.menusArr[3].src){
-					this.state.menusArr[3].curSrc = this.state.menusArr[3]._src;
-					this.state.menusArr[7].curSrc = this.state.menusArr[7]._src;
-				}
-				else{
-					this.state.menusArr[3].curSrc = this.state.menusArr[3].src;
-					this.state.menusArr[7].curSrc = this.state.menusArr[7].src;
-				}
-				///this.state.menusArr[iNow].curSrc = this.state.menusArr[iNow].curSrc === this.state.menusArr[iNow].src? this.state.menusArr[iNow]._src:this.state.menusArr[iNow].src;
-				if(iNow === 3){
-					gotoActivity('nutrition')
-				}else{
-					gotoActivity('wifi')
-				}				
+
+				this.state.statisticsShow = !this.state.statisticsShow;
+				this.statisticsIco.fillStatisticsIco(this.state.statisticsShow|0);
+				gotoActivity('nutrition');	
+				
+			break;
+			case 7://无线WIFi
+				this.state.wifiShow =  !this.state.wifiShow;
+				this.wifiIco.fillWifiIco(this.state.wifiShow|0)
+				gotoActivity('wifi')		
 			break;
 			case 5://天气
 			case 6://时间
@@ -255,7 +252,20 @@ injectTapEventPlugin();
 				isEnableDrag:flag,
 			});
 		});
+
+		var $ = selector=>{
+			return document.querySelector(selector);
+		}
+
+
+
+		this.weightIco = new Ico({color:'#f90',canvas:$('.canvas-0')}).fillWeightIco();
+		this.broadIco = new Ico({color:'#f90',canvas:$('.canvas-1')}).fillBroadIco();
+		this.countdownIco = new Ico({color:'#f90',canvas:$('.canvas-4')}).fillCountdownIco();
+		this.statisticsIco = new Ico({color:'#f90',canvas:$('.canvas-3')}).fillStatisticsIco();
+		this.wifiIco = new Ico({color:'#f90',canvas:$('.canvas-7')}).fillWifiIco();
 	}	
+
 }
 
 export default PublicMethods(FlyNav);

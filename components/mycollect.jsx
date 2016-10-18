@@ -6,8 +6,8 @@ import FlyFoodList from './foodlist.jsx';
 export default class FlyMyCollect extends Component {
 	render() {
 		return (
-			<div className={'fly-collect-C add-collect ' + this.props.className} onTouchTap={this.props.changeMyCollectTop}>
-				<span className='tag'>我的收藏</span>
+			<div className={'fly-collect-C add-collect ' + this.props.className} >
+				<span className='tag' onTouchStart={this.props.changeMyCollectTop}>我的收藏</span>
 				<FlyFoodList isShowTimeline={false} type='my-collect' {...this.props}></FlyFoodList>
 			</div>
 		);

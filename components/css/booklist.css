@@ -21,7 +21,7 @@
   background: #fff;
   z-index: 0;
   width: 1vw;
-  right: -1.1vw;
+  right: -2vw;
   padding: 20px 20px 20px 40px;
   font-size: 0.8vw;
   top: 1vw;
@@ -87,12 +87,13 @@
     position: relative; }
     .book-list-C .booklist-right-C .bl-calendar {
       width: 100%;
+      margin-left: -8%;
       -webkit-box-flex: 1;
       box-sizing: border-box;
       height: 50%; }
       .book-list-C .booklist-right-C .bl-calendar table {
         padding-top: 1vw;
-        width: 90%;
+        width: 96%;
         padding-left: 20px;
         box-sizing: border-box;
         text-align: center; }

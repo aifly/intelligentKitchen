@@ -21,27 +21,27 @@ var addFoods = [
     type:'video',//类型，图片or视频
 		steps:[//步骤
       {
-        stepName:'切西红柿',
+        stepName:'1',
         imgSrc:'./assets/videos/1.mp4',
         poster:'./assets/images/poster.png'
       },
 			{
-        stepName:'第二步',
+        stepName:'2',
         imgSrc:'./assets/videos/2.mp4',
         poster:'./assets/images/poster.png'
       },
       {
-        stepName:'第三步',
+        stepName:'3',
         imgSrc:'./assets/videos/1.mp4',
         poster:'./assets/images/poster.png'
       },
       {
-        stepName:'第四步',
+        stepName:'4',
         imgSrc:'./assets/videos/2.mp4',
         poster:'./assets/images/poster.png'
       },
       {
-        stepName:'第五步',
+        stepName:'5',
         imgSrc:'./assets/videos/1.mp4',
         poster:'./assets/images/poster.png'
       }
@@ -62,27 +62,27 @@ var addFoods = [
     type:'image',
 		steps:[
 			{
-        stepName:'步骤1',
+        stepName:'1',
         imgSrc:'./assets/images/s1.png',
         stepContent:'称重牛奶'
       },
       {
-        stepName:'步骤2',
+        stepName:'2',
         imgSrc:'./assets/images/s2.png',
         stepContent:'称重燕麦片'
       },
       {
-        stepName:'步骤3',
+        stepName:'3',
         imgSrc:'./assets/images/s3.png',
         stepContent:'牛奶倒入锅中，大火烧开'
       },
       {
-        stepName:'步骤4',
+        stepName:'4',
         imgSrc:'./assets/images/s4.png',
         stepContent:'倒入燕麦片，搅拌均匀'
       },
       {
-        stepName:'步骤5',
+        stepName:'5',
         imgSrc:'./assets/images/s5.png',
         stepContent:'出锅即食'
       }
@@ -104,22 +104,22 @@ var addFoods = [
     type:'image',
 		steps:[
 			{
-        stepName:'第一步',
+        stepName:'1',
         imgSrc:'./assets/images/s6.png',
         stepContent:'取两片土司单面涂满沙拉酱'
       },
       {
-        stepName:'第二步',
+        stepName:'2',
         imgSrc:'./assets/images/s7.png',
         stepContent:'把午餐肉煎热，鸡蛋煎熟'
       },
       {
-        stepName:'第三步',
+        stepName:'3',
         imgSrc:'./assets/images/s8.png',
         stepContent:'按顺序放好'
       },
       {
-        stepName:'第四步',
+        stepName:'4',
         imgSrc:'./assets/images/s9.png',
         stepContent:'牛奶微波炉加热40秒微热'
       }

@@ -197,6 +197,25 @@ body {
         width: 10vh;
         text-align: center;
         position: relative; }
+        #fly-main .fly-nav ul li canvas {
+          border-radius: 50%; }
+        #fly-main .fly-nav ul li div {
+          position: relative;
+          width: 140px;
+          height: 140px;
+          margin-top: 1.1vw;
+          margin-left: 1vw;
+          border-radius: 50%; }
+          #fly-main .fly-nav ul li div:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            z-index: 100;
+            box-shadow: 0 0 2vw rgba(232, 158, 121, 0.2); }
         #fly-main .fly-nav ul li span {
           color: #e89e79;
           font-size: 0.6vw;
@@ -310,6 +329,7 @@ body {
           position: absolute;
           width: 100%;
           z-index: -1;
+          border-radius: 30px;
           height: 100%;
           box-shadow: 0 0 3vw rgba(232, 158, 121, 0.4); }
         #fly-main .fly-cook-book-C .fly-food .fly-food-item span.tag {
