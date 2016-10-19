@@ -7,6 +7,7 @@ const URL = {
 	getCookBookList:baseURL + 'kb/kitchen/getcookbook.ht',//根据类型获取菜谱列表
 	getBookList:baseURL + 'kb/kitchen/getbooklist.ht',//求取未来14天的菜谱情况
 	getimespan:baseURL + 'kb/kitchen/getimespan.ht',//上传时间
+	setScale:baseURL + 'kb/kitchen/setscale.ht',//显示全部营养成分
 }
 
 export default URL;

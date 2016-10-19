@@ -30,10 +30,12 @@ import $ from 'jquery';
 
 		if(target.nodeName === "LI" ){
 			var index =	this.props.getIndex(e.target.parentNode.children,e.target);
+
 			this.setState({
 				currentTimeSlot:index,
 				ulWidth:(this.refs['foodlist-content'].children[0].children[0].clientWidth+10)*(Math.ceil(this.state.dataSource[index].length/2))+2
 			},()=>{
+				this.scroll.scrollTo(0,0);
 				this.scroll.refresh();
 			})
 
@@ -101,12 +103,16 @@ import $ from 'jquery';
 						food_type:'rec'
 					},
 					success(data){
+						var i=0;
 						data.forEach(d=>{
-							s.state.dataSource[d.foodMtype*1-1].push(d);	
+							s.state.dataSource[d.foodMtype*1-1].push(d);
+							if(d.foodMtype*1-1 === 0){
+								i++;
+							}
 						});
 						//s.state.dataSource[s.state.currentTimeSlot] = data;
 						s.forceUpdate(()=>{
-							s.ajaxEnd(s,data.length);
+							s.ajaxEnd(s,i);
 						});
 					}
 				})
@@ -124,12 +130,16 @@ import $ from 'jquery';
 					},
 					success(data){
 					//	console.log(data);
+						var i=0;
 						data.forEach(d=>{
 							s.state.dataSource[d.foodMtype*1].push(d);	
+							if(d.foodMtype*1 === 0){
+								i++;
+							}
 						});
 						//s.state.dataSource[s.state.currentTimeSlot] = data;
 						s.forceUpdate(()=>{
-							s.ajaxEnd(s,data.length);
+							s.ajaxEnd(s,i);
 						});
 					}
 				})

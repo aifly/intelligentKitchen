@@ -9,6 +9,10 @@
     border-radius: 50%; }
   .fly-plate-C .fly-plate-item {
     position: absolute;
+    -webkit-transition: -webkit-transform 0.2s;
+    transition: -webkit-transform 0.2s;
+    transition: transform 0.2s;
+    transition: transform 0.2s, -webkit-transform 0.2s;
     width: 9vw;
     height: 9vw;
     background: #fff;

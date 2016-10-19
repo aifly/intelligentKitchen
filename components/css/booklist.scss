@@ -209,9 +209,11 @@ $maxIndex:9999;
         line-height: $width;
         text-align: center;
         @include br(50%);
+        border:3px solid transparent;
+        box-sizing:border-box;
         &.active{
-          border:3px solid $baseColor1;
-          box-sizing:border-box;
+          border-color:$baseColor1;
+          
         }
     }
 
@@ -246,6 +248,7 @@ $maxIndex:9999;
                     padding:.05 * 10vw 0;
                     border-bottom:1px solid #dcdcdc;
                     box-sizing:border-box;
+                    padding-bottom:2.5vw;
                   }
                 }
                }

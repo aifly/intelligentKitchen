@@ -136,6 +136,7 @@ $maxIndex:9999;
       @include transform(scale(.86));
     }
     @include pos(a);
+    @include transition_transform(.2s);
     width: $plateWidth;
     height: $plateWidth;
     background:#fff;

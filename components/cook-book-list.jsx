@@ -67,7 +67,7 @@ import $ from 'jquery';
 			<li className="fly-cook-list fly-cook-book-item" ref='fly-cook-list'>
 				<div style={{position:'relative'}}>
 					<div style={{position:'absolute',width:'100%',height:'100%',zIndex:isShow?1000:-1}}></div>
-					<div style={{position:'relative',opacity:this.state.isShow?1:0}}>
+					<div style={{position:'relative',opacity:this.state.isShow?1:0,WebkitTransition:'opacity 1s'}}>
 						<div className="fly-cook-book-item-C">
 							<article className={"book-list-C add-collect "+(this.state.currentPannel?'active':'') } >
 								<span onTouchStart={this.change} className='tag'>已加入菜谱</span>

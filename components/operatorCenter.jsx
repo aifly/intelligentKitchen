@@ -169,8 +169,6 @@ import Ico from '../libs/ico';
 		context.arc(center,center,r*1.3,220*Math.PI/180,250*Math.PI/180,false);
 		context.stroke();
 
-
-
 	}
 
 	netWeight(e){//去皮
@@ -217,6 +215,7 @@ import Ico from '../libs/ico';
 				},
 				success(data){
 					if(data.getret === 1){
+						//console.log(data)
 						let weight= data.foodweight*1|0;
 						clearInterval(s.t);
 					
@@ -229,13 +228,16 @@ import Ico from '../libs/ico';
 						var hasMaterialsId = false;
 						s.state.weightData.forEach((item)=>{
 							if(item.Materiaid*1 === data.Materiaid*1){
-								item = data;
+								item.scaleData = data.scaleData;
+								item.weight = weight;
 								hasMaterialsId = true;
 							}
 						});
 
-						!hasMaterialsId && s.state.weightData.push(data.scaleData);
+						
 
+						!hasMaterialsId && s.state.weightData.push(data.scaleData);
+						//console.log(s.state.weightData[0]);
 						obserable.trigger({
 							type:"updateCurrentMaterialsId",
 							data:data.Materiaid*1 //服务器返回的识别到的食材的ID。

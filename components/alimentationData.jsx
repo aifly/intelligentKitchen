@@ -140,11 +140,16 @@ import { PublicShadow } from './public-shadow.jsx';
 
 	showAllData(){//显示全部
 		
-		let {URL,obserable} = this.props;
+		let {URL,obserable,userId} = this.props,
+			s = this;
 
 		var data = obserable.trigger({type:'getWeightData'});
 		
+
+
 		data = data.concat(data);
+
+
 
 		var result = data[0],
 			allWeight = result[0].weight;
@@ -158,10 +163,14 @@ import { PublicShadow } from './public-shadow.jsx';
 			}
 		});
 
+		if(allWeight<=0){
+			return;
+		}
 
 		result.forEach(r=>{
 			r.scale = r.weight / allWeight;
 		});
+
 
 		obserable.trigger({ //填充饼图
 			type:'fillAlimentationData',
@@ -169,6 +178,20 @@ import { PublicShadow } from './public-shadow.jsx';
 				scaleData:result
 			 }
 		});
+		var foodId = obserable.trigger({type:'getFoodId'});
+
+		$.ajax({
+			url:URL.setScale,
+			data:{
+				scaleData:JSON.stringify({scaleData:result}),
+				Userid:userId,
+				Id:foodId
+			},
+			success(data){
+				console.log(data);
+			}
+		})
+
 
 	}
 

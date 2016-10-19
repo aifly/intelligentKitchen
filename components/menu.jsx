@@ -13,67 +13,37 @@ injectTapEventPlugin();
 		this.state = {
 			operatorArr:[
 				{
-					curSrc:'./assets/images/nav10.png',
-					src:'./assets/images/nav10.png',
-					_src:'./assets/images/nav10-1.png',
 					menu:'设置'
 				},{
-					curSrc:'./assets/images/nav11.png',
-					src:'./assets/images/nav11.png',
-					_src:'./assets/images/nav11-1.png',
 					menu:'开/关'
 				}
 			],
 			menusArr:[
 				{
-					/*curSrc:'./assets/images/nav2.png',
-					src:'./assets/images/nav2.png',
-					_src:'./assets/images/nav2-1.png',*/
 					menu:'称量'
 				},
 				{
-					/*curSrc:'./assets/images/nav2.png',
-					src:'./assets/images/nav2.png',
-					_src:'./assets/images/nav2-1.png',*/
 					menu:'菜板'
 				},
 				{
-					curSrc:'./assets/images/nav3.png',
-					src:'./assets/images/nav3.png',
-					_src:'./assets/images/nav3-1.png',
 					menu:'菜谱'
 				},
 				{
 					menu:'统计'
 				},
 				{
-					/*curSrc:'./assets/images/nav5.png',
-					src:'./assets/images/nav5.png',
-					_src:'./assets/images/nav5-1.png',*/
 					menu:'提醒'
 				},
 				{
-					curSrc:'./assets/images/nav6.png',
-					src:'./assets/images/nav6.png',
-					_src:'./assets/images/nav6-1.png',
 					menu:'天气'
 				},
 				{
-					curSrc:'./assets/images/nav7.png',
-					src:'./assets/images/nav7.png',
-					_src:'./assets/images/nav7-1.png',
 					menu:'时间'
 				},
 				{
-					/*curSrc:'./assets/images/nav8.png',
-					src:'./assets/images/nav8.png',
-					_src:'./assets/images/nav8-1.png',*/
 					menu:'无线'
 				},
 				{
-					curSrc:'./assets/images/nav9.png',
-					src:'./assets/images/nav9.png',
-					_src:'./assets/images/nav9-1.png',
 					menu:'收藏'
 				}
 			],
@@ -81,7 +51,11 @@ injectTapEventPlugin();
 			isEnableDrag:false,
 			operatorBarShow:0,
 			statisticsShow:0,
-			wifiShow:0
+			wifiShow:0,
+			weatherShow:0,
+			foodBookShow:0,
+			switchShow:0,
+			settingShow:0
 
 		}
 		this.menuBarHandler = this.menuBarHandler.bind(this);
@@ -106,8 +80,15 @@ injectTapEventPlugin();
 			)
 		}),
 		operatorArr = this.state.operatorArr.map((item,i)=>{
+			let style = {
+
+			}
+			if(item.curSrc){
+				style.background = 'url('+item.curSrc+') no-repeat center center';
+			}
 			return (
-				<li key={i} style={{background:'url('+item.curSrc+') no-repeat center center'}}>
+				<li key={i} style={style}>
+					{!item.curSrc && <div><canvas width='140' height='140' className={'canvas1-'+i}></canvas></div>}
 					<span>{item.menu}</span>
 				</li>
 			);
@@ -147,14 +128,18 @@ injectTapEventPlugin();
 		if(iNow<=-1){
 			return;
 		}
-		this.state.operatorArr[iNow].curSrc = this.state.operatorArr[iNow].curSrc === this.state.operatorArr[iNow].src? this.state.operatorArr[iNow]._src:this.state.operatorArr[iNow].src;
+		//this.state.operatorArr[iNow].curSrc = this.state.operatorArr[iNow].curSrc === this.state.operatorArr[iNow].src? this.state.operatorArr[iNow]._src:this.state.operatorArr[iNow].src;
 		if(iNow === 0 ){
+			this.state.settingShow = !this.state.settingShow;
+			this.settingIco.fillSettingIco(this.state.settingShow|0);
 			gotoActivity('setting');
 		}
 		else{
-			gotoActivity('openOrClose');
+			this.state.switchShow = !this.state.switchShow;
+			this.switchIco.fillSwitchIco(this.state.switchShow|0);
+			//gotoActivity('openOrClose');
 		}
-		this.state.isShow = false;
+		//this.state.isShow = false;
 		this.forceUpdate();
 	}
 
@@ -183,17 +168,13 @@ injectTapEventPlugin();
 				obserable.trigger({type:'showOperater',data:this.state.operatorBarShow });
 			break;
 			case 2://菜谱
-			case 8:
+			case 8://收藏
 
-				if(this.state.menusArr[2].curSrc === this.state.menusArr[2].src){
-					this.state.menusArr[2].curSrc = this.state.menusArr[2]._src;
-					this.state.menusArr[8].curSrc = this.state.menusArr[8]._src;
-				}
-				else{
-					this.state.menusArr[2].curSrc = this.state.menusArr[2].src;
-					this.state.menusArr[8].curSrc = this.state.menusArr[8].src;
-				}
-				obserable.trigger({type:'showCollect',data:this.state.menusArr[2].curSrc !== this.state.menusArr[2].src});
+				this.state.foodBookShow = !this.state.foodBookShow;
+				this.foodBookIco.fillFoodBookIco(this.state.foodBookShow|0);
+				this.collectIco.fillCollectIco(this.state.foodBookShow|0);
+
+				obserable.trigger({type:'showCollect',data:this.state.foodBookShow});
 			break;
 			case 3://统计
 
@@ -204,20 +185,20 @@ injectTapEventPlugin();
 			break;
 			case 7://无线WIFi
 				this.state.wifiShow =  !this.state.wifiShow;
-				this.wifiIco.fillWifiIco(this.state.wifiShow|0)
-				gotoActivity('wifi')		
+				this.wifiIco.fillWifiIco(this.state.wifiShow|0);
+				gotoActivity('wifi');	
 			break;
 			case 5://天气
 			case 6://时间
-				if(this.state.menusArr[5].curSrc === this.state.menusArr[5].src){
-					this.state.menusArr[5].curSrc = this.state.menusArr[5]._src;
-					this.state.menusArr[6].curSrc = this.state.menusArr[6]._src;
-				}
-				else{
-					this.state.menusArr[5].curSrc = this.state.menusArr[5].src;
-					this.state.menusArr[6].curSrc = this.state.menusArr[6].src;
-				}
-				obserable.trigger({type:'showfunctionCenter',data:this.state.menusArr[5].curSrc !== this.state.menusArr[5].src});
+
+				this.state.weatherShow = !this.state.weatherShow;
+ 
+				this.timeIco.fillTimeIco(this.state.weatherShow|0);
+				this.weatherIco.fillWeatherIco(this.state.weatherShow|0);
+
+				obserable.trigger({type:'showfunctionCenter',data:this.state.weatherShow});
+				
+				
 			break;
 		}
 		this.state.isShow = false;
@@ -263,7 +244,14 @@ injectTapEventPlugin();
 		this.broadIco = new Ico({color:'#f90',canvas:$('.canvas-1')}).fillBroadIco();
 		this.countdownIco = new Ico({color:'#f90',canvas:$('.canvas-4')}).fillCountdownIco();
 		this.statisticsIco = new Ico({color:'#f90',canvas:$('.canvas-3')}).fillStatisticsIco();
+		this.timeIco = new Ico({color:'#f90',canvas:$('.canvas-6')}).fillTimeIco();
 		this.wifiIco = new Ico({color:'#f90',canvas:$('.canvas-7')}).fillWifiIco();
+		this.weatherIco = new Ico({color:'#f90',canvas:$('.canvas-5')}).fillWeatherIco();
+		this.foodBookIco = new Ico({color:'#f90',canvas:$('.canvas-2')}).fillFoodBookIco();
+		this.collectIco = new Ico({color:'#f90',canvas:$('.canvas-8')}).fillCollectIco();
+
+		this.switchIco = new Ico({color:'#f90',canvas:$('.canvas1-1')}).fillSwitchIco();
+		this.settingIco = new Ico({color:'#f90',canvas:$('.canvas1-0')}).fillSettingIco();
 	}	
 
 }

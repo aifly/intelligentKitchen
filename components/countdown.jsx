@@ -35,11 +35,11 @@ export default class FlyCountdown extends Component {
 	                <section className="roundWrap roundWrap1" ref='roundWrap1'>
 
 	                </section>
-	               	<div className='fly-begin-clock' onTouchTap={this.beginTiming}>开始</div>
+	               	<div className='fly-begin-clock' onTouchStart={this.beginTiming}>开始</div>
 	            </section>
 	            <section className='fly-countdown-canvas' ref='fly-countdown-canvas' style={{display:this.state.isTiming?'block':'none'}}>
 	            	<canvas ref='canvas'></canvas>
-	            	<div className='fly-cancel' onTouchTap={this.cancelTiming}>取消</div>
+	            	<div className='fly-cancel' onTouchStart={this.cancelTiming}>取消</div>
 	            </section>
        		 </article>
 		);

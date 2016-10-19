@@ -28,6 +28,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 				
 			],
 			currentData:'',
+			currentPannel:[3,2,1],
 			isShow:false,
 			isEnableDrag:false //是否启用了拖拽
 			
@@ -131,8 +132,8 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 		return (
 			<li className="fly-food fly-cook-book-item">
 				<div style={{position:'absolute',width:'100%',height:'100%',zIndex:(!this.state.isShow || this.state.isEnableDrag)?1000:-1}}></div>
-				<div className="fly-cook-book-item-C" ref='fly-cook-book-item-C' style={{opacity:this.state.isShow?1:0}}> 
-					<div className="fly-weather  fly-food-item fly-top3" ref='weather'>
+				<div className="fly-cook-book-item-C" ref='fly-cook-book-item-C' style={{opacity:this.state.isShow?1:0,WebkitTransition:'opacity 1s'}}> 
+					<div className={"fly-weather  fly-food-item fly-top"+(this.state.currentPannel[0])} ref='weather'>
 						<span className='tag'>时间 / 天气</span>
 						<article style={{borderRadius:30,position:'absolute',left:0,top:0,width:'100%',height:'100%',overflow:'hidden'}}>
 							<section>
@@ -272,11 +273,11 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 						</section>	
 						</article>
 					</div>
-					<div className="fly-rec-food fly-food-item fly-top2" ref='rec-food'>
+					<div className={"fly-rec-food fly-food-item fly-top" + this.state.currentPannel[1]} ref='rec-food'>
 						<span className='tag'>推荐食材</span>
 						<FlyFoodList {...recProps} {...this.props}></FlyFoodList>
 					</div>
-					<div className="fly-rec-menu fly-food-item fly-top1" ref='rec-menu'>
+					<div className={"fly-rec-menu fly-food-item fly-top"+this.state.currentPannel[2]} ref='rec-menu'>
 						<span className='tag'>推荐菜谱</span>
 						<FlyFoodList {...recMenuProps}  {...this.props}></FlyFoodList>
 					</div>	
@@ -470,36 +471,32 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 
 			let $target = $(e.target);
 			var target = $target.hasClass('fly-food-item')? $target:$target.parents('.fly-food-item');
-			var isTop = target.hasClass('fly-top3');
-			if(isTop){return;}
+			
 
-			//self.startChangeMenu($(e.target),$(e.target).index('.fly-food-item'));
 			let index = $target.parents('.fly-food-item').index('.fly-food-item')*1,
 				iNow = this.iNow % 3;
-
+			
 				if(index<0){
 					return;
 				}
-
-				this.removeTopClass();
-				data.foods.eq(index).css({
-					//WebkitTransitionDuration:'.1s',
-				}).addClass('fly-top3');
 
 				this.iNow = index;
 
 				switch(index){
 					case 0:
-						data.foods.eq(1).addClass('fly-top2');
-						data.foods.eq(2).addClass('fly-top1');
+						this.setState({
+							currentPannel:[3,2,1]
+						})
 					break;
 					case 1:
-						data.foods.eq(0).addClass('fly-top1');
-						data.foods.eq(2).addClass('fly-top2');
+						this.setState({
+							currentPannel:[1,3,2]
+						})
 					break;
 					case 2:
-						data.foods.eq(0).addClass('fly-top2');
-						data.foods.eq(1).addClass('fly-top1');
+						this.setState({
+							currentPannel:[2,1,3]
+						})
 					break;
 				}
 		});

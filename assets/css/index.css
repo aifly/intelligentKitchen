@@ -177,8 +177,8 @@ body {
     #fly-main .fly-nav ul {
       -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);
       transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);
-      -webkit-transform: translate3d(0, 100px, 0);
-      transform: translate3d(0, 100px, 0);
+      -webkit-transform: translate3d(0, 50px, 0);
+      transform: translate3d(0, 50px, 0);
       opacity: 0;
       -webkit-transition: 0.8s;
       transition: 0.8s;
@@ -219,7 +219,7 @@ body {
         #fly-main .fly-nav ul li span {
           color: #e89e79;
           font-size: 0.6vw;
-          bottom: 0;
+          top: 100%;
           position: absolute;
           left: 38%; }
       #fly-main .fly-nav ul:nth-of-type(2) {

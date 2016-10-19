@@ -63,7 +63,7 @@ export default class FlyFoodsPlace extends Component {
 				})}
 				
 				{/*垃圾桶图标实现*/}
-				<div ref='fly-draw-trash-C' className={this.state.trashClass+' fly-draw-trash-C'} >
+				{/*<div ref='fly-draw-trash-C' className={this.state.trashClass+' fly-draw-trash-C'} >
 					<div className="trash-hat hat" ref='trash-hat'>
 						<div className='trash-header'></div>
 						<div className='trash-header-bar'></div>
@@ -74,7 +74,7 @@ export default class FlyFoodsPlace extends Component {
 					<div className='trash-line'></div>
 					<div className='trash-line1'></div>
 					<div className='trash-line2'></div>
-				</div>
+				</div>*/}
 				<div className='fly-broken-plate' ref='fly-broken-plate'>
 					<div></div>
 					<div></div>
@@ -132,22 +132,22 @@ export default class FlyFoodsPlace extends Component {
 					let minDis = this.getDis(e.pageX-this.refs['fly-plate-C'].offsetLeft,e.pageY-this.refs['fly-plate-C'].offsetTop,gridsPos[0].x,gridsPos[0].y),
 							cIndex  = 0;
 
-						gridsPos.forEach((grid,i)=>{
-							if(i>0){
-								
-								let currentDis = this.getDis(e.pageX-this.refs['fly-plate-C'].offsetLeft,e.pageY-this.refs['fly-plate-C'].offsetTop,grid.x,grid.y);
-								
-								if(minDis > currentDis){
-									minDis = currentDis;
-									cIndex = i;
-								}
-
+					gridsPos.forEach((grid,i)=>{
+						if(i>0){
+							
+							let currentDis = this.getDis(e.pageX-this.refs['fly-plate-C'].offsetLeft,e.pageY-this.refs['fly-plate-C'].offsetTop,grid.x,grid.y);
+							
+							if(minDis > currentDis){
+								minDis = currentDis;
+								cIndex = i;
 							}
-						});
 
-						this.state.plates[this.state.plates.length-1].left = gridsPos[cIndex].x - gridsPos[cIndex].halfW;
-						this.state.plates[this.state.plates.length-1].top = gridsPos[cIndex].y - gridsPos[cIndex].halfH;
-						this.forceUpdate();
+						}
+					});
+
+					this.state.plates[this.state.plates.length-1].left = gridsPos[cIndex].x - gridsPos[cIndex].halfW;
+					this.state.plates[this.state.plates.length-1].top = gridsPos[cIndex].y - gridsPos[cIndex].halfH;
+					this.forceUpdate();
 				}
 			});
 			 
@@ -194,12 +194,11 @@ export default class FlyFoodsPlace extends Component {
 
 		//拖拽盘子。
 
-		
-
 		$(this.refs['fly-plate-C']).on('touchstart',e=>{
 			if(!e.target.classList.contains('fly-plate-item')){
 				return;
 			}
+
 			this.plateWidth = this.plateWidth || e.target.offsetWidth;
 			this.maxX = this.maxX || this.refs['fly-plate-C'].offsetWidth - this.plateWidth - 30;
 			this.maxY = this.maxY || this.refs['fly-plate-C'].offsetHeight - this.plateWidth - 30;
@@ -211,103 +210,65 @@ export default class FlyFoodsPlace extends Component {
 			 var disX = e.pageX - target.offsetLeft ,
 				 disY = e.pageY - target.offsetTop ;
 
-			this.setState({
-				trashClass:'active'
-			});
 
-			this.trashWidth = this.trashWidth|| this.refs['fly-draw-trash-C'].offsetWidth / 2;
+		/*	this.trashWidth = this.trashWidth|| this.refs['fly-draw-trash-C'].offsetWidth / 2;
 			this.trashHeight =this.trashHeight || this.refs['fly-draw-trash-C'].offsetHeight / 2;
-
+*/
 
 			$(document).on('touchmove',e=>{
 				var e =	e.originalEvent.changedTouches[0];
 				let x = e.pageX - disX,
 					y = e.pageY - disY;
-				x < 0 && (x = 0);
+				x < 0  && (x = 0);
 				y < 0 && (y = 0);
 				x > this.maxX && (x = this.maxX);
 				y > this.maxY && (y = this.maxY);
+
 				this.state.plates[index].left = x;
 				this.state.plates[index].top = y;
-				if(e.pageX > data.viewWidth - this.trashWidth
+				//target.style.WebkitTransform = 'translate3d('+x+'px,'+y+'px,0)';
+				/*if(e.pageX > data.viewWidth - this.trashWidth
 					&& e.pageY > data.viewHeight - this.trashHeight
 					){
 					if(this.state.trashClass.indexOf('begin-trashed') <= -1){
-						this.state.trashClass = this.state.trashClass + ' begin-trashed'
+						//this.state.trashClass = this.state.trashClass + ' begin-trashed'
 
-						this.refs['fly-plate-C'].querySelectorAll('.fly-plate-item')[index].classList.add('will-delete');
+						//this.refs['fly-plate-C'].querySelectorAll('.fly-plate-item')[index].classList.add('will-delete');
 
 					}
 
 				}
 				else{
 					if(this.state.trashClass.indexOf('begin-trashed') > -1){
-						 let classList = this.state.trashClass.split(' ');
-						 classList.pop();
- 						 this.state.trashClass = classList.join(' ');
- 						this.refs['fly-plate-C'].querySelectorAll('.fly-plate-item')[index].classList.remove('will-delete');
+						 //let classList = this.state.trashClass.split(' ');
+						 //classList.pop();
+ 						 //this.state.trashClass = classList.join(' ');
+ 						 //this.refs['fly-plate-C'].querySelectorAll('.fly-plate-item')[index].classList.remove('will-delete');
 					}
  						
-				}
+				}*/
 				this.forceUpdate();
 			}).on('touchend',e=>{
 
 				$(document).off('touchmove touchend');
 				var e =	e.originalEvent.changedTouches[0];
-
-				if(e.pageX > data.viewWidth - this.trashWidth
-					&& e.pageY > data.viewHeight - this.trashHeight
-					){ //开始删除操作。
-					//todo
-
-
-					this.refs['fly-plate-C'].querySelectorAll('.fly-plate-item')[index].classList.add('delete');
-					this.refs['fly-broken-plate'].classList.add('active');
-					this.refs['trash-hat'].classList.remove('trash-hat');
-					/*
-					Array.from(this.refs['fly-plate-C'].querySelectorAll('.fly-plate-item')).forEach(item=>{
-							item.classList.remove('will-delete');
-							item.classList.remove('delete');
-					});*/
-					
-					setTimeout(()=>{
-
-						////this.state.plates.splice(index,1);
-						this.state.trashClass = '';
-						this.forceUpdate();
-						this.refs['fly-broken-plate'].classList.remove('active');
-						this.refs['trash-hat'].classList.add('trash-hat');
-					},400);	
-				}
-				else{
-					setTimeout(()=>{
-						this.setState({
-							trashClass:''
-						});
-
-						let minDis = this.getDis(e.pageX-this.refs['fly-plate-C'].offsetLeft,e.pageY-this.refs['fly-plate-C'].offsetTop,gridsPos[0].x,gridsPos[0].y),
+				
+				 let minDis = this.getDis(e.pageX-this.refs['fly-plate-C'].offsetLeft,e.pageY-this.refs['fly-plate-C'].offsetTop,gridsPos[0].x,gridsPos[0].y),
 							cIndex  = 0;
 
-						gridsPos.forEach((grid,i)=>{
-							if(i>0){
-								
-								let currentDis = this.getDis(e.pageX-this.refs['fly-plate-C'].offsetLeft,e.pageY-this.refs['fly-plate-C'].offsetTop,grid.x,grid.y);
-								
-								if(minDis > currentDis){
-									minDis = currentDis;
-									cIndex = i;
-								}
-
-							}
-						});
-
-						this.state.plates[index].left = gridsPos[cIndex].x - gridsPos[cIndex].halfW;
-						this.state.plates[index].top = gridsPos[cIndex].y - gridsPos[cIndex].halfH;
-						this.forceUpdate();
-
-					},100);	
-				}
-
+				gridsPos.forEach((grid,i)=>{
+					if(i>0){
+						let currentDis = this.getDis(e.pageX-this.refs['fly-plate-C'].offsetLeft,e.pageY-this.refs['fly-plate-C'].offsetTop,grid.x,grid.y);
+						
+						if(minDis > currentDis){
+							minDis = currentDis;
+							cIndex = i;
+						}
+					}
+				});
+				this.state.plates[index].left = gridsPos[cIndex].x - gridsPos[cIndex].halfW;
+				this.state.plates[index].top = gridsPos[cIndex].y - gridsPos[cIndex].halfH;
+				this.forceUpdate();
 			});
 		});
 

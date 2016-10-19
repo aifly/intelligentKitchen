@@ -188,7 +188,7 @@ $nav-height:11.76vh;
           @include transform(translate3d(0,0,0));
        }
        @include transitionTimingFunction();
-       @include transform(translate3d(0,100px,0));
+       @include transform(translate3d(0,50px,0));
        opacity:0;
        @include transition(.8s);
        float: left;
@@ -231,7 +231,7 @@ $nav-height:11.76vh;
         span{
           color:$baseColor1;
           font-size: .06 * 10vw ;
-          bottom:0;
+          top: 100%;
           @include pos(a);
           left: 38%;
         }
