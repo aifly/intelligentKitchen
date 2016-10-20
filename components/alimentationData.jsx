@@ -347,6 +347,7 @@ import { PublicShadow } from './public-shadow.jsx';
 				this.drawSector(true,'',this.drawCorner());
 			});
 
+
 			obserable.on('updateCurrentMaterialsId',(data)=>{
 				this.setState({
 					currentMaterialId:data
@@ -375,13 +376,16 @@ import { PublicShadow } from './public-shadow.jsx';
 				},10);
 			});
 
-			createjs.Ticker.timingMode = createjs.Ticker.RAF;
+			var render = ()=>{
 
-			createjs.Ticker.on("tick", ()=>{
 				this.ball &&  this.ballCircularMotion(this.ball);
 				obserable.trigger({type:'prepareFood'})
-				this.stage.update();
-			});
+				this.ball && this.stage.update();
+				webkitRequestAnimationFrame(render);
+			}
+
+			webkitRequestAnimationFrame(render);
+
 
 		},1);
 

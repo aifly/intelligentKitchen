@@ -183,6 +183,7 @@
             position: relative;
             box-sizing: border-box; }
             .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll ul li div {
+              background-size: cover !important;
               position: absolute;
               border-radius: 20px;
               width: 90%;

@@ -124,7 +124,7 @@ import $ from 'jquery';
 												{this.state.addFoods[this.state.currentTimeSlot].map((item,i)=>{
 													return (
 														<li key={i} onTouchStart={this.getFoodById}>
-															<div data-index={i} style={{background:' url('+item.imgSrc+') no-repeat center top',backgroundSize:'cover'}}>
+															<div data-index={i} style={{background:' url('+item.imgSrc+') no-repeat center top'}}>
 																<span>{item.name}</span>
 																{item.type === 'video' && <img className='fly-play-ico' src='./assets/images/play.png'/>}
 															</div>	
@@ -430,7 +430,16 @@ import $ from 'jquery';
 					type:'fillFoodByVideo',
 					data:this.state.addFoods[this.state.currentTimeSlot][index]
 				});
+
+				setTimeout(()=>{
+
+					obserable.trigger({
+						type:'getVideo'
+					}).play();
+				},100);
+
 				obserable.trigger({type:'updateStep',data:0});
+				
 			break;
 		}
 

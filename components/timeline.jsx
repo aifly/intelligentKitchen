@@ -163,10 +163,10 @@ class FlyTimeLine extends Component {
 
 		obserable.on('prepareFood',()=>{
 			let currentStep = obserable.trigger({type:"getCurrentStep"});
+
 			if(currentStep <= -1){//当前还没有开始第一步。
 				return;	
 			}
-
 
 			let x = this.state.width + 1;
 

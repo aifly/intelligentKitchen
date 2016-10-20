@@ -17,6 +17,11 @@ import Ico from '../libs/ico';
 			isShow:false,
 			showCanvas:false,
 			showCountdown:false,
+			netWeightShadow:0,
+			weightShadow:0,
+			weightIcoShadow:0,
+			broadIcoShadow:0,
+			timeInfoIcoShadow:0,
 			weightData:[] //称重后的数据。
 		}
 		this.showWeight = this.showWeight.bind(this);
@@ -34,15 +39,15 @@ import Ico from '../libs/ico';
 				<div style={{opacity:this.state.isShow ? 1:0}}>
 					<h1></h1>
 					<div className='fly-btns-C'>
-						<figure>
+						<figure className={this.state.weightIcoShadow?'shadow':''}>
 							{/*<img  src='./assets/images/weight-btn.png' onTouchTap={this.showWeight} />*/}
 							<canvas width='140' height='140' ref='weight-ico' onTouchStart={this.showWeight}></canvas>
 						</figure>
-						<figure>
-							<canvas width='140' height='140' ref='broad-ico' onTouchStart={this.showBoard}></canvas>
+						<figure className={this.state.broadIcoShadow?'shadow':''}>
+							<canvas width='140' height='140' ref='broad-ico'  onTouchStart={this.showBoard}></canvas>
 						</figure>
-						<figure>
-							<canvas width='140' height='140' ref='time-ico' onTouchStart={this.showCountdown}></canvas>
+						<figure className={this.state.timeInfoIcoShadow?'shadow':''}>
+							<canvas width='140' height='140' ref='time-ico'  onTouchStart={this.showCountdown}></canvas>
 						</figure>
 					</div>
 					<div className='fly-show-countdown-top' style={{display:this.state.showCanvas?'block':'none'}}>
@@ -58,9 +63,9 @@ import Ico from '../libs/ico';
 							<div style={{opacity:this.state.showWeight ? 1:0}} className='fly-img-weight'>
 								<img src='./assets/images/weight.png'/>
 								<div className='fly-weight-display'>
-									<div onTouchStart={this.netWeight}>去皮</div>
+									<div onTouchStart={this.netWeight} className={this.state.netWeightShadow ? 'shadow1':''}>去皮</div>
 									<div className='weight'><canvas ref='weight'></canvas></div>
-									<div onTouchStart={this.getWeight}>确定</div>
+									<div onTouchStart={this.getWeight} className={this.state.weightShadow ? 'shadow1':''}>确定</div>
 								</div>
 							</div>
 							<div className="fly-countdown-C" style={{display:this.state.showCountdown?'block':'none'}}>
@@ -79,13 +84,23 @@ import Ico from '../libs/ico';
 		});
 	}
 
+
+	 
+
 	showCountdown(e){
 
-		this.props.shadow(e.target.parentNode);
+		//this.props.shadow(e.target.parentNode);
 		this.setState({
 			showCountdown:true,
 			showWeight:false,
-			showBoard:false
+			showBoard:false,
+			timeInfoIcoShadow:1
+		},()=>{
+			setTimeout(()=>{
+				this.setState({
+					timeInfoIcoShadow:0
+				})
+			},100);
 		})
 	}
 
@@ -173,11 +188,23 @@ import Ico from '../libs/ico';
 
 	netWeight(e){//去皮
 		if(this.state.isShow){
+
 			let canvas = this.refs['weight'];
 			this.initCanvas(canvas,0);
 			this.t && clearInterval(this.t);
-			this.props.shadow(e.target,'shadow1');
+			//this.props.shadow(e.target,'shadow1');
+			this.setState({
+				netWeightShadow:1
+			});
+
 			setTimeout(()=>{
+				this.setState({
+					netWeightShadow:0
+				})
+			},10);
+
+			setTimeout(()=>{
+				
 				let {URL} = this.props;
 				let canvas = this.refs['weight'];
 				let s = this;
@@ -199,10 +226,21 @@ import Ico from '../libs/ico';
 		//开始称重。
 		let {obserable,URL,r} = this.props;
 		if(this.state.isShow){
-			this.props.shadow(e.target,'shadow1');
+			
+			this.setState({
+				weightShadow:1
+			});
+			 
 			let s = this;
 			let canvas = this.refs['weight'];
+			var iNow = 0;
 			this.t = setInterval(()=>{
+				if(iNow === 0){
+					this.setState({
+						weightShadow:0
+					})
+				};
+				iNow++;
 				s.initCanvas(canvas,r(40,55)|0);
 			},20);
 			setTimeout(()=>{
@@ -218,6 +256,13 @@ import Ico from '../libs/ico';
 						//console.log(data)
 						let weight= data.foodweight*1|0;
 						clearInterval(s.t);
+
+						data.scaleData.forEach(item=>{
+							//item.scale*1<0 && (item.scale = 0);
+							item.weight < 0 && (item.weight = 0);
+						});
+
+					
 					
 						obserable.trigger({ //填充饼图
 							type:'fillAlimentationData',
@@ -234,10 +279,7 @@ import Ico from '../libs/ico';
 							}
 						});
 
-						
-
-						!hasMaterialsId && s.state.weightData.push(data.scaleData);
-						//console.log(s.state.weightData[0]);
+						!hasMaterialsId && s.state.weightData.push(data.scaleData); 
 						obserable.trigger({
 							type:"updateCurrentMaterialsId",
 							data:data.Materiaid*1 //服务器返回的识别到的食材的ID。
@@ -293,17 +335,31 @@ import Ico from '../libs/ico';
 		this.setState({
 			showWeight:true,
 			showBoard:false,
+			weightIcoShadow:1,
 			showCountdown:false
+		},()=>{
+			setTimeout(()=>{
+				this.setState({
+					weightIcoShadow:0
+				})
+			},100);
 		});
-		this.props.shadow(e.target.parentNode);
+		//this.props.shadow(e.target.parentNode);
 	}
 
 	showBoard(e){
-		this.props.shadow(e.target.parentNode);
+		//this.props.shadow(e.target.parentNode);
 		this.setState({
 			showWeight:false,
 			showBoard:true,
-			showCountdown:false
+			showCountdown:false,
+			broadIcoShadow:1
+		},()=>{
+			setTimeout(()=>{
+				this.setState({
+					broadIcoShadow:0
+				})
+			},100);
 		});
 	}
 	closeWeight (){

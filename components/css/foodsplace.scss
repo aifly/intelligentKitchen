@@ -136,13 +136,15 @@ $maxIndex:9999;
       @include transform(scale(.86));
     }
     @include pos(a);
-    @include transition_transform(.2s);
+    //@include transition_transform(.2s);
     width: $plateWidth;
     height: $plateWidth;
     background:#fff;
     z-index: 10;
+    top:0;
+    left: 0;
     @include br(50%);
-    @include transition_transform(.5s);
+   // @include transition_transform(.5s);
     @include transitionTimingFunction();
     &.will-delete{
       @include transform(scale(.6));

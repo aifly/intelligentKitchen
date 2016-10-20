@@ -242,8 +242,8 @@ import FlyVideo from './video.jsx';
 		});
 
 		obserable.on('getCurrentStep',()=>{
-
-			return this.state.currentStep;
+			
+			return this.state.currentStep;	
 
 		});
 

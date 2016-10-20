@@ -106,7 +106,7 @@ export default class Ico {
 
 		var text = new createjs.Text('+',"50px 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif",color);
 		text.x = center - 18;
-		text.y = center - 40;
+		text.y = center - 34;
 		stage.addChild(rect,circle,text);
 		stage.update();
 	}

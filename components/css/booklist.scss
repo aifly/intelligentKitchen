@@ -354,6 +354,7 @@ $maxIndex:9999;
               @include pos(r);
               box-sizing: border-box;
               div{
+                background-size:cover !important;
                 &:before{
                   content:'';
                   box-shadow:0 0 .1 * 10vw rgba(232,158,121,.4);

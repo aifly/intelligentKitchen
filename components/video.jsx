@@ -40,7 +40,6 @@ class FlyVideo extends Component {
 				<section>
 					<video ref='video' id="vjs_video_3_html5_api" className="" 
 						src={steps[this.state.currentVideoIndex].imgSrc}
-						autoPlay
 						>
 					</video> 
 					<div className='fly-video-list' style={{display:this.state.isPlay?'none':'block'}}>
@@ -114,6 +113,11 @@ class FlyVideo extends Component {
 		this.duration = 0;
 		let {obserable} = this.props;
 		this.isLoad = true;
+
+		obserable.on('getVideo',()=>{
+			return this.video;
+		});
+
 		obserable.on('videoPlay',()=>{
 			if(this.state.isPlay && this.state.playing && this.isLoad){
 				this.state.currentSeconds--;

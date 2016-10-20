@@ -12,7 +12,7 @@ export default class FlyFoodsPlace extends Component {
 	  	],
 	  	trashClass:'',
 	  	plateDemoStyle:{
-	  		left:"94%",
+	  		left:1235,
 	  		top:0,
 	  		background:'url(./assets/images/plat.png) no-repeat center center',
 	  		backgroundSize:'contain'
@@ -58,7 +58,7 @@ export default class FlyFoodsPlace extends Component {
 				</ol>
 
 				{this.state.plates.map((item,i)=>{
-					return <div key={i}  style={{left:this.state.plates[i].left,top:this.state.plates[i].top,background:'url(./assets/images/plat.png) no-repeat center center',
+					return <div key={i}  style={{transform:'translate3d('+this.state.plates[i].left+'px,'+this.state.plates[i].top+'px,0)',background:'url(./assets/images/plat.png) no-repeat center center',
 	  		backgroundSize:'contain'}} className={'fly-plate-item '+ this.state.plates[i].className}></div>
 				})}
 				
@@ -207,8 +207,10 @@ export default class FlyFoodsPlace extends Component {
 			let target = e.target;
 			var e = e.changedTouches[0];
 			let index = this.index(document.querySelectorAll('.fly-plate-item'),target);
-			 var disX = e.pageX - target.offsetLeft ,
-				 disY = e.pageY - target.offsetTop ;
+			var startX = this.state.plates[index].left,
+				startY = this.state.plates[index].top;
+			 var disX = e.pageX - startX ,
+				 disY = e.pageY - startY;
 
 
 		/*	this.trashWidth = this.trashWidth|| this.refs['fly-draw-trash-C'].offsetWidth / 2;
