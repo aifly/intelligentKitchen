@@ -202,8 +202,10 @@ import Ico from '../libs/ico';
 					netWeightShadow:0
 				})
 			},10);
-
-			setTimeout(()=>{
+		
+		  this.requestTimer && clearTimeout( this.requestTimer );
+		
+		  this.requestTimer = setTimeout(()=>{
 				
 				let {URL} = this.props;
 				let canvas = this.refs['weight'];
@@ -234,6 +236,7 @@ import Ico from '../libs/ico';
 			let s = this;
 			let canvas = this.refs['weight'];
 			var iNow = 0;
+			this.t && clearInterval(this.t);
 			this.t = setInterval(()=>{
 				if(iNow === 0){
 					this.setState({
@@ -243,7 +246,9 @@ import Ico from '../libs/ico';
 				iNow++;
 				s.initCanvas(canvas,r(40,55)|0);
 			},20);
-			setTimeout(()=>{
+			
+			this.weightTimer && clearTimeout(this.weightTimer);
+			this.weightTimer =  setTimeout(()=>{
 				$.ajax({
 				type:'POST',
 				url:URL.weightend,
@@ -252,17 +257,16 @@ import Ico from '../libs/ico';
 					s.initCanvas(canvas,0);
 				},
 				success(data){
+					
+					clearInterval(s.t);
 					if(data.getret === 1){
-						//console.log(data)
 						let weight= data.foodweight*1|0;
-						clearInterval(s.t);
+						
 
 						data.scaleData.forEach(item=>{
 							//item.scale*1<0 && (item.scale = 0);
 							item.weight < 0 && (item.weight = 0);
 						});
-
-					
 					
 						obserable.trigger({ //填充饼图
 							type:'fillAlimentationData',
@@ -286,13 +290,13 @@ import Ico from '../libs/ico';
 						});
 						weight > 9999 && (weight = 9999);
 						s.initCanvas(canvas,weight);
-
-						
+					}
+					else{
+						s.initCanvas(canvas,0);
 					}
 				}
 			});
 			},2000);
-			
 		}	
 	}
 

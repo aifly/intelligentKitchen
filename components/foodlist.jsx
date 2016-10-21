@@ -152,12 +152,12 @@ import $ from 'jquery';
 
 				$.ajax({
 					url:URL.getCookBookList,
-					data:{
+					data:{ 
 						Userid:userId,
 						food_type:'collection'
 					},
 					success(data){
-
+						//console.log(data);
 						s.state.dataSource[s.state.currentTimeSlot] = data;
 						s.forceUpdate(()=>{
 							s.ajaxEnd(s,data.length);

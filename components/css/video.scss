@@ -151,7 +151,7 @@ $fontColor:#a16d56;
     background:#727171;
     width: $width;
     display: block;
-    margin:.18 * 10vw;auto;
+    margin:1.8vw auto;
     @include br(30px);
     section{
        @include pos(r);
@@ -172,13 +172,14 @@ $fontColor:#a16d56;
         }
         .fly-video-operator{
            width:80%;
-           margin: .1 * 10vw;auto;
+           margin: .1 * 10vw auto;
            @include displayBox(horizontal);
            div{
              width: .25 * 10vw;
              margin: 0 .1 * 10vw;
            }
         }
+
        .fly-video-list-scroll{
           width: 90%;
           margin:0 auto;
@@ -220,11 +221,16 @@ $fontColor:#a16d56;
     }
     video{
       width: $width;
-      height: $width * 3 / 4 - .2 !important;
-      display: block;
-      margin:0 auto;
-      @include br(30px);
+      height: 16.3vw;
     }
+    canvas{
+      @include br(30px);
+      @include pos(r);
+      z-index: 10;
+      display: none;
+    }
+
+   
     .fly-video-control-C{
        height: .25 * 10vw;
 
@@ -259,6 +265,9 @@ $fontColor:#a16d56;
             box-sizing:border-box;
             top:-($size - .01)/2;
           }
+       }
+       .fly-video-scroll-C{
+         opacity:0;
        }
        .fly-control{
           width: 90%;
@@ -296,9 +305,11 @@ $fontColor:#a16d56;
                     width: 0;
                     height: 0;
                     $size:.06 * 10vw;
-                    border-top:$size - .02 solid transparent;
-                    border-right: $size solid #cebabb;
-                    border-bottom: $size - .02 solid transparent;
+
+                    border-top: 0.4vw solid transparent;
+                    border-right: 0.6vw solid #cebabb;
+                    border-bottom: 0.4vw solid transparent;
+                 
                     @include pos(r);
                     &:before{
                       content:'';
@@ -308,9 +319,9 @@ $fontColor:#a16d56;
                         $scale:1.5;
                         left: 0.0134 * 10vw;
                         top:-.026 * 10vw;
-                        border-top:($size - .02) / $scale solid transparent;
-                        border-right: $size / $scale solid #fff;
-                        border-bottom: ($size - .02) / $scale solid transparent;
+                        border-top: 0.2667vw solid transparent;
+                        border-right: 0.4vw solid #fff;
+                        border-bottom: 0.2667vw solid transparent; 
                     }
                 }
              }
@@ -325,6 +336,7 @@ $fontColor:#a16d56;
               $size:.14 * 10vw;
                width: $size;
                height: $size;
+               
                @include br(50%);
                @include pos(r);
                border:2px solid #cebabb;
@@ -332,7 +344,7 @@ $fontColor:#a16d56;
                   content:'';
                   @include pos(a);
                   width:0;
-                  height: $size - .06;
+                  height: .8vw;
                   border:2px solid #cebabb;
                   border-top:none;
                   border-bottom: none;
@@ -349,6 +361,7 @@ $fontColor:#a16d56;
                    width: 0;
                     height: 0;
                     $scale:1.5;
+                    top:.2vw;
                     left: 0.05 * 10vw;
                     $size:.08 * 10vw;
                     border-top:($size - .02) / $scale solid transparent;

@@ -381,6 +381,7 @@ import { PublicShadow } from './public-shadow.jsx';
 				this.ball &&  this.ballCircularMotion(this.ball);
 				obserable.trigger({type:'prepareFood'})
 				this.ball && this.stage.update();
+			//	obserable.trigger({type:'drawVideo'})
 				webkitRequestAnimationFrame(render);
 			}
 

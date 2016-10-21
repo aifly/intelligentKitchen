@@ -55,8 +55,11 @@ import $ from 'jquery';
 			this.setState({
 				currentTimeSlot:index
 			},()=>{
+				var D = new Date();
+				let week = D.getDay();
+				this.loading14DayData(week);
 				this.scroll &&this.scroll.refresh();
-			})
+			});
 		}
 		//
 	}
@@ -147,7 +150,7 @@ import $ from 'jquery';
 
 	updateCalendar(){
 
-		let {URL,userId} = this.props;
+	
 
 		var D =new Date();
 		var yy=D.getFullYear();
@@ -179,15 +182,25 @@ import $ from 'jquery';
 			});	
 
 		}
+
+		this.loading14DayData(week);
+
+	}
+
+	loading14DayData(week){
+
+		let {URL,userId} = this.props;
 		let s = this;
 		$.ajax({
 			url:URL.getBookList,
 			type:'POST',
 			data:{
+				eatType:s.state.currentTimeSlot,
 				userid:userId,
 				bydate:getFullDate(-week)
 			},
 			success(data){
+
 				for(var i =0,len = data.getdate.length/2 ;i<len;i++){
 					s.state.dates1[i].isHasFood = data.getdate[i];
 				}
@@ -197,8 +210,6 @@ import $ from 'jquery';
 				s.forceUpdate();
 			}
 		});
-
-
 	}
 
 	getFoodListByDate(date){

@@ -40,7 +40,7 @@ import FlyVideo from './video.jsx';
 
 
 		let background = {
-			background:foodData.detailSrc?'url('+foodData.detailSrc+') no-repeat center  / cover':'none'
+			background:foodData.imgSrc?'url('+foodData.imgSrc+') no-repeat center  / cover':'none'
 		};
 		let videoProps= {};
 		if(this.state.foodData.steps){
@@ -226,7 +226,6 @@ import FlyVideo from './video.jsx';
 	}
 
 	componentDidMount(){
-
 
 		let {obserable} = this.props,
 			foodId = -1;

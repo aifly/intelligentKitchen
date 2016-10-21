@@ -41,7 +41,8 @@ class FlyVideo extends Component {
 					<video ref='video' id="vjs_video_3_html5_api" className="" 
 						src={steps[this.state.currentVideoIndex].imgSrc}
 						>
-					</video> 
+					</video>
+					<canvas ref='video-canvas' width='960' height='643'></canvas>
 					<div className='fly-video-list' style={{display:this.state.isPlay?'none':'block'}}>
 						<h1></h1>	
 						<div className='fly-video-list-scroll' ref='fly-video-list-scroll'>
@@ -68,8 +69,12 @@ class FlyVideo extends Component {
 				</section>
 				<footer className='fly-video-control-C'>
 					<div className='fly-video-scroll-C'>
-						<div className='fly-video-progress' ref='fly-video-progress'  style={{WebkitTransform:'scale('+this.state.videoProgressScale+',1)'}}></div>
-						<span ref='fly-scroll-bar' style={{WebkitTransform:'translate3d('+this.state.videoBarTransX+'px,0,0)'}}></span>
+				{/*
+					  style={{WebkitTransform:'scale('+this.state.videoProgressScale+',1)'}}
+					  style={{WebkitTransform:'translate3d('+this.state.videoBarTransX+'px,0,0)'}}
+				*/}
+						<div className='fly-video-progress' ref='fly-video-progress'></div>
+						<span ref='fly-scroll-bar'></span>
 					</div>
 					<div className="fly-control">
 						<section className='fly-voice'>
@@ -117,6 +122,20 @@ class FlyVideo extends Component {
 		obserable.on('getVideo',()=>{
 			return this.video;
 		});
+
+		/*var canvas = this.refs['video-canvas'];
+		var context = canvas.getContext('2d');
+		context.font="50px Georgia";
+		obserable.on('drawVideo',()=>{
+			if(this.video){
+				context.clearRect(0,0,960,643);
+				context.drawImage(this.video,0,0);
+			}
+			else{
+				document.title ='fail';
+			}
+		 	
+		});*/
 
 		obserable.on('videoPlay',()=>{
 			if(this.state.isPlay && this.state.playing && this.isLoad){
@@ -236,7 +255,7 @@ class FlyVideo extends Component {
 			this.transX = 0;
 			this.transX1 =this.refs['voice-C'].offsetWidth - barWidth;
 
-			this.bindDrag(progressBar,$doc,this.transX,videoProgress,videoWidth,progressBarWidth,'video');
+			///this.bindDrag(progressBar,$doc,this.transX,videoProgress,videoWidth,progressBarWidth,'video');
 			this.bindDrag($(this.refs['fly-voice-bar']),$doc,this.transX1,voiceProgress,vioceWidth,progressBarWidth,'voice');
 
 		},1);

@@ -214,7 +214,8 @@ $maxIndex:9999;
             
 
             &.shadow1{
-              @include transform(scale(.95));
+              //@include transform(scale(.95));
+              border-color:green;
             }
             border:3px solid #df9977;
             margin-top: .1 * 10vw;
