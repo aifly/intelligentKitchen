@@ -37835,7 +37835,7 @@
 								food_type: 'rec'
 							},
 							success: function success(data) {
-								console.log(data);
+								//console.log(data);
 								var i = 0;
 								data.forEach(function (d) {
 									s.state.dataSource[d.foodMtype * 1 - 1].push(d);
@@ -41447,6 +41447,8 @@
 								if (data.getret === 1) {
 									//console.log('success');
 									//s.initCanvas(canvas,0);
+									//weight
+									console.log(data);
 								}
 							}
 						});

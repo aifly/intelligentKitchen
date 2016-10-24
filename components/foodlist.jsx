@@ -102,7 +102,7 @@ import $ from 'jquery';
 						food_type:'rec'
 					},
 					success(data){
-						console.log(data);
+						//console.log(data);
 						var i=0;
 						data.forEach(d=>{
 							s.state.dataSource[d.foodMtype*1-1].push(d);

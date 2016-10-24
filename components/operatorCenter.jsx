@@ -217,6 +217,8 @@ import Ico from '../libs/ico';
 						if(data.getret === 1){
 							//console.log('success');
 							//s.initCanvas(canvas,0);
+							//weight
+							console.log(data)
 						}
 					}
 				});
