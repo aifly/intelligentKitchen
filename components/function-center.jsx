@@ -299,6 +299,10 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 			});
 		});
 
+		obserable.on('getfunctionCenterShow',()=>{
+			return this.state.isShow;
+		});
+
 
 
 		this.init();

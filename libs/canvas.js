@@ -15,25 +15,31 @@ export default class Time{
 		var context = s.canvas.getContext('2d');
 		if(s.isTime){
 			var index = s.init();
+
 			setInterval(()=>{
-				var D = new Date();
-				var hours = D.getHours(),
-					mins = D.getMinutes(),
-					seconds = D.getSeconds();
-				//!new Date().getSeconds() && (index = s.init());//当前秒数为0的时候，重新绘制时间。
-				
-				context.fillStyle = '#f8f3ef';
-				context.beginPath();//f8f3ef
-				context.arc((s.margin + .61 + s.r)*(index-3),(s.margin + s.r)*7.8,s.r+.2,0,Math.PI*2,false);
-				context.closePath();
-				context.fill();
-				context.beginPath();
-				context.arc((s.margin+ .61 + s.r)*(index-3),(s.margin + s.r)*5.8,s.r+.2,0,Math.PI*2,false);
-				context.closePath();
-				context.fill();
-				setTimeout(()=>{
-					index = s.init();
-				},500);
+				var isShow = s.obserable.trigger({type:'getfunctionCenterShow'});
+
+				if(isShow){
+					var D = new Date();
+					var hours = D.getHours(),
+						mins = D.getMinutes(),
+						seconds = D.getSeconds();
+					//!new Date().getSeconds() && (index = s.init());//当前秒数为0的时候，重新绘制时间。
+					
+					context.fillStyle = '#f8f3ef';
+					context.beginPath();//f8f3ef
+					context.arc((s.margin + .61 + s.r)*(index-3),(s.margin + s.r)*7.8,s.r+.2,0,Math.PI*2,false);
+					context.closePath();
+					context.fill();
+					context.beginPath();
+					context.arc((s.margin+ .61 + s.r)*(index-3),(s.margin + s.r)*5.8,s.r+.2,0,Math.PI*2,false);
+					context.closePath();
+					context.fill();
+					setTimeout(()=>{
+						index = s.init();
+					},500);
+				}
+
 				hours === 0 && mins === 0 && seconds === 0 && s.obserable.trigger({type:'updateCalendar'});
 
 				s.obserable.trigger({type:"timingdown"});//倒计时

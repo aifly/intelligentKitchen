@@ -185,6 +185,7 @@ export default class FlyCountdown extends Component {
 			var e = e.originalEvent ? e.originalEvent.changedTouches[0]:e.changedTarget[0];
 			let startY = e.pageY;
 			this.rotateY = this.rotateY |0;
+			var iNow = 0 ;
 			$(document).on('touchmove',e=>{
 				var e = e.originalEvent ? e.originalEvent.changedTouches[0]:e.changedTarget[0];
 				let lastY = e.pageY;
@@ -203,7 +204,9 @@ export default class FlyCountdown extends Component {
 				}*/
 
 				t1 -= t1 % 6;
-
+				if(iNow === 0){
+					iNow++;
+				}
 				let spans = roundWrap.querySelectorAll('span');
 				for(var  i = 0; i < spans.length; i++){
 					spans[i].style.opacity = 0;
@@ -267,6 +270,7 @@ export default class FlyCountdown extends Component {
 			var e = e.originalEvent ? e.originalEvent.changedTouches[0]:e.changedTarget[0];
 			let startY = e.pageY;
 			this.rotateY1 = this.rotateY1 |0;
+			var iNow = 0 ;
 			$(document).on('touchmove',e=>{
 				var e = e.originalEvent ? e.originalEvent.changedTouches[0]:e.changedTarget[0];
 				let lastY = e.pageY;
@@ -285,13 +289,17 @@ export default class FlyCountdown extends Component {
 				}*/
 
 				t1 -= t1 % 6;
-
-				let spans = roundWrap1.querySelectorAll('span');
-				for(var  i = 0; i < spans.length; i++){
-					spans[i].style.opacity = 0;
+				if(iNow === 0){
+					iNow++;
+					let spans = roundWrap1.querySelectorAll('span');
+					for(var  i = 0; i < spans.length; i++){
+						spans[i].style.opacity = 0;
+					}
 				}
 
-
+				
+				
+				
 
 			 	roundWrap1.querySelector('.mins-'+((t1 + 12) / 6)%60).style.opacity = 1;
 			 	roundWrap1.querySelector('.mins-'+((t1 + 12) / 6-1)%60).style.opacity = .5;

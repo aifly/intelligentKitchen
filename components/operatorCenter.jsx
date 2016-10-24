@@ -257,7 +257,7 @@ import Ico from '../libs/ico';
 					s.initCanvas(canvas,0);
 				},
 				success(data){
-					
+					console.log(data);
 					clearInterval(s.t);
 					if(data.getret === 1){
 						let weight= data.foodweight*1|0;
