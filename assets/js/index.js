@@ -40628,6 +40628,7 @@
 							'ul',
 							{ ref: 'fly-m-scroll', onTouchTap: this.checkMaterial, style: { width: this.state.alimentatonData.materials.length * this.state.liWidth } },
 							this.state.alimentatonData.materials.map(function (item, i) {
+								console.log(item.id * 1, _this.state.currentMaterialId * 1);
 								return _react2['default'].createElement(
 									'li',
 									{ className: item.id * 1 === _this.state.currentMaterialId * 1 ? 'active' : '', key: i },
