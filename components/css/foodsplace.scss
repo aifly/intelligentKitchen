@@ -151,7 +151,12 @@ $maxIndex:9999;
       opacity:.5;
     }
     &.delete{
-      @include transform(scale(0));
+      //@include transform(scale(0));
+      @include transition(opacity 1s);
+      @include transitionTimingFunction();
+      z-index: -1 !important;
+      opacity:0;
+
     }
   }
   

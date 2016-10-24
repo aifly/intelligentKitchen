@@ -87,9 +87,8 @@ export default class FlyFoodsPlace extends Component {
 
 	removePlat(e){//移除盘子
 		var target= e.target;
-		if(target.classList.contains('fly-plate-item')){
-			target.classList.add('delete');
-		};
+		target.classList.add('delete');
+		
 	}
 	getDis(x1,y1,x2,y2){
 		const m =  Math;

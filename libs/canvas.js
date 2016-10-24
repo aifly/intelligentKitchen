@@ -28,11 +28,11 @@ export default class Time{
 					
 					context.fillStyle = '#f8f3ef';
 					context.beginPath();//f8f3ef
-					context.arc((s.margin + .61 + s.r)*(index-3),(s.margin + s.r)*7.8,s.r+.2,0,Math.PI*2,false);
+					context.arc((s.margin + .59 + s.r)*(index-3),(s.margin + s.r)*7.8,s.r+.4,0,Math.PI*2,false);
 					context.closePath();
 					context.fill();
 					context.beginPath();
-					context.arc((s.margin+ .61 + s.r)*(index-3),(s.margin + s.r)*5.8,s.r+.2,0,Math.PI*2,false);
+					context.arc((s.margin+ .59 + s.r)*(index-3),(s.margin + s.r)*5.8,s.r+.4,0,Math.PI*2,false);
 					context.closePath();
 					context.fill();
 					setTimeout(()=>{

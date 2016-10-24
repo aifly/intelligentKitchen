@@ -62,8 +62,7 @@ import $ from 'jquery';
 								{this.state.dataSource[this.state.currentTimeSlot].length&&this.state.dataSource[this.state.currentTimeSlot].map((data,i)=>{
 									return (
 										<li  key={i} className={i<=Math.floor(this.state.dataSource[this.state.currentTimeSlot].length/2)?'':'food-top'}>
-											<div data-index={i}  style={{background:'url('+data.imgSrc+') no-repeat center bottom',backgroundSize:'cover'}} className={i===this.state.currentIndex ? 'active':''}>
-
+											<div data-index={i}  style={{background:'url('+'\''+data.imgSrc+'\''+') no-repeat center bottom',backgroundSize:'cover'}} className={i===this.state.currentIndex ? 'active':''}>
 												<span>{data.name}</span>
 												{data.type === 'video' && <img className='fly-play-ico' src='./assets/images/play.png'/>}
 											</div>
@@ -103,6 +102,7 @@ import $ from 'jquery';
 						food_type:'rec'
 					},
 					success(data){
+						console.log(data);
 						var i=0;
 						data.forEach(d=>{
 							s.state.dataSource[d.foodMtype*1-1].push(d);

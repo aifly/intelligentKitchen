@@ -188,9 +188,9 @@ $nav-height:11.76vh;
           @include transform(translate3d(0,0,0));
        }
        @include transitionTimingFunction();
-       @include transform(translate3d(0,50px,0));
+       @include transform(translate3d(0,20px,0));
        opacity:0;
-       @include transition(.8s);
+       @include transition(.4s);
        float: left;
        @include displayBox(horizontal);
        width: 5 * 10vw ;
@@ -457,8 +457,9 @@ $nav-height:11.76vh;
                   font-size:.06 * 10vw ;
                   li{
                     float:left;
-                    margin: 10px;
+                    margin: 6px;
                     border:1px solid #cfbbbc;
+                    box-sizing:border-box;
                     padding:6px 20px;
                     @include br(30px);
                   }

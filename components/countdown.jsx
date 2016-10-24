@@ -102,7 +102,6 @@ export default class FlyCountdown extends Component {
 
 	 				if(this.iNow <= 0){
 
-
 	 					if(this.state.hours<=0 && this.state.mins <= 0 && this.iNow <=0){
  							console.log('倒计时结束');
  							this.timer = 1;
@@ -111,7 +110,7 @@ export default class FlyCountdown extends Component {
 
 	 						this.state.mins--;
 		 					if(this.state.mins<=0){
-		 						if(this.state.housr>0){
+		 						if(this.state.hours>0){
 		 							this.state.mins = 59;
 		 							this.state.hours--;	
 		 						}
@@ -125,8 +124,7 @@ export default class FlyCountdown extends Component {
 	 				 so = this.iNow % 10;
 	 				 mt = this.state.mins / 10 | 0;  //w分钟的十位数
 	 				 mo = this.state.mins % 10; //分钟的个位
-	 				 mh = this.state.hours;
-	 				 
+	 				 mh = this.state.hours; 
 
 					timing.initTiming([mh,mt,mo,st,so]);
 					timing1.initTiming([mh,mt,mo,st,so]);

@@ -177,11 +177,11 @@ body {
     #fly-main .fly-nav ul {
       -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);
       transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);
-      -webkit-transform: translate3d(0, 50px, 0);
-      transform: translate3d(0, 50px, 0);
+      -webkit-transform: translate3d(0, 20px, 0);
+      transform: translate3d(0, 20px, 0);
       opacity: 0;
-      -webkit-transition: 0.8s;
-      transition: 0.8s;
+      -webkit-transition: 0.4s;
+      transition: 0.4s;
       float: left;
       display: -webkit-box;
       -webkit-box-align: center;
@@ -400,8 +400,9 @@ body {
           font-size: 0.6vw; }
           #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C .fly-rec-food-container li {
             float: left;
-            margin: 10px;
+            margin: 6px;
             border: 1px solid #cfbbbc;
+            box-sizing: border-box;
             padding: 6px 20px;
             border-radius: 30px; }
       #fly-main .fly-cook-book-C .fly-food .fly-rec-food span.tag {
