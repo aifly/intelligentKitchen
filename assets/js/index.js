@@ -41419,44 +41419,47 @@
 
 				//去皮
 				if (this.state.isShow) {
-
-					var canvas = this.refs['weight'];
-					this.initCanvas(canvas, 0);
-					this.t && clearInterval(this.t);
-					//this.props.shadow(e.target,'shadow1');
-					this.setState({
-						netWeightShadow: 1
-					});
-
-					setTimeout(function () {
-						_this3.setState({
-							netWeightShadow: 0
-						});
-					}, 100);
-
-					this.requestTimer && clearTimeout(this.requestTimer);
-
-					this.requestTimer = setTimeout(function () {
-						var URL = _this3.props.URL;
+					(function () {
 
 						var canvas = _this3.refs['weight'];
-						var s = _this3;
-						_jquery2['default'].ajax({
-							type: 'POST',
-							url: URL.weightstart,
-							error: function error(e) {
-								console.log(e);
-							},
-							success: function success(data) {
-								if (data.getret === 1) {
-									//console.log('success');
-									//s.initCanvas(canvas,0);
-									//weight
-									console.log(data);
-								}
-							}
+						_this3.setState({
+							netWeightShadow: 1
 						});
-					}, 100);
+
+						setTimeout(function () {
+							_this3.setState({
+								netWeightShadow: 0
+							});
+							_this3.initCanvas(canvas, 0);
+						}, 100);
+
+						_this3.t && clearInterval(_this3.t);
+						//this.props.shadow(e.target,'shadow1');
+
+						_this3.requestTimer && clearTimeout(_this3.requestTimer);
+
+						_this3.requestTimer = setTimeout(function () {
+							var URL = _this3.props.URL;
+
+							var canvas = _this3.refs['weight'];
+							var s = _this3;
+							_jquery2['default'].ajax({
+								type: 'POST',
+								url: URL.weightstart,
+								error: function error(e) {
+									console.log(e);
+								},
+								success: function success(data) {
+									if (data.getret === 1) {
+										//console.log('success');
+										//s.initCanvas(canvas,0);
+										//weight
+										console.log(data);
+									}
+								}
+							});
+						}, 100);
+					})();
 				}
 			}
 		}, {
@@ -41666,7 +41669,7 @@
 
 
 	// module
-	exports.push([module.id, ".fly-weight {\r\n  display: -webkit-box;\r\n  -webkit-box-align: center;\r\n  -webkit-box-pack: center;\r\n  -webkit-box-orient: vertical; }\r\n  .fly-weight h1 {\r\n    height: 5vw; }\r\n  .fly-weight .fly-btns-C {\r\n    width: 50%;\r\n    position: absolute;\r\n    top: 0;\r\n    left: 4vw;\r\n    height: 5vw;\r\n    display: -webkit-box;\r\n    -webkit-box-align: center;\r\n    -webkit-box-pack: center;\r\n    -webkit-box-orient: horizontal; }\r\n    .fly-weight .fly-btns-C figure {\r\n      position: relative;\r\n      margin: 0 0.5vw; }\r\n      .fly-weight .fly-btns-C figure img, .fly-weight .fly-btns-C figure canvas {\r\n        border-radius: 50%; }\r\n      .fly-weight .fly-btns-C figure:first-of-type {\r\n        margin-left: 1vw; }\r\n  .fly-weight .shadow {\r\n    -webkit-transform: scale(0.95);\r\n    transform: scale(0.95); }\r\n    .fly-weight .shadow:before {\r\n      content: '';\r\n      position: absolute;\r\n      width: 100%;\r\n      height: 100%;\r\n      box-shadow: 0 0 2vw rgba(232, 158, 121, 0.4), 0 0 1vw rgba(232, 158, 121, 0.4) inset;\r\n      left: 0;\r\n      border-radius: 50%;\r\n      top: 0; }\r\n  .fly-weight .fly-operator-C {\r\n    position: relative;\r\n    border-radius: 2.5vw; }\r\n    .fly-weight .fly-operator-C .fly-countdown-C {\r\n      position: absolute;\r\n      left: 0;\r\n      top: 0;\r\n      width: 100%;\r\n      height: 100%; }\r\n      .fly-weight .fly-operator-C .fly-countdown-C:after, .fly-weight .fly-operator-C .fly-countdown-C:before {\r\n        content: '';\r\n        position: absolute;\r\n        width: 90%;\r\n        left: 5%;\r\n        border-top: 1px solid #fff;\r\n        top: 4vw; }\r\n      .fly-weight .fly-operator-C .fly-countdown-C:after {\r\n        bottom: 3vw;\r\n        top: auto; }\r\n    .fly-weight .fly-operator-C div.fly-img-board, .fly-weight .fly-operator-C div.fly-img-weight {\r\n      width: 98%; }\r\n    .fly-weight .fly-operator-C div.fly-img-weight .fly-weight-display {\r\n      position: absolute;\r\n      height: 4vw;\r\n      width: 98%;\r\n      bottom: 0.5vw;\r\n      left: 0;\r\n      box-sizing: border-box;\r\n      display: -webkit-box;\r\n      -webkit-box-align: center;\r\n      -webkit-box-pack: center;\r\n      -webkit-box-orient: horizontal; }\r\n      .fly-weight .fly-operator-C div.fly-img-weight .fly-weight-display div {\r\n        text-align: center; }\r\n        .fly-weight .fly-operator-C div.fly-img-weight .fly-weight-display div:nth-of-type(2) {\r\n          height: 4vw;\r\n          width: 11.5vw; }\r\n        .fly-weight .fly-operator-C div.fly-img-weight .fly-weight-display div:nth-of-type(1), .fly-weight .fly-operator-C div.fly-img-weight .fly-weight-display div:nth-of-type(3) {\r\n          border: 3px solid #df9977;\r\n          margin-top: 1vw;\r\n          border-radius: 50%;\r\n          line-height: 3vw;\r\n          color: #df9977;\r\n          width: 3vw;\r\n          height: 3vw; }\r\n          .fly-weight .fly-operator-C div.fly-img-weight .fly-weight-display div:nth-of-type(1).shadow1, .fly-weight .fly-operator-C div.fly-img-weight .fly-weight-display div:nth-of-type(3).shadow1 {\r\n            border-color: green; }\r\n  .fly-weight .fly-show-countdown-top {\r\n    position: absolute;\r\n    top: 1vw;\r\n    left: 21vw;\r\n    border: 1px solid #fff;\r\n    width: 16.5vw; }\r\n    .fly-weight .fly-show-countdown-top canvas {\r\n      float: left; }\r\n    .fly-weight .fly-show-countdown-top span {\r\n      display: block;\r\n      position: absolute;\r\n      width: 1vw;\r\n      height: 1vw;\r\n      line-height: 1vw;\r\n      text-align: center;\r\n      background: #fff;\r\n      left: -0.5vw;\r\n      top: -0.5vw;\r\n      border-radius: 50%; }\r\n      .fly-weight .fly-show-countdown-top span:after, .fly-weight .fly-show-countdown-top span:before {\r\n        content: '';\r\n        position: absolute;\r\n        width: 80%;\r\n        left: 10%;\r\n        top: 50%;\r\n        border-top: 2px solid #e89e79;\r\n        -webkit-transform: rotate(45deg);\r\n        transform: rotate(45deg); }\r\n      .fly-weight .fly-show-countdown-top span:after {\r\n        -webkit-transform: rotate(-45deg);\r\n        transform: rotate(-45deg); }\r\n\r\n/*# sourceMappingURL=operator-center.css.map */\r\n", ""]);
+	exports.push([module.id, ".fly-weight {\r\n  display: -webkit-box;\r\n  -webkit-box-align: center;\r\n  -webkit-box-pack: center;\r\n  -webkit-box-orient: vertical; }\r\n  .fly-weight h1 {\r\n    height: 5vw; }\r\n  .fly-weight .fly-btns-C {\r\n    width: 50%;\r\n    position: absolute;\r\n    top: 0;\r\n    left: 4vw;\r\n    height: 5vw;\r\n    display: -webkit-box;\r\n    -webkit-box-align: center;\r\n    -webkit-box-pack: center;\r\n    -webkit-box-orient: horizontal; }\r\n    .fly-weight .fly-btns-C figure {\r\n      position: relative;\r\n      margin: 0 0.5vw; }\r\n      .fly-weight .fly-btns-C figure img, .fly-weight .fly-btns-C figure canvas {\r\n        border-radius: 50%; }\r\n      .fly-weight .fly-btns-C figure:first-of-type {\r\n        margin-left: 1vw; }\r\n  .fly-weight .shadow {\r\n    -webkit-transform: scale(0.95);\r\n    transform: scale(0.95); }\r\n    .fly-weight .shadow:before {\r\n      content: '';\r\n      position: absolute;\r\n      width: 100%;\r\n      height: 100%;\r\n      box-shadow: 0 0 2vw rgba(232, 158, 121, 0.4), 0 0 1vw rgba(232, 158, 121, 0.4) inset;\r\n      left: 0;\r\n      border-radius: 50%;\r\n      top: 0; }\r\n  .fly-weight .fly-operator-C {\r\n    position: relative;\r\n    border-radius: 2.5vw; }\r\n    .fly-weight .fly-operator-C .fly-countdown-C {\r\n      position: absolute;\r\n      left: 0;\r\n      top: 0;\r\n      width: 100%;\r\n      height: 100%; }\r\n      .fly-weight .fly-operator-C .fly-countdown-C:after, .fly-weight .fly-operator-C .fly-countdown-C:before {\r\n        content: '';\r\n        position: absolute;\r\n        width: 90%;\r\n        left: 5%;\r\n        border-top: 1px solid #fff;\r\n        top: 4vw; }\r\n      .fly-weight .fly-operator-C .fly-countdown-C:after {\r\n        bottom: 3vw;\r\n        top: auto; }\r\n    .fly-weight .fly-operator-C div.fly-img-board, .fly-weight .fly-operator-C div.fly-img-weight {\r\n      width: 98%; }\r\n    .fly-weight .fly-operator-C div.fly-img-weight .fly-weight-display {\r\n      position: absolute;\r\n      height: 4vw;\r\n      width: 98%;\r\n      bottom: 0.5vw;\r\n      left: 0;\r\n      box-sizing: border-box;\r\n      display: -webkit-box;\r\n      -webkit-box-align: center;\r\n      -webkit-box-pack: center;\r\n      -webkit-box-orient: horizontal; }\r\n      .fly-weight .fly-operator-C div.fly-img-weight .fly-weight-display div {\r\n        text-align: center; }\r\n        .fly-weight .fly-operator-C div.fly-img-weight .fly-weight-display div:nth-of-type(2) {\r\n          height: 4vw;\r\n          width: 11.5vw; }\r\n        .fly-weight .fly-operator-C div.fly-img-weight .fly-weight-display div:nth-of-type(1), .fly-weight .fly-operator-C div.fly-img-weight .fly-weight-display div:nth-of-type(3) {\r\n          border: 3px solid #df9977;\r\n          margin-top: 1vw;\r\n          border-radius: 50%;\r\n          line-height: 3vw;\r\n          color: #df9977;\r\n          width: 3vw;\r\n          height: 3vw; }\r\n          .fly-weight .fly-operator-C div.fly-img-weight .fly-weight-display div:nth-of-type(1).shadow1, .fly-weight .fly-operator-C div.fly-img-weight .fly-weight-display div:nth-of-type(3).shadow1 {\r\n            border-color: green; }\r\n  .fly-weight .fly-show-countdown-top {\r\n    position: absolute;\r\n    top: 1vw;\r\n    left: 21vw;\r\n    border: 1px solid #fff;\r\n    width: 16.5vw; }\r\n    .fly-weight .fly-show-countdown-top canvas {\r\n      float: left; }\r\n    .fly-weight .fly-show-countdown-top span {\r\n      display: block;\r\n      position: absolute;\r\n      width: 1vw;\r\n      height: 1vw;\r\n      line-height: 1vw;\r\n      text-align: center;\r\n      background: #fff;\r\n      left: -0.5vw;\r\n      top: -0.5vw;\r\n      border-radius: 50%; }\r\n      .fly-weight .fly-show-countdown-top span:after, .fly-weight .fly-show-countdown-top span:before {\r\n        content: '';\r\n        position: absolute;\r\n        width: 80%;\r\n        left: 10%;\r\n        top: 50%;\r\n        border-top: 2px solid #e89e79;\r\n        -webkit-transform: rotate(45deg);\r\n        transform: rotate(45deg); }\r\n      .fly-weight .fly-show-countdown-top span:after {\r\n        -webkit-transform: rotate(-45deg);\r\n        transform: rotate(-45deg); }\r\n\r\n/*# sourceMappingURL=operator-center.css.map */", ""]);
 
 	// exports
 

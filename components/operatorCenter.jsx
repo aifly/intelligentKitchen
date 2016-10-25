@@ -190,9 +190,6 @@ import Ico from '../libs/ico';
 		if(this.state.isShow){
 
 			let canvas = this.refs['weight'];
-			this.initCanvas(canvas,0);
-			this.t && clearInterval(this.t);
-			//this.props.shadow(e.target,'shadow1');
 			this.setState({
 				netWeightShadow:1
 			});
@@ -200,8 +197,13 @@ import Ico from '../libs/ico';
 			setTimeout(()=>{
 				this.setState({
 					netWeightShadow:0
-				})
+				});
+				this.initCanvas(canvas,0);
 			},100);
+			
+			this.t && clearInterval(this.t);
+			//this.props.shadow(e.target,'shadow1');
+			
 		
 		  this.requestTimer && clearTimeout( this.requestTimer );
 		
