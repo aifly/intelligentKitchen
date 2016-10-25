@@ -162,7 +162,7 @@ $maxIndex:9999;
 
   &:before{
       content:'';
-      box-shadow:0 0 .3 * 10vw rgba(232,158,121,.8);
+      box-shadow:0 0 .1 * 10vw rgba(232,158,121,.8);
       @include pos(a);
       left: 0;
       top: 0;

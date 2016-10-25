@@ -220,7 +220,7 @@ $nav-height:11.76vh;
             width:100%;
             height: 100%;
             z-index: 100;
-            box-shadow:0 0 .2* 10vw rgba(232,158,121,.2);
+            box-shadow:0 0 .1* 10vw rgba(232,158,121,.2);
           }
         }
         &:last-of-type{
@@ -368,7 +368,7 @@ $nav-height:11.76vh;
               z-index: -1;
               @include br(30px);
               height: 100%;
-              box-shadow:0 0 .3 * 10vw  rgba(232,158,121,.4);
+              box-shadow:0 0 .1 * 10vw  rgba(232,158,121,.4);
             }
             span.tag{
               @include pos(a);

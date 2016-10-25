@@ -52,10 +52,12 @@ export default class Ico {
 
 
 		var rect = new createjs.Shape();
-		rect.graphics.setStrokeStyle(4).beginStroke(color).drawRoundRect(30,30,80,80,10);
+		rect.graphics.setStrokeStyle(4).beginStroke(color).drawRoundRect(35,35,70,70,10);
 
 		var circle = new createjs.Shape();
-		circle.graphics.setStrokeStyle(4).beginStroke(color).drawCircle(center,center,center);
+
+
+		circle.graphics.setStrokeStyle(4).beginStroke(color).drawCircle(center,center,center/1.2);
 
 
 		stage.addChild(rect,circle);
@@ -65,12 +67,12 @@ export default class Ico {
 		context.lineWidth = 4;
 		context.strokeStyle = color;
 		context.beginPath();
-		context.arc(center,center-10,20,0,Math.PI,true);
+		context.arc(center,center-8,20,0,Math.PI,true);
 		
 		context.stroke();
 
 		context.beginPath();
-		context.moveTo(center,center-10);
+		context.moveTo(center,center);
 		context.lineTo(center-10,center-20);
 		context.stroke();
 	}
@@ -99,10 +101,10 @@ export default class Ico {
 		let {canvas,width,center,stage,color} = this.public();
 
 		var rect = new createjs.Shape();
-		rect.graphics.setStrokeStyle(4).beginStroke(color).drawRoundRect(30,40,80,60,10);
+		rect.graphics.setStrokeStyle(4).beginStroke(color).drawRoundRect(35,35,70,70,10);
 
 		var circle = new createjs.Shape();
-		circle.graphics.setStrokeStyle(4).beginStroke(color).drawCircle(center,center,center);
+		circle.graphics.setStrokeStyle(4).beginStroke(color).drawCircle(center,center,center/1.2);
 
 		var text = new createjs.Text('+',"50px 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif",color);
 		text.x = center - 18;
@@ -155,11 +157,11 @@ export default class Ico {
 		let {canvas,width,center,stage,color} = this.public();
 		
 		var rect = new createjs.Shape();
-		rect.graphics.setStrokeStyle(4).beginStroke(color).drawCircle(center,center,center/2);
+		rect.graphics.setStrokeStyle(4).beginStroke(color).drawCircle(center,center,center/2.2);
 
 		var circle = new createjs.Shape();
 
-		circle.graphics.setStrokeStyle(4).beginStroke(color).drawCircle(center,center,center);
+		circle.graphics.setStrokeStyle(4).beginStroke(color).drawCircle(center,center,center/1.2);
 
 		stage.addChild(rect,circle);
 
@@ -169,7 +171,7 @@ export default class Ico {
 		context.lineWidth = 4;
 		context.strokeStyle= color;
 		context.beginPath();
-		context.arc(center,center,center-26,210*Math.PI/180,240*Math.PI/180,false);
+		context.arc(center,center,center-28,210*Math.PI/180,240*Math.PI/180,false);
 		context.stroke();
 
 		context.beginPath();
@@ -178,11 +180,11 @@ export default class Ico {
 		context.fill();
 
 		context.beginPath();
-		context.arc(center,center,center/2-10,200*Math.PI/180,260*Math.PI/180,false);
+		context.arc(center,center,center/2-12,200*Math.PI/180,260*Math.PI/180,false);
 		context.stroke();
 
 		context.beginPath();
-		context.arc(center,center,center/2-10,20*Math.PI/180,80*Math.PI/180,false);
+		context.arc(center,center,center/2-12,20*Math.PI/180,80*Math.PI/180,false);
 		context.stroke();
 	}
 

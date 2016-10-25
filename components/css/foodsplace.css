@@ -3,14 +3,14 @@
   height: 26.7vw !important; }
   .fly-plate-C .fly-plate-demo {
     position: absolute;
-    width: 9vw;
-    height: 9vw;
+    width: 11vw;
+    height: 11vw;
     background: #fff;
     border-radius: 50%; }
   .fly-plate-C .fly-plate-item {
     position: absolute;
-    width: 9vw;
-    height: 9vw;
+    width: 11vw;
+    height: 11vw;
     background: #fff;
     z-index: 10;
     top: 0;
@@ -18,9 +18,6 @@
     border-radius: 50%;
     -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);
     transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01); }
-    .fly-plate-C .fly-plate-item.sm {
-      -webkit-transform: scale(0.86);
-      transform: scale(0.86); }
     .fly-plate-C .fly-plate-item.will-delete {
       -webkit-transform: scale(0.6);
       transform: scale(0.6);

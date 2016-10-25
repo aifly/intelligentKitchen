@@ -201,7 +201,7 @@ import Ico from '../libs/ico';
 				this.setState({
 					netWeightShadow:0
 				})
-			},10);
+			},100);
 		
 		  this.requestTimer && clearTimeout( this.requestTimer );
 		
@@ -213,6 +213,9 @@ import Ico from '../libs/ico';
 				$.ajax({
 					type:'POST',
 					url:URL.weightstart,
+					error(e){
+						console.log(e)
+					},
 					success(data){
 						if(data.getret === 1){
 							//console.log('success');
@@ -222,7 +225,7 @@ import Ico from '../libs/ico';
 						}
 					}
 				});
-			},1000)
+			},100);
 			
 		}	
 	}
@@ -247,7 +250,7 @@ import Ico from '../libs/ico';
 				};
 				iNow++;
 				s.initCanvas(canvas,r(40,55)|0);
-			},20);
+			},100);
 			
 			this.weightTimer && clearTimeout(this.weightTimer);
 			this.weightTimer =  setTimeout(()=>{

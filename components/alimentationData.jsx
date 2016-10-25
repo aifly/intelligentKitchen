@@ -125,7 +125,6 @@ import { PublicShadow } from './public-shadow.jsx';
 				<div className='fly-m-name' ref='fly-m-name'>
 					<ul ref='fly-m-scroll' onTouchTap={this.checkMaterial} style={{width:this.state.alimentatonData.materials.length*this.state.liWidth}}>
 						{this.state.alimentatonData.materials.map((item,i)=>{
-							console.log(item.id*1,this.state.currentMaterialId*1 )
 							return (
 								<li  className={item.id*1 === this.state.currentMaterialId*1 ? 'active':''} key={i}>{item.name}</li>
 							);
@@ -180,6 +179,8 @@ import { PublicShadow } from './public-shadow.jsx';
 			 }
 		});
 		var foodId = obserable.trigger({type:'getFoodId'});
+
+		
 
 		$.ajax({
 			url:URL.setScale,
