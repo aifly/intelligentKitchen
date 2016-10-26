@@ -154,6 +154,11 @@ $maxIndex:9999;
         font-size: .08 * 10vw;
         top:.1 * 10vw;
         @include br(14px);
+       canvas{
+        @include pos(a);
+        right: 0;
+        top: 0;
+      }
    }
 }
 
@@ -347,6 +352,11 @@ $maxIndex:9999;
           ul{
             margin-top: -.01 * 10vw;
             li{
+              canvas{
+                @include pos(a);
+                left: 0;
+                top: 0;
+              }
               width: .731 * 10vw;
               @include transform(scale(.9));
               float: left;

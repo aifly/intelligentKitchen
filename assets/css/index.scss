@@ -380,6 +380,11 @@ $nav-height:11.76vh;
               @include br(12px);
               background:#fff;
               left: 98%;
+              canvas{
+                @include pos(a);
+                left: 0;
+                top: 0;
+              }
             }
             z-index: 1;
         }
@@ -564,9 +569,7 @@ $nav-height:11.76vh;
       }
       li.active{
          &:after{
-          content:"√";
-          float: right;
-          margin-right: .1 * 10vw ;
+          content:"√" !important;
          }
       }
       li.fly-city-item{
@@ -574,6 +577,13 @@ $nav-height:11.76vh;
         line-height: .2 * 10vw ;
         text-indent: .5em;
         border-bottom:1px solid #ccc;
+        @include pos(r);
+       &:after{
+          content:"";
+          @include pos(a);
+          right: 0;
+          margin-right: .1 * 10vw ;
+       }
       }
      }
      .fly-hotcity-spell{

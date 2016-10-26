@@ -365,6 +365,14 @@ $fontColor:#a16d56;
        right: -$size /2.5 ;
        left: auto;
        font-size:.08 * 10vw;
+
+    }
+    .fly-prev,.fly-next{
+      canvas{
+        @include pos(a);
+        left: 0;
+        top: 0;
+      }
     }
 
     .fly-prev{

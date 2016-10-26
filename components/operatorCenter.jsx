@@ -63,9 +63,9 @@ import Ico from '../libs/ico';
 							<div style={{opacity:this.state.showWeight ? 1:0}} className='fly-img-weight'>
 								<img src='./assets/images/weight.png'/>
 								<div className='fly-weight-display'>
-									<div onTouchStart={this.netWeight} className={this.state.netWeightShadow ? 'shadow1':''}>去皮</div>
+								<div onTouchStart={this.netWeight} className={this.state.netWeightShadow ? 'shadow1':''}>去皮<canvas width='116' height='116'></canvas></div>
 									<div className='weight'><canvas ref='weight'></canvas></div>
-									<div onTouchStart={this.getWeight} className={this.state.weightShadow ? 'shadow1':''}>确定</div>
+									<div onTouchStart={this.getWeight} className={this.state.weightShadow ? 'shadow1':''}>确定<canvas width='116' height='116'></canvas></div>
 								</div>
 							</div>
 							<div className="fly-countdown-C" style={{display:this.state.showCountdown?'block':'none'}}>
@@ -187,44 +187,45 @@ import Ico from '../libs/ico';
 	}
 
 	netWeight(e){//去皮
-		if(this.state.isShow){
 
+		if(this.state.isShow){
+			e.preventDefault();
 			let canvas = this.refs['weight'];
 			this.setState({
 				netWeightShadow:1
 			});
-
-			setTimeout(()=>{
-				this.setState({
-					netWeightShadow:0
-				});
-				this.initCanvas(canvas,0);
-			},100);
 			
 			this.t && clearInterval(this.t);
 			//this.props.shadow(e.target,'shadow1');
 			
-		
+		  this.weight = this.weight || 0;
 		  this.requestTimer && clearTimeout( this.requestTimer );
 		
 		  this.requestTimer = setTimeout(()=>{
-				
+				this.setState({
+					netWeightShadow:0
+				});
+
+				 this.weight > 0 && this.initCanvas(canvas,0);
+
 				let {URL} = this.props;
 				let canvas = this.refs['weight'];
+
 				let s = this;
 				$.ajax({
 					type:'POST',
 					url:URL.weightstart,
 					error(e){
-						console.log(e)
+						//console.log(e)
 					},
 					success(data){
 						if(data.getret === 1){
 							//console.log('success');
 							//s.initCanvas(canvas,0);
 							//weight
-							console.log(data)
+							
 						}
+						console.log(data)
 					}
 				});
 			},100);
@@ -267,9 +268,8 @@ import Ico from '../libs/ico';
 					console.log(data);
 					clearInterval(s.t);
 					if(data.getret === 1){
-						let weight= data.foodweight*1|0;
-						
-
+						let weight= data.foodweight*1|0; 
+						s.weight = weight;
 						data.scaleData.forEach(item=>{
 							//item.scale*1<0 && (item.scale = 0);
 							item.weight < 0 && (item.weight = 0);

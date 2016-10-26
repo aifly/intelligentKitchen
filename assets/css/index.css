@@ -342,6 +342,10 @@ body {
           border-radius: 12px;
           background: #fff;
           left: 98%; }
+          #fly-main .fly-cook-book-C .fly-food .fly-food-item span.tag canvas {
+            position: absolute;
+            left: 0;
+            top: 0; }
       #fly-main .fly-cook-book-C .fly-food .fly-top1 {
         left: 20%;
         z-index: 0; }
@@ -478,14 +482,18 @@ body {
         text-indent: .5em;
         background: #eee9e9; }
       .fly-hotcity-list .fly-hotcity-C .fly-hotcity-scroll li.active:after {
-        content: "√";
-        float: right;
-        margin-right: 1vw; }
+        content: "√" !important; }
       .fly-hotcity-list .fly-hotcity-C .fly-hotcity-scroll li.fly-city-item {
         height: 2vw;
         line-height: 2vw;
         text-indent: .5em;
-        border-bottom: 1px solid #ccc; }
+        border-bottom: 1px solid #ccc;
+        position: relative; }
+        .fly-hotcity-list .fly-hotcity-C .fly-hotcity-scroll li.fly-city-item:after {
+          content: "";
+          position: absolute;
+          right: 0;
+          margin-right: 1vw; }
     .fly-hotcity-list .fly-hotcity-C .fly-hotcity-spell {
       width: 8%; }
       .fly-hotcity-list .fly-hotcity-C .fly-hotcity-spell li {

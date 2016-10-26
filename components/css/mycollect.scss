@@ -165,6 +165,11 @@ $foodlist-height:1.6 * 10vw;
     background: #fFF;
     padding:20px 20px 20px 40px;
     font-size: .08 * 10vw;
+     canvas{
+        @include pos(a);
+        right: 0;
+        top: 0;
+      }
   }
 
   .foodlist-C{
@@ -214,8 +219,7 @@ $foodlist-height:1.6 * 10vw;
         overflow: hidden;
         @include pos(r);
         span{
-          @include transition_transform(.1s);
-          @include transform(translate3d(0,-14px,0));
+          @include transform(translate3d(0,-6px,0));
           border-bottom-left-radius:0;
           border-bottom-right-radius:0;
         }
@@ -235,7 +239,6 @@ $foodlist-height:1.6 * 10vw;
       }
 
       div{
-        @include transition(border .1s);
         width:100%;
         @include br(20px);
         height:100%;  

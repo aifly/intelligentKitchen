@@ -33,6 +33,10 @@
     background: #fFF;
     padding: 20px 20px 20px 40px;
     font-size: 0.8vw; }
+    .fly-collect-C span.tag canvas {
+      position: absolute;
+      right: 0;
+      top: 0; }
   .fly-collect-C .foodlist-C {
     height: 19vw; }
   .fly-collect-C .foodlist-content {
@@ -73,12 +77,8 @@
         overflow: hidden;
         position: relative; }
         .fly-collect-C .foodlist-content li div.active span {
-          -webkit-transition: -webkit-transform 0.1s;
-          transition: -webkit-transform 0.1s;
-          transition: transform 0.1s;
-          transition: transform 0.1s, -webkit-transform 0.1s;
-          -webkit-transform: translate3d(0, -14px, 0);
-          transform: translate3d(0, -14px, 0);
+          -webkit-transform: translate3d(0, -6px, 0);
+          transform: translate3d(0, -6px, 0);
           border-bottom-left-radius: 0;
           border-bottom-right-radius: 0; }
       .fly-collect-C .foodlist-content li:before {
@@ -92,8 +92,6 @@
         left: 0;
         top: 0; }
       .fly-collect-C .foodlist-content li div {
-        -webkit-transition: border 0.1s;
-        transition: border 0.1s;
         width: 100%;
         border-radius: 20px;
         height: 100%; }

@@ -21590,7 +21590,7 @@
 
 
 	// module
-	exports.push([module.id, "@charset \"UTF-8\";\r\nhtml, body, div, p, ul, li, ol, dl, dt, dd, header, footer, video, h1, h2, h3, h4, canvas, section, figure {\r\n  padding: 0;\r\n  margin: 0; }\r\n\r\na {\r\n  text-decoration: none; }\r\n\r\nli {\r\n  list-style: none; }\r\n\r\nhtml, body {\r\n  height: 100%; }\r\n\r\nimg {\r\n  border: none;\r\n  vertical-align: top;\r\n  width: 100%;\r\n  height: auto; }\r\n\r\n.shake-little {\r\n  display: inline-block;\r\n  -webkit-transform-origin: center center; }\r\n\r\n.shake-freeze, .shake-constant.shake-constant--hover:hover, .shake-trigger:hover .shake-constant.shake-constant--hover {\r\n  -webkit-animation-play-state: paused; }\r\n\r\n.shake-freeze:hover, .shake-trigger:hover .shake-freeze, .shake-little:hover, .shake-trigger:hover .shake-little {\r\n  -webkit-animation-play-state: running; }\r\n\r\n@-webkit-keyframes shake-little {\r\n  2% {\r\n    -webkit-transform: translate(0px, 1px) rotate(0.5deg); }\r\n  4% {\r\n    -webkit-transform: translate(1px, 1px) rotate(0.5deg); }\r\n  6% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  8% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  10% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  12% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  14% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  16% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  18% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  20% {\r\n    -webkit-transform: translate(0px, 1px) rotate(0.5deg); }\r\n  22% {\r\n    -webkit-transform: translate(0px, 1px) rotate(0.5deg); }\r\n  24% {\r\n    -webkit-transform: translate(1px, 1px) rotate(0.5deg); }\r\n  26% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  28% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  30% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  32% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  34% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  36% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  38% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  40% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  42% {\r\n    -webkit-transform: translate(1px, 1px) rotate(0.5deg); }\r\n  44% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  46% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  48% {\r\n    -webkit-transform: translate(0px, 1px) rotate(0.5deg); }\r\n  50% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  52% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  54% {\r\n    -webkit-transform: translate(0px, 1px) rotate(0.5deg); }\r\n  56% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  58% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  60% {\r\n    -webkit-transform: translate(0px, 1px) rotate(0.5deg); }\r\n  62% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  64% {\r\n    -webkit-transform: translate(1px, 1px) rotate(0.5deg); }\r\n  66% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  68% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  70% {\r\n    -webkit-transform: translate(1px, 1px) rotate(0.5deg); }\r\n  72% {\r\n    -webkit-transform: translate(0px, 1px) rotate(0.5deg); }\r\n  74% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  76% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  78% {\r\n    -webkit-transform: translate(0px, 1px) rotate(0.5deg); }\r\n  80% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  82% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  84% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  86% {\r\n    -webkit-transform: translate(0px, 1px) rotate(0.5deg); }\r\n  88% {\r\n    -webkit-transform: translate(1px, 1px) rotate(0.5deg); }\r\n  90% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  92% {\r\n    -webkit-transform: translate(1px, 1px) rotate(0.5deg); }\r\n  94% {\r\n    -webkit-transform: translate(1px, 1px) rotate(0.5deg); }\r\n  96% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  98% {\r\n    -webkit-transform: translate(0px, 1px) rotate(0.5deg); }\r\n  0%,100% {\r\n    -webkit-transform: translate(0, 0) rotate(0); } }\r\n.shake-little:hover, .shake-trigger:hover .shake-little, .shake-little.shake-freeze, .shake-little.shake-constant {\r\n  -webkit-animation-duration: 100ms;\r\n  -webkit-animation-iteration-count: infinite;\r\n  -webkit-animation-name: shake-little;\r\n  -webkit-animation-timing-function: ease-in-out; }\r\n\r\nbody {\r\n  background: #EACFBB;\r\n  overflow: hidden;\r\n  font-size: 1vw;\r\n  font-family: 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif;\r\n  color: #d1bdbd;\r\n  -webkit-user-select: none; }\r\n\r\n#fly-main {\r\n  width: 100vw;\r\n  overflow: hidden; }\r\n  #fly-main .fly-nav-mask {\r\n    position: absolute;\r\n    height: 88.24vh;\r\n    width: 100%;\r\n    background: transparent;\r\n    z-index: -1;\r\n    -webkit-transform: translate3d(0, 120%, 0);\r\n    transform: translate3d(0, 120%, 0);\r\n    top: 11.76vh; }\r\n    #fly-main .fly-nav-mask.active {\r\n      z-index: 10000;\r\n      -webkit-transform: translate3d(0, 0, 0);\r\n      transform: translate3d(0, 0, 0); }\r\n  #fly-main .fly-nav {\r\n    width: 100vw;\r\n    height: 11.76vh;\r\n    background: #fff9f3;\r\n    z-index: 9999;\r\n    position: absolute;\r\n    -webkit-transition: -webkit-transform 0.2s;\r\n    transition: -webkit-transform 0.2s;\r\n    transition: transform 0.2s;\r\n    transition: transform 0.2s, -webkit-transform 0.2s;\r\n    -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);\r\n    transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01); }\r\n    #fly-main .fly-nav.active {\r\n      -webkit-transform: translate3d(0, -86%, 0);\r\n      transform: translate3d(0, -86%, 0); }\r\n    #fly-main .fly-nav ul {\r\n      -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);\r\n      transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);\r\n      -webkit-transform: translate3d(0, 20px, 0);\r\n      transform: translate3d(0, 20px, 0);\r\n      opacity: 0;\r\n      -webkit-transition: 0.4s;\r\n      transition: 0.4s;\r\n      float: left;\r\n      display: -webkit-box;\r\n      -webkit-box-align: center;\r\n      -webkit-box-pack: center;\r\n      -webkit-box-orient: horizontal;\r\n      width: 50vw; }\r\n      #fly-main .fly-nav ul.show {\r\n        opacity: 1;\r\n        -webkit-transform: translate3d(0, 0, 0);\r\n        transform: translate3d(0, 0, 0); }\r\n      #fly-main .fly-nav ul li {\r\n        height: 10vh;\r\n        width: 10vh;\r\n        text-align: center;\r\n        position: relative; }\r\n        #fly-main .fly-nav ul li canvas {\r\n          border-radius: 50%; }\r\n        #fly-main .fly-nav ul li div {\r\n          position: relative;\r\n          width: 140px;\r\n          height: 140px;\r\n          margin-top: 1.1vw;\r\n          margin-left: 1vw;\r\n          border-radius: 50%; }\r\n          #fly-main .fly-nav ul li div:before {\r\n            content: '';\r\n            position: absolute;\r\n            left: 0;\r\n            top: 0;\r\n            border-radius: 50%;\r\n            width: 100%;\r\n            height: 100%;\r\n            z-index: 100;\r\n            box-shadow: 0 0 1vw rgba(232, 158, 121, 0.2); }\r\n        #fly-main .fly-nav ul li span {\r\n          color: #e89e79;\r\n          font-size: 0.6vw;\r\n          top: 100%;\r\n          position: absolute;\r\n          left: 38%; }\r\n      #fly-main .fly-nav ul:nth-of-type(2) {\r\n        width: 12vw;\r\n        float: right; }\r\n    #fly-main .fly-nav .fly-menu-bar {\r\n      position: absolute;\r\n      width: 14vw;\r\n      left: 50%;\r\n      top: 99%;\r\n      margin-left: -7vw;\r\n      text-align: center;\r\n      font-size: 0.6vw;\r\n      background: inherit;\r\n      border-radius: 10px; }\r\n      #fly-main .fly-nav .fly-menu-bar div:nth-of-type(2) {\r\n        width: 40px;\r\n        -webkit-transform: rotate(90deg) translateY(-6.96vw) scaleY(2);\r\n        transform: rotate(90deg) translateY(-6.96vw) scaleY(2); }\r\n      #fly-main .fly-nav .fly-menu-bar .fly-sure {\r\n        height: 1.5vw;\r\n        font-size: 0.8vw; }\r\n  #fly-main .fly-close-drag {\r\n    position: absolute;\r\n    left: 10vw;\r\n    padding: 0.5vw;\r\n    border-radius: 5px;\r\n    z-index: 10001;\r\n    color: #fff;\r\n    top: -10px;\r\n    background: #d1bdbd;\r\n    -webkit-transform: translate3d(0, -100%, 0);\r\n    transform: translate3d(0, -100%, 0);\r\n    -webkit-transition: -webkit-transform 0.3s;\r\n    transition: -webkit-transform 0.3s;\r\n    transition: transform 0.3s;\r\n    transition: transform 0.3s, -webkit-transform 0.3s;\r\n    -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);\r\n    transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01); }\r\n    #fly-main .fly-close-drag.active {\r\n      -webkit-transform: translate3d(0, 0, 0);\r\n      transform: translate3d(0, 0, 0); }\r\n  #fly-main .fly-cook-book-C {\r\n    width: 100vw;\r\n    height: 42vh;\r\n    background: #f9e0ca;\r\n    position: relative;\r\n    padding-top: 5vh;\r\n    display: -webkit-box;\r\n    -webkit-box-align: center;\r\n    -webkit-box-pack: center;\r\n    -webkit-box-orient: horizontal; }\r\n    #fly-main .fly-cook-book-C > li {\r\n      height: 100%; }\r\n      #fly-main .fly-cook-book-C > li.active {\r\n        -webkit-animation: shake-little 200ms ease-in-out infinite;\r\n        animation: shake-little 200ms ease-in-out infinite; }\r\n      #fly-main .fly-cook-book-C > li.near {\r\n        border: 1px solid red; }\r\n      #fly-main .fly-cook-book-C > li .fly-cook-book-item-C {\r\n        width: 100%;\r\n        height: 100%; }\r\n      #fly-main .fly-cook-book-C > li > li:nth-of-type(1) {\r\n        -webkit-animation-delay: 100ms;\r\n        animation-delay: 100ms; }\r\n      #fly-main .fly-cook-book-C > li > li:nth-of-type(2) {\r\n        -webkit-animation-delay: 200ms;\r\n        animation-delay: 200ms; }\r\n      #fly-main .fly-cook-book-C > li > li:nth-of-type(3) {\r\n        -webkit-animation-delay: 300ms;\r\n        animation-delay: 300ms; }\r\n      #fly-main .fly-cook-book-C > li .fly-city-C {\r\n        width: 80%;\r\n        margin: 1vw auto;\r\n        height: 1.5vw;\r\n        line-height: 1.5vw; }\r\n      #fly-main .fly-cook-book-C > li .fly-city-scroll-C {\r\n        width: 88%;\r\n        height: 1.5vw;\r\n        float: left;\r\n        overflow: hidden; }\r\n        #fly-main .fly-cook-book-C > li .fly-city-scroll-C ul li {\r\n          width: 6vw;\r\n          float: left;\r\n          text-align: center; }\r\n      #fly-main .fly-cook-book-C > li .fly-add {\r\n        float: left;\r\n        width: 2vh;\r\n        height: 2vh;\r\n        text-align: center; }\r\n    #fly-main .fly-cook-book-C .fly-food {\r\n      width: 34vw;\r\n      position: relative; }\r\n      #fly-main .fly-cook-book-C .fly-food .fly-food-item {\r\n        width: 70%;\r\n        height: 80%;\r\n        background: #fff;\r\n        position: absolute;\r\n        border-radius: 30px;\r\n        -webkit-transform-origin: right;\r\n        transform-origin: right;\r\n        left: 13%;\r\n        top: 8%;\r\n        z-index: 1; }\r\n        #fly-main .fly-cook-book-C .fly-food .fly-food-item:before {\r\n          content: '';\r\n          position: absolute;\r\n          width: 100%;\r\n          z-index: -1;\r\n          border-radius: 30px;\r\n          height: 100%;\r\n          box-shadow: 0 0 1vw rgba(232, 158, 121, 0.4); }\r\n        #fly-main .fly-cook-book-C .fly-food .fly-food-item span.tag {\r\n          position: absolute;\r\n          width: 1vw;\r\n          z-index: 6;\r\n          font-size: 0.8vw;\r\n          padding: 0.5vw 0.4vw 0.5vw 0.5vw;\r\n          top: 40%;\r\n          border-radius: 12px;\r\n          background: #fff;\r\n          left: 98%; }\r\n      #fly-main .fly-cook-book-C .fly-food .fly-top1 {\r\n        left: 20%;\r\n        z-index: 0; }\r\n      #fly-main .fly-cook-book-C .fly-food .fly-top2 {\r\n        left: 13%;\r\n        z-index: 1; }\r\n      #fly-main .fly-cook-book-C .fly-food .fly-top3 {\r\n        left: 6%;\r\n        z-index: 2; }\r\n      #fly-main .fly-cook-book-C .fly-food .fly-weather span.tag {\r\n        top: 5%; }\r\n      #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-weather-C {\r\n        width: 90%;\r\n        margin: 10px auto;\r\n        display: -webkit-box;\r\n        -webkit-box-align: center;\r\n        -webkit-box-pack: center;\r\n        -webkit-box-orient: horizontal;\r\n        border-bottom: 1px solid #ccc; }\r\n        #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-weather-C li {\r\n          -webkit-box-flex: 1;\r\n          padding: 0.9vw 1.2vw 0.4vw 1.2vw;\r\n          box-sizing: border-content; }\r\n          #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-weather-C li img {\r\n            height: 2vw;\r\n            width: auto; }\r\n          #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-weather-C li span {\r\n            margin-left: -10px; }\r\n      #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C {\r\n        width: 90%;\r\n        margin: 1vw auto;\r\n        display: -webkit-box;\r\n        -webkit-box-align: center;\r\n        -webkit-box-pack: center;\r\n        -webkit-box-orient: horizontal;\r\n        height: 15vh; }\r\n        #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C .fly-time {\r\n          -webkit-box-flex: 1;\r\n          width: 60%;\r\n          height: 100%; }\r\n        #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C .fly-date {\r\n          -webkit-box-flex: 1;\r\n          width: 35%;\r\n          padding-left: 2%; }\r\n        #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C h1 {\r\n          font-weight: normal;\r\n          font-size: 1vw;\r\n          color: #e29978;\r\n          height: 2vh;\r\n          line-height: 2vh; }\r\n        #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C .fly-rec-food-container {\r\n          height: 7vh;\r\n          width: 90%;\r\n          margin-top: 1vh;\r\n          overflow: hidden;\r\n          font-size: 0.6vw; }\r\n          #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C .fly-rec-food-container li {\r\n            float: left;\r\n            margin: 6px;\r\n            border: 1px solid #cfbbbc;\r\n            box-sizing: border-box;\r\n            padding: 6px 20px;\r\n            border-radius: 30px; }\r\n      #fly-main .fly-cook-book-C .fly-food .fly-rec-food span.tag {\r\n        top: 60%; }\r\n      #fly-main .fly-cook-book-C .fly-food .fly-rec-menu span.tag {\r\n        top: 35%; }\r\n    #fly-main .fly-cook-book-C .fly-cook-list {\r\n      width: 38.2vw;\r\n      left: 34vw; }\r\n    #fly-main .fly-cook-book-C .fly-cook-detail {\r\n      width: 27.8vw;\r\n      left: 72.2vw; }\r\n\r\n.fly-main-operator-C {\r\n  display: -webkit-box;\r\n  -webkit-box-align: center;\r\n  -webkit-box-pack: center;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-align: start; }\r\n  .fly-main-operator-C li.fly-operator-item {\r\n    width: 29vw;\r\n    height: 100%; }\r\n    .fly-main-operator-C li.fly-operator-item:nth-of-type(2) {\r\n      width: 34vw; }\r\n    .fly-main-operator-C li.fly-operator-item:nth-of-type(3) {\r\n      width: 34vw; }\r\n\r\n.fly-hotcity-list {\r\n  -webkit-transform: translate3d(-100%, 0, 0);\r\n  transform: translate3d(-100%, 0, 0);\r\n  opacity: 0;\r\n  -webkit-transition: 0.5s;\r\n  transition: 0.5s;\r\n  -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);\r\n  transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);\r\n  position: absolute;\r\n  left: 0;\r\n  top: 0;\r\n  width: 100%;\r\n  height: 100%;\r\n  background: #fff;\r\n  border-radius: 30px; }\r\n  .fly-hotcity-list.active {\r\n    -webkit-transform: translate3d(0, 0, 0);\r\n    transform: translate3d(0, 0, 0);\r\n    opacity: 1; }\r\n  .fly-hotcity-list .fly-hotcity-title {\r\n    width: 100%;\r\n    height: 12%;\r\n    display: -webkit-box;\r\n    -webkit-box-align: center;\r\n    -webkit-box-pack: center;\r\n    -webkit-box-orient: horizontal; }\r\n    .fly-hotcity-list .fly-hotcity-title span {\r\n      width: 33%;\r\n      display: block;\r\n      font-weight: normal;\r\n      text-align: center; }\r\n      .fly-hotcity-list .fly-hotcity-title span:nth-of-type(3) {\r\n        margin-right: 20px; }\r\n  .fly-hotcity-list .fly-hotcity-C {\r\n    width: 100%;\r\n    height: 88%;\r\n    display: -webkit-box;\r\n    -webkit-box-align: center;\r\n    -webkit-box-pack: center;\r\n    -webkit-box-orient: horizontal; }\r\n    .fly-hotcity-list .fly-hotcity-C .fly-hotcity-scroll {\r\n      width: 90%;\r\n      height: 98%;\r\n      overflow: hidden; }\r\n      .fly-hotcity-list .fly-hotcity-C .fly-hotcity-scroll li.fly-first-spell {\r\n        text-indent: .5em;\r\n        background: #eee9e9; }\r\n      .fly-hotcity-list .fly-hotcity-C .fly-hotcity-scroll li.active:after {\r\n        content: \"\\221A\";\r\n        float: right;\r\n        margin-right: 1vw; }\r\n      .fly-hotcity-list .fly-hotcity-C .fly-hotcity-scroll li.fly-city-item {\r\n        height: 2vw;\r\n        line-height: 2vw;\r\n        text-indent: .5em;\r\n        border-bottom: 1px solid #ccc; }\r\n    .fly-hotcity-list .fly-hotcity-C .fly-hotcity-spell {\r\n      width: 8%; }\r\n      .fly-hotcity-list .fly-hotcity-C .fly-hotcity-spell li {\r\n        font-size: 0.478vw;\r\n        text-align: center; }\r\n\r\n/*# sourceMappingURL=index.css.map */", ""]);
+	exports.push([module.id, "@charset \"UTF-8\";\r\nhtml, body, div, p, ul, li, ol, dl, dt, dd, header, footer, video, h1, h2, h3, h4, canvas, section, figure {\r\n  padding: 0;\r\n  margin: 0; }\r\n\r\na {\r\n  text-decoration: none; }\r\n\r\nli {\r\n  list-style: none; }\r\n\r\nhtml, body {\r\n  height: 100%; }\r\n\r\nimg {\r\n  border: none;\r\n  vertical-align: top;\r\n  width: 100%;\r\n  height: auto; }\r\n\r\n.shake-little {\r\n  display: inline-block;\r\n  -webkit-transform-origin: center center; }\r\n\r\n.shake-freeze, .shake-constant.shake-constant--hover:hover, .shake-trigger:hover .shake-constant.shake-constant--hover {\r\n  -webkit-animation-play-state: paused; }\r\n\r\n.shake-freeze:hover, .shake-trigger:hover .shake-freeze, .shake-little:hover, .shake-trigger:hover .shake-little {\r\n  -webkit-animation-play-state: running; }\r\n\r\n@-webkit-keyframes shake-little {\r\n  2% {\r\n    -webkit-transform: translate(0px, 1px) rotate(0.5deg); }\r\n  4% {\r\n    -webkit-transform: translate(1px, 1px) rotate(0.5deg); }\r\n  6% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  8% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  10% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  12% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  14% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  16% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  18% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  20% {\r\n    -webkit-transform: translate(0px, 1px) rotate(0.5deg); }\r\n  22% {\r\n    -webkit-transform: translate(0px, 1px) rotate(0.5deg); }\r\n  24% {\r\n    -webkit-transform: translate(1px, 1px) rotate(0.5deg); }\r\n  26% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  28% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  30% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  32% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  34% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  36% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  38% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  40% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  42% {\r\n    -webkit-transform: translate(1px, 1px) rotate(0.5deg); }\r\n  44% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  46% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  48% {\r\n    -webkit-transform: translate(0px, 1px) rotate(0.5deg); }\r\n  50% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  52% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  54% {\r\n    -webkit-transform: translate(0px, 1px) rotate(0.5deg); }\r\n  56% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  58% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  60% {\r\n    -webkit-transform: translate(0px, 1px) rotate(0.5deg); }\r\n  62% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  64% {\r\n    -webkit-transform: translate(1px, 1px) rotate(0.5deg); }\r\n  66% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  68% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  70% {\r\n    -webkit-transform: translate(1px, 1px) rotate(0.5deg); }\r\n  72% {\r\n    -webkit-transform: translate(0px, 1px) rotate(0.5deg); }\r\n  74% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  76% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  78% {\r\n    -webkit-transform: translate(0px, 1px) rotate(0.5deg); }\r\n  80% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  82% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  84% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  86% {\r\n    -webkit-transform: translate(0px, 1px) rotate(0.5deg); }\r\n  88% {\r\n    -webkit-transform: translate(1px, 1px) rotate(0.5deg); }\r\n  90% {\r\n    -webkit-transform: translate(0px, 0px) rotate(0.5deg); }\r\n  92% {\r\n    -webkit-transform: translate(1px, 1px) rotate(0.5deg); }\r\n  94% {\r\n    -webkit-transform: translate(1px, 1px) rotate(0.5deg); }\r\n  96% {\r\n    -webkit-transform: translate(1px, 0px) rotate(0.5deg); }\r\n  98% {\r\n    -webkit-transform: translate(0px, 1px) rotate(0.5deg); }\r\n  0%,100% {\r\n    -webkit-transform: translate(0, 0) rotate(0); } }\r\n.shake-little:hover, .shake-trigger:hover .shake-little, .shake-little.shake-freeze, .shake-little.shake-constant {\r\n  -webkit-animation-duration: 100ms;\r\n  -webkit-animation-iteration-count: infinite;\r\n  -webkit-animation-name: shake-little;\r\n  -webkit-animation-timing-function: ease-in-out; }\r\n\r\nbody {\r\n  background: #EACFBB;\r\n  overflow: hidden;\r\n  font-size: 1vw;\r\n  font-family: 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif;\r\n  color: #d1bdbd;\r\n  -webkit-user-select: none; }\r\n\r\n#fly-main {\r\n  width: 100vw;\r\n  overflow: hidden; }\r\n  #fly-main .fly-nav-mask {\r\n    position: absolute;\r\n    height: 88.24vh;\r\n    width: 100%;\r\n    background: transparent;\r\n    z-index: -1;\r\n    -webkit-transform: translate3d(0, 120%, 0);\r\n    transform: translate3d(0, 120%, 0);\r\n    top: 11.76vh; }\r\n    #fly-main .fly-nav-mask.active {\r\n      z-index: 10000;\r\n      -webkit-transform: translate3d(0, 0, 0);\r\n      transform: translate3d(0, 0, 0); }\r\n  #fly-main .fly-nav {\r\n    width: 100vw;\r\n    height: 11.76vh;\r\n    background: #fff9f3;\r\n    z-index: 9999;\r\n    position: absolute;\r\n    -webkit-transition: -webkit-transform 0.2s;\r\n    transition: -webkit-transform 0.2s;\r\n    transition: transform 0.2s;\r\n    transition: transform 0.2s, -webkit-transform 0.2s;\r\n    -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);\r\n    transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01); }\r\n    #fly-main .fly-nav.active {\r\n      -webkit-transform: translate3d(0, -86%, 0);\r\n      transform: translate3d(0, -86%, 0); }\r\n    #fly-main .fly-nav ul {\r\n      -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);\r\n      transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);\r\n      -webkit-transform: translate3d(0, 20px, 0);\r\n      transform: translate3d(0, 20px, 0);\r\n      opacity: 0;\r\n      -webkit-transition: 0.4s;\r\n      transition: 0.4s;\r\n      float: left;\r\n      display: -webkit-box;\r\n      -webkit-box-align: center;\r\n      -webkit-box-pack: center;\r\n      -webkit-box-orient: horizontal;\r\n      width: 50vw; }\r\n      #fly-main .fly-nav ul.show {\r\n        opacity: 1;\r\n        -webkit-transform: translate3d(0, 0, 0);\r\n        transform: translate3d(0, 0, 0); }\r\n      #fly-main .fly-nav ul li {\r\n        height: 10vh;\r\n        width: 10vh;\r\n        text-align: center;\r\n        position: relative; }\r\n        #fly-main .fly-nav ul li canvas {\r\n          border-radius: 50%; }\r\n        #fly-main .fly-nav ul li div {\r\n          position: relative;\r\n          width: 140px;\r\n          height: 140px;\r\n          margin-top: 1.1vw;\r\n          margin-left: 1vw;\r\n          border-radius: 50%; }\r\n          #fly-main .fly-nav ul li div:before {\r\n            content: '';\r\n            position: absolute;\r\n            left: 0;\r\n            top: 0;\r\n            border-radius: 50%;\r\n            width: 100%;\r\n            height: 100%;\r\n            z-index: 100;\r\n            box-shadow: 0 0 1vw rgba(232, 158, 121, 0.2); }\r\n        #fly-main .fly-nav ul li span {\r\n          color: #e89e79;\r\n          font-size: 0.6vw;\r\n          top: 100%;\r\n          position: absolute;\r\n          left: 38%; }\r\n      #fly-main .fly-nav ul:nth-of-type(2) {\r\n        width: 12vw;\r\n        float: right; }\r\n    #fly-main .fly-nav .fly-menu-bar {\r\n      position: absolute;\r\n      width: 14vw;\r\n      left: 50%;\r\n      top: 99%;\r\n      margin-left: -7vw;\r\n      text-align: center;\r\n      font-size: 0.6vw;\r\n      background: inherit;\r\n      border-radius: 10px; }\r\n      #fly-main .fly-nav .fly-menu-bar div:nth-of-type(2) {\r\n        width: 40px;\r\n        -webkit-transform: rotate(90deg) translateY(-6.96vw) scaleY(2);\r\n        transform: rotate(90deg) translateY(-6.96vw) scaleY(2); }\r\n      #fly-main .fly-nav .fly-menu-bar .fly-sure {\r\n        height: 1.5vw;\r\n        font-size: 0.8vw; }\r\n  #fly-main .fly-close-drag {\r\n    position: absolute;\r\n    left: 10vw;\r\n    padding: 0.5vw;\r\n    border-radius: 5px;\r\n    z-index: 10001;\r\n    color: #fff;\r\n    top: -10px;\r\n    background: #d1bdbd;\r\n    -webkit-transform: translate3d(0, -100%, 0);\r\n    transform: translate3d(0, -100%, 0);\r\n    -webkit-transition: -webkit-transform 0.3s;\r\n    transition: -webkit-transform 0.3s;\r\n    transition: transform 0.3s;\r\n    transition: transform 0.3s, -webkit-transform 0.3s;\r\n    -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);\r\n    transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01); }\r\n    #fly-main .fly-close-drag.active {\r\n      -webkit-transform: translate3d(0, 0, 0);\r\n      transform: translate3d(0, 0, 0); }\r\n  #fly-main .fly-cook-book-C {\r\n    width: 100vw;\r\n    height: 42vh;\r\n    background: #f9e0ca;\r\n    position: relative;\r\n    padding-top: 5vh;\r\n    display: -webkit-box;\r\n    -webkit-box-align: center;\r\n    -webkit-box-pack: center;\r\n    -webkit-box-orient: horizontal; }\r\n    #fly-main .fly-cook-book-C > li {\r\n      height: 100%; }\r\n      #fly-main .fly-cook-book-C > li.active {\r\n        -webkit-animation: shake-little 200ms ease-in-out infinite;\r\n        animation: shake-little 200ms ease-in-out infinite; }\r\n      #fly-main .fly-cook-book-C > li.near {\r\n        border: 1px solid red; }\r\n      #fly-main .fly-cook-book-C > li .fly-cook-book-item-C {\r\n        width: 100%;\r\n        height: 100%; }\r\n      #fly-main .fly-cook-book-C > li > li:nth-of-type(1) {\r\n        -webkit-animation-delay: 100ms;\r\n        animation-delay: 100ms; }\r\n      #fly-main .fly-cook-book-C > li > li:nth-of-type(2) {\r\n        -webkit-animation-delay: 200ms;\r\n        animation-delay: 200ms; }\r\n      #fly-main .fly-cook-book-C > li > li:nth-of-type(3) {\r\n        -webkit-animation-delay: 300ms;\r\n        animation-delay: 300ms; }\r\n      #fly-main .fly-cook-book-C > li .fly-city-C {\r\n        width: 80%;\r\n        margin: 1vw auto;\r\n        height: 1.5vw;\r\n        line-height: 1.5vw; }\r\n      #fly-main .fly-cook-book-C > li .fly-city-scroll-C {\r\n        width: 88%;\r\n        height: 1.5vw;\r\n        float: left;\r\n        overflow: hidden; }\r\n        #fly-main .fly-cook-book-C > li .fly-city-scroll-C ul li {\r\n          width: 6vw;\r\n          float: left;\r\n          text-align: center; }\r\n      #fly-main .fly-cook-book-C > li .fly-add {\r\n        float: left;\r\n        width: 2vh;\r\n        height: 2vh;\r\n        text-align: center; }\r\n    #fly-main .fly-cook-book-C .fly-food {\r\n      width: 34vw;\r\n      position: relative; }\r\n      #fly-main .fly-cook-book-C .fly-food .fly-food-item {\r\n        width: 70%;\r\n        height: 80%;\r\n        background: #fff;\r\n        position: absolute;\r\n        border-radius: 30px;\r\n        -webkit-transform-origin: right;\r\n        transform-origin: right;\r\n        left: 13%;\r\n        top: 8%;\r\n        z-index: 1; }\r\n        #fly-main .fly-cook-book-C .fly-food .fly-food-item:before {\r\n          content: '';\r\n          position: absolute;\r\n          width: 100%;\r\n          z-index: -1;\r\n          border-radius: 30px;\r\n          height: 100%;\r\n          box-shadow: 0 0 1vw rgba(232, 158, 121, 0.4); }\r\n        #fly-main .fly-cook-book-C .fly-food .fly-food-item span.tag {\r\n          position: absolute;\r\n          width: 1vw;\r\n          z-index: 6;\r\n          font-size: 0.8vw;\r\n          padding: 0.5vw 0.4vw 0.5vw 0.5vw;\r\n          top: 40%;\r\n          border-radius: 12px;\r\n          background: #fff;\r\n          left: 98%; }\r\n          #fly-main .fly-cook-book-C .fly-food .fly-food-item span.tag canvas {\r\n            position: absolute;\r\n            left: 0;\r\n            top: 0; }\r\n      #fly-main .fly-cook-book-C .fly-food .fly-top1 {\r\n        left: 20%;\r\n        z-index: 0; }\r\n      #fly-main .fly-cook-book-C .fly-food .fly-top2 {\r\n        left: 13%;\r\n        z-index: 1; }\r\n      #fly-main .fly-cook-book-C .fly-food .fly-top3 {\r\n        left: 6%;\r\n        z-index: 2; }\r\n      #fly-main .fly-cook-book-C .fly-food .fly-weather span.tag {\r\n        top: 5%; }\r\n      #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-weather-C {\r\n        width: 90%;\r\n        margin: 10px auto;\r\n        display: -webkit-box;\r\n        -webkit-box-align: center;\r\n        -webkit-box-pack: center;\r\n        -webkit-box-orient: horizontal;\r\n        border-bottom: 1px solid #ccc; }\r\n        #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-weather-C li {\r\n          -webkit-box-flex: 1;\r\n          padding: 0.9vw 1.2vw 0.4vw 1.2vw;\r\n          box-sizing: border-content; }\r\n          #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-weather-C li img {\r\n            height: 2vw;\r\n            width: auto; }\r\n          #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-weather-C li span {\r\n            margin-left: -10px; }\r\n      #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C {\r\n        width: 90%;\r\n        margin: 1vw auto;\r\n        display: -webkit-box;\r\n        -webkit-box-align: center;\r\n        -webkit-box-pack: center;\r\n        -webkit-box-orient: horizontal;\r\n        height: 15vh; }\r\n        #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C .fly-time {\r\n          -webkit-box-flex: 1;\r\n          width: 60%;\r\n          height: 100%; }\r\n        #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C .fly-date {\r\n          -webkit-box-flex: 1;\r\n          width: 35%;\r\n          padding-left: 2%; }\r\n        #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C h1 {\r\n          font-weight: normal;\r\n          font-size: 1vw;\r\n          color: #e29978;\r\n          height: 2vh;\r\n          line-height: 2vh; }\r\n        #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C .fly-rec-food-container {\r\n          height: 7vh;\r\n          width: 90%;\r\n          margin-top: 1vh;\r\n          overflow: hidden;\r\n          font-size: 0.6vw; }\r\n          #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C .fly-rec-food-container li {\r\n            float: left;\r\n            margin: 6px;\r\n            border: 1px solid #cfbbbc;\r\n            box-sizing: border-box;\r\n            padding: 6px 20px;\r\n            border-radius: 30px; }\r\n      #fly-main .fly-cook-book-C .fly-food .fly-rec-food span.tag {\r\n        top: 60%; }\r\n      #fly-main .fly-cook-book-C .fly-food .fly-rec-menu span.tag {\r\n        top: 35%; }\r\n    #fly-main .fly-cook-book-C .fly-cook-list {\r\n      width: 38.2vw;\r\n      left: 34vw; }\r\n    #fly-main .fly-cook-book-C .fly-cook-detail {\r\n      width: 27.8vw;\r\n      left: 72.2vw; }\r\n\r\n.fly-main-operator-C {\r\n  display: -webkit-box;\r\n  -webkit-box-align: center;\r\n  -webkit-box-pack: center;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-align: start; }\r\n  .fly-main-operator-C li.fly-operator-item {\r\n    width: 29vw;\r\n    height: 100%; }\r\n    .fly-main-operator-C li.fly-operator-item:nth-of-type(2) {\r\n      width: 34vw; }\r\n    .fly-main-operator-C li.fly-operator-item:nth-of-type(3) {\r\n      width: 34vw; }\r\n\r\n.fly-hotcity-list {\r\n  -webkit-transform: translate3d(-100%, 0, 0);\r\n  transform: translate3d(-100%, 0, 0);\r\n  opacity: 0;\r\n  -webkit-transition: 0.5s;\r\n  transition: 0.5s;\r\n  -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);\r\n  transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);\r\n  position: absolute;\r\n  left: 0;\r\n  top: 0;\r\n  width: 100%;\r\n  height: 100%;\r\n  background: #fff;\r\n  border-radius: 30px; }\r\n  .fly-hotcity-list.active {\r\n    -webkit-transform: translate3d(0, 0, 0);\r\n    transform: translate3d(0, 0, 0);\r\n    opacity: 1; }\r\n  .fly-hotcity-list .fly-hotcity-title {\r\n    width: 100%;\r\n    height: 12%;\r\n    display: -webkit-box;\r\n    -webkit-box-align: center;\r\n    -webkit-box-pack: center;\r\n    -webkit-box-orient: horizontal; }\r\n    .fly-hotcity-list .fly-hotcity-title span {\r\n      width: 33%;\r\n      display: block;\r\n      font-weight: normal;\r\n      text-align: center; }\r\n      .fly-hotcity-list .fly-hotcity-title span:nth-of-type(3) {\r\n        margin-right: 20px; }\r\n  .fly-hotcity-list .fly-hotcity-C {\r\n    width: 100%;\r\n    height: 88%;\r\n    display: -webkit-box;\r\n    -webkit-box-align: center;\r\n    -webkit-box-pack: center;\r\n    -webkit-box-orient: horizontal; }\r\n    .fly-hotcity-list .fly-hotcity-C .fly-hotcity-scroll {\r\n      width: 90%;\r\n      height: 98%;\r\n      overflow: hidden; }\r\n      .fly-hotcity-list .fly-hotcity-C .fly-hotcity-scroll li.fly-first-spell {\r\n        text-indent: .5em;\r\n        background: #eee9e9; }\r\n      .fly-hotcity-list .fly-hotcity-C .fly-hotcity-scroll li.active:after {\r\n        content: \"\\221A\" !important; }\r\n      .fly-hotcity-list .fly-hotcity-C .fly-hotcity-scroll li.fly-city-item {\r\n        height: 2vw;\r\n        line-height: 2vw;\r\n        text-indent: .5em;\r\n        border-bottom: 1px solid #ccc;\r\n        position: relative; }\r\n        .fly-hotcity-list .fly-hotcity-C .fly-hotcity-scroll li.fly-city-item:after {\r\n          content: \"\";\r\n          position: absolute;\r\n          right: 0;\r\n          margin-right: 1vw; }\r\n    .fly-hotcity-list .fly-hotcity-C .fly-hotcity-spell {\r\n      width: 8%; }\r\n      .fly-hotcity-list .fly-hotcity-C .fly-hotcity-spell li {\r\n        font-size: 0.478vw;\r\n        text-align: center; }\r\n\r\n/*# sourceMappingURL=index.css.map */", ""]);
 
 	// exports
 
@@ -33507,7 +33507,7 @@
 							};
 							_this.state.activeCityData.forEach(function (item, k) {
 								if (item.pinyin === city.pinyin && item.cn_name === city.cn_name) {
-									c.className = 'active';
+									c.className = item.className;
 								}
 							});
 							citys.push(c);
@@ -33526,30 +33526,36 @@
 		}, {
 			key: 'activeCity',
 			value: function activeCity(e) {
-				var _this2 = this;
-
 				//选中or取消选中城市
+				e.preventDefault();
 				var target = e.target,
 				    classList = target.classList;
 				if (classList.contains('fly-city-item')) {
-					if (classList.contains('active')) {
-						//已经选中了，去掉选中
-						//let index =this.index(e.target,null,'.fly-city-item');
-						this.state.activeCityData.forEach(function (item, i) {
-							if (target.innerHTML === item.cn_name && target.getAttribute('data-spell') === item.pinyin) {
-								_this2.state.activeCityData.splice(i, 1);
-							}
-						});
+					var json = {};
+					this.state.activeCityData.forEach(function (item, i) {
+						if (target.innerHTML === item.cn_name && target.getAttribute('data-spell') === item.pinyin) {
+							json.pinyin = item.pinyin;
+							json.iNow = i;
+							json.cn_name = item.cn_name;
+						}
+					});
+
+					if (json.pinyin) {
+						this.state.activeCityData.splice(json.iNow, 1);
 					} else {
+
 						this.state.activeCityData.push({
 							pinyin: target.getAttribute('data-spell'),
 							className: 'active',
 							cn_name: target.innerHTML
 						});
 					}
+
 					this.renderScroll();
 					this.forceUpdate();
 				}
+
+				return 0;
 			}
 		}, {
 			key: 'back',
@@ -33597,7 +33603,8 @@
 							_react2['default'].createElement(
 								'span',
 								{ className: 'tag' },
-								'时间 / 天气'
+								'时间 / 天气',
+								_react2['default'].createElement('canvas', { width: '73', height: '300' })
 							),
 							_react2['default'].createElement(
 								'article',
@@ -33694,7 +33701,7 @@
 										),
 										_react2['default'].createElement(
 											'div',
-											{ className: 'fly-add', onTouchTap: this.showCityList },
+											{ className: 'fly-add', onTouchStart: this.showCityList },
 											'+'
 										)
 									)
@@ -33713,7 +33720,7 @@
 										),
 										_react2['default'].createElement(
 											'span',
-											{ onTouchTap: this.back },
+											{ onTouchStart: this.back },
 											'确定'
 										)
 									),
@@ -34028,7 +34035,8 @@
 							_react2['default'].createElement(
 								'span',
 								{ className: 'tag' },
-								'推荐食材'
+								'推荐食材',
+								_react2['default'].createElement('canvas', { width: '73', height: '250' })
 							),
 							_react2['default'].createElement(_foodlistJsx2['default'], _extends({}, recProps, this.props))
 						),
@@ -34038,7 +34046,8 @@
 							_react2['default'].createElement(
 								'span',
 								{ className: 'tag' },
-								'推荐菜谱'
+								'推荐菜谱',
+								_react2['default'].createElement('canvas', { width: '73', height: '250' })
 							),
 							_react2['default'].createElement(_foodlistJsx2['default'], _extends({}, recMenuProps, this.props))
 						)
@@ -34049,18 +34058,18 @@
 		}, {
 			key: 'componentDidMount',
 			value: function componentDidMount() {
-				var _this3 = this;
+				var _this2 = this;
 
 				var obserable = this.props.obserable;
 
 				obserable.on('showfunctionCenter', function (flag) {
-					_this3.setState({
+					_this2.setState({
 						isShow: flag
 					});
 				});
 
 				obserable.on('getfunctionCenterShow', function () {
-					return _this3.state.isShow;
+					return _this2.state.isShow;
 				});
 
 				this.init();
@@ -34087,15 +34096,15 @@
 
 				setTimeout(function () {
 
-					_this3.renderScroll();
-					_this3.activeCityScroll = new _iscroll2['default'](scrollUl, {
+					_this2.renderScroll();
+					_this2.activeCityScroll = new _iscroll2['default'](scrollUl, {
 						disableMouse: true,
 						invertWheelDirection: true,
 						scrollX: true,
 						scrollY: false
 					});
-					var cityScroll = new _iscroll2['default'](_this3.refs['fly-hotcity-scroll']);
-				}, 1);
+					var cityScroll = new _iscroll2['default'](_this2.refs['fly-hotcity-scroll']);
+				}, 1000);
 			}
 		}, {
 			key: 'renderScroll',
@@ -34110,7 +34119,7 @@
 		}, {
 			key: 'setSize',
 			value: function setSize() {
-				var _this4 = this;
+				var _this3 = this;
 
 				var timerCanvas = this.refs['fly-timer-canvas'],
 				    temperatureCanvas = this.refs['fly-temperature-canvas'];
@@ -34121,8 +34130,8 @@
 					timerCanvas.width = temperatureCanvas.width = width;
 					timerCanvas.height = temperatureCanvas.height = height;
 
-					_this4.timerCanvasStart(timerCanvas);
-					_this4.temperatureCanvasStart(temperatureCanvas, 17);
+					_this3.timerCanvasStart(timerCanvas);
+					_this3.temperatureCanvasStart(temperatureCanvas, 17);
 
 					/*
 	    		var scrollC = data.cityScrollC.find('ul');
@@ -34209,7 +34218,7 @@
 		}, {
 			key: 'bindEvent',
 			value: function bindEvent(document) {
-				var _this5 = this;
+				var _this4 = this;
 
 				var self = this;
 
@@ -34237,27 +34246,27 @@
 					var target = $target.hasClass('fly-food-item') ? $target : $target.parents('.fly-food-item');
 
 					var index = $target.parents('.fly-food-item').index('.fly-food-item') * 1,
-					    iNow = _this5.iNow % 3;
+					    iNow = _this4.iNow % 3;
 
 					if (index < 0) {
 						return;
 					}
 
-					_this5.iNow = index;
+					_this4.iNow = index;
 
 					switch (index) {
 						case 0:
-							_this5.setState({
+							_this4.setState({
 								currentPannel: [3, 2, 1]
 							});
 							break;
 						case 1:
-							_this5.setState({
+							_this4.setState({
 								currentPannel: [1, 3, 2]
 							});
 							break;
 						case 2:
-							_this5.setState({
+							_this4.setState({
 								currentPannel: [2, 1, 3]
 							});
 							break;
@@ -37709,8 +37718,9 @@
 				],
 				ulWidth: 500,
 				currentIndex: -1, //当前选中的菜谱
-				currentTimeSlot: 0 };
-			//当前时间段　0:早餐,1:中餐,2:晚餐。如果type为推荐食材或推荐食谱的时候，currentTimeSlot=-1;
+				currentTimeSlot: 0, //当前时间段　0:早餐,1:中餐,2:晚餐。如果type为推荐食材或推荐食谱的时候，currentTimeSlot=-1;
+				currentFoodId: -1
+			};
 			this.next = this.next.bind(this);
 			this.changeTimeSlot = this.changeTimeSlot.bind(this);
 			this.getFoodById = this.getFoodById.bind(this);
@@ -37784,7 +37794,8 @@
 											{ key: i, className: i <= Math.floor(_this3.state.dataSource[_this3.state.currentTimeSlot].length / 2) ? '' : 'food-top' },
 											_react2['default'].createElement(
 												'div',
-												{ 'data-index': i, style: { background: 'url(' + '\'' + data.imgSrc + '\'' + ') no-repeat center bottom', backgroundSize: 'cover' }, className: i === _this3.state.currentIndex ? 'active' : '' },
+												{ 'data-index': i, style: { background: 'url(' + '\'' + data.imgSrc + '\'' + ') no-repeat center bottom', backgroundSize: 'cover' }, className: data.id === _this3.state.currentFoodId ? 'active' : '' },
+												_react2['default'].createElement('canvas', { width: '270', height: '330' }),
 												_react2['default'].createElement(
 													'span',
 													null,
@@ -37935,7 +37946,7 @@
 						target = e.target.parentNode;
 						break;
 					case "SPAN":
-					case "IMG":
+					case "CANVAS":
 						target = e.target.parentNode.parentNode;
 						break;
 				};
@@ -37948,35 +37959,31 @@
 				var obserable = _props2.obserable;
 				var index = _props2.index;
 
-				var cIndex = index(target, null, 'li');
-
-				this.setState({
-					currentIndex: cIndex
-				});
-
-				/*
-	   		Array.from(this.refs['foods-C'].querySelectorAll('li div')).forEach((item,i)=>{
-	   			item.classList.remove('active');
-	   		});
-	   		target.classList.add('active');*/
-
 				var iNow = target.querySelector('div').getAttribute('data-index');
 
 				var targetData = this.state.dataSource[this.state.currentTimeSlot][iNow];
 
 				switch (targetData.type) {
 					case "image":
+						var food = this.state.dataSource[this.state.currentTimeSlot][iNow];
 						obserable.trigger({
 							type: 'fillFood',
-							data: this.state.dataSource[this.state.currentTimeSlot][iNow]
+							data: food
+						});
+
+						this.setState({
+							currentFoodId: food.id
 						});
 
 						break;
 					case "video":
-
+						var food = this.state.dataSource[this.state.currentTimeSlot][iNow];
 						obserable.trigger({
 							type: 'fillFoodByVideo',
-							data: this.state.dataSource[this.state.currentTimeSlot][iNow]
+							data: food
+						});
+						this.setState({
+							currentFoodId: food.id
 						});
 						obserable.trigger({ type: 'updateStep', data: 0 });
 						break;
@@ -38061,7 +38068,7 @@
 
 
 	// module
-	exports.push([module.id, "@charset \"UTF-8\";\r\n.foodlist {\r\n  margin: 0 auto;\r\n  height: 100%; }\r\n\r\n.foodlist-C {\r\n  width: 86%;\r\n  margin-left: 1vw;\r\n  height: 19vw;\r\n  overflow: hidden;\r\n  float: left;\r\n  border-radius: 20px;\r\n  position: relative; }\r\n  .foodlist-C section {\r\n    display: -webkit-box;\r\n    -webkit-box-align: center;\r\n    -webkit-box-pack: center;\r\n    -webkit-box-orient: horizontal; }\r\n    .foodlist-C section ol {\r\n      width: 35%;\r\n      position: relative;\r\n      height: 100%; }\r\n      .foodlist-C section ol li {\r\n        margin: 0 auto;\r\n        text-align: center;\r\n        height: 3vw;\r\n        width: 3vw;\r\n        border-radius: 50%;\r\n        line-height: 3vw;\r\n        border: 3px solid #fff; }\r\n        .foodlist-C section ol li.active {\r\n          border-color: #e89e79; }\r\n      .foodlist-C section ol:after {\r\n        content: '';\r\n        width: 2px;\r\n        height: 160%;\r\n        top: -30%;\r\n        background: -webkit-gradient(linear, left top, left bottom, from(rgba(204, 204, 204, 0.2)), color-stop(0.5, #cccccc), to(rgba(204, 204, 204, 0.2)));\r\n        background: -ms-linear-gradient(top, rgba(204, 204, 204, 0.2), #cccccc 50%, rgba(204, 204, 204, 0.2));\r\n        position: absolute;\r\n        right: 10px; }\r\n  .foodlist-C .foodlist-content {\r\n    overflow: hidden;\r\n    height: 19vw;\r\n    width: 64%; }\r\n    .foodlist-C .foodlist-content .fly-play-ico {\r\n      bottom: 1.5vw; }\r\n    .foodlist-C .foodlist-content.no-data:before {\r\n      content: '\\6682\\65E0\\6570\\636E';\r\n      color: #f00;\r\n      margin-top: 50%;\r\n      margin-left: 20%;\r\n      display: block; }\r\n    .foodlist-C .foodlist-content ul {\r\n      height: 18vw;\r\n      margin-top: 0.45vw; }\r\n    .foodlist-C .foodlist-content li {\r\n      width: 6.75vw;\r\n      float: left;\r\n      height: 9vw;\r\n      padding: 0;\r\n      -webkit-transform: scale(0.9);\r\n      transform: scale(0.9);\r\n      box-sizing: border-box; }\r\n      .foodlist-C .foodlist-content li div.active {\r\n        box-sizing: border-box;\r\n        border: 8px solid #e89e79;\r\n        z-index: 1;\r\n        overflow: hidden;\r\n        position: relative; }\r\n        .foodlist-C .foodlist-content li div.active span {\r\n          -webkit-transform: translate3d(0, -6px, 0);\r\n          transform: translate3d(0, -6px, 0);\r\n          border-bottom-left-radius: 0;\r\n          border-bottom-right-radius: 0; }\r\n      .foodlist-C .foodlist-content li div {\r\n        width: 100%;\r\n        border-radius: 20px;\r\n        height: 100%;\r\n        position: relative; }\r\n      .foodlist-C .foodlist-content li span {\r\n        font-size: 0.6vw;\r\n        bottom: 0;\r\n        display: block;\r\n        width: 100%;\r\n        position: relative;\r\n        color: #cfbbba;\r\n        top: 7.5vw;\r\n        text-align: center;\r\n        height: 1.5vw;\r\n        line-height: 1.5vw;\r\n        background: white;\r\n        border-bottom-left-radius: 20px;\r\n        border-bottom-right-radius: 20px; }\r\n      .foodlist-C .foodlist-content li.food-top {\r\n        margin-top: 0.1vw; }\r\n      .foodlist-C .foodlist-content li:before {\r\n        content: '';\r\n        box-shadow: 0 0 2vw rgba(232, 158, 121, 0.4);\r\n        border-radius: 20px;\r\n        position: absolute;\r\n        width: 100%;\r\n        height: 100%;\r\n        z-index: -1;\r\n        left: 0;\r\n        top: 0; }\r\n  .foodlist-C:before {\r\n    content: '';\r\n    box-shadow: 0 0 3vw rgba(232, 158, 121, 0.2);\r\n    width: 100%;\r\n    height: 100%;\r\n    left: 0;\r\n    top: 0; }\r\n\r\n.foodlist-next {\r\n  float: left;\r\n  height: 4.75vw;\r\n  line-height: 4.75vw;\r\n  margin-top: 6.6vw;\r\n  padding: 0 20px;\r\n  -webkit-transform: scaleY(2.4);\r\n  transform: scaleY(2.4); }\r\n\r\n/*# sourceMappingURL=foodlist.css.map */", ""]);
+	exports.push([module.id, "@charset \"UTF-8\";\r\n.foodlist {\r\n  margin: 0 auto;\r\n  height: 100%; }\r\n\r\n.foodlist-C {\r\n  width: 86%;\r\n  margin-left: 1vw;\r\n  height: 19vw;\r\n  overflow: hidden;\r\n  float: left;\r\n  border-radius: 20px;\r\n  position: relative; }\r\n  .foodlist-C section {\r\n    display: -webkit-box;\r\n    -webkit-box-align: center;\r\n    -webkit-box-pack: center;\r\n    -webkit-box-orient: horizontal; }\r\n    .foodlist-C section ol {\r\n      width: 35%;\r\n      position: relative;\r\n      height: 100%; }\r\n      .foodlist-C section ol li {\r\n        margin: 0 auto;\r\n        text-align: center;\r\n        height: 3vw;\r\n        width: 3vw;\r\n        border-radius: 50%;\r\n        line-height: 3vw;\r\n        border: 3px solid #fff; }\r\n        .foodlist-C section ol li.active {\r\n          border-color: #e89e79; }\r\n      .foodlist-C section ol:after {\r\n        content: '';\r\n        width: 2px;\r\n        height: 160%;\r\n        top: -30%;\r\n        background: -webkit-gradient(linear, left top, left bottom, from(rgba(204, 204, 204, 0.2)), color-stop(0.5, #cccccc), to(rgba(204, 204, 204, 0.2)));\r\n        background: -ms-linear-gradient(top, rgba(204, 204, 204, 0.2), #cccccc 50%, rgba(204, 204, 204, 0.2));\r\n        position: absolute;\r\n        right: 10px; }\r\n  .foodlist-C .foodlist-content {\r\n    overflow: hidden;\r\n    height: 19vw;\r\n    width: 64%; }\r\n    .foodlist-C .foodlist-content .fly-play-ico {\r\n      bottom: 1.5vw; }\r\n    .foodlist-C .foodlist-content.no-data:before {\r\n      content: '\\6682\\65E0\\6570\\636E';\r\n      color: #f00;\r\n      margin-top: 50%;\r\n      margin-left: 20%;\r\n      display: block; }\r\n    .foodlist-C .foodlist-content ul {\r\n      height: 18vw;\r\n      margin-top: 0.45vw; }\r\n    .foodlist-C .foodlist-content li {\r\n      width: 6.75vw;\r\n      float: left;\r\n      height: 9vw;\r\n      padding: 0;\r\n      -webkit-transform: scale(0.9);\r\n      transform: scale(0.9);\r\n      box-sizing: border-box; }\r\n      .foodlist-C .foodlist-content li canvas {\r\n        position: absolute;\r\n        left: 0;\r\n        top: 0;\r\n        z-index: 10; }\r\n      .foodlist-C .foodlist-content li div.active {\r\n        box-sizing: border-box;\r\n        border: 8px solid #e89e79;\r\n        z-index: 1;\r\n        overflow: hidden;\r\n        position: relative; }\r\n        .foodlist-C .foodlist-content li div.active span {\r\n          -webkit-transform: translate3d(0, -6px, 0);\r\n          transform: translate3d(0, -6px, 0);\r\n          border-bottom-left-radius: 0;\r\n          border-bottom-right-radius: 0; }\r\n      .foodlist-C .foodlist-content li div {\r\n        width: 100%;\r\n        border-radius: 20px;\r\n        height: 100%;\r\n        position: relative; }\r\n      .foodlist-C .foodlist-content li span {\r\n        font-size: 0.6vw;\r\n        bottom: 0;\r\n        display: block;\r\n        width: 100%;\r\n        position: relative;\r\n        color: #cfbbba;\r\n        top: 7.5vw;\r\n        text-align: center;\r\n        height: 1.5vw;\r\n        line-height: 1.5vw;\r\n        background: white;\r\n        border-bottom-left-radius: 20px;\r\n        border-bottom-right-radius: 20px; }\r\n      .foodlist-C .foodlist-content li.food-top {\r\n        margin-top: 0.1vw; }\r\n      .foodlist-C .foodlist-content li:before {\r\n        content: '';\r\n        box-shadow: 0 0 2vw rgba(232, 158, 121, 0.4);\r\n        border-radius: 20px;\r\n        position: absolute;\r\n        width: 100%;\r\n        height: 100%;\r\n        z-index: -1;\r\n        left: 0;\r\n        top: 0; }\r\n  .foodlist-C:before {\r\n    content: '';\r\n    box-shadow: 0 0 3vw rgba(232, 158, 121, 0.2);\r\n    width: 100%;\r\n    height: 100%;\r\n    left: 0;\r\n    top: 0; }\r\n\r\n.foodlist-next {\r\n  float: left;\r\n  height: 4.75vw;\r\n  line-height: 4.75vw;\r\n  margin-top: 6.6vw;\r\n  padding: 0 20px;\r\n  -webkit-transform: scaleY(2.4);\r\n  transform: scaleY(2.4); }\r\n\r\n/*# sourceMappingURL=foodlist.css.map */", ""]);
 
 	// exports
 
@@ -38751,7 +38758,11 @@
 							_react2['default'].createElement(
 								'div',
 								{ className: 'fly-cook-steps-C', ref: 'fly-cook-steps-C', style: { display: steps.length && this.state.currentStep > -1 ? 'block' : 'none' } },
-								_react2['default'].createElement('aside', { className: 'fly-prev', onTouchTap: this.prev, style: { display: this.state.currentStep <= 0 ? 'none' : 'block' } }),
+								_react2['default'].createElement(
+									'aside',
+									{ className: 'fly-prev', onTouchTap: this.prev, style: { display: this.state.currentStep <= 0 ? 'none' : 'block' } },
+									_react2['default'].createElement('canvas', { width: '115', height: '115' })
+								),
 								_react2['default'].createElement(
 									'div',
 									{ className: 'fly-history' },
@@ -38780,7 +38791,8 @@
 								_react2['default'].createElement(
 									'aside',
 									{ className: 'fly-next', onTouchTap: this.next },
-									this.state.currentStep >= this.state.steps.length - 1 ? '完成' : '下一步'
+									this.state.currentStep >= this.state.steps.length - 1 ? '完成' : '下一步',
+									_react2['default'].createElement('canvas', { width: '115', height: '115' })
 								),
 								_react2['default'].createElement('div', { className: 'fly-close', onTouchTap: this.closeStep })
 							)
@@ -38798,7 +38810,7 @@
 			value: function prev(e) {
 				var _this = this;
 
-				e && this.props.shadow(e.target);
+				e && this.props.shadow(e.target.parentNode);
 
 				var obserable = this.props.obserable;
 
@@ -38824,7 +38836,7 @@
 				if (!this.state.steps[this.state.currentStep].timeError) {
 					obserable.trigger({ type: 'showTimespan', data: ((new Date().getTime() - this.startTime) / 1000 | 0 + 1) / 60 | 0 + 1 });
 				}
-				e && this.props.shadow(e.target);
+				e && this.props.shadow(e.target.parentNode);
 				if (this.state.currentStep >= this.state.steps.length - 1) {
 
 					//this.state.stepTimeSpan.push(new Date().getTime() - this.startTime);//	
@@ -38947,73 +38959,69 @@
 
 						_this4.scroll = _this4.scroll || new _iscroll2['default'](_this4.refs['material-scroll']);
 						_this4.scroll && _this4.scroll.refresh(); //重新刷新滚动条。
-						var scrollC = _this4.refs['steps-C'];
-						(0, _jquery2['default'])(scrollC).on('touchstart', function (e) {
-
-							var e = e.originalEvent ? e.originalEvent.changedTouches[0] : e.changedTarget[0];
-							var disX = e.pageX; //
-							scrollC.classList.remove('active'); //去除transition动画
-							var currentStep = _this4.state.currentStep,
-							    defaultWidth = _this4.state.defaultWidth,
-							    stepsLen = _this4.state.steps.length;
-							(0, _jquery2['default'])(document).on('touchmove', function (e) {
-								var e = e.originalEvent ? e.originalEvent.changedTouches[0] : e.changedTarget[0],
-								    x = e.pageX - disX;
-
-								if (currentStep === 0) {
-									//第一步里面滑动的时候
-									if (x > 0) {
-										//x /= 3;
-										x = 0;
-										return;
-									}
-								} else if (currentStep === stepsLen - 1) {
-									if (x < 0) {
-										//x /= 3;
-										return;
-									}
-								}
-								scrollC.style.WebkitTransform = 'translate3d(' + (x - currentStep * defaultWidth) + 'px,0,0)';
-							}).on('touchend', function (e) {
-
-								var e = e.originalEvent ? e.originalEvent.changedTouches[0] : e.changedTarget[0],
-								    x = e.pageX - disX;
-
-								if (currentStep === 0) {
-									//第一步里面滑动的时候
-									if (x > 0) {
-										//x /= 3;
-										x = 0;
-										return;
-									}
-								} else if (currentStep === stepsLen - 1) {
-									if (x < 0) {
-										//x /= 3;
-										x = 0;
-										return;
-									}
-								}
-								scrollC.classList.add('active');
-
-								if (x < 0) {
-									if (-x > defaultWidth / 3) {
-
-										_this4.next();
-									} else {
-										_this4.stepScroll();
-									}
-								} else {
-
-									if (x > defaultWidth / 3) {
-										_this4.prev();
-									} else {
-										_this4.stepScroll();
-									}
-								}
-
-								(0, _jquery2['default'])(document).off('touchmove touchend');
-							});
-						});
+						/*	let scrollC = this.refs['steps-C'];
+	     	$(scrollC).on('touchstart',(e)=>{
+	     				var e = e.originalEvent ? e.originalEvent.changedTouches[0]:e.changedTarget[0];
+	     		var disX = e.pageX;//
+	     		scrollC.classList.remove('active');//去除transition动画
+	     		let currentStep = this.state.currentStep,
+	     			defaultWidth = this.state.defaultWidth,
+	     			stepsLen = this.state.steps.length;
+	     		$(document).on('touchmove',e=>{
+	     			var e = e.originalEvent ? e.originalEvent.changedTouches[0]:e.changedTarget[0],
+	     				x = e.pageX - disX;
+	     					if(currentStep === 0){//第一步里面滑动的时候
+	     				if(x > 0){
+	     				 	//x /= 3;
+	     				 	x = 0 ;
+	     				 	return;
+	     				}
+	     			}
+	     			else if(currentStep === stepsLen - 1){
+	     				if(x<0){
+	     					//x /= 3;
+	     					return;
+	     				}
+	     			}
+	     			scrollC.style.WebkitTransform='translate3d('+(x - currentStep*defaultWidth)+'px,0,0)';
+	     				}).on('touchend',e=>{
+	     			
+	     					var e = e.originalEvent ? e.originalEvent.changedTouches[0]:e.changedTarget[0],
+	     				x = e.pageX - disX;
+	     					if(currentStep === 0){//第一步里面滑动的时候
+	     				if(x > 0){
+	     			 	//x /= 3;
+	     				 	x = 0 ;
+	     				 	return;
+	     				}
+	     			}
+	     			else if(currentStep === stepsLen - 1){
+	     				if(x<0){
+	     					//x /= 3;
+	     					x =0 ;
+	     					return;
+	     				}
+	     			}
+	     			scrollC.classList.add('active');
+	     					if(x < 0 ){
+	     				if(-x > defaultWidth / 3){
+	     							this.next();
+	     				}
+	     				else{
+	     					this.stepScroll();
+	     				}	
+	     			}
+	     			else{
+	     						if(x > defaultWidth / 3){
+	     					this.prev();
+	     				}
+	     				else{
+	     					this.stepScroll();
+	     				} 
+	     			}
+	     					$(document).off('touchmove touchend');
+	     		});
+	     	});*/
 					});
 				});
 
@@ -39082,7 +39090,7 @@
 
 
 	// module
-	exports.push([module.id, "@charset \"UTF-8\";\r\n/*步骤开始。开始制作*/\r\n.book-item-C {\r\n  overflow: hidden;\r\n  width: 84%;\r\n  margin: 0 auto;\r\n  height: 80%;\r\n  position: relative;\r\n  top: 3vh;\r\n  overflow: hidden;\r\n  background: #fff;\r\n  border-radius: 30px; }\r\n  .book-item-C ul.book-item-ul {\r\n    height: 100%;\r\n    display: -webkit-box;\r\n    -webkit-box-align: center;\r\n    -webkit-box-pack: center;\r\n    -webkit-box-orient: vertical; }\r\n    .book-item-C ul.book-item-ul li.book-item-ul-li {\r\n      height: 50%;\r\n      width: 100%;\r\n      -webkit-transform-style: preserve-3d;\r\n      transform-style: preserve-3d;\r\n      perspective: 800px;\r\n      -webkit-perspective: 800px;\r\n      position: relative;\r\n      overflow: hidden; }\r\n    .book-item-C ul.book-item-ul li.active .detail {\r\n      -webkit-transform: rotateX(-90deg);\r\n      transform: rotateX(-90deg); }\r\n    .book-item-C ul.book-item-ul li.active .material {\r\n      -webkit-transform: rotateX(0deg);\r\n      transform: rotateX(0deg);\r\n      opacity: 1; }\r\n    .book-item-C ul.book-item-ul .material {\r\n      position: absolute;\r\n      left: 1%;\r\n      border-radius: 30px;\r\n      top: 0;\r\n      background: #fff;\r\n      height: 100%;\r\n      -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);\r\n      transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);\r\n      -webkit-transition: opaicty .5s .1s,-webkit-transform .5s;\r\n      -webkit-backface-visibility: hidden;\r\n              backface-visibility: hidden;\r\n      width: 98%; }\r\n      .book-item-C ul.book-item-ul .material h1 {\r\n        font-weight: normal;\r\n        color: #a16d56;\r\n        margin-left: 1vw; }\r\n      .book-item-C ul.book-item-ul .material .material-scroll {\r\n        width: 100%;\r\n        height: 5vw;\r\n        overflow: hidden; }\r\n        .book-item-C ul.book-item-ul .material .material-scroll ul {\r\n          width: 100%;\r\n          float: left; }\r\n          .book-item-C ul.book-item-ul .material .material-scroll ul li {\r\n            float: left;\r\n            width: 50%;\r\n            box-sizing: border-box;\r\n            border-right: 2px solid #eaeaea;\r\n            border-bottom: 2px solid #eaeaea;\r\n            height: 2vw;\r\n            line-height: 2vw; }\r\n            .book-item-C ul.book-item-ul .material .material-scroll ul li:nth-of-type(2n) {\r\n              border-right: none; }\r\n            .book-item-C ul.book-item-ul .material .material-scroll ul li span {\r\n              float: left;\r\n              margin-left: 1vw; }\r\n              .book-item-C ul.book-item-ul .material .material-scroll ul li span:nth-of-type(2) {\r\n                float: right;\r\n                margin-right: 1vw;\r\n                font-size: 0.8vw; }\r\n      .book-item-C ul.book-item-ul .material .begin-do {\r\n        width: 100%;\r\n        clear: left;\r\n        text-align: center;\r\n        position: absolute;\r\n        bottom: 0.2vw; }\r\n        .book-item-C ul.book-item-ul .material .begin-do span {\r\n          color: #d1bdbd;\r\n          font-size: 0.8vw;\r\n          border: 3px solid #d1bdbd;\r\n          border-radius: 25px;\r\n          padding: 5px 20px;\r\n          display: inline-block; }\r\n  .book-item-C .book-item-detail-src {\r\n    width: 100%;\r\n    height: 100%;\r\n    position: relative;\r\n    border-radius: 30px; }\r\n    .book-item-C .book-item-detail-src .fly-exit {\r\n      position: absolute;\r\n      right: 10px;\r\n      top: 10px;\r\n      color: #fff;\r\n      display: inline-block;\r\n      padding: 10px;\r\n      width: 1vw;\r\n      height: 1vw;\r\n      line-height: 1vw;\r\n      padding: 20px;\r\n      background: #efdcce;\r\n      opacity: .8;\r\n      border-radius: 50%; }\r\n      .book-item-C .book-item-detail-src .fly-exit:before, .book-item-C .book-item-detail-src .fly-exit:after {\r\n        content: '';\r\n        width: 70%;\r\n        left: 15%;\r\n        height: 3px;\r\n        background: #fff;\r\n        position: absolute;\r\n        top: 50%;\r\n        -webkit-transform: rotate(45deg);\r\n        transform: rotate(45deg); }\r\n      .book-item-C .book-item-detail-src .fly-exit:after {\r\n        width: 3px;\r\n        height: 70%;\r\n        left: 50%;\r\n        top: 15%; }\r\n    .book-item-C .book-item-detail-src .book-item-content {\r\n      width: 100%;\r\n      position: absolute;\r\n      bottom: 0;\r\n      background: rgba(0, 0, 0, 0.5);\r\n      color: #fff;\r\n      height: 2vw;\r\n      line-height: 2vw; }\r\n      .book-item-C .book-item-detail-src .book-item-content .book-item-name {\r\n        font-size: 1.5vw;\r\n        margin-left: 1vw; }\r\n      .book-item-C .book-item-detail-src .book-item-content .book-item-pageview {\r\n        position: absolute;\r\n        left: 50%;\r\n        font-size: 1vw; }\r\n        .book-item-C .book-item-detail-src .book-item-content .book-item-pageview em {\r\n          font-style: normal;\r\n          font-size: 0.9vw;\r\n          margin-top: -1vw;\r\n          display: inline-block;\r\n          position: relative;\r\n          top: -4px; }\r\n      .book-item-C .book-item-detail-src .book-item-content .book-item-discuss {\r\n        position: absolute;\r\n        right: 5%; }\r\n        .book-item-C .book-item-detail-src .book-item-content .book-item-discuss span:nth-of-type(1) {\r\n          display: inline-block;\r\n          text-align: center;\r\n          border: 1px solid #fff;\r\n          padding: 0 6px;\r\n          height: 1vw;\r\n          line-height: 1vw;\r\n          margin-right: 0.3vw;\r\n          border-radius: 8px; }\r\n          .book-item-C .book-item-detail-src .book-item-content .book-item-discuss span:nth-of-type(1) b {\r\n            display: inline-block;\r\n            width: 0.1vw;\r\n            height: 0.1vw;\r\n            margin: 0 4px;\r\n            border: 2px solid #fff;\r\n            border-radius: 50%;\r\n            position: relative;\r\n            top: -0.2vw; }\r\n\r\n.fly-cook-steps-C {\r\n  width: 25vw;\r\n  margin: 1.8vw auto;\r\n  height: 19vw;\r\n  position: relative; }\r\n  .fly-cook-steps-C .fly-prev, .fly-cook-steps-C .fly-next {\r\n    width: 3vw;\r\n    height: 3vw;\r\n    border-radius: 50%;\r\n    background: #fff;\r\n    line-height: 3vw;\r\n    text-align: center;\r\n    position: absolute;\r\n    left: -1.5vw;\r\n    margin-top: -1.5vw;\r\n    top: 50%;\r\n    z-index: 100; }\r\n  .fly-cook-steps-C .shadow {\r\n    -webkit-transform: scale(0.95);\r\n    transform: scale(0.95); }\r\n    .fly-cook-steps-C .shadow:after {\r\n      content: '';\r\n      position: absolute;\r\n      left: 0;\r\n      top: 0;\r\n      width: 3vw;\r\n      height: 3vw;\r\n      box-shadow: 0 0 3vw rgba(232, 158, 121, 0.6);\r\n      border-radius: 50%; }\r\n  .fly-cook-steps-C .fly-next {\r\n    right: -1.2vw;\r\n    left: auto;\r\n    font-size: 0.8vw; }\r\n  .fly-cook-steps-C .fly-prev:before {\r\n    content: '<';\r\n    position: absolute;\r\n    left: 38%;\r\n    top: -5%;\r\n    color: #d1bdbd;\r\n    -webkit-transform: scaleY(2.2);\r\n    transform: scaleY(2.2); }\r\n  .fly-cook-steps-C .fly-cook-steps-scroll {\r\n    width: 25vw;\r\n    height: 19vw;\r\n    overflow: hidden; }\r\n  .fly-cook-steps-C .fly-history {\r\n    z-index: 10;\r\n    position: absolute;\r\n    left: 1vw;\r\n    top: 1vw;\r\n    width: 3vw;\r\n    height: 2vw; }\r\n    .fly-cook-steps-C .fly-history .fly-back {\r\n      display: block;\r\n      width: 3vw; }\r\n      .fly-cook-steps-C .fly-history .fly-back span {\r\n        display: block;\r\n        margin-left: 1vw;\r\n        text-align: left;\r\n        width: 2vw;\r\n        height: 4px;\r\n        margin-top: 20px;\r\n        background: #d1bdbd;\r\n        border-radius: 4px;\r\n        position: relative; }\r\n  .fly-cook-steps-C .fly-close {\r\n    width: 2vw;\r\n    height: 2vw;\r\n    position: absolute;\r\n    border-radius: 50%;\r\n    background: #fff;\r\n    right: -0.66667vw;\r\n    top: -0.66667vw; }\r\n    .fly-cook-steps-C .fly-close:before, .fly-cook-steps-C .fly-close:after {\r\n      content: '';\r\n      position: absolute;\r\n      left: 20%;\r\n      width: 60%;\r\n      height: 4px;\r\n      background: #E09A76;\r\n      top: 50%;\r\n      -webkit-transform: rotate(45deg);\r\n      transform: rotate(45deg); }\r\n    .fly-cook-steps-C .fly-close:after {\r\n      -webkit-transform: rotate(-45deg);\r\n      transform: rotate(-45deg); }\r\n    .fly-cook-steps-C .fly-close .shadow {\r\n      position: relative; }\r\n      .fly-cook-steps-C .fly-close .shadow:before {\r\n        content: '';\r\n        position: absolute;\r\n        left: 0;\r\n        top: 0;\r\n        width: 100%;\r\n        height: 100%;\r\n        box-shadow: 0 0 3vw rgba(232, 158, 121, 0.6); }\r\n  .fly-cook-steps-C ul {\r\n    height: 100%;\r\n    -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);\r\n    transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01); }\r\n    .fly-cook-steps-C ul.active {\r\n      -webkit-transition: -webkit-transform 0.3s;\r\n      transition: -webkit-transform 0.3s;\r\n      transition: transform 0.3s;\r\n      transition: transform 0.3s, -webkit-transform 0.3s; }\r\n    .fly-cook-steps-C ul li {\r\n      height: 100%;\r\n      float: left;\r\n      width: 25vw; }\r\n      .fly-cook-steps-C ul li article {\r\n        width: 25vw;\r\n        height: 17vw;\r\n        border-top-left-radius: 30px;\r\n        border-top-right-radius: 30px; }\r\n      .fly-cook-steps-C ul li footer {\r\n        background: #fff;\r\n        text-align: center;\r\n        height: 2vw;\r\n        line-height: 2vw;\r\n        font-size: 0.8vw;\r\n        border-bottom-left-radius: 30px;\r\n        border-bottom-right-radius: 30px; }\r\n\r\n/*# sourceMappingURL=bookitem.css.map */", ""]);
+	exports.push([module.id, "@charset \"UTF-8\";\r\n/*步骤开始。开始制作*/\r\n.book-item-C {\r\n  overflow: hidden;\r\n  width: 84%;\r\n  margin: 0 auto;\r\n  height: 80%;\r\n  position: relative;\r\n  top: 3vh;\r\n  overflow: hidden;\r\n  background: #fff;\r\n  border-radius: 30px; }\r\n  .book-item-C ul.book-item-ul {\r\n    height: 100%;\r\n    display: -webkit-box;\r\n    -webkit-box-align: center;\r\n    -webkit-box-pack: center;\r\n    -webkit-box-orient: vertical; }\r\n    .book-item-C ul.book-item-ul li.book-item-ul-li {\r\n      height: 50%;\r\n      width: 100%;\r\n      -webkit-transform-style: preserve-3d;\r\n      transform-style: preserve-3d;\r\n      perspective: 800px;\r\n      -webkit-perspective: 800px;\r\n      position: relative;\r\n      overflow: hidden; }\r\n    .book-item-C ul.book-item-ul li.active .detail {\r\n      -webkit-transform: rotateX(-90deg);\r\n      transform: rotateX(-90deg); }\r\n    .book-item-C ul.book-item-ul li.active .material {\r\n      -webkit-transform: rotateX(0deg);\r\n      transform: rotateX(0deg);\r\n      opacity: 1; }\r\n    .book-item-C ul.book-item-ul .material {\r\n      position: absolute;\r\n      left: 1%;\r\n      border-radius: 30px;\r\n      top: 0;\r\n      background: #fff;\r\n      height: 100%;\r\n      -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);\r\n      transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);\r\n      -webkit-transition: opaicty .5s .1s,-webkit-transform .5s;\r\n      -webkit-backface-visibility: hidden;\r\n              backface-visibility: hidden;\r\n      width: 98%; }\r\n      .book-item-C ul.book-item-ul .material h1 {\r\n        font-weight: normal;\r\n        color: #a16d56;\r\n        margin-left: 1vw; }\r\n      .book-item-C ul.book-item-ul .material .material-scroll {\r\n        width: 100%;\r\n        height: 5vw;\r\n        overflow: hidden; }\r\n        .book-item-C ul.book-item-ul .material .material-scroll ul {\r\n          width: 100%;\r\n          float: left; }\r\n          .book-item-C ul.book-item-ul .material .material-scroll ul li {\r\n            float: left;\r\n            width: 50%;\r\n            box-sizing: border-box;\r\n            border-right: 2px solid #eaeaea;\r\n            border-bottom: 2px solid #eaeaea;\r\n            height: 2vw;\r\n            line-height: 2vw; }\r\n            .book-item-C ul.book-item-ul .material .material-scroll ul li:nth-of-type(2n) {\r\n              border-right: none; }\r\n            .book-item-C ul.book-item-ul .material .material-scroll ul li span {\r\n              float: left;\r\n              margin-left: 1vw; }\r\n              .book-item-C ul.book-item-ul .material .material-scroll ul li span:nth-of-type(2) {\r\n                float: right;\r\n                margin-right: 1vw;\r\n                font-size: 0.8vw; }\r\n      .book-item-C ul.book-item-ul .material .begin-do {\r\n        width: 100%;\r\n        clear: left;\r\n        text-align: center;\r\n        position: absolute;\r\n        bottom: 0.2vw; }\r\n        .book-item-C ul.book-item-ul .material .begin-do span {\r\n          color: #d1bdbd;\r\n          font-size: 0.8vw;\r\n          border: 3px solid #d1bdbd;\r\n          border-radius: 25px;\r\n          padding: 5px 20px;\r\n          display: inline-block; }\r\n  .book-item-C .book-item-detail-src {\r\n    width: 100%;\r\n    height: 100%;\r\n    position: relative;\r\n    border-radius: 30px; }\r\n    .book-item-C .book-item-detail-src .fly-exit {\r\n      position: absolute;\r\n      right: 10px;\r\n      top: 10px;\r\n      color: #fff;\r\n      display: inline-block;\r\n      padding: 10px;\r\n      width: 1vw;\r\n      height: 1vw;\r\n      line-height: 1vw;\r\n      padding: 20px;\r\n      background: #efdcce;\r\n      opacity: .8;\r\n      border-radius: 50%; }\r\n      .book-item-C .book-item-detail-src .fly-exit:before, .book-item-C .book-item-detail-src .fly-exit:after {\r\n        content: '';\r\n        width: 70%;\r\n        left: 15%;\r\n        height: 3px;\r\n        background: #fff;\r\n        position: absolute;\r\n        top: 50%;\r\n        -webkit-transform: rotate(45deg);\r\n        transform: rotate(45deg); }\r\n      .book-item-C .book-item-detail-src .fly-exit:after {\r\n        width: 3px;\r\n        height: 70%;\r\n        left: 50%;\r\n        top: 15%; }\r\n    .book-item-C .book-item-detail-src .book-item-content {\r\n      width: 100%;\r\n      position: absolute;\r\n      bottom: 0;\r\n      background: rgba(0, 0, 0, 0.5);\r\n      color: #fff;\r\n      height: 2vw;\r\n      line-height: 2vw; }\r\n      .book-item-C .book-item-detail-src .book-item-content .book-item-name {\r\n        font-size: 1.5vw;\r\n        margin-left: 1vw; }\r\n      .book-item-C .book-item-detail-src .book-item-content .book-item-pageview {\r\n        position: absolute;\r\n        left: 50%;\r\n        font-size: 1vw; }\r\n        .book-item-C .book-item-detail-src .book-item-content .book-item-pageview em {\r\n          font-style: normal;\r\n          font-size: 0.9vw;\r\n          margin-top: -1vw;\r\n          display: inline-block;\r\n          position: relative;\r\n          top: -4px; }\r\n      .book-item-C .book-item-detail-src .book-item-content .book-item-discuss {\r\n        position: absolute;\r\n        right: 5%; }\r\n        .book-item-C .book-item-detail-src .book-item-content .book-item-discuss span:nth-of-type(1) {\r\n          display: inline-block;\r\n          text-align: center;\r\n          border: 1px solid #fff;\r\n          padding: 0 6px;\r\n          height: 1vw;\r\n          line-height: 1vw;\r\n          margin-right: 0.3vw;\r\n          border-radius: 8px; }\r\n          .book-item-C .book-item-detail-src .book-item-content .book-item-discuss span:nth-of-type(1) b {\r\n            display: inline-block;\r\n            width: 0.1vw;\r\n            height: 0.1vw;\r\n            margin: 0 4px;\r\n            border: 2px solid #fff;\r\n            border-radius: 50%;\r\n            position: relative;\r\n            top: -0.2vw; }\r\n\r\n.fly-cook-steps-C {\r\n  width: 25vw;\r\n  margin: 1.8vw auto;\r\n  height: 19vw;\r\n  position: relative; }\r\n  .fly-cook-steps-C .fly-prev, .fly-cook-steps-C .fly-next {\r\n    width: 3vw;\r\n    height: 3vw;\r\n    border-radius: 50%;\r\n    background: #fff;\r\n    line-height: 3vw;\r\n    text-align: center;\r\n    position: absolute;\r\n    left: -1.5vw;\r\n    margin-top: -1.5vw;\r\n    top: 50%;\r\n    z-index: 100; }\r\n  .fly-cook-steps-C .shadow {\r\n    -webkit-transform: scale(0.95);\r\n    transform: scale(0.95); }\r\n    .fly-cook-steps-C .shadow:after {\r\n      content: '';\r\n      position: absolute;\r\n      left: 0;\r\n      top: 0;\r\n      width: 3vw;\r\n      height: 3vw;\r\n      box-shadow: 0 0 3vw rgba(232, 158, 121, 0.6);\r\n      border-radius: 50%; }\r\n  .fly-cook-steps-C .fly-next {\r\n    right: -1.2vw;\r\n    left: auto;\r\n    font-size: 0.8vw; }\r\n  .fly-cook-steps-C .fly-prev canvas, .fly-cook-steps-C .fly-next canvas {\r\n    position: absolute;\r\n    left: 0;\r\n    top: 0; }\r\n  .fly-cook-steps-C .fly-prev:before {\r\n    content: '<';\r\n    position: absolute;\r\n    left: 38%;\r\n    top: -5%;\r\n    color: #d1bdbd;\r\n    -webkit-transform: scaleY(2.2);\r\n    transform: scaleY(2.2); }\r\n  .fly-cook-steps-C .fly-cook-steps-scroll {\r\n    width: 25vw;\r\n    height: 19vw;\r\n    overflow: hidden; }\r\n  .fly-cook-steps-C .fly-history {\r\n    z-index: 10;\r\n    position: absolute;\r\n    left: 1vw;\r\n    top: 1vw;\r\n    width: 3vw;\r\n    height: 2vw; }\r\n    .fly-cook-steps-C .fly-history .fly-back {\r\n      display: block;\r\n      width: 3vw; }\r\n      .fly-cook-steps-C .fly-history .fly-back span {\r\n        display: block;\r\n        margin-left: 1vw;\r\n        text-align: left;\r\n        width: 2vw;\r\n        height: 4px;\r\n        margin-top: 20px;\r\n        background: #d1bdbd;\r\n        border-radius: 4px;\r\n        position: relative; }\r\n  .fly-cook-steps-C .fly-close {\r\n    width: 2vw;\r\n    height: 2vw;\r\n    position: absolute;\r\n    border-radius: 50%;\r\n    background: #fff;\r\n    right: -0.66667vw;\r\n    top: -0.66667vw; }\r\n    .fly-cook-steps-C .fly-close:before, .fly-cook-steps-C .fly-close:after {\r\n      content: '';\r\n      position: absolute;\r\n      left: 20%;\r\n      width: 60%;\r\n      height: 4px;\r\n      background: #E09A76;\r\n      top: 50%;\r\n      -webkit-transform: rotate(45deg);\r\n      transform: rotate(45deg); }\r\n    .fly-cook-steps-C .fly-close:after {\r\n      -webkit-transform: rotate(-45deg);\r\n      transform: rotate(-45deg); }\r\n    .fly-cook-steps-C .fly-close .shadow {\r\n      position: relative; }\r\n      .fly-cook-steps-C .fly-close .shadow:before {\r\n        content: '';\r\n        position: absolute;\r\n        left: 0;\r\n        top: 0;\r\n        width: 100%;\r\n        height: 100%;\r\n        box-shadow: 0 0 3vw rgba(232, 158, 121, 0.6); }\r\n  .fly-cook-steps-C ul {\r\n    height: 100%;\r\n    -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);\r\n    transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01); }\r\n    .fly-cook-steps-C ul.active {\r\n      -webkit-transition: -webkit-transform 0.3s;\r\n      transition: -webkit-transform 0.3s;\r\n      transition: transform 0.3s;\r\n      transition: transform 0.3s, -webkit-transform 0.3s; }\r\n    .fly-cook-steps-C ul li {\r\n      height: 100%;\r\n      float: left;\r\n      width: 25vw; }\r\n      .fly-cook-steps-C ul li article {\r\n        width: 25vw;\r\n        height: 17vw;\r\n        border-top-left-radius: 30px;\r\n        border-top-right-radius: 30px; }\r\n      .fly-cook-steps-C ul li footer {\r\n        background: #fff;\r\n        text-align: center;\r\n        height: 2vw;\r\n        line-height: 2vw;\r\n        font-size: 0.8vw;\r\n        border-bottom-left-radius: 30px;\r\n        border-bottom-right-radius: 30px; }\r\n\r\n/*# sourceMappingURL=bookitem.css.map */", ""]);
 
 	// exports
 
@@ -39736,7 +39744,8 @@
 				currentPannel: 1,
 				isShow: false,
 				currentDate: (0, _libsCalendarJs.GetDateStr)(0),
-				isEnableDrag: false
+				isEnableDrag: false,
+				currentFoodId: -1
 			};
 			this.next = this.next.bind(this);
 			this.getFoodById = this.getFoodById.bind(this);
@@ -39807,7 +39816,8 @@
 									_react2['default'].createElement(
 										'span',
 										{ onTouchStart: this.change, className: 'tag' },
-										'已加入菜谱'
+										'已加入菜谱',
+										_react2['default'].createElement('canvas', { width: '73', height: '280' })
 									),
 									_react2['default'].createElement(
 										'aside',
@@ -39949,7 +39959,8 @@
 															{ key: i, onTouchStart: _this2.getFoodById },
 															_react2['default'].createElement(
 																'div',
-																{ 'data-index': i, style: { background: ' url(' + item.imgSrc + ') no-repeat center top' } },
+																{ 'data-index': i, style: { background: ' url(' + item.imgSrc + ') no-repeat center top' }, className: _this2.state.currentFoodId === item.id ? 'active' : '' },
+																_react2['default'].createElement('canvas', { width: '270', height: '330' }),
 																_react2['default'].createElement(
 																	'span',
 																	null,
@@ -40210,6 +40221,7 @@
 		}, {
 			key: 'getFoodById',
 			value: function getFoodById(e, obj) {
+				var obserable = this.props.obserable;
 
 				var target = '';
 				if (e) {
@@ -40218,7 +40230,7 @@
 							target = e.target;
 							break;
 						case "SPAN":
-						case "IMG":
+						case "CANVAS":
 							target = e.target.parentNode;
 							break;
 					};
@@ -40230,35 +40242,35 @@
 					return;
 				}
 
-				Array.from(this.refs['foods-C'].querySelectorAll('li div')).forEach(function (item, i) {
-					item.classList.remove('active');
-				});
-				target.classList.add('active');
-
-				var obserable = this.props.obserable;
-
 				var index = target.getAttribute('data-index');
 
 				var targetData = this.state.addFoods[this.state.currentTimeSlot][index];
 
 				switch (targetData.type) {
 					case "image":
-
+						var food = this.state.addFoods[this.state.currentTimeSlot][index];
 						obserable.trigger({
 							type: 'fillFood',
-							data: this.state.addFoods[this.state.currentTimeSlot][index]
+							data: food
+						});
+
+						this.setState({
+							currentFoodId: food.id
 						});
 
 						break;
 					case "video":
-
+						var food = this.state.addFoods[this.state.currentTimeSlot][index];
 						obserable.trigger({
 							type: 'fillFoodByVideo',
-							data: this.state.addFoods[this.state.currentTimeSlot][index]
+							data: food
+						});
+
+						this.setState({
+							currentFoodId: food.id
 						});
 
 						setTimeout(function () {
-
 							obserable.trigger({
 								type: 'getVideo'
 							}).play();
@@ -40352,7 +40364,7 @@
 
 
 	// module
-	exports.push([module.id, "@charset \"UTF-8\";\r\n.fly-play-ico {\r\n  width: 2vw;\r\n  position: absolute;\r\n  right: 0;\r\n  bottom: 1.5vw; }\r\n\r\n@-webkit-keyframes move {\r\n  50% {\r\n    -webkit-transform: translate3d(-100%, 0, 0);\r\n    transform: translate3d(-100%, 0, 0); }\r\n  100% {\r\n    -webkit-transform: translate3d(0, 0, 0);\r\n    transform: translate3d(0, 0, 0); } }\r\n.startMove {\r\n  -webkit-animation: move 0.3s ease;\r\n  animation: move 0.3s ease; }\r\n\r\n.fly-cook-book-item-C span.tag {\r\n  position: absolute;\r\n  background: #fff;\r\n  z-index: 0;\r\n  width: 1vw;\r\n  right: -2vw;\r\n  padding: 20px 20px 20px 40px;\r\n  font-size: 0.8vw;\r\n  top: 1vw;\r\n  border-radius: 14px; }\r\n\r\n.book-list-C {\r\n  width: 88%;\r\n  z-index: 1;\r\n  height: 19vw;\r\n  margin: 5% auto;\r\n  left: -0.2vw;\r\n  background: #FFF;\r\n  border-radius: 30px;\r\n  position: relative;\r\n  display: -webkit-box;\r\n  -webkit-box-align: center;\r\n  -webkit-box-pack: center;\r\n  -webkit-box-orient: horizontal; }\r\n  .book-list-C:before {\r\n    content: '';\r\n    box-shadow: 0 0 1vw rgba(232, 158, 121, 0.8);\r\n    position: absolute;\r\n    left: 0;\r\n    top: 0;\r\n    border-radius: 30px;\r\n    width: 100%;\r\n    height: 100%; }\r\n  .book-list-C.active {\r\n    z-index: 2;\r\n    left: -2vw; }\r\n  .book-list-C .booklist-left-C {\r\n    width: 25%;\r\n    height: 100%;\r\n    display: -webkit-box;\r\n    -webkit-box-align: center;\r\n    -webkit-box-pack: center;\r\n    -webkit-box-orient: vertical;\r\n    position: relative; }\r\n    .book-list-C .booklist-left-C:after {\r\n      content: '';\r\n      position: absolute;\r\n      right: 20px;\r\n      top: 0;\r\n      width: 1px;\r\n      height: 100%;\r\n      background: -webkit-gradient(linear, left top, left bottom, from(rgba(204, 204, 204, 0.3)), color-stop(0.5, #cccccc), to(rgba(204, 204, 204, 0.3))); }\r\n    .book-list-C .booklist-left-C div {\r\n      width: 3vw;\r\n      height: 3vw;\r\n      line-height: 3vw;\r\n      text-align: center;\r\n      border-radius: 50%;\r\n      border: 3px solid transparent;\r\n      box-sizing: border-box; }\r\n      .book-list-C .booklist-left-C div.active {\r\n        border-color: #e89e79; }\r\n  .book-list-C .booklist-right-C {\r\n    width: 75%;\r\n    height: 100%;\r\n    display: -webkit-box;\r\n    -webkit-box-align: center;\r\n    -webkit-box-pack: center;\r\n    -webkit-box-orient: vertical;\r\n    position: relative; }\r\n    .book-list-C .booklist-right-C .bl-calendar {\r\n      width: 100%;\r\n      margin-left: -8%;\r\n      -webkit-box-flex: 1;\r\n      box-sizing: border-box;\r\n      height: 50%; }\r\n      .book-list-C .booklist-right-C .bl-calendar table {\r\n        padding-top: 1vw;\r\n        width: 96%;\r\n        padding-left: 20px;\r\n        box-sizing: border-box;\r\n        text-align: center; }\r\n        .book-list-C .booklist-right-C .bl-calendar table th {\r\n          font-weight: normal;\r\n          font-size: 0.8vw;\r\n          border-bottom: 1px solid #dcdcdc;\r\n          padding-bottom: 20px; }\r\n        .book-list-C .booklist-right-C .bl-calendar table tbody tr {\r\n          height: 2.8vw; }\r\n          .book-list-C .booklist-right-C .bl-calendar table tbody tr:nth-of-type(1) td {\r\n            padding: 0.5vw 0;\r\n            border-bottom: 1px solid #dcdcdc;\r\n            box-sizing: border-box;\r\n            padding-bottom: 2.5vw; }\r\n        .book-list-C .booklist-right-C .bl-calendar table td {\r\n          position: relative; }\r\n          .book-list-C .booklist-right-C .bl-calendar table td span {\r\n            display: block;\r\n            font-size: 0.8vw; }\r\n            .book-list-C .booklist-right-C .bl-calendar table td span:nth-of-type(2) {\r\n              font-size: 0.7vw; }\r\n          .book-list-C .booklist-right-C .bl-calendar table td div {\r\n            position: relative; }\r\n            .book-list-C .booklist-right-C .bl-calendar table td div:before {\r\n              content: '';\r\n              width: 0.5vw;\r\n              height: 0.5vw;\r\n              border-radius: 50%;\r\n              position: absolute;\r\n              right: 0.1vw;\r\n              top: 0.1vw; }\r\n          .book-list-C .booklist-right-C .bl-calendar table td .hasfood {\r\n            border-radius: 50%; }\r\n            .book-list-C .booklist-right-C .bl-calendar table td .hasfood:before {\r\n              background: #e89e79; }\r\n          .book-list-C .booklist-right-C .bl-calendar table td div {\r\n            background: transparent;\r\n            width: 2.5vw;\r\n            height: 2.5vw;\r\n            border-radius: 50%;\r\n            position: absolute;\r\n            left: 0.23vw;\r\n            top: 0.5vw; }\r\n        .book-list-C .booklist-right-C .bl-calendar table .today {\r\n          color: #e89e79; }\r\n          .book-list-C .booklist-right-C .bl-calendar table .today div {\r\n            background: #efefef; }\r\n          .book-list-C .booklist-right-C .bl-calendar table .today span {\r\n            color: inherit; }\r\n    .book-list-C .booklist-right-C .bl-food-list {\r\n      width: 100%;\r\n      height: 50%;\r\n      display: -webkit-box;\r\n      -webkit-box-align: center;\r\n      -webkit-box-pack: center;\r\n      -webkit-box-orient: horizontal; }\r\n      .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll {\r\n        width: 90%;\r\n        height: 100%;\r\n        overflow: hidden;\r\n        position: relative;\r\n        border-radius: 20px;\r\n        margin-top: -1.4vw; }\r\n        .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll.no-data:before {\r\n          content: '\\6682\\65E0\\6570\\636E';\r\n          color: #f00;\r\n          margin-left: 40%;\r\n          margin-top: 15%;\r\n          display: block; }\r\n        .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll:before {\r\n          content: '';\r\n          position: absolute;\r\n          width: 100%;\r\n          height: 100%;\r\n          left: 0;\r\n          top: 0; }\r\n        .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll ul {\r\n          margin-top: -0.1vw; }\r\n          .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll ul li {\r\n            width: 7.31vw;\r\n            -webkit-transform: scale(0.9);\r\n            transform: scale(0.9);\r\n            float: left;\r\n            height: 9vw;\r\n            position: relative;\r\n            box-sizing: border-box; }\r\n            .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll ul li div {\r\n              background-size: cover !important;\r\n              position: absolute;\r\n              border-radius: 20px;\r\n              width: 90%;\r\n              height: 90%;\r\n              left: 10%;\r\n              top: 10%;\r\n              box-sizing: border-box; }\r\n              .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll ul li div:before {\r\n                content: '';\r\n                box-shadow: 0 0 1vw rgba(232, 158, 121, 0.4);\r\n                position: absolute;\r\n                border-radius: 20px;\r\n                left: 0;\r\n                top: 0;\r\n                width: 100%;\r\n                height: 100%; }\r\n              .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll ul li div.active {\r\n                box-sizing: border-box;\r\n                border: 8px solid #e89e79;\r\n                z-index: 1;\r\n                overflow: hidden;\r\n                position: relative; }\r\n                .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll ul li div.active span {\r\n                  -webkit-transform: translate3d(0, -6px, 0);\r\n                  transform: translate3d(0, -6px, 0);\r\n                  border-bottom-left-radius: 0;\r\n                  border-bottom-right-radius: 0; }\r\n            .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll ul li span {\r\n              font-size: 0.6vw;\r\n              display: block;\r\n              width: 100%;\r\n              position: relative;\r\n              color: #cfbbba;\r\n              top: 6.65vw;\r\n              text-align: center;\r\n              height: 1.5vw;\r\n              line-height: 1.5vw;\r\n              background: white;\r\n              border-bottom-left-radius: 20px;\r\n              border-bottom-right-radius: 20px; }\r\n      .book-list-C .booklist-right-C .bl-food-list .bl-food-next {\r\n        width: 10%;\r\n        height: 40%;\r\n        text-align: center;\r\n        line-height: 5vh;\r\n        -webkit-transform: scaleY(2.5);\r\n        transform: scaleY(2.5); }\r\n\r\n/*# sourceMappingURL=booklist.css.map */", ""]);
+	exports.push([module.id, "@charset \"UTF-8\";\r\n.fly-play-ico {\r\n  width: 2vw;\r\n  position: absolute;\r\n  right: 0;\r\n  bottom: 1.5vw; }\r\n\r\n@-webkit-keyframes move {\r\n  50% {\r\n    -webkit-transform: translate3d(-100%, 0, 0);\r\n    transform: translate3d(-100%, 0, 0); }\r\n  100% {\r\n    -webkit-transform: translate3d(0, 0, 0);\r\n    transform: translate3d(0, 0, 0); } }\r\n.startMove {\r\n  -webkit-animation: move 0.3s ease;\r\n  animation: move 0.3s ease; }\r\n\r\n.fly-cook-book-item-C span.tag {\r\n  position: absolute;\r\n  background: #fff;\r\n  z-index: 0;\r\n  width: 1vw;\r\n  right: -2vw;\r\n  padding: 20px 20px 20px 40px;\r\n  font-size: 0.8vw;\r\n  top: 1vw;\r\n  border-radius: 14px; }\r\n  .fly-cook-book-item-C span.tag canvas {\r\n    position: absolute;\r\n    right: 0;\r\n    top: 0; }\r\n\r\n.book-list-C {\r\n  width: 88%;\r\n  z-index: 1;\r\n  height: 19vw;\r\n  margin: 5% auto;\r\n  left: -0.2vw;\r\n  background: #FFF;\r\n  border-radius: 30px;\r\n  position: relative;\r\n  display: -webkit-box;\r\n  -webkit-box-align: center;\r\n  -webkit-box-pack: center;\r\n  -webkit-box-orient: horizontal; }\r\n  .book-list-C:before {\r\n    content: '';\r\n    box-shadow: 0 0 1vw rgba(232, 158, 121, 0.8);\r\n    position: absolute;\r\n    left: 0;\r\n    top: 0;\r\n    border-radius: 30px;\r\n    width: 100%;\r\n    height: 100%; }\r\n  .book-list-C.active {\r\n    z-index: 2;\r\n    left: -2vw; }\r\n  .book-list-C .booklist-left-C {\r\n    width: 25%;\r\n    height: 100%;\r\n    display: -webkit-box;\r\n    -webkit-box-align: center;\r\n    -webkit-box-pack: center;\r\n    -webkit-box-orient: vertical;\r\n    position: relative; }\r\n    .book-list-C .booklist-left-C:after {\r\n      content: '';\r\n      position: absolute;\r\n      right: 20px;\r\n      top: 0;\r\n      width: 1px;\r\n      height: 100%;\r\n      background: -webkit-gradient(linear, left top, left bottom, from(rgba(204, 204, 204, 0.3)), color-stop(0.5, #cccccc), to(rgba(204, 204, 204, 0.3))); }\r\n    .book-list-C .booklist-left-C div {\r\n      width: 3vw;\r\n      height: 3vw;\r\n      line-height: 3vw;\r\n      text-align: center;\r\n      border-radius: 50%;\r\n      border: 3px solid transparent;\r\n      box-sizing: border-box; }\r\n      .book-list-C .booklist-left-C div.active {\r\n        border-color: #e89e79; }\r\n  .book-list-C .booklist-right-C {\r\n    width: 75%;\r\n    height: 100%;\r\n    display: -webkit-box;\r\n    -webkit-box-align: center;\r\n    -webkit-box-pack: center;\r\n    -webkit-box-orient: vertical;\r\n    position: relative; }\r\n    .book-list-C .booklist-right-C .bl-calendar {\r\n      width: 100%;\r\n      margin-left: -8%;\r\n      -webkit-box-flex: 1;\r\n      box-sizing: border-box;\r\n      height: 50%; }\r\n      .book-list-C .booklist-right-C .bl-calendar table {\r\n        padding-top: 1vw;\r\n        width: 96%;\r\n        padding-left: 20px;\r\n        box-sizing: border-box;\r\n        text-align: center; }\r\n        .book-list-C .booklist-right-C .bl-calendar table th {\r\n          font-weight: normal;\r\n          font-size: 0.8vw;\r\n          border-bottom: 1px solid #dcdcdc;\r\n          padding-bottom: 20px; }\r\n        .book-list-C .booklist-right-C .bl-calendar table tbody tr {\r\n          height: 2.8vw; }\r\n          .book-list-C .booklist-right-C .bl-calendar table tbody tr:nth-of-type(1) td {\r\n            padding: 0.5vw 0;\r\n            border-bottom: 1px solid #dcdcdc;\r\n            box-sizing: border-box;\r\n            padding-bottom: 2.5vw; }\r\n        .book-list-C .booklist-right-C .bl-calendar table td {\r\n          position: relative; }\r\n          .book-list-C .booklist-right-C .bl-calendar table td span {\r\n            display: block;\r\n            font-size: 0.8vw; }\r\n            .book-list-C .booklist-right-C .bl-calendar table td span:nth-of-type(2) {\r\n              font-size: 0.7vw; }\r\n          .book-list-C .booklist-right-C .bl-calendar table td div {\r\n            position: relative; }\r\n            .book-list-C .booklist-right-C .bl-calendar table td div:before {\r\n              content: '';\r\n              width: 0.5vw;\r\n              height: 0.5vw;\r\n              border-radius: 50%;\r\n              position: absolute;\r\n              right: 0.1vw;\r\n              top: 0.1vw; }\r\n          .book-list-C .booklist-right-C .bl-calendar table td .hasfood {\r\n            border-radius: 50%; }\r\n            .book-list-C .booklist-right-C .bl-calendar table td .hasfood:before {\r\n              background: #e89e79; }\r\n          .book-list-C .booklist-right-C .bl-calendar table td div {\r\n            background: transparent;\r\n            width: 2.5vw;\r\n            height: 2.5vw;\r\n            border-radius: 50%;\r\n            position: absolute;\r\n            left: 0.23vw;\r\n            top: 0.5vw; }\r\n        .book-list-C .booklist-right-C .bl-calendar table .today {\r\n          color: #e89e79; }\r\n          .book-list-C .booklist-right-C .bl-calendar table .today div {\r\n            background: #efefef; }\r\n          .book-list-C .booklist-right-C .bl-calendar table .today span {\r\n            color: inherit; }\r\n    .book-list-C .booklist-right-C .bl-food-list {\r\n      width: 100%;\r\n      height: 50%;\r\n      display: -webkit-box;\r\n      -webkit-box-align: center;\r\n      -webkit-box-pack: center;\r\n      -webkit-box-orient: horizontal; }\r\n      .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll {\r\n        width: 90%;\r\n        height: 100%;\r\n        overflow: hidden;\r\n        position: relative;\r\n        border-radius: 20px;\r\n        margin-top: -1.4vw; }\r\n        .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll.no-data:before {\r\n          content: '\\6682\\65E0\\6570\\636E';\r\n          color: #f00;\r\n          margin-left: 40%;\r\n          margin-top: 15%;\r\n          display: block; }\r\n        .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll:before {\r\n          content: '';\r\n          position: absolute;\r\n          width: 100%;\r\n          height: 100%;\r\n          left: 0;\r\n          top: 0; }\r\n        .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll ul {\r\n          margin-top: -0.1vw; }\r\n          .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll ul li {\r\n            width: 7.31vw;\r\n            -webkit-transform: scale(0.9);\r\n            transform: scale(0.9);\r\n            float: left;\r\n            height: 9vw;\r\n            position: relative;\r\n            box-sizing: border-box; }\r\n            .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll ul li canvas {\r\n              position: absolute;\r\n              left: 0;\r\n              top: 0; }\r\n            .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll ul li div {\r\n              background-size: cover !important;\r\n              position: absolute;\r\n              border-radius: 20px;\r\n              width: 90%;\r\n              height: 90%;\r\n              left: 10%;\r\n              top: 10%;\r\n              box-sizing: border-box; }\r\n              .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll ul li div:before {\r\n                content: '';\r\n                box-shadow: 0 0 1vw rgba(232, 158, 121, 0.4);\r\n                position: absolute;\r\n                border-radius: 20px;\r\n                left: 0;\r\n                top: 0;\r\n                width: 100%;\r\n                height: 100%; }\r\n              .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll ul li div.active {\r\n                box-sizing: border-box;\r\n                border: 8px solid #e89e79;\r\n                z-index: 1;\r\n                overflow: hidden;\r\n                position: relative; }\r\n                .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll ul li div.active span {\r\n                  -webkit-transform: translate3d(0, -6px, 0);\r\n                  transform: translate3d(0, -6px, 0);\r\n                  border-bottom-left-radius: 0;\r\n                  border-bottom-right-radius: 0; }\r\n            .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll ul li span {\r\n              font-size: 0.6vw;\r\n              display: block;\r\n              width: 100%;\r\n              position: relative;\r\n              color: #cfbbba;\r\n              top: 6.65vw;\r\n              text-align: center;\r\n              height: 1.5vw;\r\n              line-height: 1.5vw;\r\n              background: white;\r\n              border-bottom-left-radius: 20px;\r\n              border-bottom-right-radius: 20px; }\r\n      .book-list-C .booklist-right-C .bl-food-list .bl-food-next {\r\n        width: 10%;\r\n        height: 40%;\r\n        text-align: center;\r\n        line-height: 5vh;\r\n        -webkit-transform: scaleY(2.5);\r\n        transform: scaleY(2.5); }\r\n\r\n/*# sourceMappingURL=booklist.css.map */", ""]);
 
 	// exports
 
@@ -40409,7 +40421,8 @@
 					_react2['default'].createElement(
 						'span',
 						{ className: 'tag', onTouchStart: this.props.changeMyCollectTop },
-						'我的收藏'
+						'我的收藏',
+						_react2['default'].createElement('canvas', { width: '73', height: '250' })
 					),
 					_react2['default'].createElement(_foodlistJsx2['default'], _extends({ isShowTimeline: false, type: 'my-collect' }, this.props))
 				);
@@ -40457,7 +40470,7 @@
 
 
 	// module
-	exports.push([module.id, "@charset \"UTF-8\";\r\n/*我的收藏组件*/\r\n.fly-collect-C {\r\n  left: 2.2vw;\r\n  width: 88%;\r\n  height: 19vw;\r\n  position: absolute;\r\n  top: 0;\r\n  z-index: 1;\r\n  border-radius: 30px;\r\n  background: #fff; }\r\n  .fly-collect-C .foodlist {\r\n    margin: 0 auto; }\r\n  .fly-collect-C.active {\r\n    z-index: 3;\r\n    left: 0.2vw; }\r\n  .fly-collect-C:before {\r\n    box-shadow: 0 0 3vw rgba(232, 158, 121, 0.6);\r\n    position: absolute;\r\n    content: '';\r\n    left: 0;\r\n    top: 0;\r\n    border-radius: 30px;\r\n    width: 100%;\r\n    height: 100%; }\r\n  .fly-collect-C span.tag {\r\n    position: absolute;\r\n    right: -2vw;\r\n    z-index: 0;\r\n    top: 50%;\r\n    border-radius: 20px;\r\n    width: 1vw;\r\n    background: #fFF;\r\n    padding: 20px 20px 20px 40px;\r\n    font-size: 0.8vw; }\r\n  .fly-collect-C .foodlist-C {\r\n    height: 19vw; }\r\n  .fly-collect-C .foodlist-content {\r\n    width: 92%;\r\n    height: 19vw;\r\n    overflow: hidden;\r\n    width: 100% !important; }\r\n    .fly-collect-C .foodlist-content .fly-play-ico {\r\n      bottom: 1.8vw;\r\n      right: 0.4vw; }\r\n    .fly-collect-C .foodlist-content.no-data:before {\r\n      content: '\\6682\\65E0\\6570\\636E';\r\n      color: #f00;\r\n      margin-top: 50%;\r\n      margin-left: 20%;\r\n      display: block; }\r\n    .fly-collect-C .foodlist-content ul {\r\n      margin-top: 0.6vw;\r\n      margin-left: 1.2vw;\r\n      height: 18vw;\r\n      width: 100%;\r\n      border-radius: 20px;\r\n      position: relative; }\r\n    .fly-collect-C .foodlist-content li {\r\n      width: 6.75vw;\r\n      float: left;\r\n      height: 9vw;\r\n      box-sizing: border-box;\r\n      position: relative;\r\n      padding: 0;\r\n      -webkit-transform: scale(0.9);\r\n      transform: scale(0.9);\r\n      border-radius: 20px; }\r\n      .fly-collect-C .foodlist-content li div.active {\r\n        box-sizing: border-box;\r\n        border: 8px solid #e89e79;\r\n        z-index: 1;\r\n        overflow: hidden;\r\n        position: relative; }\r\n        .fly-collect-C .foodlist-content li div.active span {\r\n          -webkit-transition: -webkit-transform 0.1s;\r\n          transition: -webkit-transform 0.1s;\r\n          transition: transform 0.1s;\r\n          transition: transform 0.1s, -webkit-transform 0.1s;\r\n          -webkit-transform: translate3d(0, -14px, 0);\r\n          transform: translate3d(0, -14px, 0);\r\n          border-bottom-left-radius: 0;\r\n          border-bottom-right-radius: 0; }\r\n      .fly-collect-C .foodlist-content li:before {\r\n        content: '';\r\n        box-shadow: 0 0 2vw rgba(232, 158, 121, 0.4);\r\n        border-radius: 20px;\r\n        position: absolute;\r\n        width: 100%;\r\n        height: 100%;\r\n        z-index: -1;\r\n        left: 0;\r\n        top: 0; }\r\n      .fly-collect-C .foodlist-content li div {\r\n        -webkit-transition: border 0.1s;\r\n        transition: border 0.1s;\r\n        width: 100%;\r\n        border-radius: 20px;\r\n        height: 100%; }\r\n      .fly-collect-C .foodlist-content li span {\r\n        font-size: 0.6vw;\r\n        bottom: 0;\r\n        display: block;\r\n        width: 100%;\r\n        position: relative;\r\n        color: #cfbbba;\r\n        top: 7.5vw;\r\n        text-align: center;\r\n        height: 1.5vw;\r\n        line-height: 1.5vw;\r\n        background: white; }\r\n      .fly-collect-C .foodlist-content li.food-top {\r\n        margin-top: 0vw; }\r\n\r\n/*# sourceMappingURL=mycollect.css.map */", ""]);
+	exports.push([module.id, "@charset \"UTF-8\";\r\n/*我的收藏组件*/\r\n.fly-collect-C {\r\n  left: 2.2vw;\r\n  width: 88%;\r\n  height: 19vw;\r\n  position: absolute;\r\n  top: 0;\r\n  z-index: 1;\r\n  border-radius: 30px;\r\n  background: #fff; }\r\n  .fly-collect-C .foodlist {\r\n    margin: 0 auto; }\r\n  .fly-collect-C.active {\r\n    z-index: 3;\r\n    left: 0.2vw; }\r\n  .fly-collect-C:before {\r\n    box-shadow: 0 0 3vw rgba(232, 158, 121, 0.6);\r\n    position: absolute;\r\n    content: '';\r\n    left: 0;\r\n    top: 0;\r\n    border-radius: 30px;\r\n    width: 100%;\r\n    height: 100%; }\r\n  .fly-collect-C span.tag {\r\n    position: absolute;\r\n    right: -2vw;\r\n    z-index: 0;\r\n    top: 50%;\r\n    border-radius: 20px;\r\n    width: 1vw;\r\n    background: #fFF;\r\n    padding: 20px 20px 20px 40px;\r\n    font-size: 0.8vw; }\r\n    .fly-collect-C span.tag canvas {\r\n      position: absolute;\r\n      right: 0;\r\n      top: 0; }\r\n  .fly-collect-C .foodlist-C {\r\n    height: 19vw; }\r\n  .fly-collect-C .foodlist-content {\r\n    width: 92%;\r\n    height: 19vw;\r\n    overflow: hidden;\r\n    width: 100% !important; }\r\n    .fly-collect-C .foodlist-content .fly-play-ico {\r\n      bottom: 1.8vw;\r\n      right: 0.4vw; }\r\n    .fly-collect-C .foodlist-content.no-data:before {\r\n      content: '\\6682\\65E0\\6570\\636E';\r\n      color: #f00;\r\n      margin-top: 50%;\r\n      margin-left: 20%;\r\n      display: block; }\r\n    .fly-collect-C .foodlist-content ul {\r\n      margin-top: 0.6vw;\r\n      margin-left: 1.2vw;\r\n      height: 18vw;\r\n      width: 100%;\r\n      border-radius: 20px;\r\n      position: relative; }\r\n    .fly-collect-C .foodlist-content li {\r\n      width: 6.75vw;\r\n      float: left;\r\n      height: 9vw;\r\n      box-sizing: border-box;\r\n      position: relative;\r\n      padding: 0;\r\n      -webkit-transform: scale(0.9);\r\n      transform: scale(0.9);\r\n      border-radius: 20px; }\r\n      .fly-collect-C .foodlist-content li div.active {\r\n        box-sizing: border-box;\r\n        border: 8px solid #e89e79;\r\n        z-index: 1;\r\n        overflow: hidden;\r\n        position: relative; }\r\n        .fly-collect-C .foodlist-content li div.active span {\r\n          -webkit-transform: translate3d(0, -6px, 0);\r\n          transform: translate3d(0, -6px, 0);\r\n          border-bottom-left-radius: 0;\r\n          border-bottom-right-radius: 0; }\r\n      .fly-collect-C .foodlist-content li:before {\r\n        content: '';\r\n        box-shadow: 0 0 2vw rgba(232, 158, 121, 0.4);\r\n        border-radius: 20px;\r\n        position: absolute;\r\n        width: 100%;\r\n        height: 100%;\r\n        z-index: -1;\r\n        left: 0;\r\n        top: 0; }\r\n      .fly-collect-C .foodlist-content li div {\r\n        width: 100%;\r\n        border-radius: 20px;\r\n        height: 100%; }\r\n      .fly-collect-C .foodlist-content li span {\r\n        font-size: 0.6vw;\r\n        bottom: 0;\r\n        display: block;\r\n        width: 100%;\r\n        position: relative;\r\n        color: #cfbbba;\r\n        top: 7.5vw;\r\n        text-align: center;\r\n        height: 1.5vw;\r\n        line-height: 1.5vw;\r\n        background: white; }\r\n      .fly-collect-C .foodlist-content li.food-top {\r\n        margin-top: 0vw; }\r\n\r\n/*# sourceMappingURL=mycollect.css.map */", ""]);
 
 	// exports
 
@@ -41142,7 +41155,7 @@
 
 
 	// module
-	exports.push([module.id, ".fly-alimentation-data {\r\n  display: -webkit-box;\r\n  -webkit-box-align: center;\r\n  -webkit-box-pack: center;\r\n  -webkit-box-orient: vertical;\r\n  position: relative;\r\n  width: 32vw !important; }\r\n  .fly-alimentation-data div.fly-data-C {\r\n    height: 24vw;\r\n    width: 100%; }\r\n    .fly-alimentation-data div.fly-data-C canvas {\r\n      position: absolute;\r\n      left: 3%; }\r\n  .fly-alimentation-data div.fly-all {\r\n    position: absolute;\r\n    left: 1vw;\r\n    border: 2px solid #fff;\r\n    border-radius: 30px;\r\n    height: 2vw;\r\n    line-height: 2vw;\r\n    width: 5vw;\r\n    text-align: center;\r\n    color: #fff;\r\n    bottom: -1.58vw; }\r\n  .fly-alimentation-data div.fly-m-name {\r\n    bottom: -2.6vw;\r\n    height: 4vw;\r\n    width: 75%;\r\n    position: absolute;\r\n    right: 2vw;\r\n    overflow: hidden;\r\n    z-index: 100; }\r\n    .fly-alimentation-data div.fly-m-name ul {\r\n      margin-top: .9vw; }\r\n    .fly-alimentation-data div.fly-m-name li {\r\n      width: 5vw;\r\n      float: left;\r\n      color: #fff;\r\n      height: 2vw;\r\n      line-height: 2vw;\r\n      text-align: center;\r\n      border: 2px solid #fff;\r\n      border-radius: 30px;\r\n      margin: 0 20px;\r\n      position: relative; }\r\n      .fly-alimentation-data div.fly-m-name li:after {\r\n        content: \"...\";\r\n        position: absolute;\r\n        left: 104%;\r\n        top: -15%; }\r\n      .fly-alimentation-data div.fly-m-name li:last-of-type:after {\r\n        content: \"\"; }\r\n    .fly-alimentation-data div.fly-m-name .active {\r\n      border-color: transparent;\r\n      color: #a67156; }\r\n      .fly-alimentation-data div.fly-m-name .active:before {\r\n        content: '';\r\n        border: 2px solid #a67156;\r\n        color: #a67156;\r\n        -webkit-animation: blur 1s linear infinite alternate;\r\n        position: absolute;\r\n        width: 100%;\r\n        box-shadow: 0 0 2vw rgba(232, 158, 121, 0.5);\r\n        border-radius: 30px;\r\n        height: 100%;\r\n        left: 0;\r\n        top: 0; }\r\n    .fly-alimentation-data div.fly-m-name .shadow {\r\n      position: relative; }\r\n      .fly-alimentation-data div.fly-m-name .shadow:before {\r\n        content: '';\r\n        position: absolute;\r\n        width: 100%;\r\n        box-shadow: 0 0 1vw rgba(232, 158, 121, 0.7);\r\n        border-radius: 30px;\r\n        height: 100%;\r\n        left: 0;\r\n        top: 0; }\r\n  .fly-alimentation-data .fly-circle {\r\n    width: 0.1vw;\r\n    height: 300px;\r\n    position: absolute;\r\n    left: 3%;\r\n    opacity: 0; }\r\n    .fly-alimentation-data .fly-circle:before {\r\n      content: '';\r\n      width: 1vw;\r\n      height: 1vw;\r\n      background: #fff;\r\n      -webkit-filter: blur(7px);\r\n      position: absolute;\r\n      bottom: -.5vw;\r\n      left: -.5vw;\r\n      border-radius: 50%; }\r\n  .fly-alimentation-data .fly-circle-center {\r\n    position: absolute;\r\n    left: 3%;\r\n    top: 0;\r\n    border: 2px solid #fff;\r\n    border-radius: 50%;\r\n    -webkit-filter: blur(0px);\r\n    z-index: -1; }\r\n    .fly-alimentation-data .fly-circle-center:before {\r\n      content: '';\r\n      position: absolute;\r\n      left: 0;\r\n      top: 0;\r\n      width: 100%;\r\n      height: 100%; }\r\n\r\n@-webkit-keyframes blur {\r\n  to {\r\n    border-color: #e89e79;\r\n    color: #e89e79; } }\r\n\r\n/*# sourceMappingURL=alimentationdata.css.map */", ""]);
+	exports.push([module.id, ".fly-alimentation-data {\r\n  display: -webkit-box;\r\n  -webkit-box-align: center;\r\n  -webkit-box-pack: center;\r\n  -webkit-box-orient: vertical;\r\n  position: relative;\r\n  width: 32vw !important; }\r\n  .fly-alimentation-data div.fly-data-C {\r\n    height: 24vw;\r\n    width: 100%; }\r\n    .fly-alimentation-data div.fly-data-C canvas {\r\n      position: absolute;\r\n      left: 3%; }\r\n  .fly-alimentation-data div.fly-all {\r\n    position: absolute;\r\n    left: 1vw;\r\n    border: 2px solid #fff;\r\n    border-radius: 30px;\r\n    height: 2vw;\r\n    line-height: 2vw;\r\n    width: 5vw;\r\n    text-align: center;\r\n    color: #fff;\r\n    bottom: -1.58vw; }\r\n  .fly-alimentation-data div.fly-m-name {\r\n    bottom: -2.6vw;\r\n    height: 4vw;\r\n    width: 75.2%;\r\n    position: absolute;\r\n    right: 2vw;\r\n    overflow: hidden;\r\n    z-index: 100; }\r\n    .fly-alimentation-data div.fly-m-name ul {\r\n      margin-top: .9vw; }\r\n    .fly-alimentation-data div.fly-m-name li {\r\n      width: 5vw;\r\n      float: left;\r\n      color: #fff;\r\n      height: 2vw;\r\n      line-height: 2vw;\r\n      text-align: center;\r\n      border: 2px solid #fff;\r\n      border-radius: 30px;\r\n      margin: 0 20px;\r\n      position: relative; }\r\n      .fly-alimentation-data div.fly-m-name li:after {\r\n        content: \"...\";\r\n        position: absolute;\r\n        left: 104%;\r\n        top: -15%; }\r\n      .fly-alimentation-data div.fly-m-name li:last-of-type:after {\r\n        content: \"\"; }\r\n    .fly-alimentation-data div.fly-m-name .active {\r\n      border-color: transparent;\r\n      color: #a67156; }\r\n      .fly-alimentation-data div.fly-m-name .active:before {\r\n        content: '';\r\n        border: 2px solid #a67156;\r\n        color: #a67156;\r\n        -webkit-animation: blur 1s linear infinite alternate;\r\n        position: absolute;\r\n        width: 100%;\r\n        box-shadow: 0 0 2vw rgba(232, 158, 121, 0.5);\r\n        border-radius: 30px;\r\n        height: 100%;\r\n        left: 0;\r\n        top: 0; }\r\n    .fly-alimentation-data div.fly-m-name .shadow {\r\n      position: relative; }\r\n      .fly-alimentation-data div.fly-m-name .shadow:before {\r\n        content: '';\r\n        position: absolute;\r\n        width: 100%;\r\n        box-shadow: 0 0 1vw rgba(232, 158, 121, 0.7);\r\n        border-radius: 30px;\r\n        height: 100%;\r\n        left: 0;\r\n        top: 0; }\r\n  .fly-alimentation-data .fly-circle {\r\n    width: 0.1vw;\r\n    height: 300px;\r\n    position: absolute;\r\n    left: 3%;\r\n    opacity: 0; }\r\n    .fly-alimentation-data .fly-circle:before {\r\n      content: '';\r\n      width: 1vw;\r\n      height: 1vw;\r\n      background: #fff;\r\n      -webkit-filter: blur(7px);\r\n      position: absolute;\r\n      bottom: -.5vw;\r\n      left: -.5vw;\r\n      border-radius: 50%; }\r\n  .fly-alimentation-data .fly-circle-center {\r\n    position: absolute;\r\n    left: 3%;\r\n    top: 0;\r\n    border: 2px solid #fff;\r\n    border-radius: 50%;\r\n    -webkit-filter: blur(0px);\r\n    z-index: -1; }\r\n    .fly-alimentation-data .fly-circle-center:before {\r\n      content: '';\r\n      position: absolute;\r\n      left: 0;\r\n      top: 0;\r\n      width: 100%;\r\n      height: 100%; }\r\n\r\n@-webkit-keyframes blur {\r\n  to {\r\n    border-color: #e89e79;\r\n    color: #e89e79; } }\r\n\r\n/*# sourceMappingURL=alimentationdata.css.map */", ""]);
 
 	// exports
 
@@ -41282,7 +41295,8 @@
 										_react2['default'].createElement(
 											'div',
 											{ onTouchStart: this.netWeight, className: this.state.netWeightShadow ? 'shadow1' : '' },
-											'去皮'
+											'去皮',
+											_react2['default'].createElement('canvas', { width: '116', height: '116' })
 										),
 										_react2['default'].createElement(
 											'div',
@@ -41292,7 +41306,8 @@
 										_react2['default'].createElement(
 											'div',
 											{ onTouchStart: this.getWeight, className: this.state.weightShadow ? 'shadow1' : '' },
-											'确定'
+											'确定',
+											_react2['default'].createElement('canvas', { width: '116', height: '116' })
 										)
 									)
 								),
@@ -41418,48 +41433,49 @@
 				var _this3 = this;
 
 				//去皮
-				if (this.state.isShow) {
-					(function () {
 
-						var canvas = _this3.refs['weight'];
+				if (this.state.isShow) {
+					e.preventDefault();
+					var canvas = this.refs['weight'];
+					this.setState({
+						netWeightShadow: 1
+					});
+
+					this.t && clearInterval(this.t);
+					//this.props.shadow(e.target,'shadow1');
+
+					this.weight = this.weight || 0;
+					this.requestTimer && clearTimeout(this.requestTimer);
+
+					this.requestTimer = setTimeout(function () {
 						_this3.setState({
-							netWeightShadow: 1
+							netWeightShadow: 0
 						});
 
-						setTimeout(function () {
-							_this3.setState({
-								netWeightShadow: 0
-							});
-							_this3.initCanvas(canvas, 0);
-						}, 100);
+						_this3.weight > 0 && _this3.initCanvas(canvas, 0);
 
-						_this3.t && clearInterval(_this3.t);
-						//this.props.shadow(e.target,'shadow1');
+						var URL = _this3.props.URL;
 
-						_this3.requestTimer && clearTimeout(_this3.requestTimer);
+						var canvas = _this3.refs['weight'];
 
-						_this3.requestTimer = setTimeout(function () {
-							var URL = _this3.props.URL;
+						var s = _this3;
+						_jquery2['default'].ajax({
+							type: 'POST',
+							url: URL.weightstart,
+							error: function error(e) {
+								//console.log(e)
+							},
+							success: function success(data) {
+								if (data.getret === 1) {
+									//console.log('success');
+									//s.initCanvas(canvas,0);
+									//weight
 
-							var canvas = _this3.refs['weight'];
-							var s = _this3;
-							_jquery2['default'].ajax({
-								type: 'POST',
-								url: URL.weightstart,
-								error: function error(e) {
-									console.log(e);
-								},
-								success: function success(data) {
-									if (data.getret === 1) {
-										//console.log('success');
-										//s.initCanvas(canvas,0);
-										//weight
-										console.log(data);
-									}
 								}
-							});
-						}, 100);
-					})();
+								console.log(data);
+							}
+						});
+					}, 100);
 				}
 			}
 		}, {
@@ -41514,7 +41530,7 @@
 
 										(function () {
 											var weight = data.foodweight * 1 | 0;
-
+											s.weight = weight;
 											data.scaleData.forEach(function (item) {
 												//item.scale*1<0 && (item.scale = 0);
 												item.weight < 0 && (item.weight = 0);
@@ -41669,7 +41685,7 @@
 
 
 	// module
-	exports.push([module.id, ".fly-weight {\r\n  display: -webkit-box;\r\n  -webkit-box-align: center;\r\n  -webkit-box-pack: center;\r\n  -webkit-box-orient: vertical; }\r\n  .fly-weight h1 {\r\n    height: 5vw; }\r\n  .fly-weight .fly-btns-C {\r\n    width: 50%;\r\n    position: absolute;\r\n    top: 0;\r\n    left: 4vw;\r\n    height: 5vw;\r\n    display: -webkit-box;\r\n    -webkit-box-align: center;\r\n    -webkit-box-pack: center;\r\n    -webkit-box-orient: horizontal; }\r\n    .fly-weight .fly-btns-C figure {\r\n      position: relative;\r\n      margin: 0 0.5vw; }\r\n      .fly-weight .fly-btns-C figure img, .fly-weight .fly-btns-C figure canvas {\r\n        border-radius: 50%; }\r\n      .fly-weight .fly-btns-C figure:first-of-type {\r\n        margin-left: 1vw; }\r\n  .fly-weight .shadow {\r\n    -webkit-transform: scale(0.95);\r\n    transform: scale(0.95); }\r\n    .fly-weight .shadow:before {\r\n      content: '';\r\n      position: absolute;\r\n      width: 100%;\r\n      height: 100%;\r\n      box-shadow: 0 0 2vw rgba(232, 158, 121, 0.4), 0 0 1vw rgba(232, 158, 121, 0.4) inset;\r\n      left: 0;\r\n      border-radius: 50%;\r\n      top: 0; }\r\n  .fly-weight .fly-operator-C {\r\n    position: relative;\r\n    border-radius: 2.5vw; }\r\n    .fly-weight .fly-operator-C .fly-countdown-C {\r\n      position: absolute;\r\n      left: 0;\r\n      top: 0;\r\n      width: 100%;\r\n      height: 100%; }\r\n      .fly-weight .fly-operator-C .fly-countdown-C:after, .fly-weight .fly-operator-C .fly-countdown-C:before {\r\n        content: '';\r\n        position: absolute;\r\n        width: 90%;\r\n        left: 5%;\r\n        border-top: 1px solid #fff;\r\n        top: 4vw; }\r\n      .fly-weight .fly-operator-C .fly-countdown-C:after {\r\n        bottom: 3vw;\r\n        top: auto; }\r\n    .fly-weight .fly-operator-C div.fly-img-board, .fly-weight .fly-operator-C div.fly-img-weight {\r\n      width: 98%; }\r\n    .fly-weight .fly-operator-C div.fly-img-weight .fly-weight-display {\r\n      position: absolute;\r\n      height: 4vw;\r\n      width: 98%;\r\n      bottom: 0.5vw;\r\n      left: 0;\r\n      box-sizing: border-box;\r\n      display: -webkit-box;\r\n      -webkit-box-align: center;\r\n      -webkit-box-pack: center;\r\n      -webkit-box-orient: horizontal; }\r\n      .fly-weight .fly-operator-C div.fly-img-weight .fly-weight-display div {\r\n        text-align: center; }\r\n        .fly-weight .fly-operator-C div.fly-img-weight .fly-weight-display div:nth-of-type(2) {\r\n          height: 4vw;\r\n          width: 11.5vw; }\r\n        .fly-weight .fly-operator-C div.fly-img-weight .fly-weight-display div:nth-of-type(1), .fly-weight .fly-operator-C div.fly-img-weight .fly-weight-display div:nth-of-type(3) {\r\n          border: 3px solid #df9977;\r\n          margin-top: 1vw;\r\n          border-radius: 50%;\r\n          line-height: 3vw;\r\n          color: #df9977;\r\n          width: 3vw;\r\n          height: 3vw; }\r\n          .fly-weight .fly-operator-C div.fly-img-weight .fly-weight-display div:nth-of-type(1).shadow1, .fly-weight .fly-operator-C div.fly-img-weight .fly-weight-display div:nth-of-type(3).shadow1 {\r\n            border-color: green; }\r\n  .fly-weight .fly-show-countdown-top {\r\n    position: absolute;\r\n    top: 1vw;\r\n    left: 21vw;\r\n    border: 1px solid #fff;\r\n    width: 16.5vw; }\r\n    .fly-weight .fly-show-countdown-top canvas {\r\n      float: left; }\r\n    .fly-weight .fly-show-countdown-top span {\r\n      display: block;\r\n      position: absolute;\r\n      width: 1vw;\r\n      height: 1vw;\r\n      line-height: 1vw;\r\n      text-align: center;\r\n      background: #fff;\r\n      left: -0.5vw;\r\n      top: -0.5vw;\r\n      border-radius: 50%; }\r\n      .fly-weight .fly-show-countdown-top span:after, .fly-weight .fly-show-countdown-top span:before {\r\n        content: '';\r\n        position: absolute;\r\n        width: 80%;\r\n        left: 10%;\r\n        top: 50%;\r\n        border-top: 2px solid #e89e79;\r\n        -webkit-transform: rotate(45deg);\r\n        transform: rotate(45deg); }\r\n      .fly-weight .fly-show-countdown-top span:after {\r\n        -webkit-transform: rotate(-45deg);\r\n        transform: rotate(-45deg); }\r\n\r\n/*# sourceMappingURL=operator-center.css.map */", ""]);
+	exports.push([module.id, ".fly-weight {\r\n  display: -webkit-box;\r\n  -webkit-box-align: center;\r\n  -webkit-box-pack: center;\r\n  -webkit-box-orient: vertical; }\r\n  .fly-weight h1 {\r\n    height: 5vw; }\r\n  .fly-weight .fly-btns-C {\r\n    width: 50%;\r\n    position: absolute;\r\n    top: 0;\r\n    left: 4vw;\r\n    height: 5vw;\r\n    display: -webkit-box;\r\n    -webkit-box-align: center;\r\n    -webkit-box-pack: center;\r\n    -webkit-box-orient: horizontal; }\r\n    .fly-weight .fly-btns-C figure {\r\n      position: relative;\r\n      margin: 0 0.5vw; }\r\n      .fly-weight .fly-btns-C figure img, .fly-weight .fly-btns-C figure canvas {\r\n        border-radius: 50%; }\r\n      .fly-weight .fly-btns-C figure:first-of-type {\r\n        margin-left: 1vw; }\r\n  .fly-weight .shadow {\r\n    -webkit-transform: scale(0.95);\r\n    transform: scale(0.95); }\r\n    .fly-weight .shadow:before {\r\n      content: '';\r\n      position: absolute;\r\n      width: 100%;\r\n      height: 100%;\r\n      box-shadow: 0 0 2vw rgba(232, 158, 121, 0.4), 0 0 1vw rgba(232, 158, 121, 0.4) inset;\r\n      left: 0;\r\n      border-radius: 50%;\r\n      top: 0; }\r\n  .fly-weight .fly-operator-C {\r\n    position: relative;\r\n    border-radius: 2.5vw; }\r\n    .fly-weight .fly-operator-C .fly-countdown-C {\r\n      position: absolute;\r\n      left: 0;\r\n      top: 0;\r\n      width: 100%;\r\n      height: 100%; }\r\n      .fly-weight .fly-operator-C .fly-countdown-C:after, .fly-weight .fly-operator-C .fly-countdown-C:before {\r\n        content: '';\r\n        position: absolute;\r\n        width: 90%;\r\n        left: 5%;\r\n        border-top: 1px solid #fff;\r\n        top: 4vw; }\r\n      .fly-weight .fly-operator-C .fly-countdown-C:after {\r\n        bottom: 3vw;\r\n        top: auto; }\r\n    .fly-weight .fly-operator-C div.fly-img-board, .fly-weight .fly-operator-C div.fly-img-weight {\r\n      width: 98%; }\r\n    .fly-weight .fly-operator-C div.fly-img-weight .fly-weight-display {\r\n      position: absolute;\r\n      height: 4vw;\r\n      width: 98%;\r\n      bottom: 0.5vw;\r\n      left: 0;\r\n      box-sizing: border-box;\r\n      display: -webkit-box;\r\n      -webkit-box-align: center;\r\n      -webkit-box-pack: center;\r\n      -webkit-box-orient: horizontal; }\r\n      .fly-weight .fly-operator-C div.fly-img-weight .fly-weight-display div {\r\n        text-align: center; }\r\n        .fly-weight .fly-operator-C div.fly-img-weight .fly-weight-display div:nth-of-type(2) {\r\n          height: 4vw;\r\n          width: 11.5vw; }\r\n        .fly-weight .fly-operator-C div.fly-img-weight .fly-weight-display div:nth-of-type(1), .fly-weight .fly-operator-C div.fly-img-weight .fly-weight-display div:nth-of-type(3) {\r\n          position: relative;\r\n          border: 3px solid #df9977;\r\n          margin-top: 1vw;\r\n          border-radius: 50%;\r\n          line-height: 3vw;\r\n          color: #df9977;\r\n          width: 3vw;\r\n          height: 3vw; }\r\n          .fly-weight .fly-operator-C div.fly-img-weight .fly-weight-display div:nth-of-type(1) canvas, .fly-weight .fly-operator-C div.fly-img-weight .fly-weight-display div:nth-of-type(3) canvas {\r\n            position: absolute;\r\n            left: 0; }\r\n          .fly-weight .fly-operator-C div.fly-img-weight .fly-weight-display div:nth-of-type(1).shadow1, .fly-weight .fly-operator-C div.fly-img-weight .fly-weight-display div:nth-of-type(3).shadow1 {\r\n            -webkit-transform: scale(0.95);\r\n            transform: scale(0.95); }\r\n            .fly-weight .fly-operator-C div.fly-img-weight .fly-weight-display div:nth-of-type(1).shadow1:before, .fly-weight .fly-operator-C div.fly-img-weight .fly-weight-display div:nth-of-type(3).shadow1:before {\r\n              content: '';\r\n              position: absolute;\r\n              width: 100%;\r\n              height: 100%;\r\n              box-shadow: 0 0 2vw rgba(232, 158, 121, 0.4), 0 0 1vw rgba(232, 158, 121, 0.4) inset;\r\n              left: 0;\r\n              border-radius: 50%;\r\n              top: 0; }\r\n  .fly-weight .fly-show-countdown-top {\r\n    position: absolute;\r\n    top: 1vw;\r\n    left: 21vw;\r\n    border: 1px solid #fff;\r\n    width: 16.5vw; }\r\n    .fly-weight .fly-show-countdown-top canvas {\r\n      float: left; }\r\n    .fly-weight .fly-show-countdown-top span {\r\n      display: block;\r\n      position: absolute;\r\n      width: 1vw;\r\n      height: 1vw;\r\n      line-height: 1vw;\r\n      text-align: center;\r\n      background: #fff;\r\n      left: -0.5vw;\r\n      top: -0.5vw;\r\n      border-radius: 50%; }\r\n      .fly-weight .fly-show-countdown-top span:after, .fly-weight .fly-show-countdown-top span:before {\r\n        content: '';\r\n        position: absolute;\r\n        width: 80%;\r\n        left: 10%;\r\n        top: 50%;\r\n        border-top: 2px solid #e89e79;\r\n        -webkit-transform: rotate(45deg);\r\n        transform: rotate(45deg); }\r\n      .fly-weight .fly-show-countdown-top span:after {\r\n        -webkit-transform: rotate(-45deg);\r\n        transform: rotate(-45deg); }\r\n\r\n/*# sourceMappingURL=operator-center.css.map */", ""]);
 
 	// exports
 

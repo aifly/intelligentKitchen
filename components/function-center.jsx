@@ -64,7 +64,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 				}
 				this.state.activeCityData.forEach((item,k)=>{
 					if(item.pinyin === city.pinyin && item.cn_name === city.cn_name){
-						c.className = 'active';
+						c.className = item.className;
 					}
 				});
 				citys.push(c);
@@ -79,27 +79,35 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 	}
 
 	activeCity(e){//选中or取消选中城市
+		e.preventDefault();
 		let target = e.target,
 			classList = target.classList;
 		if(classList.contains('fly-city-item')){
-			if(classList.contains('active')){//已经选中了，去掉选中
-				//let index =this.index(e.target,null,'.fly-city-item');
-				this.state.activeCityData.forEach(( item , i )=>{
-					if(target.innerHTML === item.cn_name && target.getAttribute('data-spell') === item.pinyin){
-						this.state.activeCityData.splice(i,1);
-					}
-				});
-			}
-			else{
+			var json = {};
+			this.state.activeCityData.forEach((item,i) =>{
+				if(target.innerHTML === item.cn_name && target.getAttribute('data-spell') === item.pinyin){
+					json.pinyin = item.pinyin;
+					json.iNow = i;
+					json.cn_name = item.cn_name;
+				}
+			});
+
+			if(json.pinyin){
+				this.state.activeCityData.splice(json.iNow,1);
+			}else{
+
 				this.state.activeCityData.push({
 					pinyin:target.getAttribute('data-spell'),
 					className:'active',
 					cn_name:target.innerHTML
-				})
+				});
 			}
+
 			this.renderScroll();
 			this.forceUpdate();
 		}
+
+		return 0;
 
 	}
 
@@ -134,7 +142,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 				<div style={{position:'absolute',width:'100%',height:'100%',zIndex:(!this.state.isShow || this.state.isEnableDrag)?1000:-1}}></div>
 				<div className="fly-cook-book-item-C" ref='fly-cook-book-item-C' style={{opacity:this.state.isShow?1:0,WebkitTransition:'opacity 1s'}}> 
 					<div className={"fly-weather  fly-food-item fly-top"+(this.state.currentPannel[0])} ref='weather'>
-						<span className='tag'>时间 / 天气</span>
+						<span className='tag'>时间 / 天气<canvas width='73' height='300'></canvas></span>
 						<article style={{borderRadius:30,position:'absolute',left:0,top:0,width:'100%',height:'100%',overflow:'hidden'}}>
 							<section>
 							<ol className="fly-weather-C">
@@ -174,14 +182,14 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 										})}
 									</ul>
 								</div>
-								<div className="fly-add" onTouchTap={this.showCityList}>+</div>
+								<div className="fly-add" onTouchStart={this.showCityList}>+</div>
 							</div>
 						</section>	
 						<section className='fly-hotcity-list' ref='fly-hotcity-list'>
 							<h1 className='fly-hotcity-title'>
 								<FlyBack callBack={this.back}></FlyBack>
 								<span>热门城市</span>
-								<span onTouchTap={this.back}>确定</span>
+								<span onTouchStart={this.back}>确定</span>
 							</h1>
 							<div className='fly-hotcity-C'>
 								<div className='fly-hotcity-scroll' ref='fly-hotcity-scroll'>
@@ -274,11 +282,11 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 						</article>
 					</div>
 					<div className={"fly-rec-food fly-food-item fly-top" + this.state.currentPannel[1]} ref='rec-food'>
-						<span className='tag'>推荐食材</span>
+						<span className='tag'>推荐食材<canvas width='73' height='250'></canvas></span>
 						<FlyFoodList {...recProps} {...this.props}></FlyFoodList>
 					</div>
 					<div className={"fly-rec-menu fly-food-item fly-top"+this.state.currentPannel[2]} ref='rec-menu'>
-						<span className='tag'>推荐菜谱</span>
+						<span className='tag'>推荐菜谱<canvas width='73' height='250'></canvas></span>
 						<FlyFoodList {...recMenuProps}  {...this.props}></FlyFoodList>
 					</div>	
 				</div>
@@ -343,7 +351,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 		 		scrollY: false
 			});
 			let cityScroll = new IScroll(this.refs['fly-hotcity-scroll']);
-		},1);
+		},1000);
 
 	}
 

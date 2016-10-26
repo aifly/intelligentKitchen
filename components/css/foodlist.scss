@@ -181,7 +181,12 @@ $foodlist-height:1.9 * 10vw;
     }
     
     li{
-  
+      canvas{
+        @include pos(a);
+        left: 0;
+        top:0;
+        z-index: 10;
+      }
       width:.675 * 10vw;
       float: left;
       height:.9 * 10vw;

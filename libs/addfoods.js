@@ -3,7 +3,7 @@ var addFoods = [
     foodMtype:0,//
 		name:"牛奶燕麦粥",//食谱名
 		imgSrc:"./assets/images/f3.png",//食谱图片
-		id:'',//id
+		id:'10000',//id
 		//detailSrc:'./assets/images/food1.png', //最右侧的图片，如果是视频，这个字段没用
 		pageView:333,//浏览
 		discuss:124,//讨论
@@ -51,7 +51,7 @@ var addFoods = [
     foodMtype:0,//
     name:"葡萄汁",
     imgSrc:"./assets/images/f7.png",
-    id:'',
+    id:'10001',
     detailSrc:'./assets/images/food6.png',
     pageView:12,
     discuss:224,//讨论
@@ -87,7 +87,7 @@ var addFoods = [
     foodMtype:0,//
 		name:"牛奶燕麦粥",
 		imgSrc:"./assets/images/f4.png",
-		id:'',
+		id:'10002',
 		detailSrc:'./assets/images/food1.png',
 		pageView:22,
 		discuss:224,//讨论
@@ -127,7 +127,7 @@ var addFoods = [
     foodMtype:0,//
 		name:"三明治",
 		imgSrc:"./assets/images/f2.png",
-		id:'',
+		id:'10003',
 		detailSrc:'./assets/images/food2.png',
 		pageView:283,
 		discuss:124,//讨论

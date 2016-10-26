@@ -26,6 +26,10 @@
   font-size: 0.8vw;
   top: 1vw;
   border-radius: 14px; }
+  .fly-cook-book-item-C span.tag canvas {
+    position: absolute;
+    right: 0;
+    top: 0; }
 
 .book-list-C {
   width: 88%;
@@ -182,6 +186,10 @@
             height: 9vw;
             position: relative;
             box-sizing: border-box; }
+            .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll ul li canvas {
+              position: absolute;
+              left: 0;
+              top: 0; }
             .book-list-C .booklist-right-C .bl-food-list .bl-food-scroll ul li div {
               background-size: cover !important;
               position: absolute;

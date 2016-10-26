@@ -197,6 +197,10 @@
     right: -1.2vw;
     left: auto;
     font-size: 0.8vw; }
+  .fly-cook-steps-C .fly-prev canvas, .fly-cook-steps-C .fly-next canvas {
+    position: absolute;
+    left: 0;
+    top: 0; }
   .fly-cook-steps-C .fly-prev:before {
     content: '<';
     position: absolute;

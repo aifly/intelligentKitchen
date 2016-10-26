@@ -26,7 +26,8 @@ import $ from 'jquery';
 			currentPannel:1,
 			isShow:false,
 			currentDate:GetDateStr(0),
-			isEnableDrag:false
+			isEnableDrag:false,
+			currentFoodId:-1
 		}
 		this.next = this.next.bind(this);
 		this.getFoodById = this.getFoodById.bind(this);
@@ -73,7 +74,7 @@ import $ from 'jquery';
 					<div style={{position:'relative',opacity:this.state.isShow?1:0,WebkitTransition:'opacity 1s'}}>
 						<div className="fly-cook-book-item-C">
 							<article className={"book-list-C add-collect "+(this.state.currentPannel?'active':'') } >
-								<span onTouchStart={this.change} className='tag'>已加入菜谱</span>
+								<span onTouchStart={this.change} className='tag'>已加入菜谱<canvas width='73' height='280'></canvas></span>
 								<aside className='booklist-left-C' onTouchStart={this.changeTimeSlot}>
 									<div className={this.state.currentTimeSlot===0?'active':''}>早餐</div>
 									<div className={this.state.currentTimeSlot===1?'active':''}>中餐</div>
@@ -127,7 +128,8 @@ import $ from 'jquery';
 												{this.state.addFoods[this.state.currentTimeSlot].map((item,i)=>{
 													return (
 														<li key={i} onTouchStart={this.getFoodById}>
-															<div data-index={i} style={{background:' url('+item.imgSrc+') no-repeat center top'}}>
+															<div data-index={i} style={{background:' url('+item.imgSrc+') no-repeat center top'}} className={this.state.currentFoodId === item.id ? 'active':''}>
+																<canvas width='270' height='330'></canvas>
 																<span>{item.name}</span>
 																{item.type === 'video' && <img className='fly-play-ico' src='./assets/images/play.png'/>}
 															</div>	
@@ -394,7 +396,7 @@ import $ from 'jquery';
 	}
 
 	getFoodById(e,obj){
-
+		let {obserable} = this.props;
 		let target = '';
 		if(e){
 			switch(e.target.nodeName){
@@ -402,7 +404,7 @@ import $ from 'jquery';
 					target = e.target;
 				break;
 				case "SPAN":
-				case "IMG":
+				case "CANVAS":
 					target = e.target.parentNode;
 				break;
 			};
@@ -414,13 +416,6 @@ import $ from 'jquery';
 			return;
 		}
 
-		Array.from(this.refs['foods-C'].querySelectorAll('li div')).forEach((item,i)=>{
-			item.classList.remove('active');
-		});
-		target.classList.add('active');
-		
-		let {obserable} = this.props;
-
 		var index = target.getAttribute('data-index');
 
 
@@ -428,22 +423,29 @@ import $ from 'jquery';
 
 		switch(targetData.type){
 			case "image":
-
+				var food =this.state.addFoods[this.state.currentTimeSlot][index];
 				obserable.trigger({
 					type:'fillFood',
-					data:this.state.addFoods[this.state.currentTimeSlot][index]
+					data:food
+				});
+
+				this.setState({
+					currentFoodId:food.id
 				});
 				
 			break;
 			case "video":
-			
+				var food =this.state.addFoods[this.state.currentTimeSlot][index];
 				obserable.trigger({
 					type:'fillFoodByVideo',
-					data:this.state.addFoods[this.state.currentTimeSlot][index]
+					data:food
+				});
+
+				this.setState({
+					currentFoodId:food.id
 				});
 
 				setTimeout(()=>{
-
 					obserable.trigger({
 						type:'getVideo'
 					}).play();

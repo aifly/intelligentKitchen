@@ -18,6 +18,7 @@ import $ from 'jquery';
 			ulWidth:500,
 			currentIndex:-1,//当前选中的菜谱
 			currentTimeSlot:0,//当前时间段　0:早餐,1:中餐,2:晚餐。如果type为推荐食材或推荐食谱的时候，currentTimeSlot=-1;
+			currentFoodId:-1,
 		};
 		this.next = this.next.bind(this);
 		this.changeTimeSlot = this.changeTimeSlot.bind(this);
@@ -62,7 +63,9 @@ import $ from 'jquery';
 								{this.state.dataSource[this.state.currentTimeSlot].length&&this.state.dataSource[this.state.currentTimeSlot].map((data,i)=>{
 									return (
 										<li  key={i} className={i<=Math.floor(this.state.dataSource[this.state.currentTimeSlot].length/2)?'':'food-top'}>
-											<div data-index={i}  style={{background:'url('+'\''+data.imgSrc+'\''+') no-repeat center bottom',backgroundSize:'cover'}} className={i===this.state.currentIndex ? 'active':''}>
+											
+											<div data-index={i}  style={{background:'url('+'\''+data.imgSrc+'\''+') no-repeat center bottom',backgroundSize:'cover'}} className={data.id===this.state.currentFoodId ? 'active':''}>
+												<canvas width='270' height='330'></canvas>
 												<span>{data.name}</span>
 												{data.type === 'video' && <img className='fly-play-ico' src='./assets/images/play.png'/>}
 											</div>
@@ -202,7 +205,7 @@ import $ from 'jquery';
 			target = e.target.parentNode;
 			break;
 			case "SPAN":
-			case "IMG":
+			case "CANVAS":
 			target = e.target.parentNode.parentNode;
 			break;
 		};
@@ -214,40 +217,32 @@ import $ from 'jquery';
 
 		let {obserable,index} = this.props;
 
-		let cIndex = index(target,null,'li');
-
-		this.setState({
-			currentIndex:cIndex
-		})
-
-
-
-/*
-		Array.from(this.refs['foods-C'].querySelectorAll('li div')).forEach((item,i)=>{
-			item.classList.remove('active');
-		});
-		target.classList.add('active');*/
-		
-
 		var iNow = target.querySelector('div').getAttribute('data-index');
 
 		let targetData =  this.state.dataSource[this.state.currentTimeSlot][iNow];
 
-
-
 		switch(targetData.type){
 			case "image":
+				var food =this.state.dataSource[this.state.currentTimeSlot][iNow];
 				obserable.trigger({
 					type:'fillFood',
-					data:this.state.dataSource[this.state.currentTimeSlot][iNow]
+					data: food
 				});
 				
+				this.setState({
+					currentFoodId:food.id
+				});
+
+				
 			break;
-			case "video":
-			
+			case "video": 
+				var food = this.state.dataSource[this.state.currentTimeSlot][iNow];
 				obserable.trigger({
 					type:'fillFoodByVideo',
-					data:this.state.dataSource[this.state.currentTimeSlot][iNow]
+					data:food
+				});
+				this.setState({
+					currentFoodId:food.id
 				});
 				obserable.trigger({type:'updateStep',data:0});
 			break;

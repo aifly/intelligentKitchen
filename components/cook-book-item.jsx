@@ -101,7 +101,7 @@ import FlyVideo from './video.jsx';
 						</section>}
 
 						 <div className='fly-cook-steps-C' ref='fly-cook-steps-C' style={{display:steps.length && this.state.currentStep>-1 ? 'block':'none'}}>
-							<aside className='fly-prev' onTouchTap={this.prev} style={{display:this.state.currentStep <=0 ? 'none':'block'}}></aside>					
+							<aside className='fly-prev' onTouchTap={this.prev} style={{display:this.state.currentStep <=0 ? 'none':'block'}}><canvas width='115' height='115'></canvas></aside>					
 							<div className='fly-history'>
 								<FlyBack callBack={()=>{}}></FlyBack>
 							</div>
@@ -115,7 +115,7 @@ import FlyVideo from './video.jsx';
 									})}							
 								</ul>
 							</div>
-							<aside className='fly-next' onTouchTap={this.next}>{this.state.currentStep >= this.state.steps.length-1?'完成':'下一步'}</aside>
+							<aside className='fly-next' onTouchTap={this.next}>{this.state.currentStep >= this.state.steps.length-1?'完成':'下一步'}<canvas width='115' height='115'></canvas></aside>
 							<div className='fly-close' onTouchTap={this.closeStep}>
 								
 							</div>
@@ -131,7 +131,7 @@ import FlyVideo from './video.jsx';
 	}
 
 	prev(e){
-		e && this.props.shadow(e.target);
+		e && this.props.shadow(e.target.parentNode);
 
 		let {obserable} = this.props;
 		if(this.state.currentStep <=0){
@@ -154,7 +154,7 @@ import FlyVideo from './video.jsx';
 		if(!this.state.steps[this.state.currentStep].timeError){
 			obserable.trigger({type:'showTimespan',data:((new Date().getTime() - this.startTime) / 1000|0 + 1)/ 60|0 + 1});
 		}
-		e && this.props.shadow(e.target);
+		e && this.props.shadow(e.target.parentNode);
 		if(this.state.currentStep >=this.state.steps.length-1){
 
 			//this.state.stepTimeSpan.push(new Date().getTime() - this.startTime);//	
@@ -275,7 +275,7 @@ import FlyVideo from './video.jsx';
 				
 				this.scroll = this.scroll || new IScroll(this.refs['material-scroll']);
 				this.scroll && this.scroll.refresh();//重新刷新滚动条。
-				let scrollC = this.refs['steps-C'];
+			/*	let scrollC = this.refs['steps-C'];
 				$(scrollC).on('touchstart',(e)=>{
 
 					var e = e.originalEvent ? e.originalEvent.changedTouches[0]:e.changedTarget[0];
@@ -346,7 +346,7 @@ import FlyVideo from './video.jsx';
 
 						$(document).off('touchmove touchend');
 					});
-				});
+				});*/
 
 			});
 		});
