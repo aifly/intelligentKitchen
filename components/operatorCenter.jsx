@@ -63,7 +63,7 @@ import Ico from '../libs/ico';
 							<div style={{opacity:this.state.showWeight ? 1:0}} className='fly-img-weight'>
 								<img src='./assets/images/weight.png'/>
 								<div className='fly-weight-display'>
-								<div onTouchStart={this.netWeight} className={this.state.netWeightShadow ? 'shadow1':''}>去皮<canvas width='116' height='116'></canvas></div>
+								<div onTouchEnd={this.netWeight} className={this.state.netWeightShadow ? 'shadow1':''}>去皮<canvas width='116' height='116'></canvas></div>
 									<div className='weight'><canvas ref='weight'></canvas></div>
 									<div onTouchStart={this.getWeight} className={this.state.weightShadow ? 'shadow1':''}>确定<canvas width='116' height='116'></canvas></div>
 								</div>
@@ -303,7 +303,7 @@ import Ico from '../libs/ico';
 					}
 				}
 			});
-			},2000);
+			},4000);
 		}	
 	}
 

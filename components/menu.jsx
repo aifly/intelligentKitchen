@@ -97,10 +97,10 @@ injectTapEventPlugin();
 		return (
 			<nav className={'fly-nav '+ (this.state.isShow?'':'active')} ref='fly-menu'>
 				<div style={{overflowY:' hidden',overflowX:' auto',height:'11.5vh'}}>
-					<ul ref='fly-menu-C' className={this.state.isShow?'show':''} onTouchStart={this.menuChange}>
+					<ul ref='fly-menu-C' onTouchStart={this.menuChange}>
 						{renderArr}
 					</ul>
-					<ul ref='fly-menu-C1' className={this.state.isShow?'show':''}  onTouchStart={this.operatorChange}>
+					<ul ref='fly-menu-C1' onTouchStart={this.operatorChange}>
 						{operatorArr}
 					</ul>
 				</div>

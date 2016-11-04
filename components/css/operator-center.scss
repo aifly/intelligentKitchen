@@ -212,9 +212,13 @@ $maxIndex:9999;
           }
           &:nth-of-type(1),&:nth-of-type(3){
             @include pos(r);
+            left:-1vw;
             canvas{
               @include pos(a);
               left: 0;
+            }
+            &:nth-of-type(3){
+              left:1vw;
             }
 
             &.shadow1{

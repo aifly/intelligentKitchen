@@ -166,7 +166,9 @@ $nav-height:11.76vh;
     &.active{
       z-index: $maxIndex + 1;
       @include transform(translate3d(0,0,0));
+
     }
+
   }
 
   .fly-nav{
@@ -180,16 +182,20 @@ $nav-height:11.76vh;
     @include transitionTimingFunction();
     &.active{
       @include transform(translate3d(0,-86%,0));
+      ul{
+          opacity:0;
+          @include transform(translate3d(0,20px,0));
+      }
     }
     ul{
       
        &.show{
           opacity:1;
-          @include transform(translate3d(0,0,0));
+          
        }
        @include transitionTimingFunction();
-       @include transform(translate3d(0,20px,0));
-       opacity:0;
+        @include transform(translate3d(0,0,0));
+       opacity:1;
        @include transition(.4s);
        float: left;
        @include displayBox(horizontal);
