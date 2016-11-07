@@ -225,7 +225,7 @@ import Ico from '../libs/ico';
 							//weight
 							
 						}
-						console.log(data)
+					//	console.log(data)
 					}
 				});
 			},100);
@@ -265,7 +265,7 @@ import Ico from '../libs/ico';
 					s.initCanvas(canvas,0);
 				},
 				success(data){
-					console.log(data);
+				//	console.log(data);
 					clearInterval(s.t);
 					if(data.getret === 1){
 						let weight= data.foodweight*1|0; 
@@ -295,6 +295,7 @@ import Ico from '../libs/ico';
 							type:"updateCurrentMaterialsId",
 							data:data.Materiaid*1 //服务器返回的识别到的食材的ID。
 						});
+						//console.log(data.Materiaid)
 						weight > 9999 && (weight = 9999);
 						s.initCanvas(canvas,weight);
 					}
@@ -316,12 +317,13 @@ import Ico from '../libs/ico';
 			number % 10 | 0//个位
 		];
 
-		this.weight  = this.weight || new Time({
+		this.weights  = this.weights || new Time({
 			canvas:canvas,
 			obserable:this.props.obserable,
 			isTime:false
 		});
-		this.weight.initWeight(numberArr,null,bgColor);
+
+		this.weights.initWeight(numberArr,null,bgColor);
 
 	}
 
@@ -336,9 +338,6 @@ import Ico from '../libs/ico';
 			number % 10 | 0//个位
 		];
 		this.draw(numberArr[0],context,2);
-
-
-		
 	}
 
 	showWeight(e){

@@ -126,7 +126,7 @@ import { PublicShadow } from './public-shadow.jsx';
 					<ul ref='fly-m-scroll' onTouchTap={this.checkMaterial} style={{width:this.state.alimentatonData.materials.length*this.state.liWidth}}>
 						{this.state.alimentatonData.materials.map((item,i)=>{
 							return (
-								<li  className={item.id*1 === this.state.currentMaterialId*1 ? 'active':''} key={i}>{item.name}</li>
+								<li data-id={item.id}  className={item.id*1 === this.state.currentMaterialId*1 ? 'active':''} key={i}>{item.name}</li>
 							);
 						})}
 					</ul>
@@ -200,12 +200,12 @@ import { PublicShadow } from './public-shadow.jsx';
 
 	checkMaterial(e){
 		this.props.shadow(e.target);
-		
-
-		Array.from(this.refs['fly-m-scroll'].querySelectorAll('li')).forEach((item)=>{
-			item.classList.remove('active');
-		});
-		e.target.classList.add('active');
+		var id = e.target.getAttribute('data-id');
+		if(id){
+			this.setState({
+				currentMaterialId:id
+			});	
+		}
 	}
 
 	setSize(){
@@ -358,6 +358,7 @@ import { PublicShadow } from './public-shadow.jsx';
 
 			obserable.on('fillMaterialsData',(data)=>{
 				this.state.alimentatonData.materials = data.materials;
+				this.state.currentMaterialId =data.materials[0].id;
 				//this.state.alimentatonData.currentFoodData = [];
 				this.forceUpdate();
 

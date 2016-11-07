@@ -56,7 +56,7 @@ var addFoods = [
     pageView:12,
     discuss:224,//讨论
     foodMaterial:[
-      {name:'葡萄',weight:'300',id:1},
+      {name:'葡萄',weight:'300',id:1007},
       {name:'糖',weight:'100g',id:2}
     ],
     type:'image',
@@ -92,8 +92,8 @@ var addFoods = [
 		pageView:22,
 		discuss:224,//讨论
 		foodMaterial:[
-	    {name:'牛奶',weight:'250',id:1},
-      {name:'燕麦',weight:'50g',id:2}
+	    {name:'牛奶',weight:'250',id:1011},
+      {name:'燕麦',weight:'50g',id:1012}
 		],
     type:'image',
 		steps:[
