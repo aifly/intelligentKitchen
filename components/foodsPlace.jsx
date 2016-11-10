@@ -87,6 +87,8 @@ export default class FlyFoodsPlace extends Component {
 	removePlat(e){//移除盘子
 		var target= e.target;
 		target.classList.add('delete');
+		--this.plateNum;
+		this.plateNum<=0 &&(this.plateNum=0);
 		
 	}
 	getDis(x1,y1,x2,y2){
@@ -95,7 +97,11 @@ export default class FlyFoodsPlace extends Component {
 	}
 
 	dragPlate(target,gridsPos,flag=true){
+
+
 		target.addEventListener('touchstart', e=>{
+
+		
 			var e = e.changedTouches[0];
 
 			 var disX = e.pageX - target.offsetLeft ,
@@ -106,7 +112,10 @@ export default class FlyFoodsPlace extends Component {
 				top:this.state.plateDemoStyle.top,
 				className:target.classList.contains('fly-plate-sm')?'sm':''
 			});
+			;
+			++this.plateNum;
 			this.forceUpdate();
+
  
 			$(document).on('touchmove',e=>{
 				var e =	e.originalEvent.changedTouches[0];
@@ -122,35 +131,80 @@ export default class FlyFoodsPlace extends Component {
 			}).on('touchend',e=>{
 				var e =	e.originalEvent.changedTouches[0];
 				$(document).off('touchend touchmove');
-			/*	if(e.pageX - disX + target.offsetWidth >= this.refs['fly-plate-C'].offsetWidth){
-					this.state.plates.pop();
-					this.forceUpdate();
+				/*if(e.pageX - disX + target.offsetWidth >= this.refs['fly-plate-C'].offsetWidth){
+					--this.plateNum;
+					this.plateNum<=0 &&(this.plateNum=0);
 				}
 				else{
 					
 				}*/
 
+
+				if(this.plateNum>9){
+					this.state.plates.pop();
+					this.forceUpdate();
+					--this.plateNum;
+					return
+				}
 				if(flag){
 
-					let minDis = this.getDis(e.pageX-this.refs['fly-plate-C'].offsetLeft,e.pageY-this.refs['fly-plate-C'].offsetTop,gridsPos[0].x,gridsPos[0].y),
-								cIndex  = 0;
+					if(this.worker&&false){
 
-					gridsPos.forEach((grid,i)=>{
-						if(i>0){
-							
-							let currentDis = this.getDis(e.pageX-this.refs['fly-plate-C'].offsetLeft,e.pageY-this.refs['fly-plate-C'].offsetTop,grid.x,grid.y);
-							
-							if(minDis > currentDis){
-								minDis = currentDis;
-								cIndex = i;
+							this.worker.postMessage({x1:e.pageX-this.refs['fly-plate-C'].offsetLeft,y1:e.pageY-this.refs['fly-plate-C'].offsetTop,x2:gridsPos[0].x,y2:gridsPos[0].y});
+							this.worker.onmessage = (e)=>{
+								var  minDis = e.data;
+								var cIndex  = 0;
+								
+								gridsPos.forEach((grid,i)=>{
+									if(i>0){
+										var work = new Worker('../libs/worker.js');
+
+										work.postMessage({x1:e.pageX-this.refs['fly-plate-C'].offsetLeft,y1:e.pageY-this.refs['fly-plate-C'].offsetTop,x2:grid.x,y2:grid.y});
+										work.onmessage = e =>{
+												var currentDis = e.data;	
+												if(minDis > currentDis){
+													minDis = currentDis;
+													cIndex = i;
+												}
+										}
+										//let currentDis = this.getDis(e.pageX-this.refs['fly-plate-C'].offsetLeft,e.pageY-this.refs['fly-plate-C'].offsetTop,grid.x,grid.y);
+									}
+								});
+								this.state.plates[this.state.plates.length-1].left = gridsPos[cIndex].x - gridsPos[cIndex].halfW;
+								this.state.plates[this.state.plates.length-1].top = gridsPos[cIndex].y - gridsPos[cIndex].halfH*10/7;
+								this.forceUpdate();
 							}
 
-						}
-					});
+					
+						//	let minDis = this.getDis(e.pageX-this.refs['fly-plate-C'].offsetLeft,e.pageY-this.refs['fly-plate-C'].offsetTop,gridsPos[0].x,gridsPos[0].y),
+								
+					}
+					else{
 
-					this.state.plates[this.state.plates.length-1].left = gridsPos[cIndex].x - gridsPos[cIndex].halfW;
-					this.state.plates[this.state.plates.length-1].top = gridsPos[cIndex].y - gridsPos[cIndex].halfH*10/7;
-					this.forceUpdate();
+							let minDis = this.getDis(e.pageX-this.refs['fly-plate-C'].offsetLeft,e.pageY-this.refs['fly-plate-C'].offsetTop,gridsPos[0].x,gridsPos[0].y);
+								var cIndex  = 0;
+
+								gridsPos.forEach((grid,i)=>{
+									if(i>0){
+										
+										let currentDis = this.getDis(e.pageX-this.refs['fly-plate-C'].offsetLeft,e.pageY-this.refs['fly-plate-C'].offsetTop,grid.x,grid.y);
+										
+										if(minDis > currentDis){
+											minDis = currentDis;
+											cIndex = i;
+										}
+
+									}
+								});
+
+						this.state.plates[this.state.plates.length-1].left = gridsPos[cIndex].x - gridsPos[cIndex].halfW;
+						this.state.plates[this.state.plates.length-1].top = gridsPos[cIndex].y - gridsPos[cIndex].halfH*10/7;
+						this.forceUpdate();
+					}
+
+					
+
+				
 				}
 			});
 			 
@@ -158,10 +212,14 @@ export default class FlyFoodsPlace extends Component {
 	}
 
 	componentDidMount() {
-
+		this.plateNum = 0;
 		let data = {
 			viewHeight : document.documentElement.clientHeight,
 			viewWidth  : document.documentElement.clientWidth
+		}
+		if(typeof Worker === 'function'){
+			this.worker = new Worker('../libs/worker.js');
+			
 		}
 		 let {obserable} = this.props;
 		 obserable.on('clearPlates',()=>{
@@ -256,6 +314,7 @@ export default class FlyFoodsPlace extends Component {
 							}
 						}
 					});
+
 					this.state.plates[index].left = gridsPos[cIndex].x - gridsPos[cIndex].halfW;
 					this.state.plates[index].top = gridsPos[cIndex].y - gridsPos[cIndex].halfH*10/7;
 					this.forceUpdate();

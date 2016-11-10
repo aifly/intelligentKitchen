@@ -147,7 +147,7 @@ import { PublicShadow } from './public-shadow.jsx';
 		
 
 
-		data = data.concat(data);
+//		data = data.concat(data);
 
 
 
@@ -163,12 +163,14 @@ import { PublicShadow } from './public-shadow.jsx';
 			}
 		});
 
+	
+
 		if(allWeight<=0){
 			return;
 		}
 
 		result.forEach(r=>{
-			r.scale = r.weight / allWeight;
+			r.scale = (r.weight / allWeight).toFixed(2);
 		});
 
 
@@ -199,12 +201,17 @@ import { PublicShadow } from './public-shadow.jsx';
 
 
 	checkMaterial(e){
+		let {obserable} = this.props;
 		this.props.shadow(e.target);
 		var id = e.target.getAttribute('data-id');
 		if(id){
 			this.setState({
 				currentMaterialId:id
-			});	
+			});
+			obserable.trigger({
+				type:'getEndWeight',
+				data:id
+			})
 		}
 	}
 

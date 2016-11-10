@@ -142,6 +142,10 @@ import Ico from '../libs/ico';
 			this.setState({showCanvas:flag});
 		});
 
+		obserable.on('getEndWeight',(data)=>{
+			 this.getWeight(null,data);
+		})
+
 /*
 		setTimeout(()=>{//测试称重返回结果重新计算
 
@@ -225,15 +229,16 @@ import Ico from '../libs/ico';
 							//weight
 							
 						}
-					//	console.log(data)
+						//console.log(data)
 					}
 				});
 			},100);
 			
 		}	
 	}
-	getWeight(e){
+	getWeight(e,id){
 		//开始称重。
+		
 		let {obserable,URL,r} = this.props;
 		if(this.state.isShow){
 			
@@ -259,13 +264,16 @@ import Ico from '../libs/ico';
 			this.weightTimer =  setTimeout(()=>{
 				$.ajax({
 				type:'POST',
+				data:{
+					materiaid:id
+				},
 				url:URL.weightend,
 				error(e){
 					clearInterval(s.t);
 					s.initCanvas(canvas,0);
 				},
 				success(data){
-				//	console.log(data);
+					//console.log(data);
 					clearInterval(s.t);
 					if(data.getret === 1){
 						let weight= data.foodweight*1|0; 
@@ -289,8 +297,8 @@ import Ico from '../libs/ico';
 								hasMaterialsId = true;
 							}
 						});
-
-						!hasMaterialsId && s.state.weightData.push(data.scaleData); 
+						//data.Materiaid!==0 ||id 表示识别成功，或者点击了左侧食材的列表 
+						(data.Materiaid*1!==0 ||id) && !hasMaterialsId && s.state.weightData.push(data.scaleData); 
 						obserable.trigger({
 							type:"updateCurrentMaterialsId",
 							data:data.Materiaid*1 //服务器返回的识别到的食材的ID。
