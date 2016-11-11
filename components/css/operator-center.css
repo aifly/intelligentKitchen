@@ -71,16 +71,18 @@
         .fly-weight .fly-operator-C div.fly-img-weight .fly-weight-display div:nth-of-type(2) {
           height: 4vw;
           width: 11.5vw; }
+          .fly-weight .fly-operator-C div.fly-img-weight .fly-weight-display div:nth-of-type(2) canvas {
+            margin-top: .5vw; }
         .fly-weight .fly-operator-C div.fly-img-weight .fly-weight-display div:nth-of-type(1), .fly-weight .fly-operator-C div.fly-img-weight .fly-weight-display div:nth-of-type(3) {
           position: relative;
           left: -1vw;
           border: 3px solid #df9977;
-          margin-top: 1vw;
+          margin-top: 1.5vw;
           border-radius: 50%;
-          line-height: 3vw;
+          line-height: 2.5vw;
           color: #df9977;
-          width: 3vw;
-          height: 3vw; }
+          width: 2.5vw;
+          height: 2.5vw; }
           .fly-weight .fly-operator-C div.fly-img-weight .fly-weight-display div:nth-of-type(1) canvas, .fly-weight .fly-operator-C div.fly-img-weight .fly-weight-display div:nth-of-type(3) canvas {
             position: absolute;
             left: 0; }
@@ -103,7 +105,8 @@
     top: 1vw;
     left: 21vw;
     border: 1px solid #fff;
-    width: 16.5vw; }
+    width: 16.5vw;
+    z-index: 1000; }
     .fly-weight .fly-show-countdown-top canvas {
       float: left; }
     .fly-weight .fly-show-countdown-top span {

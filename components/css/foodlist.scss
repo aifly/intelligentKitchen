@@ -131,7 +131,9 @@ $foodlist-height:1.9 * 10vw;
   section{
     @include displayBox(horizontal);  
     ol{
-      width: $width;
+      width: $width/1.2;
+      padding-right:30px;
+      margin-left: -30px;
       li{
         margin:0 auto;
         text-align: center;
@@ -140,6 +142,9 @@ $foodlist-height:1.9 * 10vw;
         width: $size;
         @include br(50%);
         line-height: $size;
+        &:nth-of-type(2){
+          margin: 10px auto;
+        }
         border:3px solid #fff;
         &.active{
           border-color:$baseColor1;

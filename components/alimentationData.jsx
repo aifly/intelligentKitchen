@@ -317,7 +317,7 @@ import { PublicShadow } from './public-shadow.jsx';
 			});
 			textArr[index-1<0?7:index-1].color ='#fff';
 			textArr[index-1<0?7:index-1].font ="38px 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif";
-			textArr[index].font ="46px 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif";
+			textArr[index].font ="38px 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif";
 			textArr[index].color='#f90';
 		}
 
@@ -444,7 +444,7 @@ import { PublicShadow } from './public-shadow.jsx';
 						});
 
 					textArr[index].color="#f90";
-					textArr[index].font="46px 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif";			
+					textArr[index].font="38px 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif";			
 				}
 				else{
 					iNow++;
@@ -453,7 +453,7 @@ import { PublicShadow } from './public-shadow.jsx';
 					.to({scaleX:flag?1:1.4,scaleY:flag?1:1.4},500, createjs.Ease.elasticOut).call(()=>{
 					});
 					textArr[index].color=flag?"#fff":"#f90";
-					textArr[index].font=flag?"38px 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif":"46px 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif";	
+					textArr[index].font=flag?"38px 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif":"38px 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif";	
 				}
 
 				last = index;
@@ -513,6 +513,7 @@ import { PublicShadow } from './public-shadow.jsx';
 					switch(index){
 							case 0:
 							case 7:
+								text.y+=40;
 								if(index){
 									text.x -= 70;
 								}

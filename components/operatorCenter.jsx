@@ -13,16 +13,18 @@ import Ico from '../libs/ico';
 
 		this.state = {
 			showBoard:false,
-			showWeight:false,
-			isShow:false,
+			showWeight:true,
+			isShow:true,
 			showCanvas:false,
 			showCountdown:false,
 			netWeightShadow:0,
 			weightShadow:0,
 			weightIcoShadow:0,
 			broadIcoShadow:0,
+			showCloseCountdownIco:false,
 			timeInfoIcoShadow:0,
 			weightData:[] //称重后的数据。
+
 		}
 		this.showWeight = this.showWeight.bind(this);
 		this.showBoard = this.showBoard.bind(this);
@@ -52,8 +54,8 @@ import Ico from '../libs/ico';
 					</div>
 					<div className='fly-show-countdown-top' style={{display:this.state.showCanvas?'block':'none'}}>
 						<canvas ref='clock-ico'></canvas>						
-						<span className='fly-close-countdown' onTouchTap={this.hideCanvas}></span>
-						<canvas ref='canvas'></canvas>
+						<span className='fly-close-countdown' style={{display:this.state.showCloseCountdownIco?'block':'none'}} onTouchTap={this.hideCanvas}></span>
+						<canvas ref='canvas' onTouchStart={this.beginTouchCountDown.bind(this)} onTouchEnd={this.endTouchCountDown.bind(this)}></canvas>
 					</div>
 					<div className='fly-operator-C' >
 						<div className='operator-C'  ref='fly-operator-C'>
@@ -84,9 +86,18 @@ import Ico from '../libs/ico';
 		});
 	}
 
+	beginTouchCountDown(){
+			this.timer && clearTimeout(this.timer);
+			this.timer = setTimeout(()=>{
+					this.setState({
+						showCloseCountdownIco:true
+					})
+			},2000);
+	}
 
-	 
-
+	endTouchCountDown(){
+			this.timer && clearTimeout(this.timer);
+	}
 	showCountdown(e){
 
 		//this.props.shadow(e.target.parentNode);
@@ -108,8 +119,8 @@ import Ico from '../libs/ico';
 	componentDidMount(){
 		let canvas = this.refs['weight'];
 		setTimeout(()=>{
-			canvas.width = canvas.parentNode.offsetWidth;
-			canvas.height = canvas.parentNode.offsetHeight;
+			canvas.width = canvas.parentNode.offsetWidth  - 40;
+			canvas.height = canvas.parentNode.offsetHeight - 20;
 			this.initCanvas(canvas,0);
 
 			new Ico({canvas:this.refs['weight-ico']}).drawWeightIco();
@@ -124,6 +135,8 @@ import Ico from '../libs/ico';
 		obserable.on('getWeightData',()=>{
 			return this.state.weightData;
 		});
+
+
 
 		
 
@@ -328,7 +341,9 @@ import Ico from '../libs/ico';
 		this.weights  = this.weights || new Time({
 			canvas:canvas,
 			obserable:this.props.obserable,
-			isTime:false
+			isTime:false,
+			r:4,
+			margin:8
 		});
 
 		this.weights.initWeight(numberArr,null,bgColor);

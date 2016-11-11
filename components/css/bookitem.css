@@ -1,5 +1,35 @@
 @charset "UTF-8";
 /*步骤开始。开始制作*/
+.fly-exit {
+  position: absolute;
+  right: 1.5vw;
+  top: .9vw;
+  color: #fff;
+  display: inline-block;
+  padding: 10px;
+  width: 1vw;
+  height: 1vw;
+  line-height: 1vw;
+  padding: 20px;
+  z-index: 1000;
+  background: #fff;
+  border-radius: 50%; }
+  .fly-exit:before, .fly-exit:after {
+    content: '';
+    width: 70%;
+    left: 15%;
+    height: 3px;
+    background: #e89e79;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg); }
+  .fly-exit:after {
+    width: 3px;
+    height: 70%;
+    left: 50%;
+    top: 15%; }
+
 .book-item-C {
   overflow: hidden;
   width: 84%;
@@ -91,35 +121,6 @@
     height: 100%;
     position: relative;
     border-radius: 30px; }
-    .book-item-C .book-item-detail-src .fly-exit {
-      position: absolute;
-      right: 10px;
-      top: 10px;
-      color: #fff;
-      display: inline-block;
-      padding: 10px;
-      width: 1vw;
-      height: 1vw;
-      line-height: 1vw;
-      padding: 20px;
-      background: #efdcce;
-      opacity: .8;
-      border-radius: 50%; }
-      .book-item-C .book-item-detail-src .fly-exit:before, .book-item-C .book-item-detail-src .fly-exit:after {
-        content: '';
-        width: 70%;
-        left: 15%;
-        height: 3px;
-        background: #fff;
-        position: absolute;
-        top: 50%;
-        -webkit-transform: rotate(45deg);
-        transform: rotate(45deg); }
-      .book-item-C .book-item-detail-src .fly-exit:after {
-        width: 3px;
-        height: 70%;
-        left: 50%;
-        top: 15%; }
     .book-item-C .book-item-detail-src .book-item-content {
       width: 100%;
       position: absolute;
@@ -195,20 +196,13 @@
       border-radius: 50%; }
   .fly-cook-steps-C .fly-next {
     right: -1.2vw;
-    left: auto;
+    left: auto; }
+  .fly-cook-steps-C .fly-prev, .fly-cook-steps-C .fly-next {
     font-size: 0.8vw; }
-  .fly-cook-steps-C .fly-prev canvas, .fly-cook-steps-C .fly-next canvas {
-    position: absolute;
-    left: 0;
-    top: 0; }
-  .fly-cook-steps-C .fly-prev:before {
-    content: '<';
-    position: absolute;
-    left: 38%;
-    top: -5%;
-    color: #d1bdbd;
-    -webkit-transform: scaleY(2.2);
-    transform: scaleY(2.2); }
+    .fly-cook-steps-C .fly-prev canvas, .fly-cook-steps-C .fly-next canvas {
+      position: absolute;
+      left: 0;
+      top: 0; }
   .fly-cook-steps-C .fly-cook-steps-scroll {
     width: 25vw;
     height: 19vw;

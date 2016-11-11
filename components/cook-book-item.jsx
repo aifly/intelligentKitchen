@@ -55,13 +55,16 @@ import FlyVideo from './video.jsx';
 		return (
 			<li className="fly-cook-detail fly-cook-book-item">
 				<div style={{width:'100%',height:'100%',position:'relative'}}>
+
 					<div style={{position:'absolute',left:0,top:0,width:'100%',height:'100%',zIndex:foodData.type && this.state.isEnableDrag ? 1000:-1}}></div>
 						{foodData.type === 'image' && <div className="fly-cook-book-item-C book-item">
+							{foodData.name && this.state.currentStep === -1 && <span onTouchTap={this.closeCook} className='fly-exit'></span>}
 						{foodData.name && this.state.currentStep === -1  && <section className='book-item-C'>
+
 							<ul className='book-item-ul'>
 								<li className='book-item-ul-li' onTouchTap={this.getDetail}>
 									<div className='book-item-detail-src' style={background}>
-										<span onTouchTap={this.closeCook} className='fly-exit'></span>
+										
 										<div className='book-item-content'>
 											<span className='book-item-name'>{foodData.name}</span>
 											<span className='book-item-pageview'>{foodData.pageView}<em>浏览</em></span>
@@ -101,7 +104,7 @@ import FlyVideo from './video.jsx';
 						</section>}
 
 						 <div className='fly-cook-steps-C' ref='fly-cook-steps-C' style={{display:steps.length && this.state.currentStep>-1 ? 'block':'none'}}>
-							<aside className='fly-prev' onTouchTap={this.prev} style={{display:this.state.currentStep <=0 ? 'none':'block'}}><canvas width='115' height='115'></canvas></aside>					
+							<aside className='fly-prev' onTouchTap={this.prev} style={{display:this.state.currentStep <=0 ? 'none':'block'}}><canvas width='115' height='115'></canvas>上一步</aside>
 							<div className='fly-history'>
 								<FlyBack callBack={()=>{}}></FlyBack>
 							</div>
@@ -162,7 +165,14 @@ import FlyVideo from './video.jsx';
 
 			obserable.trigger({type:'showAllTime'});//
 
-			
+			this.setState({
+				currentStep:-1
+			});
+
+			obserable.trigger({
+				type:'initProgress',
+				data:-1
+			});
 			return;
 		}
 		this.setState({
@@ -181,8 +191,9 @@ import FlyVideo from './video.jsx';
 	}
 
 	beginDo(){
-		let {obserable} = this.props;
 
+		let {obserable} = this.props;
+		//清空时间.
 		setTimeout(()=>{
 			this.setState({
 				currentStep:0,
@@ -190,8 +201,6 @@ import FlyVideo from './video.jsx';
 			},()=>{
 				obserable.trigger({type:"initProgress",data:this.state.currentStep});
 			});
-
-
 		},1);
 		this.startTime = new Date().getTime();
 	}

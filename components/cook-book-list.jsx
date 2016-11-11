@@ -419,7 +419,7 @@ import $ from 'jquery';
 		var index = target.getAttribute('data-index');
 
 
-			let targetData =  this.state.addFoods[this.state.currentTimeSlot][index];
+		let targetData =  this.state.addFoods[this.state.currentTimeSlot][index];
 
 		switch(targetData.type){
 			case "image":
@@ -428,11 +428,9 @@ import $ from 'jquery';
 					type:'fillFood',
 					data:food
 				});
-
 				this.setState({
 					currentFoodId:food.id
 				});
-				
 			break;
 			case "video":
 				var food =this.state.addFoods[this.state.currentTimeSlot][index];
@@ -480,11 +478,6 @@ import $ from 'jquery';
 		});
 
 		//obserable.trigger({type:'closeStep',data:e});//关闭步骤
-
-		//清空盘子。
-		obserable.trigger({
-			type:'clearPlates'
-		});
 
 
 		obserable.trigger({type:'clearAllTime'});//清空总时间

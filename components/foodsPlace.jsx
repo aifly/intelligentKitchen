@@ -146,35 +146,39 @@ export default class FlyFoodsPlace extends Component {
 					--this.plateNum;
 					return
 				}
+				var s = this;
 				if(flag){
 
-					if(this.worker&&false){
-
+					if(this.worker && 0){
+/*
 							this.worker.postMessage({x1:e.pageX-this.refs['fly-plate-C'].offsetLeft,y1:e.pageY-this.refs['fly-plate-C'].offsetTop,x2:gridsPos[0].x,y2:gridsPos[0].y});
-							this.worker.onmessage = (e)=>{
-								var  minDis = e.data;
+					
+							this.worker.onmessage = function(event){
+								var  minDis = event.data;
 								var cIndex  = 0;
-								
 								gridsPos.forEach((grid,i)=>{
 									if(i>0){
 										var work = new Worker('../libs/worker.js');
 
-										work.postMessage({x1:e.pageX-this.refs['fly-plate-C'].offsetLeft,y1:e.pageY-this.refs['fly-plate-C'].offsetTop,x2:grid.x,y2:grid.y});
-										work.onmessage = e =>{
-												var currentDis = e.data;	
+										work.postMessage({x1:e.pageX-s.refs['fly-plate-C'].offsetLeft,y1:e.pageY-s.refs['fly-plate-C'].offsetTop,x2:grid.x,y2:grid.y});
+										work.onmessage = events =>{
+												var currentDis = events.data;	
 												if(minDis > currentDis){
 													minDis = currentDis;
 													cIndex = i;
+
 												}
 										}
-										//let currentDis = this.getDis(e.pageX-this.refs['fly-plate-C'].offsetLeft,e.pageY-this.refs['fly-plate-C'].offsetTop,grid.x,grid.y);
+										//let currentDis = s.getDis(e.pageX-s.refs['fly-plate-C'].offsetLeft,e.pageY-s.refs['fly-plate-C'].offsetTop,grid.x,grid.y);
 									}
 								});
-								this.state.plates[this.state.plates.length-1].left = gridsPos[cIndex].x - gridsPos[cIndex].halfW;
-								this.state.plates[this.state.plates.length-1].top = gridsPos[cIndex].y - gridsPos[cIndex].halfH*10/7;
-								this.forceUpdate();
+								setTimeout(()=>{
+										s.state.plates[s.state.plates.length-1].left = gridsPos[cIndex].x - gridsPos[cIndex].halfW;
+											s.state.plates[s.state.plates.length-1].top = gridsPos[cIndex].y - gridsPos[cIndex].halfH*10/7;
+											s.forceUpdate();
+								},100);
 							}
-
+*/
 					
 						//	let minDis = this.getDis(e.pageX-this.refs['fly-plate-C'].offsetLeft,e.pageY-this.refs['fly-plate-C'].offsetTop,gridsPos[0].x,gridsPos[0].y),
 								
@@ -301,24 +305,32 @@ export default class FlyFoodsPlace extends Component {
 				var e =	e.originalEvent.changedTouches[0];
 				 if(isSm){
 				 	var plate = this.refs['fly-plate-C'];
-					 let minDis = this.getDis(e.pageX-plate.offsetLeft,e.pageY-plate.offsetTop,gridsPos[0].x,gridsPos[0].y),
+				 	var s = this;
+				 	if(typeof Worker === 'function' && 0){
+				 		
+				 	}
+				 	else{
+						 let minDis = this.getDis(e.pageX-plate.offsetLeft,e.pageY-plate.offsetTop,gridsPos[0].x,gridsPos[0].y),
 								cIndex  = 0;
+				 	
 
-					gridsPos.forEach((grid,i)=>{
-						if(i>0){
-							let currentDis = this.getDis(e.pageX-plate.offsetLeft,e.pageY-plate.offsetTop,grid.x,grid.y);
-							
-							if(minDis > currentDis){
-								minDis = currentDis;
-								cIndex = i;
-							}
-						}
-					});
+							gridsPos.forEach((grid,i)=>{
+								if(i>0){
+									let currentDis = this.getDis(e.pageX-plate.offsetLeft,e.pageY-plate.offsetTop,grid.x,grid.y);
+									
+									if(minDis > currentDis){
+										minDis = currentDis;
+										cIndex = i;
+									}
+								}
+							});
 
-					this.state.plates[index].left = gridsPos[cIndex].x - gridsPos[cIndex].halfW;
-					this.state.plates[index].top = gridsPos[cIndex].y - gridsPos[cIndex].halfH*10/7;
-					this.forceUpdate();
-				 }
+							this.state.plates[index].left = gridsPos[cIndex].x - gridsPos[cIndex].halfW;
+							this.state.plates[index].top = gridsPos[cIndex].y - gridsPos[cIndex].halfH*10/7;
+							this.forceUpdate();
+						 }
+					}
+					
 			});
 		});
 

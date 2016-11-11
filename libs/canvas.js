@@ -8,7 +8,7 @@ export default class Time{
 		let s = this;
 		s.canvas = options.canvas;
 		s.obserable = options.obserable;
-		s.margin  = 9*docWidth/3840;
+		s.margin  =options.margin || 9*docWidth/3840;
 		s.isTime = options.isTime;
 		s.r = options.r || 5*docWidth/3840;
 		var num = numberData[10];
@@ -223,7 +223,7 @@ export default class Time{
 		let s = this;
 
 		
-		for(var i = 0;i<15;i++){
+		for(var i = 0;i<10;i++){
 			for(var j = 0;j<38;j++){
 				context.save();
 				isNeedTop && context.translate(0,30);

@@ -129,6 +129,40 @@ $fontColor:#a16d56;
 
 
 }
+
+ .fly-exit{
+      @include pos(a);
+      right: 1.5vw;
+      top:.9vw;
+      color:#fff;
+      display: inline-block;
+      padding:10px;
+      width:.1 * 10vw;
+      height: .1 * 10vw;
+      line-height: .1 * 10vw;
+      padding: 20px;
+      z-index: 1000;
+      background:#fff;
+
+      &:before,&:after{
+        content:'';
+        width:70%;
+        left: 15%;
+        height: 3px;
+        background: #e89e79;
+        @include pos(a);
+        top: 50%;
+        @include transform(rotate(45deg));
+      } 
+      &:after{
+        width:3px;
+        height: 70%;
+        left: 50%;
+        top: 15%;
+      }
+    
+      @include br(50%);
+    }
 .book-item-C{
  // box-shadow:0 0 1.1 * 10vw rgba(232,158,121,.6);
   overflow: hidden;
@@ -230,43 +264,14 @@ $fontColor:#a16d56;
     }
 
   }
+
+ 
   .book-item-detail-src{
     width:100%;
     height: 100%;
     @include pos(r);
     @include br(30px);
-    .fly-exit{
-      @include pos(a);
-      right: 10px;
-      top:10px;
-      color:#fff;
-      display: inline-block;
-      padding:10px;
-      width:.1 * 10vw;
-      height: .1 * 10vw;
-      line-height: .1 * 10vw;
-      padding: 20px;
-      background:#efdcce;
-      opacity:.8;
-      &:before,&:after{
-        content:'';
-        width:70%;
-        left: 15%;
-        height: 3px;
-        background:#fff;
-        @include pos(a);
-        top: 50%;
-        @include transform(rotate(45deg));
-      } 
-      &:after{
-        width:3px;
-        height: 70%;
-        left: 50%;
-        top: 15%;
-      }
-    
-      @include br(50%);
-    }
+   
     .book-item-content{
       width:100%;
       @include pos(a);
@@ -364,10 +369,11 @@ $fontColor:#a16d56;
     .fly-next{
        right: -$size /2.5 ;
        left: auto;
-       font-size:.08 * 10vw;
+       
 
     }
     .fly-prev,.fly-next{
+      font-size:.08 * 10vw;
       canvas{
         @include pos(a);
         left: 0;
@@ -376,14 +382,7 @@ $fontColor:#a16d56;
     }
 
     .fly-prev{
-       &:before{
-         content:'<';
-         @include pos(a);
-         left: 38%;
-         top: -5%;
-         color:$baseColor;
-         @include transform(scaleY(2.2));
-       }
+      
     }
 
     .fly-cook-steps-scroll{

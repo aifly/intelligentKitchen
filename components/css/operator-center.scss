@@ -208,6 +208,7 @@ $maxIndex:9999;
             width: 1.15 * 10vw;
             canvas{
               //margin-left: -.08 * 10vw;
+              margin-top: .5vw;
             }
           }
           &:nth-of-type(1),&:nth-of-type(3){
@@ -235,12 +236,12 @@ $maxIndex:9999;
                }
             }
             border:3px solid #df9977;
-            margin-top: .1 * 10vw;
+            margin-top: .15 * 10vw;
             @include br(50%);
-            line-height: .3 * 10vw;
+            line-height: .25 * 10vw;
             color:#df9977;
-            width: .3 * 10vw;
-            height: .3 * 10vw;
+            width: .25 * 10vw;
+            height: .25 * 10vw;
           }
          }
 
@@ -256,6 +257,7 @@ $maxIndex:9999;
     left: 2.1 * 10vw;
     border:1px solid #fff;
     width: 1.65 * 10vw;
+    z-index: 1000;
     canvas{
       float:left;
     }

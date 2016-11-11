@@ -17,7 +17,9 @@
     -webkit-box-pack: center;
     -webkit-box-orient: horizontal; }
     .foodlist-C section ol {
-      width: 35%;
+      width: 29.16667%;
+      padding-right: 30px;
+      margin-left: -30px;
       position: relative;
       height: 100%; }
       .foodlist-C section ol li {
@@ -28,6 +30,8 @@
         border-radius: 50%;
         line-height: 3vw;
         border: 3px solid #fff; }
+        .foodlist-C section ol li:nth-of-type(2) {
+          margin: 10px auto; }
         .foodlist-C section ol li.active {
           border-color: #e89e79; }
       .foodlist-C section ol:after {
