@@ -356,6 +356,14 @@ import { PublicShadow } from './public-shadow.jsx';
 				this.drawSector(true,'',this.drawCorner());
 			});
 
+			obserable.on("clearAlimentationData",()=>{//清空营养数据
+				this.state.alimentatonData.currentFoodData = [];
+				this.state.alimentatonData.scaleData = [];
+				this.forceUpdate();
+				
+				this.stage.removeAllChildren();
+			});
+
 
 			obserable.on('updateCurrentMaterialsId',(data)=>{
 				this.setState({
@@ -363,11 +371,20 @@ import { PublicShadow } from './public-shadow.jsx';
 				});
 			});
 
+			obserable.on('clearMaterialsData',()=>{//清除食材列表。
+				this.state.alimentatonData.materials = [];
+				this.state.currentMaterialId =-1;
+				//this.state.alimentatonData.currentFoodData = [];
+				this.forceUpdate();
+				this.rendered = 2;
+			});
+
 			obserable.on('fillMaterialsData',(data)=>{
 				this.state.alimentatonData.materials = data.materials;
 				this.state.currentMaterialId =data.materials[0].id;
 				//this.state.alimentatonData.currentFoodData = [];
 				this.forceUpdate();
+				this.rendered = 1;
 
 				setTimeout(()=>{
 					this.setState({
@@ -386,13 +403,14 @@ import { PublicShadow } from './public-shadow.jsx';
 				},10);
 			});
 
+			this.rendered = this.rendered || 1;
 			var render = ()=>{
 
 				this.ball &&  this.ballCircularMotion(this.ball);
 				obserable.trigger({type:'prepareFood'})
 				this.ball && this.stage.update();
 			//	obserable.trigger({type:'drawVideo'})
-				webkitRequestAnimationFrame(render);
+				this.rendered === 1 && webkitRequestAnimationFrame(render);
 			}
 
 			webkitRequestAnimationFrame(render);

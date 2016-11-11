@@ -108,6 +108,8 @@ class FlyVideo extends Component {
 	}
 	closeStep(e){
 		let {obserable} = this.props;
+		obserable.trigger({type:'clearMaterialsData'});//清空食材列表数据。
+		obserable.trigger({type:'clearAlimentationData'});//清空营养数据。
 		obserable.trigger({type:'closeStep',data:e});		
 	}
 	componentDidMount() {
@@ -328,7 +330,9 @@ class FlyVideo extends Component {
 
 	componentWillUnmount(){
 		this.isLoad = false;
-		$(this.video).off();
+		$(this.video).off().remove();
+		this.video = null;
+
 	}
 
 	switchVideo(e){

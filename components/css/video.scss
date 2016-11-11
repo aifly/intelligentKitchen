@@ -130,8 +130,8 @@ $fontColor:#a16d56;
         text-align: center;
         z-index: 100;
         background: #fff;
-        right:.1 * 10vw;
-        top : -$size /1.8;
+        right:.08 * 10vw;
+        top : -$size / 2.4;
         @include br(50%);
         &:after,&:before{
           content:'';

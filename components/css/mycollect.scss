@@ -155,7 +155,17 @@ $foodlist-height:1.6 * 10vw;
   @include br(30px);
   background: #fff;
   span.tag{
-    
+    &:before{
+      content:"";
+      @include pos(a);
+      left: 1px;
+      top: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      @include br(12px);
+      box-shadow:20px 0 .07* 10vw rgba(232,158,121,.2);
+    }
     @include pos(a);
     right: -.2 * 10vw;
     z-index: 0;

@@ -13,8 +13,8 @@ import Ico from '../libs/ico';
 
 		this.state = {
 			showBoard:false,
-			showWeight:true,
-			isShow:true,
+			showWeight:false,
+			isShow:false,
 			showCanvas:false,
 			showCountdown:false,
 			netWeightShadow:0,

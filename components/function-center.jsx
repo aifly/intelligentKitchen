@@ -27,6 +27,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 			weatherData:[
 				
 			],
+			showCityList:false,
 			currentData:'',
 			currentPannel:[3,2,1],
 			isShow:false,
@@ -112,11 +113,17 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 	}
 
 	back(){
-		this.refs['fly-hotcity-list'].classList.remove('active');
+		//this.refs['fly-hotcity-list'].classList.remove('active');
+		this.setState({
+			showCityList:false
+		});
 	}
 
 	showCityList(){
-		this.refs['fly-hotcity-list'].classList.add('active');
+		this.setState({
+			showCityList:true
+		});
+		//this.refs['fly-hotcity-list'].classList.add('active');
 	}
 	
 	render(){
@@ -142,7 +149,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 				<div style={{position:'absolute',width:'100%',height:'100%',zIndex:(!this.state.isShow || this.state.isEnableDrag)?1000:-1}}></div>
 				<div className="fly-cook-book-item-C" ref='fly-cook-book-item-C' style={{opacity:this.state.isShow?1:0,WebkitTransition:'opacity 1s'}}> 
 					<div className={"fly-weather  fly-food-item fly-top"+(this.state.currentPannel[0])} ref='weather'>
-						<span className='tag'>时间 / 天气<canvas width='73' height='300'></canvas></span>
+						<span className='tag'  onTouchStart={this.timeOrWeather.bind(this)}>时间 / 天气<canvas width='73' height='300'></canvas></span>
 						<article style={{borderRadius:30,position:'absolute',left:0,top:0,width:'100%',height:'100%',overflow:'hidden'}}>
 							<section>
 							<ol className="fly-weather-C">
@@ -165,10 +172,10 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 									<h1>夏至食物推荐</h1>
 									<div className="fly-rec-food-container">
 										<ul>
-											<li>夏至饼</li>
-											<li>夏至羹</li>
-											<li>豌豆糕</li>
-											<li>夏至蛋</li>
+											<li>夏至饼...</li>
+											<li>夏至羹...</li>
+											<li>豌豆糕...</li>
+											<li>夏至蛋...</li>
 										</ul>
 									</div>
 								</div>
@@ -185,7 +192,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 								<div className="fly-add" onTouchStart={this.showCityList}>+</div>
 							</div>
 						</section>	
-						<section className='fly-hotcity-list' ref='fly-hotcity-list'>
+						<section className={'fly-hotcity-list '+ (this.state.showCityList?'active':'')} ref='fly-hotcity-list'>
 							<h1 className='fly-hotcity-title'>
 								<FlyBack callBack={this.back}></FlyBack>
 								<span>热门城市</span>
@@ -282,11 +289,11 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 						</article>
 					</div>
 					<div className={"fly-rec-food fly-food-item fly-top" + this.state.currentPannel[1]} ref='rec-food'>
-						<span className='tag'>推荐食材<canvas width='73' height='250'></canvas></span>
+						<span className='tag' onTouchStart={this.recMaterials.bind(this)}>推荐食材<canvas width='73' height='250'></canvas></span>
 						<FlyFoodList {...recProps} {...this.props}></FlyFoodList>
 					</div>
 					<div className={"fly-rec-menu fly-food-item fly-top"+this.state.currentPannel[2]} ref='rec-menu'>
-						<span className='tag'>推荐菜谱<canvas width='73' height='250'></canvas></span>
+						<span className='tag'  onTouchStart={this.recFood.bind(this)}>推荐菜谱<canvas width='73' height='250'></canvas></span>
 						<FlyFoodList {...recMenuProps}  {...this.props}></FlyFoodList>
 					</div>	
 				</div>
@@ -412,7 +419,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 		this.setSize();
 	}
 
-	setClass(){
+	/*setClass(){
 		this.removeTopClass();//去掉所有的fly-top的class
 		this.iNow++;
 		var index = this.iNow % 3;
@@ -439,7 +446,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 			break;
 		}
 		
-	}
+	}*/
 
 	closeDrag(){
 
@@ -456,14 +463,29 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 		});
 	}
 
+	recMaterials(){//点击推荐食材
+		this.setState({
+			currentPannel:[1,3,2]
+		})
+	}
+	recFood(){//点击推荐菜谱
+		this.setState({
+			currentPannel:[2,1,3]
+		})
+	}
+	timeOrWeather(){//时间/日期
+		this.setState({
+			currentPannel:[3,2,1]
+		})
+	}
 	bindEvent(document){
 
 		let self = this;
 
 		this.sort =  null;
-		this.foods = $('#fly-main .fly-food-item');
+		/*this.foods = $('#fly-main .fly-food-item');
 		this.programa = $('#fly-main .fly-cook-book-C .fly-cook-book-item');
-		this.cookBookC = $('#fly-main .fly-cook-book-C');
+		this.cookBookC = $('#fly-main .fly-cook-book-C');*/
 		//this.closeBar = $();
 
 		let {obserable} = this.props;
@@ -476,13 +498,13 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 
 		var data = this;
 
-		data.foods.on('touchstart',(e)=>{
+		/*data.foods.on('touchstart',(e)=>{
 			if(self.state.isEnableDrag){//
 				return;
 			}
 
 			let $target = $(e.target);
-			var target = $target.hasClass('fly-food-item')? $target:$target.parents('.fly-food-item');
+			//var target = $target.hasClass('fly-food-item')? $target:$target.parents('.fly-food-item');
 			
 
 			let index = $target.parents('.fly-food-item').index('.fly-food-item')*1,
@@ -511,7 +533,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 						})
 					break;
 				}
-		});
+		});*/
 		
 		
 	/*	$(this.refs['fly-cook-book-item-C']).on('touchstart',(e)=>{
@@ -633,7 +655,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 		this.foods.removeClass('fly-top1 fly-top2 fly-top3')
 	}
 
-	startChangeMenu($target){
+	/*startChangeMenu($target){
 
 		let self =this;
 		this.foods.css({WebkitTransition:'.3s',WebkitTransitionTimingFunction:"cubic-bezier(0, 0.9, 0.17, 1.01)"})
@@ -650,7 +672,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 			});
 
 		},200)
-	}
+	}*/
 } 
 
 export default PublicShadow(FlyFunctionCenter);

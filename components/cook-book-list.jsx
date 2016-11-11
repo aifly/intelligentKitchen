@@ -444,9 +444,10 @@ import $ from 'jquery';
 				});
 
 				setTimeout(()=>{
-					obserable.trigger({
+					var video = obserable.trigger({
 						type:'getVideo'
-					}).play();
+					});
+					video && video.play();
 				},100);
 
 				obserable.trigger({type:'updateStep',data:0});

@@ -13,8 +13,8 @@
     text-align: center;
     z-index: 100;
     background: #fff;
-    right: 1vw;
-    top: -0.83333vw;
+    right: 0.8vw;
+    top: -0.625vw;
     border-radius: 50%; }
     .fly-video-C .fly-close:after, .fly-video-C .fly-close:before {
       content: '';
