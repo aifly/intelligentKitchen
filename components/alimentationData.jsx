@@ -15,6 +15,7 @@ import { PublicShadow } from './public-shadow.jsx';
 	  this.state = {
 	  	liWidth:0,
 	 	currentMaterialId:1,
+	 	currentMaterialIds:[],
 	  	 alimentatonData : {
 	  	 	materials:[
 	  	 		
@@ -124,9 +125,11 @@ import { PublicShadow } from './public-shadow.jsx';
 				<div className='fly-all' onTouchStart={this.showAllData} style={{display:this.state.alimentatonData.materials.length ? 'block':'none'}}>显示全部</div>
 				<div className='fly-m-name' ref='fly-m-name'>
 					<ul ref='fly-m-scroll' onTouchTap={this.checkMaterial} style={{width:this.state.alimentatonData.materials.length*this.state.liWidth}}>
+
 						{this.state.alimentatonData.materials.map((item,i)=>{
+							
 							return (
-								<li data-id={item.id}  className={item.id*1 === this.state.currentMaterialId*1 ? 'active':''} key={i}>{item.name}</li>
+								<li data-id={item.id}  className={this.hasMaterialsId.call(this,item.id)?'active':''} key={i}>{item.name}</li>
 							);
 						})}
 					</ul>
@@ -136,6 +139,17 @@ import { PublicShadow } from './public-shadow.jsx';
 
 			</li>
 		);
+	}
+
+	hasMaterialsId(id){
+		var hasId = false;
+		this.state.currentMaterialIds.forEach(mId=>{
+			if(id*1 === mId*1){
+				hasId = true;
+			}
+		});
+
+		return hasId;
 	}
 
 	showAllData(){//显示全部
@@ -205,9 +219,16 @@ import { PublicShadow } from './public-shadow.jsx';
 		this.props.shadow(e.target);
 		var id = e.target.getAttribute('data-id');
 		if(id){
-			this.setState({
+			var hasId = false;
+				this.state.currentMaterialIds.forEach(mId=>{
+					hasId = id === mId;
+				});
+			!hasId && this.state.currentMaterialIds.push(id);
+
+			this.forceUpdate();
+			/*this.setState({
 				currentMaterialId:id
-			});
+			});*/
 			obserable.trigger({
 				type:'getEndWeight',
 				data:id
@@ -366,9 +387,16 @@ import { PublicShadow } from './public-shadow.jsx';
 
 
 			obserable.on('updateCurrentMaterialsId',(data)=>{
-				this.setState({
-					currentMaterialId:data
+				var hasId = false;
+				this.state.currentMaterialIds.forEach(id=>{
+					hasId = id === data;
 				});
+
+				!hasId && this.state.currentMaterialIds.push(data);
+				this.forceUpdate();
+				/*this.setState({
+					currentMaterialId:data
+				});*/
 			});
 
 			obserable.on('clearMaterialsData',()=>{//清除食材列表。

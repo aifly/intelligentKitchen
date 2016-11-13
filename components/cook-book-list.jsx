@@ -421,6 +421,7 @@ import $ from 'jquery';
 
 		let targetData =  this.state.addFoods[this.state.currentTimeSlot][index];
 
+
 		switch(targetData.type){
 			case "image":
 				var food =this.state.addFoods[this.state.currentTimeSlot][index];

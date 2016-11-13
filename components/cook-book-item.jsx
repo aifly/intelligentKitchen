@@ -168,7 +168,7 @@ import FlyVideo from './video.jsx';
 			this.setState({
 				currentStep:-1
 			});
-
+			
 			obserable.trigger({
 				type:'initProgress',
 				data:-1
