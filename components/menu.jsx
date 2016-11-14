@@ -137,7 +137,7 @@ injectTapEventPlugin();
 		else{
 			this.state.switchShow = !this.state.switchShow;
 			this.switchIco.fillSwitchIco(this.state.switchShow|0);
-			//gotoActivity('openOrClose');
+			gotoActivity('openOrClose');
 		}
 		//this.state.isShow = false;
 		this.forceUpdate();

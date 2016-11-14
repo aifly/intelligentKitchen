@@ -122,6 +122,7 @@ import { PublicShadow } from './public-shadow.jsx';
 				<div ref='fly-data-C' className='fly-data-C'>
 					<canvas  id='alimentation-canvas'></canvas>
 				</div>
+				<div className='single-food'>苹苹果</div>
 				<div className='fly-all' onTouchStart={this.showAllData} style={{display:this.state.alimentatonData.materials.length ? 'block':'none'}}>显示全部</div>
 				<div className='fly-m-name' ref='fly-m-name'>
 					<ul ref='fly-m-scroll' onTouchTap={this.checkMaterial} style={{width:this.state.alimentatonData.materials.length*this.state.liWidth}}>

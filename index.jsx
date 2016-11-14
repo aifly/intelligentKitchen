@@ -51,7 +51,8 @@ class App extends React.Component{
 		)
 	}
 	componentDidMount() {
-	 
+	 		
+	 		//var userId =gotoActivity && gotoActivity('getUserId');
 	    //$('html').css({fontSize:384});
 		/*this.setState({
 			width:$('html').css('fontSize') +'----'

@@ -137,6 +137,30 @@ $maxIndex:9999;
 
 
    }
+
+   .single-food{
+      $size:4vw;
+      width: $size;
+      height: $size;
+      line-height:$size;
+      text-align: center;
+      @include br(50%);
+      border: 3px solid $baseColor1;
+      color:$baseColor1;
+      @include pos(a);
+      bottom:0;
+      right: 0;
+      &:before{
+        content:'';
+        @include pos(a);
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        box-shadow:0 0 .2 * 10vw rgba(232,158,121,.5);
+        @include br(50%);
+      }
+   }
   
   div.fly-all{
      @include pos(a);
