@@ -273,6 +273,10 @@ import $ from 'jquery';
 		obserable.trigger({
 			type:'clearPlates'
 		});
+
+		obserable.trigger({ //清空当前的单个水果的识别
+			type:"clearSingleFood"
+		});
 		//初始化进度条
 		obserable.trigger({
 			type:'initProgress',

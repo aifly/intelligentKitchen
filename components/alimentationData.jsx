@@ -15,6 +15,8 @@ import { PublicShadow } from './public-shadow.jsx';
 	  this.state = {
 	  	liWidth:0,
 	 	currentMaterialId:1,
+	 	showSingleFoodId:-1,
+	 	showSingleFoodName:'',
 	 	currentMaterialIds:[],
 	  	 alimentatonData : {
 	  	 	materials:[
@@ -122,8 +124,8 @@ import { PublicShadow } from './public-shadow.jsx';
 				<div ref='fly-data-C' className='fly-data-C'>
 					<canvas  id='alimentation-canvas'></canvas>
 				</div>
-				<div className='single-food'>苹苹果</div>
 				<div className='fly-all' onTouchStart={this.showAllData} style={{display:this.state.alimentatonData.materials.length ? 'block':'none'}}>显示全部</div>
+				{this.state.showSingleFoodId>0 && <div className='single-food'>{this.state.showSingleFoodName}</div>}
 				<div className='fly-m-name' ref='fly-m-name'>
 					<ul ref='fly-m-scroll' onTouchTap={this.checkMaterial} style={{width:this.state.alimentatonData.materials.length*this.state.liWidth}}>
 
@@ -367,6 +369,22 @@ import { PublicShadow } from './public-shadow.jsx';
 
 			let {obserable} = this.props;
 
+			obserable.on('clearSingleFood',()=>{
+				this.setState({
+					showSingleFoodName:'',
+					showSingleFoodId:-1
+				});
+			});
+
+			obserable.on('fillSingleFood',(data)=>{
+				this.setState({
+					showSingleFoodName:data.name,
+					showSingleFoodId:data.id
+				});
+			});
+
+
+
 			obserable.on('fillAlimentationData',(data)=>{
 
 				this.state.alimentatonData.currentFoodData = [];
@@ -376,6 +394,7 @@ import { PublicShadow } from './public-shadow.jsx';
 				
 				this.stage.removeAllChildren();
 				this.drawSector(true,'',this.drawCorner());
+
 			});
 
 			obserable.on("clearAlimentationData",()=>{//清空营养数据

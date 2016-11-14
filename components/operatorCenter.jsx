@@ -251,8 +251,10 @@ import Ico from '../libs/ico';
 	}
 	getWeight(e,id){
 		//开始称重。
-		
+
 		let {obserable,URL,r} = this.props;
+		var foodId = obserable.trigger({type:'getFoodId'});
+		
 		if(this.state.isShow){
 			
 			this.setState({
@@ -302,6 +304,9 @@ import Ico from '../libs/ico';
 								scaleData:data.scaleData
 							 }
 						});
+
+						
+
 						var hasMaterialsId = false;
 						s.state.weightData.forEach((item)=>{
 							if(item.Materiaid*1 === data.Materiaid*1){
@@ -311,11 +316,15 @@ import Ico from '../libs/ico';
 							}
 						});
 						//data.Materiaid!==0 ||id 表示识别成功，或者点击了左侧食材的列表 
-						(data.Materiaid*1!==0 ||id) && !hasMaterialsId && s.state.weightData.push(data.scaleData); 
-						obserable.trigger({
-							type:"updateCurrentMaterialsId",
-							data:data.Materiaid*1 //服务器返回的识别到的食材的ID。
-						});
+						if(foodId<=0){//当前识别的是单个的水果。
+							obserable.trigger({
+								type:"fillSingleFood",
+								data:{name:data.materiaName,id:data.materiaid}
+							})
+						}else{
+							(data.Materiaid*1!==0 ||id) && !hasMaterialsId && s.state.weightData.push(data.scaleData); 
+						}
+						
 						//console.log(data.Materiaid)
 						weight > 9999 && (weight = 9999);
 						s.initCanvas(canvas,weight);

@@ -471,6 +471,10 @@ import $ from 'jquery';
 			data:-1
 		});
 
+		obserable.trigger({ //清空当前的单个水果的识别
+			type:"clearSingleFood"
+		});
+
 		obserable.trigger({
 			type:'fillMaterialsData',
 			data:{
