@@ -288,7 +288,7 @@ import Ico from '../libs/ico';
 					s.initCanvas(canvas,0);
 				},
 				success(data){
-					//console.log(data);
+					console.log(data);
 					clearInterval(s.t);
 					if(data.getret === 1){
 						let weight= data.foodweight*1|0; 
@@ -319,7 +319,7 @@ import Ico from '../libs/ico';
 						if(foodId<=0){//当前识别的是单个的水果。
 							obserable.trigger({
 								type:"fillSingleFood",
-								data:{name:data.materiaName,id:data.materiaid}
+								data:{name:data.materiaName,id:data.Materiaid}
 							})
 						}else{
 							(data.Materiaid*1!==0 ||id) && !hasMaterialsId && s.state.weightData.push(data.scaleData); 

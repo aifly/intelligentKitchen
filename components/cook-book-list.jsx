@@ -483,6 +483,10 @@ import $ from 'jquery';
 			}
 		});
 
+
+		obserable.trigger({type:'clearAlimentationData'});
+
+
 		//obserable.trigger({type:'closeStep',data:e});//关闭步骤
 
 

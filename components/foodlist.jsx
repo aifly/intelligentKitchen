@@ -268,7 +268,7 @@ import $ from 'jquery';
 
 		//obserable.trigger({type:'closeStep',data:e});//关闭步骤
 
-
+		obserable.trigger({type:'clearAlimentationData'});//清空营养数据
 		//清空盘子。
 		obserable.trigger({
 			type:'clearPlates'

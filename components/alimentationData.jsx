@@ -14,6 +14,7 @@ import { PublicShadow } from './public-shadow.jsx';
 	
 	  this.state = {
 	  	liWidth:0,
+	  	circleShow:false,
 	 	currentMaterialId:1,
 	 	showSingleFoodId:-1,
 	 	showSingleFoodName:'',
@@ -137,8 +138,8 @@ import { PublicShadow } from './public-shadow.jsx';
 						})}
 					</ul>
 				</div>
-				<div className='fly-circle' id='fly-circle'></div>
-				<div className='fly-circle-center' id='fly-circle-center'></div>
+				<div style={{display:this.state.circleShow?"block":'none'}} className='fly-circle' id='fly-circle'></div>
+				<div className='fly-circle-center' id='fly-circle-center'  style={{display:this.state.circleShow?"block":'none'}} ></div>
 
 			</li>
 		);
@@ -379,7 +380,8 @@ import { PublicShadow } from './public-shadow.jsx';
 			obserable.on('fillSingleFood',(data)=>{
 				this.setState({
 					showSingleFoodName:data.name,
-					showSingleFoodId:data.id
+					showSingleFoodId:data.id,
+
 				});
 			});
 
@@ -389,7 +391,7 @@ import { PublicShadow } from './public-shadow.jsx';
 
 				this.state.alimentatonData.currentFoodData = [];
 				this.state.alimentatonData.scaleData = data.scaleData;
-
+				this.state.circleShow = true;
 				this.forceUpdate();
 				
 				this.stage.removeAllChildren();
@@ -400,6 +402,7 @@ import { PublicShadow } from './public-shadow.jsx';
 			obserable.on("clearAlimentationData",()=>{//清空营养数据
 				this.state.alimentatonData.currentFoodData = [];
 				this.state.alimentatonData.scaleData = [];
+				this.state.circleShow = false;
 				this.forceUpdate();
 				
 				this.stage.removeAllChildren();
