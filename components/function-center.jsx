@@ -21,8 +21,125 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 		super(option);
 		this.closeDrag=this.closeDrag.bind(this);
 		this.state ={
+			currentFoodId:-1,
 			activeCityData : [
-				{"cn_name": "北京","pinyin": "BEIJING"},
+				{"cn_name": "北京","pinyin": "BEIJING",className:'active'},
+			],
+			recFoods:[
+				{
+				    foodMtype:0,//
+				    name:"葡萄汁",
+				    imgSrc:"./assets/images/f7.png",
+				    id:'10001',
+				    detailSrc:'./assets/images/food6.png',
+				    pageView:12,
+				    discuss:224,//讨论
+				    foodMaterial:[
+				      {name:'葡萄',weight:'300',id:1007},
+				      {name:'糖',weight:'100g',id:2}
+				    ],
+				    type:'image',
+				    steps:[
+				      {
+				        stepName:'1',
+				        imgSrc:'./assets/images/s10.png',
+				        stepContent:'将葡萄洗净'
+				      },
+				      {
+				        stepName:'2',
+				        imgSrc:'./assets/images/s11.png',
+				        stepContent:'称重葡萄'
+				      },
+				      {
+				        stepName:'3',
+				        imgSrc:'./assets/images/s12.png',
+				        stepContent:'放入榨汁机中，加入糖，一杯水'
+				      },
+				      {
+				        stepName:'4',
+				        imgSrc:'./assets/images/s13.png',
+				        stepContent:'榨好后，沉淀一会，倒入杯中'
+				      }
+				    ]
+				  },
+				  {
+				    foodMtype:0,//
+						name:"牛奶燕麦粥",
+						imgSrc:"./assets/images/f4.png",
+						id:'10002',
+						detailSrc:'./assets/images/food1.png',
+						pageView:22,
+						discuss:224,//讨论
+						foodMaterial:[
+					    {name:'牛奶',weight:'250',id:1011},
+				      {name:'燕麦',weight:'50g',id:1012}
+						],
+				    type:'image',
+						steps:[
+							{
+				        stepName:'1',
+				        imgSrc:'./assets/images/s1.png',
+				        stepContent:'称重牛奶'
+				      },
+				      {
+				        stepName:'2',
+				        imgSrc:'./assets/images/s2.png',
+				        stepContent:'称重燕麦片'
+				      },
+				      {
+				        stepName:'3',
+				        imgSrc:'./assets/images/s3.png',
+				        stepContent:'牛奶倒入锅中，大火烧开'
+				      },
+				      {
+				        stepName:'4',
+				        imgSrc:'./assets/images/s4.png',
+				        stepContent:'倒入燕麦片，搅拌均匀'
+				      },
+				      {
+				        stepName:'5',
+				        imgSrc:'./assets/images/s5.png',
+				        stepContent:'出锅即食'
+				      }
+						]
+					},{
+				    foodMtype:0,//
+						name:"三明治",
+						imgSrc:"./assets/images/f2.png",
+						id:'10003',
+						detailSrc:'./assets/images/food2.png',
+						pageView:283,
+						discuss:124,//讨论
+						foodMaterial:[
+						  {name:'面包',weight:'4片',id:1},
+				      {name:'火腿',weight:'1片',id:2},
+				      {name:'鸡蛋',weight:'1个',id:3},
+				      {name:'生菜',weight:'20g',id:4}
+						],
+				    type:'image',
+						steps:[
+							{
+				        stepName:'1',
+				        imgSrc:'./assets/images/s6.png',
+				        stepContent:'取两片土司单面涂满沙拉酱'
+				      },
+				      {
+				        stepName:'2',
+				        imgSrc:'./assets/images/s7.png',
+				        stepContent:'把午餐肉煎热，鸡蛋煎熟'
+				      },
+				      {
+				        stepName:'3',
+				        imgSrc:'./assets/images/s8.png',
+				        stepContent:'按顺序放好'
+				      },
+				      {
+				        stepName:'4',
+				        imgSrc:'./assets/images/s9.png',
+				        stepContent:'牛奶微波炉加热40秒微热'
+				      }
+						]
+					}
 			],
 			weatherData:[
 				
@@ -146,6 +263,11 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 
 		return (
 			<li className="fly-food fly-cook-book-item">
+				{/*<div>{
+					this.state.activeCityData.map((f,i)=>{
+						return <span>{f.cn_name}</span>
+					})
+				}</div>*/}
 				<div style={{position:'absolute',width:'100%',height:'100%',zIndex:(!this.state.isShow || this.state.isEnableDrag)?1000:-1}}></div>
 				<div className="fly-cook-book-item-C" ref='fly-cook-book-item-C' style={{opacity:this.state.isShow?1:0,WebkitTransition:'opacity 1s'}}> 
 					<div className={"fly-weather  fly-food-item fly-top"+(this.state.currentPannel[0])} ref='weather'>
@@ -172,17 +294,21 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 									<h1>夏至食物推荐</h1>
 									<div className="fly-rec-food-container">
 										<ul>
-											<li>夏至饼...</li>
-											<li>夏至羹...</li>
-											<li>豌豆糕...</li>
-											<li>夏至蛋...</li>
+											{
+												this.state.recFoods.map((f,i)=>{
+													if(i<5){
+														return <li className={this.state.currentFoodId === f.id ? 'active':''} onTouchStart={this.getFoodById.bind(this)} key={i} data-index={i}>{f.name.length>3?f.name.substring(0,3)+'...':f.name}</li>;	
+													}
+													return '';
+												})
+											}
 										</ul>
 									</div>
 								</div>
 							</div>
 							<div className="fly-city-C">
 								<div className="fly-city-scroll-C" ref="fly-city-scroll-C">
-									<ul>
+									<ul style={{height:'1.5vw'}}>
 										{this.state.activeCityData.map((item,i)=>{
 
 											return <li key={i}>{item.cn_name}</li>
@@ -301,6 +427,90 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 				<div className="mask"></div>
 			</li>
 		)
+	}
+
+	getFoodById(e){
+		let {obserable} = this.props;
+		let target = e.target;
+
+		
+
+		var index = target.getAttribute('data-index');
+
+
+		let targetData =  this.state.recFoods[index];
+
+
+		switch(targetData.type){
+			case "image":
+				var food =this.state.recFoods[index];
+				obserable.trigger({
+					type:'fillFood',
+					data:food
+				});
+				this.setState({
+					currentFoodId:food.id
+				});
+			break;
+			case "video":
+				var food =this.state.recFoods[index];
+				obserable.trigger({
+					type:'fillFoodByVideo',
+					data:food
+				});
+
+				this.setState({
+					currentFoodId:food.id
+				});
+
+				setTimeout(()=>{
+					var video = obserable.trigger({
+						type:'getVideo'
+					});
+					video && video.play();
+				},100);
+
+				obserable.trigger({type:'updateStep',data:0});
+				
+			break;
+		}
+
+		obserable.trigger({
+			type:'fillSteps',
+			data:this.state.recFoods[index].steps
+		});
+
+		//清空盘子。
+		obserable.trigger({
+			type:'clearPlates'
+		});
+		//初始化进度条
+		obserable.trigger({
+			type:'initProgress',
+			data:-1
+		});
+
+		obserable.trigger({ //清空当前的单个水果的识别
+			type:"clearSingleFood"
+		});
+
+		obserable.trigger({
+			type:'fillMaterialsData',
+			data:{
+				materials:this.state.recFoods[index].foodMaterial,
+				//scaleData:this.state.addFoods[this.state.currentTimeSlot][index].scaleData
+			}
+		});
+
+
+		obserable.trigger({type:'clearAlimentationData'});
+
+
+		//obserable.trigger({type:'closeStep',data:e});//关闭步骤
+
+
+		obserable.trigger({type:'clearAllTime'});//清空总时间
+
 	}
 
 	componentDidMount(){

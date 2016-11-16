@@ -473,7 +473,7 @@ $nav-height:11.76vh;
                 }
                 .fly-rec-food-container{
                   height: 7vh;
-                  width: 90%;
+                  width: 100%;
                   margin-top: 1vh;
 
                   overflow: hidden;
@@ -485,6 +485,10 @@ $nav-height:11.76vh;
                     box-sizing:border-box;
                     padding:6px 16px;
                     @include br(30px);
+                    &.active{
+                          border-color: #ff5503;
+                          color: #ff5503;
+                    }
                   }
                 }
             }

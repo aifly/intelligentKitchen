@@ -35,7 +35,7 @@ class App extends React.Component{
 			<div>
 				<div style={{textAlign:'center',color:'#fff',fontSize:'.14rem'}}>{this.state.width}</div>
 				<FlyNav {...data}></FlyNav>
-				
+				{/*<div style={{position:'absolute',zIndex:10000,top:100}}>{typeof this.state.userId + ' --- '+ this.state.userId+''}</div>*/}
 				<ul className="fly-cook-book-C">
 					<FlyFunctionCenter {...data} {...this.state}></FlyFunctionCenter>
 					<FlyCookBookList {...data}  {...this.state}></FlyCookBookList>
@@ -52,7 +52,18 @@ class App extends React.Component{
 	}
 	componentDidMount() {
 	 		
-	 		//var userId =gotoActivity && gotoActivity('getUserId');
+	 		try{
+	 			var userId = gotoActivity('getUserId');	
+	 			this.setState({
+		 				userId:userId
+		 		})
+	 		}catch(e){
+	 			
+	 		}
+	 	/*	var userId = gotoActivity('getUserId');
+	 		this.setState({
+	 				userId:userId
+	 		})*/
 	    //$('html').css({fontSize:384});
 		/*this.setState({
 			width:$('html').css('fontSize') +'----'

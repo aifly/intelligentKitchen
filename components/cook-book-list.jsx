@@ -219,7 +219,8 @@ import $ from 'jquery';
 		let {URL,userId} = this.props,
 			s = this;
 		s.state.addFoods.forEach((food,i)=>{
-			i>0 && (food.length = 0);
+			//i>0 && (food.length = 0);
+			food.length = 0;
 		});
 		s.forceUpdate();
 		$.ajax({
@@ -315,7 +316,7 @@ import $ from 'jquery';
 		this.updateCalendar();
 
 		
-		this.state.addFoods[0] = addFoods;//默认填充早餐
+	//this.state.addFoods[0] = addFoods;//默认填充早餐
 
 		this.forceUpdate();
 

@@ -410,7 +410,7 @@ body {
           line-height: 2vh; }
         #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C .fly-rec-food-container {
           height: 7vh;
-          width: 90%;
+          width: 100%;
           margin-top: 1vh;
           overflow: hidden;
           font-size: 0.6vw; }
@@ -421,6 +421,9 @@ body {
             box-sizing: border-box;
             padding: 6px 16px;
             border-radius: 30px; }
+            #fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C .fly-rec-food-container li.active {
+              border-color: #ff5503;
+              color: #ff5503; }
       #fly-main .fly-cook-book-C .fly-food .fly-rec-food span.tag {
         top: 60%; }
       #fly-main .fly-cook-book-C .fly-food .fly-rec-menu span.tag {

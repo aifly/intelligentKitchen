@@ -1,4 +1,4 @@
-﻿
+
 
 @mixin pos($v) {
   @if $v == a {
@@ -164,7 +164,7 @@ $maxIndex:9999;
         right: -$width*2 ;
         padding:20px 20px 20px 40px;
         font-size: .08 * 10vw;
-        top:.1 * 10vw;
+        top:.1 * 10vw;  
         @include br(14px);
        canvas{
         @include pos(a);

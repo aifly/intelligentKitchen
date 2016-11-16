@@ -135,7 +135,8 @@ import $ from 'jquery';
 					//	console.log(data);
 						var i=0;
 						data.forEach(d=>{
-							s.state.dataSource[d.foodMtype*1].push(d);	
+							s.state.dataSource[d.foodMtype*1].push(d);
+							
 							if(d.foodMtype*1 === 0){
 								i++;
 							}
@@ -231,7 +232,7 @@ import $ from 'jquery';
 				
 				this.setState({
 					currentFoodId:food.id
-				});
+				}); 
 
 				
 			break;

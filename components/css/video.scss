@@ -12,6 +12,7 @@
   }
 }
 
+
 @mixin br($v:50%) {
   border-radius: $v;
 }
@@ -112,6 +113,7 @@
   display: -webkit-flex;
   flex-flow: $v;
 }
+
 
  
 $baseColor:#d1bdbd;
