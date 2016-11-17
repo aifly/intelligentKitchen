@@ -58,6 +58,12 @@ class FlyTimeLine extends Component {
  
 		this.isStop = false;
 
+		obserable.on('clearTimeline',()=>{
+			this.setState({
+				steps:[]
+			});
+		})
+
 		obserable.on('initProgress',(data)=>{//初始化进度条
 
 			let state = {

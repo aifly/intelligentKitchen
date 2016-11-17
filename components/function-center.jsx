@@ -342,6 +342,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 		let target = e.target;
 
 		
+		
 
 		var index = target.getAttribute('data-index');
 
@@ -425,6 +426,13 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 
 
 		let {obserable} = this.props;
+
+
+		obserable.on("clearFoodIdOnRec",()=>{
+			this.setState({
+					currentFoodId:-1
+				}); 
+		});
 
 		obserable.on('showfunctionCenter',(flag)=>{
 			this.setState({

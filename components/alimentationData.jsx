@@ -391,7 +391,7 @@ import { PublicShadow } from './public-shadow.jsx';
 
 				this.state.alimentatonData.currentFoodData = [];
 				this.state.alimentatonData.scaleData = data.scaleData;
-				this.state.circleShow = true;
+				this.state.circleShow = true;		
 				this.forceUpdate();
 				
 				this.stage.removeAllChildren();

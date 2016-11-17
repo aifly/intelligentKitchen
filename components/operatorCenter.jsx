@@ -242,7 +242,7 @@ import Ico from '../libs/ico';
 							//weight
 							
 						}
-						//console.log(data)
+						console.log(data)
 					}
 				});
 			},100);
@@ -304,8 +304,6 @@ import Ico from '../libs/ico';
 								scaleData:data.scaleData
 							 }
 						});
-
-						
 
 						var hasMaterialsId = false;
 						s.state.weightData.forEach((item)=>{

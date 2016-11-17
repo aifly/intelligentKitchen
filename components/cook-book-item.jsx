@@ -58,7 +58,7 @@ import FlyVideo from './video.jsx';
 
 					<div style={{position:'absolute',left:0,top:0,width:'100%',height:'100%',zIndex:foodData.type && this.state.isEnableDrag ? 1000:-1}}></div>
 						{foodData.type === 'image' && <div className="fly-cook-book-item-C book-item">
-							{foodData.name && this.state.currentStep === -1 && <span onTouchTap={this.closeCook} className='fly-exit'></span>}
+							<span onTouchStart={this.closeCook} className='fly-exit'></span>
 						{foodData.name && this.state.currentStep === -1  && <section className='book-item-C'>
 
 							<ul className='book-item-ul'>
@@ -119,9 +119,7 @@ import FlyVideo from './video.jsx';
 								</ul>
 							</div>
 							<aside className='fly-next' onTouchTap={this.next}>{this.state.currentStep >= this.state.steps.length-1?'完成':'下一步'}<canvas width='115' height='115'></canvas></aside>
-							<div className='fly-close' onTouchTap={this.closeStep}>
-								
-							</div>
+							
 						</div>
 					</div>}
 					{foodData.type === 'video' && <div className="fly-cook-book-item-C book-item">
@@ -234,12 +232,31 @@ import FlyVideo from './video.jsx';
 		});
 
 		let {obserable} = this.props;
-		obserable.trigger({
+		obserable.trigger({ //清空营养数据
 			type:'clearAlimentationData'
 		});
-		obserable.trigger({
+		obserable.trigger({//清空材料数据
 			type:'clearMaterialsData'
 		})
+		obserable.trigger({//初始化进度条
+			type:"initProgress"
+		})
+		obserable.trigger({//清除时间轴
+			type:'clearTimeline'
+		});
+		obserable.trigger({//清空盘子
+			type:'clearPlates'
+		});
+		obserable.trigger({
+			type:'clearCurrentFoodId'
+		});
+		obserable.trigger({
+			type:'clearFoodIdOnFunction'
+		});
+		obserable.trigger({
+			type:'clearFoodIdOnRec'
+		})
+
 	}
 
 	componentDidMount(){

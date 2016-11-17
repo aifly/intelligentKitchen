@@ -1,38 +1,79 @@
 @charset "UTF-8";
 /*步骤开始。开始制作*/
-.fly-exit {
+/*  .fly-exit{
+      @include pos(a);
+      right: .8vw;
+      top:1.1vw;
+      color:#fff;
+      display: inline-block;
+      padding:0;
+      width:.2 * 10vw;
+      height: .2 * 10vw;
+      line-height: .2 * 10vw;
+      
+      z-index: 1000;
+      background:#fff;
+
+      &:before,&:after{
+        content:'';
+        width:70%;
+        left: 15%;
+        height: 3px;
+        background: #E09A76;
+        @include pos(a);
+        top: 50%;
+        @include transform(rotate(45deg));
+      } 
+      &:after{
+        width:3px;
+        height: 70%;
+        left: 50%;
+        top: 15%;
+      }
+    
+      @include br(50%);
+    } */
+.fly-close, .fly-exit {
+  width: 1.5vw;
+  height: 1.5vw;
   position: absolute;
-  right: 1.5vw;
-  top: .9vw;
-  color: #fff;
-  display: inline-block;
-  padding: 10px;
-  width: 1vw;
-  height: 1vw;
-  line-height: 1vw;
-  padding: 20px;
-  z-index: 1000;
+  border-radius: 50%;
   background: #fff;
-  border-radius: 50%; }
-  .fly-exit:before, .fly-exit:after {
+  right: -0.5vw;
+  top: -0.5vw; }
+  .fly-close:before, .fly-close:after, .fly-exit:before, .fly-exit:after {
     content: '';
-    width: 70%;
-    left: 15%;
-    height: 3px;
-    background: #e89e79;
     position: absolute;
+    left: 20%;
+    width: 60%;
+    height: 4px;
+    background: #E09A76;
     top: 50%;
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg); }
-  .fly-exit:after {
-    width: 3px;
-    height: 70%;
-    left: 50%;
-    top: 15%; }
+  .fly-close:after, .fly-exit:after {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg); }
+  .fly-close .shadow, .fly-exit .shadow {
+    position: relative; }
+    .fly-close .shadow:before, .fly-exit .shadow:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      box-shadow: 0 0 3vw rgba(232, 158, 121, 0.6); }
+
+.fly-exit {
+  right: .8vw;
+  top: 4vw;
+  z-index: 1000;
+  position: fixed; }
 
 .book-item-C {
   overflow: hidden;
-  width: 84%;
+  width: 25vw;
   margin: 0 auto;
   height: 80%;
   position: relative;
@@ -227,37 +268,6 @@
         background: #d1bdbd;
         border-radius: 4px;
         position: relative; }
-  .fly-cook-steps-C .fly-close {
-    width: 2vw;
-    height: 2vw;
-    position: absolute;
-    border-radius: 50%;
-    background: #fff;
-    right: -0.66667vw;
-    top: -0.66667vw; }
-    .fly-cook-steps-C .fly-close:before, .fly-cook-steps-C .fly-close:after {
-      content: '';
-      position: absolute;
-      left: 20%;
-      width: 60%;
-      height: 4px;
-      background: #E09A76;
-      top: 50%;
-      -webkit-transform: rotate(45deg);
-      transform: rotate(45deg); }
-    .fly-cook-steps-C .fly-close:after {
-      -webkit-transform: rotate(-45deg);
-      transform: rotate(-45deg); }
-    .fly-cook-steps-C .fly-close .shadow {
-      position: relative; }
-      .fly-cook-steps-C .fly-close .shadow:before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        box-shadow: 0 0 3vw rgba(232, 158, 121, 0.6); }
   .fly-cook-steps-C ul {
     height: 100%;
     -webkit-transition-timing-function: cubic-bezier(0, 0.9, 0.17, 1.01);

@@ -89,7 +89,13 @@ import $ from 'jquery';
 	}
 	componentDidMount(){
 
-		let {type,getTimeSlot,URL,userId} = this.props;
+		let {type,getTimeSlot,URL,userId,obserable} = this.props;
+
+		obserable.on("clearFoodIdOnFunction",()=>{
+			this.setState({
+					currentFoodId:-1
+				}); 
+		})
 
 		this.state.currentTimeSlot = getTimeSlot;
 		let s = this;

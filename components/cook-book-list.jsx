@@ -296,6 +296,12 @@ import $ from 'jquery';
 		this.getFoodListByDate(getFullDate(0));//获取当天的加入的菜谱列表
 
 
+		obserable.on("clearCurrentFoodId",()=>{//清空当前的菜谱的ID
+			this.setState({
+					currentFoodId:-1
+			});
+		})
+
 		obserable.on('showIsEnableDrag',(flag)=>{
 			this.setState({
 				isEnableDrag:flag
