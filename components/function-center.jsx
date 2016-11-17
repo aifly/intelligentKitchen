@@ -24,126 +24,16 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 			currentFoodId:-1,
 			activeCityData : [
 				{"cn_name": "北京","pinyin": "BEIJING",className:'active'},
-			],
+				{"cn_name": "广州","pinyin": "GUANGZHOU",className:'active'}
+			], 
 			recFoods:[
-				{
-				    foodMtype:0,//
-				    name:"葡萄汁",
-				    imgSrc:"./assets/images/f7.png",
-				    id:'10001',
-				    detailSrc:'./assets/images/food6.png',
-				    pageView:12,
-				    discuss:224,//讨论
-				    foodMaterial:[
-				      {name:'葡萄',weight:'300',id:1007},
-				      {name:'糖',weight:'100g',id:2}
-				    ],
-				    type:'image',
-				    steps:[
-				      {
-				        stepName:'1',
-				        imgSrc:'./assets/images/s10.png',
-				        stepContent:'将葡萄洗净'
-				      },
-				      {
-				        stepName:'2',
-				        imgSrc:'./assets/images/s11.png',
-				        stepContent:'称重葡萄'
-				      },
-				      {
-				        stepName:'3',
-				        imgSrc:'./assets/images/s12.png',
-				        stepContent:'放入榨汁机中，加入糖，一杯水'
-				      },
-				      {
-				        stepName:'4',
-				        imgSrc:'./assets/images/s13.png',
-				        stepContent:'榨好后，沉淀一会，倒入杯中'
-				      }
-				    ]
-				  },
-				  {
-				    foodMtype:0,//
-						name:"牛奶燕麦粥",
-						imgSrc:"./assets/images/f4.png",
-						id:'10002',
-						detailSrc:'./assets/images/food1.png',
-						pageView:22,
-						discuss:224,//讨论
-						foodMaterial:[
-					    {name:'牛奶',weight:'250',id:1011},
-				      {name:'燕麦',weight:'50g',id:1012}
-						],
-				    type:'image',
-						steps:[
-							{
-				        stepName:'1',
-				        imgSrc:'./assets/images/s1.png',
-				        stepContent:'称重牛奶'
-				      },
-				      {
-				        stepName:'2',
-				        imgSrc:'./assets/images/s2.png',
-				        stepContent:'称重燕麦片'
-				      },
-				      {
-				        stepName:'3',
-				        imgSrc:'./assets/images/s3.png',
-				        stepContent:'牛奶倒入锅中，大火烧开'
-				      },
-				      {
-				        stepName:'4',
-				        imgSrc:'./assets/images/s4.png',
-				        stepContent:'倒入燕麦片，搅拌均匀'
-				      },
-				      {
-				        stepName:'5',
-				        imgSrc:'./assets/images/s5.png',
-				        stepContent:'出锅即食'
-				      }
-						]
-					},{
-				    foodMtype:0,//
-						name:"三明治",
-						imgSrc:"./assets/images/f2.png",
-						id:'10003',
-						detailSrc:'./assets/images/food2.png',
-						pageView:283,
-						discuss:124,//讨论
-						foodMaterial:[
-						  {name:'面包',weight:'4片',id:1},
-				      {name:'火腿',weight:'1片',id:2},
-				      {name:'鸡蛋',weight:'1个',id:3},
-				      {name:'生菜',weight:'20g',id:4}
-						],
-				    type:'image',
-						steps:[
-							{
-				        stepName:'1',
-				        imgSrc:'./assets/images/s6.png',
-				        stepContent:'取两片土司单面涂满沙拉酱'
-				      },
-				      {
-				        stepName:'2',
-				        imgSrc:'./assets/images/s7.png',
-				        stepContent:'把午餐肉煎热，鸡蛋煎熟'
-				      },
-				      {
-				        stepName:'3',
-				        imgSrc:'./assets/images/s8.png',
-				        stepContent:'按顺序放好'
-				      },
-				      {
-				        stepName:'4',
-				        imgSrc:'./assets/images/s9.png',
-				        stepContent:'牛奶微波炉加热40秒微热'
-				      }
-						]
-					}
+				
 			],
 			weatherData:[
 				
 			],
+			BJShow:true,
+			GZShow:true,
 			showCityList:false,
 			currentData:'',
 			currentPannel:[3,2,1],
@@ -219,9 +109,11 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 					className:'active',
 					cn_name:target.innerHTML
 				});
-			}
 
-			this.renderScroll();
+			}
+			
+
+			//this.renderScroll();
 			this.forceUpdate();
 		}
 
@@ -231,15 +123,25 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 
 	back(){
 		//this.refs['fly-hotcity-list'].classList.remove('active');
-		this.setState({
-			showCityList:false
-		});
+		//var data = this.state.activeCityData.concat([]);
+		this.state.showCityList = false;
+
+		this.forceUpdate(()=>{
+			
+			this.renderScroll();
+			
+		})
 	}
 
 	showCityList(){
-		this.setState({
-			showCityList:true
-		});
+		
+		this.state.showCityList = true;
+		this.forceUpdate();
+
+		//this.refs['fly-city-scroll-C'].querySelector('ul').innerHTML ='';
+		//this.state.activeCityData.length  = 0;
+
+	
 		//this.refs['fly-hotcity-list'].classList.add('active');
 	}
 	
@@ -308,12 +210,18 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 							</div>
 							<div className="fly-city-C">
 								<div className="fly-city-scroll-C" ref="fly-city-scroll-C">
-									<ul style={{height:'1.5vw'}}>
-										{this.state.activeCityData.map((item,i)=>{
 
-											return <li key={i}>{item.cn_name}</li>
-										})}
-									</ul>
+										<ul style={{height:'1.5vw'}}>
+											{this.state.activeCityData.map((item,i)=>{
+												return <li style={{top:0,left:(i*38.4*6)}} key={i}>{item.cn_name}</li>
+											})}
+										</ul>
+									{/*<div style={{border:'1px solid red'}}>
+										{this.state.BJShow && <span>北京</span>}
+										{this.state.GZShow && <span>广州</span>}
+										
+									</div>*/}
+									
 								</div>
 								<div className="fly-add" onTouchStart={this.showCityList}>+</div>
 							</div>
@@ -553,20 +461,22 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 
 		var dd=  new Date();
 		this.state.currentData= getMonthAndDate(dd.getFullYear(),dd.getMonth()+1,dd.getDate());
-
+		this.state.recFoods = addFoods;
 		this.forceUpdate();
+ 	
 
-		let scrollUl = this.refs['fly-city-scroll-C'];
 
 		setTimeout(()=>{
-			
-			this.renderScroll();
-			this.activeCityScroll = new IScroll(scrollUl,{
-				disableMouse:true,
-				invertWheelDirection:true,
-				scrollX: true,
-		 		scrollY: false
-			});
+
+			 let scrollUl = this.refs['fly-city-scroll-C'];
+			 this.renderScroll();
+				this.activeCityScroll && this.activeCityScroll.destroy();
+				this.activeCityScroll = new IScroll(scrollUl,{
+					disableMouse:true,
+					invertWheelDirection:true,
+					scrollX: true,
+			 		scrollY: false
+				});
 			let cityScroll = new IScroll(this.refs['fly-hotcity-scroll']);
 		},1000);
 
@@ -574,11 +484,11 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 
 	renderScroll(){
 
-		let scrollUl = this.refs['fly-city-scroll-C'];
-		let width =scrollUl.children[0].children[0].offsetWidth;
-			scrollUl.children[0].style.width = (width+2) * this.state.activeCityData.length +'px';
-
-		this.activeCityScroll && this.activeCityScroll.refresh();
+			let scrollUl = this.refs['fly-city-scroll-C'];
+			let width =38.4*6 ;//scrollUl.children[0].children[0].children[2].offsetWidth;
+			var len = this.state.activeCityData.length || 2;
+			scrollUl.children[0].style.width = (width+2) * len +'px';
+			this.activeCityScroll && this.activeCityScroll.refresh();
 	}
  
 

@@ -303,10 +303,14 @@ body {
         height: 1.5vw;
         float: left;
         overflow: hidden; }
-        #fly-main .fly-cook-book-C > li .fly-city-scroll-C ul li {
-          width: 6vw;
-          float: left;
-          text-align: center; }
+        #fly-main .fly-cook-book-C > li .fly-city-scroll-C span {
+          margin: 0 1vw; }
+        #fly-main .fly-cook-book-C > li .fly-city-scroll-C ul {
+          position: relative; }
+          #fly-main .fly-cook-book-C > li .fly-city-scroll-C ul li {
+            width: 6vw;
+            position: absolute;
+            text-align: center; }
       #fly-main .fly-cook-book-C > li .fly-add {
         float: left;
         width: 2vh;

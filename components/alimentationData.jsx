@@ -400,11 +400,11 @@ import { PublicShadow } from './public-shadow.jsx';
 			});
 
 			obserable.on("clearAlimentationData",()=>{//清空营养数据
+				
 				this.state.alimentatonData.currentFoodData = [];
 				this.state.alimentatonData.scaleData = [];
 				this.state.circleShow = false;
 				this.forceUpdate();
-				
 				this.stage.removeAllChildren();
 			});
 

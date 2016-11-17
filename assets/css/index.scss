@@ -333,11 +333,14 @@ $nav-height:11.76vh;
           
           float: left;
           overflow: hidden;
-          
+          span{
+            margin:  0 1vw;
+          }
           ul{
+            @include pos(r);
             li{
               width: .6 * 10vw ;
-              float: left;  
+              @include pos(a); 
               text-align: center
             }
           }

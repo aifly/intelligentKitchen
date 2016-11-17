@@ -232,6 +232,14 @@ import FlyVideo from './video.jsx';
 			foodData:{},
 			currentStep:-1
 		});
+
+		let {obserable} = this.props;
+		obserable.trigger({
+			type:'clearAlimentationData'
+		});
+		obserable.trigger({
+			type:'clearMaterialsData'
+		})
 	}
 
 	componentDidMount(){
