@@ -8,6 +8,7 @@ const URL = {
 	getBookList:baseURL + 'kb/kitchen/getbooklist.ht',//求取未来14天的菜谱情况
 	getimespan:baseURL + 'kb/kitchen/getimespan.ht',//上传时间
 	setScale:baseURL + 'kb/kitchen/setscale.ht',//显示全部营养成分
+	getKeepCookbook:baseURL + 'kb/kitchen/getKeepCookbook.ht',//冬季推荐菜谱
 }
 
 export default URL;

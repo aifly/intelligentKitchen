@@ -127,6 +127,7 @@ import { PublicShadow } from './public-shadow.jsx';
 				</div>
 				<div className='fly-all' onTouchStart={this.showAllData} style={{display:this.state.alimentatonData.materials.length ? 'block':'none'}}>显示全部</div>
 				{this.state.showSingleFoodId>0 && <div className='single-food'>{this.state.showSingleFoodName}</div>}
+				{this.state.showSingleFoodId*1 === 0 && <div className='single-food' style={{color:'red',fontSize:'.9vw'}}>识别失败</div>}
 				<div className='fly-m-name' ref='fly-m-name'>
 					<ul ref='fly-m-scroll' onTouchTap={this.checkMaterial} style={{width:this.state.alimentatonData.materials.length*this.state.liWidth}}>
 

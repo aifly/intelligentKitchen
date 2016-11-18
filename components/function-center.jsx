@@ -193,7 +193,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 								</div>
 								<div className="fly-date">
 									<h1>{this.state.currentData}</h1>
-									<h1>夏至食物推荐</h1>
+									<h1>冬季食物推荐</h1>
 									<div className="fly-rec-food-container">
 										<ul>
 											{
@@ -424,8 +424,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 
 	componentDidMount(){
 
-
-		let {obserable} = this.props;
+		let {obserable,URL,userId} = this.props;
 
 
 		obserable.on("clearFoodIdOnRec",()=>{
@@ -487,6 +486,21 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 				});
 			let cityScroll = new IScroll(this.refs['fly-hotcity-scroll']);
 		},1000);
+
+		//获取推荐数据
+		var s = this;
+		$.ajax({
+			url:URL.getKeepCookbook,
+			data:{
+				Userid:userId
+			},
+			success(data){
+					
+					s.setState({
+						recFoods:data
+					})
+			}
+		});
 
 	}
 
