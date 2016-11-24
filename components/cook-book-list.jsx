@@ -203,6 +203,8 @@ import $ from 'jquery';
 			},
 			success(data){
 
+				console.log(data);
+
 				for(var i =0,len = data.getdate.length/2 ;i<len;i++){
 					s.state.dates1[i].isHasFood = data.getdate[i];
 				}
@@ -232,6 +234,7 @@ import $ from 'jquery';
 				Typeid:date
 			},
 			success(data){
+				console.log(data);
 				data.forEach(d=>{
 					s.state.addFoods[d.foodMtype*1].push(d);	
 				});

@@ -3,49 +3,49 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import {PublicMethods} from './public-methods.jsx';
 import Ico from '../libs/ico';
 import {gotoActivity} from '../libs/android';
- 
+
 
 injectTapEventPlugin();
 
- class FlyNav extends React.Component{
+class FlyNav extends React.Component{
 	constructor(option){
 		super(option);
 		this.state = {
 			operatorArr:[
-				{
-					menu:'设置'
-				},{
-					menu:'开/关'
-				}
+			{
+				menu:'设置'
+			},{
+				menu:'开/关'
+			}
 			],
 			menusArr:[
-				{
-					menu:'称量'
-				},
-				{
-					menu:'菜板'
-				},
-				{
-					menu:'菜谱'
-				},
-				{
-					menu:'统计'
-				},
-				{
-					menu:'提醒'
-				},
-				{
-					menu:'天气'
-				},
-				{
-					menu:'时间'
-				},
-				{
-					menu:'无线'
-				},
-				{
-					menu:'收藏'
-				}
+			{
+				menu:'称量'
+			},
+			{
+				menu:'菜板'
+			},
+			{
+				menu:'菜谱'
+			},
+			{
+				menu:'统计'
+			},
+			{
+				menu:'提醒'
+			},
+			{
+				menu:'天气'
+			},
+			{
+				menu:'时间'
+			},
+			{
+				menu:'无线'
+			},
+			{
+				menu:'收藏'
+			}
 			],
 			isShow:false,
 			isEnableDrag:false,
@@ -75,9 +75,9 @@ injectTapEventPlugin();
 			return (
 				<li key={i} style={style}>
 				{!item.curSrc && <div><canvas width='140' height='140' className={'canvas-'+i}></canvas></div>}
-					<span>{item.menu}</span>
+				<span>{item.menu}</span>
 				</li>
-			)
+				)
 		}),
 		operatorArr = this.state.operatorArr.map((item,i)=>{
 			let style = {
@@ -88,35 +88,35 @@ injectTapEventPlugin();
 			}
 			return (
 				<li key={i} style={style}>
-					{!item.curSrc && <div><canvas width='140' height='140' className={'canvas1-'+i}></canvas></div>}
-					<span>{item.menu}</span>
+				{!item.curSrc && <div><canvas width='140' height='140' className={'canvas1-'+i}></canvas></div>}
+				<span>{item.menu}</span>
 				</li>
-			);
+				);
 		});
 
 		return (
 			<nav className={'fly-nav '+ (this.state.isShow?'':'active')} ref='fly-menu'>
-				<div style={{overflowY:' hidden',overflowX:' auto',height:'11.5vh'}}>
-					<ul ref='fly-menu-C' onTouchStart={this.menuChange}>
-						{renderArr}
-					</ul>
-					<ul ref='fly-menu-C1' onTouchStart={this.operatorChange}>
-						{operatorArr}
-					</ul>
-				</div>
-				<div className='fly-menu-bar' onTouchStart={this.menuBarHandler}>
-					<div className={this.state.isEnableDrag ? 'fly-sure':''}>{this.state.isEnableDrag ? '确定':'下拉菜单'}</div>
-					<div style={{marginLeft:'-.45vw'}}>{this.state.isEnableDrag ? '':'>'}</div>
-				</div>
-				<div className={"fly-nav-mask "+ (this.state.isShow?'active':'') } ref="fly-nav-mask" onTouchStart={this.closeMenu}></div>
+			<div style={{overflowY:' hidden',overflowX:' auto',height:'11.5vh'}}>
+			<ul ref='fly-menu-C' onTouchStart={this.menuChange}>
+			{renderArr}
+			</ul>
+			<ul ref='fly-menu-C1' onTouchStart={this.operatorChange}>
+			{operatorArr}
+			</ul>
+			</div>
+			<div className='fly-menu-bar' onTouchStart={this.menuBarHandler}>
+			<div className={this.state.isEnableDrag ? 'fly-sure':''}>{this.state.isEnableDrag ? '确定':'下拉菜单'}</div>
+			<div style={{marginLeft:'-.45vw'}}>{this.state.isEnableDrag ? '':'>'}</div>
+			</div>
+			<div className={"fly-nav-mask "+ (this.state.isShow?'active':'') } ref="fly-nav-mask" onTouchStart={this.closeMenu}></div>
 			</nav>
-		)
+			)
 	}
 
 
 	getIndex(e,parentNode){
 		let {index,obserable} = this.props,
-			iNow = -1;
+		iNow = -1;
 		let parent =( e.target.nodeName === "SPAN" || e.target.nodeName === "DIV")?e.target.parentNode:e.target;
 		iNow = index(parent,parentNode,'li');
 		return iNow;
@@ -160,51 +160,50 @@ injectTapEventPlugin();
 			case 1://菜板
 			case 4://提醒
 
-				this.state.operatorBarShow = !this.state.operatorBarShow;
-				
-				this.weightIco.fillWeightIco(this.state.operatorBarShow|0);
-				this.broadIco.fillBroadIco(this.state.operatorBarShow|0);
-				this.countdownIco.fillCountdownIco(this.state.operatorBarShow|0);
-				obserable.trigger({type:'showOperater',data:this.state.operatorBarShow });
+			this.state.operatorBarShow = !this.state.operatorBarShow;
+
+			this.weightIco.fillWeightIco(this.state.operatorBarShow|0);
+			this.broadIco.fillBroadIco(this.state.operatorBarShow|0);
+			this.countdownIco.fillCountdownIco(this.state.operatorBarShow|0);
+			obserable.trigger({type:'showOperater',data:this.state.operatorBarShow });
 			break;
 			case 2://菜谱
 			case 8://收藏
 
-				this.state.foodBookShow = !this.state.foodBookShow;
-				this.foodBookIco.fillFoodBookIco(this.state.foodBookShow|0);
-				this.collectIco.fillCollectIco(this.state.foodBookShow|0);
+			this.state.foodBookShow = !this.state.foodBookShow;
+			this.foodBookIco.fillFoodBookIco(this.state.foodBookShow|0);
+			this.collectIco.fillCollectIco(this.state.foodBookShow|0);
 
-				obserable.trigger({type:'showCollect',data:this.state.foodBookShow});
+			obserable.trigger({type:'showCollect',data:this.state.foodBookShow});
 			break;
 			case 3://统计
 
-				this.state.statisticsShow = !this.state.statisticsShow;
-				this.statisticsIco.fillStatisticsIco(this.state.statisticsShow|0);
-				gotoActivity('nutrition');	
-				
+			this.state.statisticsShow = !this.state.statisticsShow;
+			this.statisticsIco.fillStatisticsIco(this.state.statisticsShow|0);
+			gotoActivity('nutrition');	
+
 			break;
 			case 7://无线WIFi
-				this.state.wifiShow =  !this.state.wifiShow;
-				this.wifiIco.fillWifiIco(this.state.wifiShow|0);
-				gotoActivity('wifi');	
+			this.state.wifiShow =  !this.state.wifiShow;
+			this.wifiIco.fillWifiIco(this.state.wifiShow|0);
+			gotoActivity('wifi');	
 			break;
 			case 5://天气
 			case 6://时间
 
-				this.state.weatherShow = !this.state.weatherShow;
- 
-				this.timeIco.fillTimeIco(this.state.weatherShow|0);
-				this.weatherIco.fillWeatherIco(this.state.weatherShow|0);
+			this.state.weatherShow = !this.state.weatherShow;
 
-				obserable.trigger({type:'showfunctionCenter',data:this.state.weatherShow});
-				
-				
+			this.timeIco.fillTimeIco(this.state.weatherShow|0);
+			this.weatherIco.fillWeatherIco(this.state.weatherShow|0);
+
+			obserable.trigger({type:'showfunctionCenter',data:this.state.weatherShow});
+
+
 			break;
 		}
 		this.state.isShow = false;
 		this.forceUpdate();
 
-		
 
 	}
 
@@ -227,6 +226,25 @@ injectTapEventPlugin();
 		});
 	}
 	componentDidMount(){
+		var s = this;
+		window.closeSetting = function(){
+			s.state.settingShow = !s.state.settingShow;
+			s.settingIco.fillSettingIco(s.state.settingShow|0);
+		}
+
+		window.closeApp = function(){
+			s.state.switchShow = !s.state.switchShow;
+			s.switchIco.fillSwitchIco(s.state.switchShow|0);
+		}
+		window.closeNutrition = function(){
+			s.state.statisticsShow = !s.state.statisticsShow;
+			s.statisticsIco.fillStatisticsIco(s.state.statisticsShow|0);
+		}
+		window.closeWifi = function(){
+			s.state.wifiShow =  !s.state.wifiShow;
+			s.wifiIco.fillWifiIco(s.state.wifiShow|0);
+		}
+		
 		let {obserable} = this.props;
 		obserable.on('switchMenu',(flag)=>{
 			this.setState({
