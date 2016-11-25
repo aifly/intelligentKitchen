@@ -57,6 +57,7 @@ export default class FlyCountdown extends Component {
 		});
 		let {obserable} = this.props;
 		obserable.trigger({type:'controlCanavsDisplay',data:false});
+		
 	}
 
 	initCanvas(){//初始化canvas

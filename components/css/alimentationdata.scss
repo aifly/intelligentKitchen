@@ -140,16 +140,21 @@ $maxIndex:9999;
 
    .single-food{
       $size:4vw;
-      width: $size;
-      height: $size;
-      line-height:$size - .4;
+      
+      //line-height:$size - .4;
+      width: .5 * 10vw;
+       float: left;
+       color:#fff;
+       height: .2 * 10vw;
+       line-height: .2 * 10vw;
+       text-align: center;
+       border:2px solid #fff;
       text-align: center;
-      @include br(50%);
+      @include br(30px);
       border: 3px solid $baseColor1;
-      color:$baseColor1;
       @include pos(a);
-      bottom:0;
-      right: 0;
+      bottom:-1.6vw;
+      left: 50%;
       &:before{
         content:'';
         @include pos(a);

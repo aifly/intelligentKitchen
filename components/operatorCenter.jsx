@@ -52,7 +52,7 @@ class FlyOperatorCenter extends Component {
 		<canvas width='140' height='140' ref='time-ico'  onTouchStart={this.showCountdown}></canvas>
 		</figure>
 		</div>
-		<div className='fly-show-countdown-top' style={{display:this.state.showCanvas?'block':'none'}}>
+		<div className='fly-show-countdown-top' style={{borderColor:this.state.showCloseCountdownIco?'#fff':'transparent',display:this.state.showCanvas?'block':'none'}}>
 		<canvas ref='clock-ico'></canvas>						
 		<span className='fly-close-countdown' style={{display:this.state.showCloseCountdownIco?'block':'none'}} onTouchTap={this.hideCanvas}></span>
 		<canvas ref='canvas' onTouchStart={this.beginTouchCountDown.bind(this)} onTouchEnd={this.endTouchCountDown.bind(this)}></canvas>
@@ -136,10 +136,6 @@ class FlyOperatorCenter extends Component {
 			return this.state.weightData;
 		});
 
-
-
-		
-
 		obserable.on('getTopCountdownCanvas',()=>{
 			setTimeout(()=>{
 				let canvasIco = this.refs['clock-ico'];
@@ -152,7 +148,7 @@ class FlyOperatorCenter extends Component {
 		});
 
 		obserable.on('controlCanavsDisplay',flag=>{
-			this.setState({showCanvas:flag});
+			this.setState({showCanvas:flag,showCloseCountdownIco:false});
 		});
 
 		obserable.on('getEndWeight',(data)=>{

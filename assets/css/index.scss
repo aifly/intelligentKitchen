@@ -330,7 +330,6 @@ $nav-height:11.76vh;
         .fly-city-scroll-C{
           width:88%;
           height: .15 * 10vw ;
-          
           float: left;
           overflow: hidden;
           span{
@@ -348,8 +347,11 @@ $nav-height:11.76vh;
         .fly-add{
           float: left;
           width: 2vh;
-          height: 2vh;
+          height: 2.6vh;
           text-align: center;
+          margin-left: 1vw;
+          position: relative;
+          left: 1vw;
         }
       }
 
