@@ -7,7 +7,7 @@ import FlyCountdown from './countdown.jsx';
 import $ from 'jquery';
 import Ico from '../libs/ico';
 
- class FlyOperatorCenter extends Component {
+class FlyOperatorCenter extends Component {
 	constructor(option){
 		super(option);
 
@@ -38,45 +38,45 @@ import Ico from '../libs/ico';
 
 		return (
 			<li className='fly-operator-item fly-weight' style={{position:'relative'}}>
-				<div style={{opacity:this.state.isShow ? 1:0}}>
-					<h1></h1>
-					<div className='fly-btns-C'>
-						<figure className={this.state.weightIcoShadow?'shadow':''}>
-							{/*<img  src='./assets/images/weight-btn.png' onTouchTap={this.showWeight} />*/}
-							<canvas width='140' height='140' ref='weight-ico' onTouchStart={this.showWeight}></canvas>
-						</figure>
-						<figure className={this.state.broadIcoShadow?'shadow':''}>
-							<canvas width='140' height='140' ref='broad-ico'  onTouchStart={this.showBoard}></canvas>
-						</figure>
-						<figure className={this.state.timeInfoIcoShadow?'shadow':''}>
-							<canvas width='140' height='140' ref='time-ico'  onTouchStart={this.showCountdown}></canvas>
-						</figure>
-					</div>
-					<div className='fly-show-countdown-top' style={{display:this.state.showCanvas?'block':'none'}}>
-						<canvas ref='clock-ico'></canvas>						
-						<span className='fly-close-countdown' style={{display:this.state.showCloseCountdownIco?'block':'none'}} onTouchTap={this.hideCanvas}></span>
-						<canvas ref='canvas' onTouchStart={this.beginTouchCountDown.bind(this)} onTouchEnd={this.endTouchCountDown.bind(this)}></canvas>
-					</div>
-					<div className='fly-operator-C' >
-						<div className='operator-C'  ref='fly-operator-C'>
-							 <div style={{display:this.state.showBoard ? 'block':'none'}} className='fly-img-board'>
-								<img src='./assets/images/board.png' className='board'/>	
-							</div>
-							<div style={{opacity:this.state.showWeight ? 1:0}} className='fly-img-weight'>
-								<img src='./assets/images/weight.png'/>
-								<div className='fly-weight-display'>
-								<div onTouchEnd={this.netWeight} className={this.state.netWeightShadow ? 'shadow1':''}>去皮<canvas width='116' height='116'></canvas></div>
-									<div className='weight'><canvas ref='weight'></canvas></div>
-									<div onTouchStart={this.getWeight} className={this.state.weightShadow ? 'shadow1':''}>确定<canvas width='116' height='116'></canvas></div>
-								</div>
-							</div>
-							<div className="fly-countdown-C" style={{display:this.state.showCountdown?'block':'none'}}>
-								<FlyCountdown {...this.props}></FlyCountdown>
-							</div>
-						</div>
-					</div>
-				</div>
-			</li>
+			<div style={{opacity:this.state.isShow ? 1:0}}>
+			<h1></h1>
+			<div className='fly-btns-C'>
+			<figure className={this.state.weightIcoShadow?'shadow':''}>
+		{/*<img  src='./assets/images/weight-btn.png' onTouchTap={this.showWeight} />*/}
+		<canvas width='140' height='140' ref='weight-ico' onTouchStart={this.showWeight}></canvas>
+		</figure>
+		<figure className={this.state.broadIcoShadow?'shadow':''}>
+		<canvas width='140' height='140' ref='broad-ico'  onTouchStart={this.showBoard}></canvas>
+		</figure>
+		<figure className={this.state.timeInfoIcoShadow?'shadow':''}>
+		<canvas width='140' height='140' ref='time-ico'  onTouchStart={this.showCountdown}></canvas>
+		</figure>
+		</div>
+		<div className='fly-show-countdown-top' style={{display:this.state.showCanvas?'block':'none'}}>
+		<canvas ref='clock-ico'></canvas>						
+		<span className='fly-close-countdown' style={{display:this.state.showCloseCountdownIco?'block':'none'}} onTouchTap={this.hideCanvas}></span>
+		<canvas ref='canvas' onTouchStart={this.beginTouchCountDown.bind(this)} onTouchEnd={this.endTouchCountDown.bind(this)}></canvas>
+		</div>
+		<div className='fly-operator-C' >
+		<div className='operator-C'  ref='fly-operator-C'>
+		<div style={{display:this.state.showBoard ? 'block':'none'}} className='fly-img-board'>
+		<img src='./assets/images/board.png' className='board'/>	
+		</div>
+		<div style={{opacity:this.state.showWeight ? 1:0}} className='fly-img-weight'>
+		<img src='./assets/images/weight.png'/>
+		<div className='fly-weight-display'>
+		<div onTouchEnd={this.netWeight} className={this.state.netWeightShadow ? 'shadow1':''}>去皮<canvas width='116' height='116'></canvas></div>
+		<div className='weight'><canvas ref='weight'></canvas></div>
+		<div onTouchStart={this.getWeight} className={this.state.weightShadow ? 'shadow1':''}>确定<canvas width='116' height='116'></canvas></div>
+		</div>
+		</div>
+		<div className="fly-countdown-C" style={{display:this.state.showCountdown?'block':'none'}}>
+		<FlyCountdown {...this.props}></FlyCountdown>
+		</div>
+		</div>
+		</div>
+		</div>
+		</li>
 		);
 	}
 
@@ -87,16 +87,16 @@ import Ico from '../libs/ico';
 	}
 
 	beginTouchCountDown(){
-			this.timer && clearTimeout(this.timer);
-			this.timer = setTimeout(()=>{
-					this.setState({
-						showCloseCountdownIco:true
-					})
-			},2000);
+		this.timer && clearTimeout(this.timer);
+		this.timer = setTimeout(()=>{
+			this.setState({
+				showCloseCountdownIco:true
+			})
+		},2000);
 	}
 
 	endTouchCountDown(){
-			this.timer && clearTimeout(this.timer);
+		this.timer && clearTimeout(this.timer);
 	}
 	showCountdown(e){
 
@@ -156,7 +156,7 @@ import Ico from '../libs/ico';
 		});
 
 		obserable.on('getEndWeight',(data)=>{
-			 this.getWeight(null,data);
+			this.getWeight(null,data);
 		})
 
 /*
@@ -215,15 +215,15 @@ import Ico from '../libs/ico';
 			this.t && clearInterval(this.t);
 			//this.props.shadow(e.target,'shadow1');
 			
-		  this.weight = this.weight || 0;
-		  this.requestTimer && clearTimeout( this.requestTimer );
-		
-		  this.requestTimer = setTimeout(()=>{
+			this.weight = this.weight || 0;
+			this.requestTimer && clearTimeout( this.requestTimer );
+
+			this.requestTimer = setTimeout(()=>{
 				this.setState({
 					netWeightShadow:0
 				});
 
-				 this.weight > 0 && this.initCanvas(canvas,0);
+				this.weight > 0 && this.initCanvas(canvas,0);
 
 				let {URL} = this.props;
 				let canvas = this.refs['weight'];
@@ -254,13 +254,12 @@ import Ico from '../libs/ico';
 
 		let {obserable,URL,r} = this.props;
 		var foodId = obserable.trigger({type:'getFoodId'});
-		
 		if(this.state.isShow){
 			
 			this.setState({
 				weightShadow:1
 			});
-			 
+
 			let s = this;
 			let canvas = this.refs['weight'];
 			var iNow = 0;
@@ -278,36 +277,37 @@ import Ico from '../libs/ico';
 			this.weightTimer && clearTimeout(this.weightTimer);
 			this.weightTimer =  setTimeout(()=>{
 				$.ajax({
-				type:'POST',
-				data:{
-					materiaid:id
-				},
-				url:URL.weightend,
-				error(e){
-					clearInterval(s.t);
-					s.initCanvas(canvas,0);
-				},
-				success(data){
-					console.log(data);
-					clearInterval(s.t);
-					if(data.getret === 1){
-						let weight= data.foodweight*1|0; 
-						s.weight = weight;
-						data.scaleData.forEach(item=>{
+					type:'POST',
+					data:{
+						materiaid:id
+					},
+					url:URL.weightend,
+					error(e){
+						clearInterval(s.t);
+						s.initCanvas(canvas,0);
+					},
+					success(data){
+						console.log(data);
+						clearInterval(s.t);
+						if(data.getret === 1){
+							let weight= data.foodweight*1|0; 
+							s.weight = weight;
+							data.scaleData.forEach(item=>{
 							//item.scale*1<0 && (item.scale = 0);
 							item.weight < 0 && (item.weight = 0);
 						});
-					
+
 						obserable.trigger({ //填充饼图
 							type:'fillAlimentationData',
 							data:{
 								scaleData:data.scaleData
-							 }
+							}
 						});
 
 						var hasMaterialsId = false;
 						s.state.weightData.forEach((item)=>{
 							if(item.Materiaid*1 === data.Materiaid*1){
+								
 								item.scaleData = data.scaleData;
 								item.weight = weight;
 								hasMaterialsId = true;
@@ -318,9 +318,30 @@ import Ico from '../libs/ico';
 							obserable.trigger({
 								type:"fillSingleFood",
 								data:{name:data.materiaName,id:data.Materiaid}
-							})
+							});
 						}else{
-							(data.Materiaid*1!==0 ||id) && !hasMaterialsId && s.state.weightData.push(data.scaleData); 
+							obserable.trigger({//高亮食材
+								type:'highlightMaterials',
+								data:data.Materiaid
+							});
+
+							var foodMaterials = obserable.trigger({
+								type:'getFoodMaterials'
+							});
+
+							var isMatch = false;//匹配当前的菜谱的食材列表、
+							foodMaterials.forEach(item=>{
+								if(item.id*1  === data.Materiaid*1 ){
+									isMatch = true;
+								}
+							});
+							if(	(isMatch ||id) && !hasMaterialsId ){
+
+								s.state.weightData.push(data); 
+							}
+
+							
+							
 						}
 						
 						//console.log(data.Materiaid)
@@ -343,47 +364,47 @@ import Ico from '../libs/ico';
 			(number % 1000 / 100) | 0,//百位
 			(number % 1000 % 100 / 10) | 0,//十位
 			number % 10 | 0//个位
-		];
+			];
 
-		this.weights  = this.weights || new Time({
-			canvas:canvas,
-			obserable:this.props.obserable,
-			isTime:false,
-			r:4,
-			margin:8
-		});
+			this.weights  = this.weights || new Time({
+				canvas:canvas,
+				obserable:this.props.obserable,
+				isTime:false,
+				r:4,
+				margin:8
+			});
 
-		this.weights.initWeight(numberArr,null,bgColor);
+			this.weights.initWeight(numberArr,null,bgColor);
 
-	}
+		}
 
-	
 
-	renderCanvas(number,canvas){
-		let context = canvas.getContext('2d');
-		let numberArr = [
+
+		renderCanvas(number,canvas){
+			let context = canvas.getContext('2d');
+			let numberArr = [
 			number / 1000 | 0,//千位
 			(number % 1000 / 100) | 0,//百位
 			(number % 1000 % 100 / 10) | 0,//十位
 			number % 10 | 0//个位
-		];
-		this.draw(numberArr[0],context,2);
-	}
+			];
+			this.draw(numberArr[0],context,2);
+		}
 
-	showWeight(e){
-		
-		this.setState({
-			showWeight:true,
-			showBoard:false,
-			weightIcoShadow:1,
-			showCountdown:false
-		},()=>{
-			setTimeout(()=>{
-				this.setState({
-					weightIcoShadow:0
-				})
-			},100);
-		});
+		showWeight(e){
+
+			this.setState({
+				showWeight:true,
+				showBoard:false,
+				weightIcoShadow:1,
+				showCountdown:false
+			},()=>{
+				setTimeout(()=>{
+					this.setState({
+						weightIcoShadow:0
+					})
+				},100);
+			});
 		//this.props.shadow(e.target.parentNode);
 	}
 

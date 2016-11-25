@@ -353,6 +353,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 		switch(targetData.type){
 			case "image":
 				var food =this.state.recFoods[index];
+					window.currentFood = food;
 				obserable.trigger({
 					type:'fillFood',
 					data:food
@@ -363,6 +364,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 			break;
 			case "video":
 				var food =this.state.recFoods[index];
+					window.currentFood = food;
 				obserable.trigger({
 					type:'fillFoodByVideo',
 					data:food

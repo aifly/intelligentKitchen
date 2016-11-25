@@ -7,7 +7,7 @@ import FlyBack from './back.jsx';
 import FlyVideo from './video.jsx';
 //import videojs from 'video.js'
 //最右侧的组件。具体的每一道菜的步骤。
- class FlyCookBookItem extends React.Component{
+class FlyCookBookItem extends React.Component{
 	constructor(option){
 		super(option);
 		this.state = {
@@ -19,7 +19,7 @@ import FlyVideo from './video.jsx';
 			stepTimeSpan:[
 			],
 			steps:[
-				
+
 			],
 			type:'',
 			isEnableDrag:false
@@ -36,7 +36,7 @@ import FlyVideo from './video.jsx';
 	render(){
 
 		let foodData = this.state.foodData,
-			steps = this.state.steps;
+		steps = this.state.steps;
 
 
 		let background = {
@@ -54,81 +54,81 @@ import FlyVideo from './video.jsx';
 		
 		return (
 			<li className="fly-cook-detail fly-cook-book-item">
-				<div style={{width:'100%',height:'100%',position:'relative'}}>
+			<div style={{width:'100%',height:'100%',position:'relative'}}>
 
-					<div style={{position:'absolute',left:0,top:0,width:'100%',height:'100%',zIndex:foodData.type && this.state.isEnableDrag ? 1000:-1}}></div>
-						{foodData.type === 'image' && <div className="fly-cook-book-item-C book-item">
-							<span onTouchStart={this.closeCook} className='fly-exit'></span>
-						{foodData.name && this.state.currentStep === -1  && <section className='book-item-C'>
+			<div style={{position:'absolute',left:0,top:0,width:'100%',height:'100%',zIndex:foodData.type && this.state.isEnableDrag ? 1000:-1}}></div>
+			{foodData.type === 'image' && <div className="fly-cook-book-item-C book-item">
+			<span onTouchStart={this.closeCook} className='fly-exit'></span>
+			{foodData.name && this.state.currentStep === -1  && <section className='book-item-C'>
 
-							<ul className='book-item-ul'>
-								<li className='book-item-ul-li' onTouchTap={this.getDetail}>
-									<div className='book-item-detail-src' style={background}>
-										
-										<div className='book-item-content'>
-											<span className='book-item-name'>{foodData.name}</span>
-											<span className='book-item-pageview'>{foodData.pageView}<em>浏览</em></span>
-											<span className="book-item-discuss">
-												<span>
-													<b></b>
-													<b></b>
-													<b></b>
-												</span>
-												<span>{foodData.discuss}</span>
-											</span>
-										</div>										
-									</div>
-								</li>	
-								<li className='book-item-detail book-item-ul-li'>
-									
-									<div className='material' ref='material'>
-										<h1>材料</h1>
-										<section className='material-scroll' ref='material-scroll'>
-											
-											<ul>
-												{foodData.foodMaterial && foodData.foodMaterial.map((item,i)=>{
-													return (
-														<li key={i}>
-															<span>{item.name}</span>
-															<span>{item.weight}</span>
-														</li>
-													);
-												})}
-											</ul>
-											
-										</section>
-										<section onTouchTap={this.beginDo} className='begin-do'><span>开始制作</span></section>
-									</div>
-								</li>	
-							</ul>
-						</section>}
+			<ul className='book-item-ul'>
+			<li className='book-item-ul-li' onTouchTap={this.getDetail}>
+			<div className='book-item-detail-src' style={background}>
 
-						 <div className='fly-cook-steps-C' ref='fly-cook-steps-C' style={{display:steps.length && this.state.currentStep>-1 ? 'block':'none'}}>
-							<aside className='fly-prev' onTouchTap={this.prev} style={{display:this.state.currentStep <=0 ? 'none':'block'}}><canvas width='115' height='115'></canvas>上一步</aside>
-							<div className='fly-history'>
-								<FlyBack callBack={()=>{}}></FlyBack>
-							</div>
-							<div className='fly-cook-steps-scroll'>
-								<ul className='active' ref='steps-C' style={{width:steps.length * this.state.defaultWidth}}>
-									{steps.map((step,i)=>{
-										return <li key={i}>
-											<article style={{background:'url('+ step.imgSrc + ') no-repeat center  / cover'}}></article>
-											<footer>{step.stepContent}</footer>
-										</li>
-									})}							
-								</ul>
-							</div>
-							<aside className='fly-next' onTouchTap={this.next}>{this.state.currentStep >= this.state.steps.length-1?'完成':'下一步'}<canvas width='115' height='115'></canvas></aside>
-							
-						</div>
-					</div>}
-					{foodData.type === 'video' && <div className="fly-cook-book-item-C book-item">
-						<FlyVideo {...videoProps} {...this.props}></FlyVideo>
-					</div>}
-				</div>
-				
+			<div className='book-item-content'>
+			<span className='book-item-name'>{foodData.name}</span>
+			<span className='book-item-pageview'>{foodData.pageView}<em>浏览</em></span>
+			<span className="book-item-discuss">
+			<span>
+			<b></b>
+			<b></b>
+			<b></b>
+			</span>
+			<span>{foodData.discuss}</span>
+			</span>
+			</div>										
+			</div>
+			</li>	
+			<li className='book-item-detail book-item-ul-li'>
+
+			<div className='material' ref='material'>
+			<h1>材料</h1>
+			<section className='material-scroll' ref='material-scroll'>
+
+			<ul>
+			{foodData.foodMaterial && foodData.foodMaterial.map((item,i)=>{
+				return (
+					<li key={i}>
+					<span>{item.name}</span>
+					<span>{item.weight}</span>
+					</li>
+					);
+			})}
+			</ul>
+
+			</section>
+			<section onTouchTap={this.beginDo} className='begin-do'><span>开始制作</span></section>
+			</div>
+			</li>	
+			</ul>
+			</section>}
+
+			<div className='fly-cook-steps-C' ref='fly-cook-steps-C' style={{display:steps.length && this.state.currentStep>-1 ? 'block':'none'}}>
+			<aside className='fly-prev' onTouchTap={this.prev} style={{display:this.state.currentStep <=0 ? 'none':'block'}}><canvas width='115' height='115'></canvas>上一步</aside>
+			<div className='fly-history'>
+			<FlyBack callBack={()=>{}}></FlyBack>
+			</div>
+			<div className='fly-cook-steps-scroll'>
+			<ul className='active' ref='steps-C' style={{width:steps.length * this.state.defaultWidth}}>
+			{steps.map((step,i)=>{
+				return <li key={i}>
+				<article style={{background:'url('+ step.imgSrc + ') no-repeat center  / cover'}}></article>
+				<footer>{step.stepContent}</footer>
+				</li>
+			})}							
+			</ul>
+			</div>
+			<aside className='fly-next' onTouchTap={this.next}>{this.state.currentStep >= this.state.steps.length-1?'完成':'下一步'}<canvas width='115' height='115'></canvas></aside>
+
+			</div>
+			</div>}
+			{foodData.type === 'video' && <div className="fly-cook-book-item-C book-item">
+			<FlyVideo {...videoProps} {...this.props}></FlyVideo>
+			</div>}
+			</div>
+
 			</li>
-		)
+			)
 	}
 
 	prev(e){
@@ -163,22 +163,49 @@ import FlyVideo from './video.jsx';
 
 			obserable.trigger({type:'showAllTime'});//
 
-			this.setState({
+			/*this.setState({
 				currentStep:-1
 			});
 			
 			obserable.trigger({
 				type:'initProgress',
 				data:-1
+			});*/
+			obserable.trigger({
+				type:'fillFood',
+				data:window.currentFood
 			});
-			return;
-		}
-		this.setState({
-			currentStep:this.state.currentStep  + 1
-		},()=>{
-			this.stepScroll();
-			obserable.trigger({type:"initProgress",data:this.state.currentStep});
+
+
+
+
+		//清空盘子。
+		obserable.trigger({
+			type:'clearPlates'
 		});
+		//初始化进度条
+		obserable.trigger({
+			type:'initProgress',
+			data:-1
+		});
+
+		obserable.trigger({ //清空当前的单个水果的识别
+			type:"clearSingleFood"
+		});
+
+
+		obserable.trigger({type:'clearAlimentationData'});
+
+
+		
+		return;
+	}
+	this.setState({
+		currentStep:this.state.currentStep  + 1
+	},()=>{
+		this.stepScroll();
+		obserable.trigger({type:"initProgress",data:this.state.currentStep});
+	});
 
 		//
 
@@ -198,6 +225,8 @@ import FlyVideo from './video.jsx';
 				defaultWidth:$(".fly-cook-steps-C").width()
 			},()=>{
 				obserable.trigger({type:"initProgress",data:this.state.currentStep});
+				obserable.trigger({type:'clearAllTime'});//清空总时间
+				obserable.trigger({type:'startInterval'});//启动定时器
 			});
 		},1);
 		this.startTime = new Date().getTime();
@@ -231,6 +260,8 @@ import FlyVideo from './video.jsx';
 			currentStep:-1
 		});
 
+		this.foodId =  -1;
+
 		let {obserable} = this.props;
 		obserable.trigger({ //清空营养数据
 			type:'clearAlimentationData'
@@ -262,7 +293,9 @@ import FlyVideo from './video.jsx';
 	componentDidMount(){
 
 		let {obserable} = this.props,
-			foodId = -1;
+		foodId = -1;
+
+		this.foodId = foodId;
 
 		obserable.on('closeStep',(e)=>{
 			this.closeCook(e);
@@ -300,7 +333,9 @@ import FlyVideo from './video.jsx';
 		});
 
 		obserable.on('fillFood',(data)=>{
-			foodId = data.id;
+			this.foodId  = data.id;
+			this.foodMaterial = data.foodMaterial;
+			//obserable.trigger({type:'stopInterval'});//清除定时器
 			this.setState({
 				foodData:data,
 				steps:data.steps,
@@ -396,7 +431,7 @@ import FlyVideo from './video.jsx';
 		});
 
 		obserable.on('fillFoodByVideo',data=>{
-			foodId = data.id;
+			this.foodId  = data.id;
 			this.setState({
 				foodData:data,
 				steps:data.steps,
@@ -405,8 +440,12 @@ import FlyVideo from './video.jsx';
 		}); 
 
 		obserable.on('getFoodId',()=>{//返回当前菜谱的ID
-			return foodId;
+			return this.foodId;
 		});
+
+		obserable.on('getFoodMaterials',()=>{
+			return this.foodMaterial;
+		})
 
 
 		

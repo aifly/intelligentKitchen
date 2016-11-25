@@ -231,6 +231,7 @@ import $ from 'jquery';
 		switch(targetData.type){
 			case "image":
 				var food =this.state.dataSource[this.state.currentTimeSlot][iNow];
+				window.currentFood = food;
 				obserable.trigger({
 					type:'fillFood',
 					data: food
@@ -244,6 +245,7 @@ import $ from 'jquery';
 			break;
 			case "video": 
 				var food = this.state.dataSource[this.state.currentTimeSlot][iNow];
+				window.currentFood = food;
 				obserable.trigger({
 					type:'fillFoodByVideo',
 					data:food

@@ -142,7 +142,7 @@ $maxIndex:9999;
       $size:4vw;
       width: $size;
       height: $size;
-      line-height:$size;
+      line-height:$size - .4;
       text-align: center;
       @include br(50%);
       border: 3px solid $baseColor1;

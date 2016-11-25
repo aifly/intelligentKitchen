@@ -10,7 +10,7 @@ import $ from 'jquery';
 
 //已加入菜谱组件。
 
- class FlyCookBookList extends React.Component{
+class FlyCookBookList extends React.Component{
 	constructor(option){
 		super(option);
 		this.state = {
@@ -25,7 +25,7 @@ import $ from 'jquery';
 			],//已添加的菜谱
 			currentPannel:1,
 			isShow:false,
-			currentDate:GetDateStr(0),
+			currentDate:GetDateStr(0).d,
 			isEnableDrag:false,
 			currentFoodId:-1
 		}
@@ -69,90 +69,90 @@ import $ from 'jquery';
 
 		return (
 			<li className="fly-cook-list fly-cook-book-item" ref='fly-cook-list'>
-				<div style={{position:'relative'}}>
-					<div style={{position:'absolute',width:'100%',height:'100%',zIndex:isShow?1000:-1}}></div>
-					<div style={{position:'relative',opacity:this.state.isShow?1:0,WebkitTransition:'opacity 1s'}}>
-						<div className="fly-cook-book-item-C">
-							<article className={"book-list-C add-collect "+(this.state.currentPannel?'active':'') } >
-								<span onTouchStart={this.change} className='tag'>已加入菜谱<canvas width='73' height='280'></canvas></span>
-								<aside className='booklist-left-C' onTouchStart={this.changeTimeSlot}>
-									<div className={this.state.currentTimeSlot===0?'active':''}>早餐</div>
-									<div className={this.state.currentTimeSlot===1?'active':''}>中餐</div>
-									<div className={this.state.currentTimeSlot===2?'active':''}>晚餐</div>
-								</aside>
-								<aside className='booklist-right-C'>
-									<div className='bl-calendar'>
-										<table>
-											<thead>
-												<tr>
-													<th>日</th>
-													<th>一</th>
-													<th>二</th>
-													<th>三</th>
-													<th>四</th>
-													<th>五</th>
-													<th>六</th>
-												</tr>
-											</thead>
-											<tbody onTouchStart={this.getCurrentCookBookByDate.bind(this)}>
-												<tr>
-													{this.state.dates1.map((item,i)=>{
-														return (
-															<td key={i} data-date={item.date} className={this.state.currentDate === item.date?'today':''}>
-																<div className={item.isHasFood?'hasfood':''}>
-																	<span>{item.date}</span>
-																	<span>{item.lunar}</span>
-																</div>
-															</td>
-														)
-													})}
-												</tr>
-												<tr>
-													{this.state.dates2.map((item,i)=>{
-														return (
-															<td key={i} data-date={item.date}  className={this.state.currentDate === item.date?'today':''}>
-																<div className={item.isHasFood?'hasfood':''}>
-																	<span>{item.date}</span>
-																	<span>{item.lunar}</span>
-																</div>
-															</td>
-														)
-													})}
-												</tr>
-											</tbody>
-										</table>
-									</div>
-									<div className='bl-food-list'>
-										<div className={this.state.addFoods[this.state.currentTimeSlot].length?'bl-food-scroll':'bl-food-scroll no-data'} ref='scroll'>
-											<ul ref='foods-C' style={{width:this.state.liWidth*this.state.addFoods[this.state.currentTimeSlot].length}}>
-												{this.state.addFoods[this.state.currentTimeSlot].map((item,i)=>{
-													return (
-														<li key={i} onTouchStart={this.getFoodById}>
-															<div data-index={i} style={{background:' url('+item.imgSrc+') no-repeat center top'}} className={this.state.currentFoodId === item.id ? 'active':''}>
-																<canvas width='270' height='330'></canvas>
-																<span>{item.name}</span>
-																{item.type === 'video' && <img className='fly-play-ico' src='./assets/images/play.png'/>}
-															</div>	
-														</li>
-													)
-												})}
-											</ul>
-										</div>
-										<div className='bl-food-next' onTouchStart={this.next}>></div>
-									</div>
-								</aside>
-							</article>
-						</div>
-						<FlyMyCollect changeMyCollectTop={this.changeMyCollectTop} {...this.props} className={this.state.currentPannel?'':'active'}></FlyMyCollect>
+			<div style={{position:'relative'}}>
+			<div style={{position:'absolute',width:'100%',height:'100%',zIndex:isShow?1000:-1}}></div>
+			<div style={{position:'relative',opacity:this.state.isShow?1:0,WebkitTransition:'opacity 1s'}}>
+			<div className="fly-cook-book-item-C">
+			<article className={"book-list-C add-collect "+(this.state.currentPannel?'active':'') } >
+			<span onTouchStart={this.change} className='tag'>已加入菜谱<canvas width='73' height='280'></canvas></span>
+			<aside className='booklist-left-C' onTouchStart={this.changeTimeSlot}>
+			<div className={this.state.currentTimeSlot===0?'active':''}>早餐</div>
+			<div className={this.state.currentTimeSlot===1?'active':''}>中餐</div>
+			<div className={this.state.currentTimeSlot===2?'active':''}>晚餐</div>
+			</aside>
+			<aside className='booklist-right-C'>
+			<div className='bl-calendar'>
+			<table>
+			<thead>
+			<tr>
+			<th>日</th>
+			<th>一</th>
+			<th>二</th>
+			<th>三</th>
+			<th>四</th>
+			<th>五</th>
+			<th>六</th>
+			</tr>
+			</thead>
+			<tbody onTouchStart={this.getCurrentCookBookByDate.bind(this)}>
+			<tr>
+			{this.state.dates1.map((item,i)=>{
+				return (
+					<td key={i} data-date={item.date} data-month={item.month} className={this.state.currentDate === item.date?'today':''}>
+					<div className={item.isHasFood?'hasfood':''}>
+					<span>{item.date}</span>
+					<span>{item.lunar}</span>
 					</div>
-				</div>
+					</td>
+					)
+			})}
+			</tr>
+			<tr>
+			{this.state.dates2.map((item,i)=>{
+				return (
+					<td key={i} data-date={item.date}  data-month={item.month}  className={this.state.currentDate === item.date?'today':''}>
+					<div className={item.isHasFood?'hasfood':''}>
+					<span>{item.date}</span>
+					<span>{item.lunar}</span>
+					</div>
+					</td>
+					)
+			})}
+			</tr>
+			</tbody>
+			</table>
+			</div>
+			<div className='bl-food-list'>
+			<div className={this.state.addFoods[this.state.currentTimeSlot].length?'bl-food-scroll':'bl-food-scroll no-data'} ref='scroll'>
+			<ul ref='foods-C' style={{width:this.state.liWidth*this.state.addFoods[this.state.currentTimeSlot].length}}>
+			{this.state.addFoods[this.state.currentTimeSlot].map((item,i)=>{
+				return (
+					<li key={i} onTouchStart={this.getFoodById}>
+					<div data-index={i} style={{background:' url('+item.imgSrc+') no-repeat center top'}} className={this.state.currentFoodId === item.id ? 'active':''}>
+					<canvas width='270' height='330'></canvas>
+					<span>{item.name}</span>
+					{item.type === 'video' && <img className='fly-play-ico' src='./assets/images/play.png'/>}
+					</div>	
+					</li>
+					)
+			})}
+			</ul>
+			</div>
+			<div className='bl-food-next' onTouchStart={this.next}>></div>
+			</div>
+			</aside>
+			</article>
+			</div>
+			<FlyMyCollect changeMyCollectTop={this.changeMyCollectTop} {...this.props} className={this.state.currentPannel?'':'active'}></FlyMyCollect>
+			</div>
+			</div>
 			</li>
-		)
+			)
 	}
 
 	updateCalendar(){
 
-	
+		
 
 		var D =new Date();
 		var yy=D.getFullYear();
@@ -165,8 +165,10 @@ import $ from 'jquery';
 		let week = D.getDay();
 
 		for(var i = -week;i<7-week;i++){
+			var getD =GetDateStr(i);
 			this.state.dates1.push({
-				date:GetDateStr(i),
+				date:getD.d,
+				month:getD.m,
 				lunar:i===0?'今天':(GetLunarDay(yy,mm,dd+i)==='廿'?'廿十':GetLunarDay(yy,mm,dd+i)),
 				id:'',
 				isToday: i === 0 ? true : false,
@@ -176,8 +178,10 @@ import $ from 'jquery';
 
 
 		for(var j = i;j<14-week;j++){
+			var getD =GetDateStr(j);
 			this.state.dates2.push({
-				date:GetDateStr(j),
+				date:getD.d,
+				month:getD.m,
 				lunar:GetLunarDay(yy,mm,dd+j)==='廿'?'廿十':GetLunarDay(yy,mm,dd+j),
 				id:'',
 				isHasFood:false
@@ -219,11 +223,12 @@ import $ from 'jquery';
 	getFoodListByDate(date){
 		
 		let {URL,userId} = this.props,
-			s = this;
+		s = this;
 		s.state.addFoods.forEach((food,i)=>{
 			//i>0 && (food.length = 0);
 			food.length = 0;
 		});
+		
 		s.forceUpdate();
 		$.ajax({
 			type:"POST",
@@ -238,7 +243,7 @@ import $ from 'jquery';
 				data.forEach(d=>{
 					s.state.addFoods[d.foodMtype*1].push(d);	
 				});
-			
+				
 				s.forceUpdate(()=>{
 					
 					if(s.state.addFoods[s.state.currentTimeSlot].length<=0){
@@ -268,6 +273,7 @@ import $ from 'jquery';
 	getCurrentCookBookByDate(e){
 		this.lastDate = this.lastDate || this.state.currentDate;
 		var date = $(e.target).parents('td').data('date');
+		var month = $(e.target).parents('td').data('month');
 		if(!date){
 			return;
 		}
@@ -280,14 +286,17 @@ import $ from 'jquery';
 		this.setState({
 			currentDate:date
 		});
+		
 		var D = new Date();
-		var year = D.getFullYear()+'',
-			month = D.getMonth()+1;
-			month<10&&(month='0'+month);
-			date<10&&(date='0'+date);
+		var year = D.getFullYear()+'';
+
+		month<10&&(month='0'+month);
+		date<10&&(date='0'+date);
 		var d = year + month + date;
 
 		this.lastDate = date;
+
+
 
 		this.getFoodListByDate(d);
 	}
@@ -301,7 +310,7 @@ import $ from 'jquery';
 
 		obserable.on("clearCurrentFoodId",()=>{//清空当前的菜谱的ID
 			this.setState({
-					currentFoodId:-1
+				currentFoodId:-1
 			});
 		})
 
@@ -327,23 +336,23 @@ import $ from 'jquery';
 		
 	//this.state.addFoods[0] = addFoods;//默认填充早餐
 
-		this.forceUpdate();
+	this.forceUpdate();
 
-		if(this.state.addFoods[this.state.currentTimeSlot].length){
-			setTimeout(()=>{
-				let liWidth = this.refs['foods-C'].children[0].offsetWidth;
-				this.setState({
-	 				liWidth:liWidth
-				});
+	if(this.state.addFoods[this.state.currentTimeSlot].length){
+		setTimeout(()=>{
+			let liWidth = this.refs['foods-C'].children[0].offsetWidth;
+			this.setState({
+				liWidth:liWidth
+			});
 
-				this.scroll = new IScroll(this.refs['scroll'],{
-					scrollX:true,
-					scrollY:false,
-				});
-			},1);
-		}
+			this.scroll = new IScroll(this.refs['scroll'],{
+				scrollX:true,
+				scrollY:false,
+			});
+		},1);
+	}
 
-		
+	
 
 		/*$(this.refs['fly-cook-list']).on('touchstart',e=>{
 			
@@ -411,11 +420,11 @@ import $ from 'jquery';
 		if(e){
 			switch(e.target.nodeName){
 				case "DIV":
-					target = e.target;
+				target = e.target;
 				break;
 				case "SPAN":
 				case "CANVAS":
-					target = e.target.parentNode;
+				target = e.target.parentNode;
 				break;
 			};
 		}else{
@@ -434,35 +443,37 @@ import $ from 'jquery';
 
 		switch(targetData.type){
 			case "image":
-				var food =this.state.addFoods[this.state.currentTimeSlot][index];
-				obserable.trigger({
-					type:'fillFood',
-					data:food
-				});
-				this.setState({
-					currentFoodId:food.id
-				});
+			var food =this.state.addFoods[this.state.currentTimeSlot][index];
+			window.currentFood = food;
+			obserable.trigger({
+				type:'fillFood',
+				data:food
+			});
+			this.setState({
+				currentFoodId:food.id
+			});
 			break;
 			case "video":
-				var food =this.state.addFoods[this.state.currentTimeSlot][index];
-				obserable.trigger({
-					type:'fillFoodByVideo',
-					data:food
+			var food =this.state.addFoods[this.state.currentTimeSlot][index];
+			window.currentFood = food;
+			obserable.trigger({
+				type:'fillFoodByVideo',
+				data:food
+			});
+
+			this.setState({
+				currentFoodId:food.id
+			});
+
+			setTimeout(()=>{
+				var video = obserable.trigger({
+					type:'getVideo'
 				});
+				video && video.play();
+			},100);
 
-				this.setState({
-					currentFoodId:food.id
-				});
-
-				setTimeout(()=>{
-					var video = obserable.trigger({
-						type:'getVideo'
-					});
-					video && video.play();
-				},100);
-
-				obserable.trigger({type:'updateStep',data:0});
-				
+			obserable.trigger({type:'updateStep',data:0});
+			
 			break;
 		}
 
