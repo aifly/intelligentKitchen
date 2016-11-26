@@ -1,6 +1,6 @@
 
 import React from 'react';
-import Time from '../libs/canvas.js';
+import Time from '../libs/canvas.js'; 
 import Temperature from '../libs/temperature.js';
 import $ from 'jquery';
 import Sortable from '../libs/Sortable.js';
@@ -10,6 +10,7 @@ import IScroll from 'iscroll';
 import FlyFoodList from './foodlist.jsx';
 import hotCity from '../libs/hotcity';
 import FlyBack  from './back.jsx';
+
 
 import {PublicShadow} from './public-shadow.jsx';
 
