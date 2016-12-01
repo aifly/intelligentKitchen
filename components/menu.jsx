@@ -175,6 +175,7 @@ class FlyNav extends React.Component{
 			this.collectIco.fillCollectIco(this.state.foodBookShow|0);
 
 			obserable.trigger({type:'showCollect',data:this.state.foodBookShow});
+			this.state.foodBookShow && obserable.trigger({type:'loadFoodListData'});//重新加载数据
 			break;
 			case 3://统计
 
@@ -198,7 +199,7 @@ class FlyNav extends React.Component{
 
 			obserable.trigger({type:'showfunctionCenter',data:this.state.weatherShow});
 
-
+			this.state.weatherShow && obserable.trigger({type:'loadFoodListData'});//重新加载数据
 			break;
 		}
 		this.state.isShow = false;

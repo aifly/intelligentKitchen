@@ -87,16 +87,8 @@ import $ from 'jquery';
 		x < this.scroll.maxScrollX && (x = this.scroll.maxScrollX);
 		this.scroll.scrollTo(x,0,200);
 	}
-	componentDidMount(){
-
+	loadData(){
 		let {type,getTimeSlot,URL,userId,obserable} = this.props;
-
-		obserable.on("clearFoodIdOnFunction",()=>{
-			this.setState({
-					currentFoodId:-1
-				}); 
-		})
-
 		this.state.currentTimeSlot = getTimeSlot;
 		let s = this;
 		switch(type){//推荐食材
@@ -179,6 +171,22 @@ import $ from 'jquery';
 				
 			break;
 		}
+	}
+	componentDidMount(){
+
+		let {obserable} = this.props;
+
+		obserable.on("clearFoodIdOnFunction",()=>{
+			this.setState({
+					currentFoodId:-1
+				}); 
+		})
+		this.loadData();
+		
+		obserable.on('loadFoodListData',()=>{
+			this.loadData();
+		});
+	
 
 	}
 
