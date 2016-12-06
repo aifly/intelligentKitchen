@@ -1,52 +1,16 @@
 import React from 'react';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import {PublicMethods} from './public-methods.jsx';
-import Ico from '../libs/ico';
+
 import {gotoActivity} from '../libs/android';
+ 
 
+injectTapEventPlugin();
 
-//injectTapEventPlugin();
-
-class FlyNav extends React.Component{
+ class FlyNav extends React.Component{
 	constructor(option){
 		super(option);
 		this.state = {
-			operatorArr:[
-			{
-				menu:'设置'
-			},{
-				menu:'开/关'
-			}
-			],
-			menusArr:[
-			{
-				menu:'称量'
-			},
-			{
-				menu:'菜板'
-			},
-			{
-				menu:'菜谱'
-			},
-			{
-				menu:'统计'
-			},
-			{
-				menu:'提醒'
-			},
-			{
-				menu:'天气'
-			},
-			{
-				menu:'时间'
-			},
-			{
-				menu:'无线'
-			},
-			{
-				menu:'收藏'
-			}
-			],
 			isShow:false,
 			isEnableDrag:false,
 			operatorBarShow:0,
@@ -55,8 +19,78 @@ class FlyNav extends React.Component{
 			weatherShow:0,
 			foodBookShow:0,
 			switchShow:0,
-			settingShow:0
-
+			settingShow:0,
+			operatorArr:[
+				{
+					curSrc:'./assets/images/nav10.png',
+					src:'./assets/images/nav10.png',
+					_src:'./assets/images/nav10-1.png',
+					menu:'设置'
+				},{
+					curSrc:'./assets/images/nav11.png',
+					src:'./assets/images/nav11.png',
+					_src:'./assets/images/nav11-1.png',
+					menu:'开/关'
+				}
+			],
+			menusArr:[
+				{	
+					curSrc:'./assets/images/nav1.png',
+					src:'./assets/images/nav1.png',
+					_src:'./assets/images/nav1-1.png',
+					menu:'称量'
+				},
+				{
+					curSrc:'./assets/images/nav2.png',
+					src:'./assets/images/nav2.png',
+					_src:'./assets/images/nav2-1.png',
+					menu:'菜板'
+				},
+				{
+					curSrc:'./assets/images/nav3.png',
+					src:'./assets/images/nav3.png',
+					_src:'./assets/images/nav3-1.png',
+					menu:'菜谱'
+				},
+				{
+					curSrc:'./assets/images/nav4.png',
+					src:'./assets/images/nav4.png',
+					_src:'./assets/images/nav4-1.png',
+					menu:'统计'
+				},
+				{
+					curSrc:'./assets/images/nav5.png',
+					src:'./assets/images/nav5.png',
+					_src:'./assets/images/nav5-1.png',
+					menu:'提醒'
+				},
+				{
+					curSrc:'./assets/images/nav6.png',
+					src:'./assets/images/nav6.png',
+					_src:'./assets/images/nav6-1.png',
+					menu:'天气'
+				},
+				{
+					curSrc:'./assets/images/nav7.png',
+					src:'./assets/images/nav7.png',
+					_src:'./assets/images/nav7-1.png',
+					menu:'时间'
+				},
+				{
+					curSrc:'./assets/images/nav8.png',
+					src:'./assets/images/nav8.png',
+					_src:'./assets/images/nav8-1.png',
+					menu:'无线'
+				},
+				{
+					curSrc:'./assets/images/nav9.png',
+					src:'./assets/images/nav9.png',
+					_src:'./assets/images/nav9-1.png',
+					menu:'收藏'
+				}
+			],
+			isShow:false,
+			isEnableDrag:false
 		}
 		this.menuBarHandler = this.menuBarHandler.bind(this);
 		this.closeMenu = this.closeMenu.bind(this);
@@ -66,145 +100,143 @@ class FlyNav extends React.Component{
 	render(){
 
 		let renderArr = this.state.menusArr.map((item,i)=>{
-			let style = {
-
-			}
-			if(item.curSrc){
-				style.background = 'url('+item.curSrc+') no-repeat center center';
-			}
 			return (
-				<li key={i} style={style}>
-				{!item.curSrc && <div><canvas width='140' height='140' className={'canvas-'+i}></canvas></div>}
-				<span>{item.menu}</span>
+				<li data-index={i} key={i} style={{background:'url('+item.curSrc+') no-repeat center center'}}>
+					<span  data-index={i}>{item.menu}</span>
 				</li>
-				)
+			)
 		}),
 		operatorArr = this.state.operatorArr.map((item,i)=>{
-			let style = {
-
-			}
-			if(item.curSrc){
-				style.background = 'url('+item.curSrc+') no-repeat center center';
-			}
 			return (
-				<li key={i} style={style}>
-				{!item.curSrc && <div><canvas width='140' height='140' className={'canvas1-'+i}></canvas></div>}
-				<span>{item.menu}</span>
+				<li data-index={i} key={i} style={{background:'url('+item.curSrc+') no-repeat center center'}}>
+					<span  data-index={i}>{item.menu}</span>
 				</li>
-				);
+			);
 		});
 
 		return (
 			<nav className={'fly-nav '+ (this.state.isShow?'':'active')} ref='fly-menu'>
 				<div style={{overflowY:' hidden',overflowX:' auto',height:'11.5vh'}}>
-					<ul ref='fly-menu-C' onTouchStart={this.menuChange}>
-					{renderArr}
+					<ul ref='fly-menu-C' className={this.state.isShow?'show':''} onTouchStart={this.menuChange}>
+						{renderArr}
 					</ul>
-					<ul ref='fly-menu-C1' onTouchStart={this.operatorChange}>
-					{operatorArr}
+					<ul ref='fly-menu-C1' className={this.state.isShow?'show':''}  onTouchStart={this.operatorChange}>
+						{operatorArr}
 					</ul>
 				</div>
 				<div className='fly-menu-bar' onTouchStart={this.menuBarHandler}>
 					<div className={this.state.isEnableDrag ? 'fly-sure':''}>{this.state.isEnableDrag ? '确定':'下拉菜单'}</div>
 					<div style={{marginLeft:'-.45vw'}}>{this.state.isEnableDrag ? '':'>'}</div>
-					</div>
-					<div className={"fly-nav-mask "+ (this.state.isShow?'active':'') } ref="fly-nav-mask" onTouchStart={this.closeMenu}></div>
+				</div>
+				<div className={"fly-nav-mask "+ (this.state.isShow?'active':'') } ref="fly-nav-mask" onTouchStart={this.closeMenu}></div>
 			</nav>
-			)
+		)
 	}
 
 
 	getIndex(e,parentNode){
 		let {index,obserable} = this.props,
-		iNow = -1;
-		let parent =( e.target.nodeName === "SPAN" || e.target.nodeName === "DIV")?e.target.parentNode:e.target;
+			iNow = -1;
+		let parent = e.target.nodeName === "SPAN"?e.target.parentNode:e.target;
 		iNow = index(parent,parentNode,'li');
+
 		return iNow;
 	}
 
 	operatorChange(e){
 		e.preventDefault();
-		var iNow = this.getIndex(e,this.refs['fly-menu-C1']);
+		var iNow = e.target.getAttribute('data-index')*1;
+
 		if(iNow<=-1){
 			return;
 		}
-		//this.state.operatorArr[iNow].curSrc = this.state.operatorArr[iNow].curSrc === this.state.operatorArr[iNow].src? this.state.operatorArr[iNow]._src:this.state.operatorArr[iNow].src;
+		this.state.operatorArr[iNow].curSrc = this.state.operatorArr[iNow].curSrc === this.state.operatorArr[iNow].src? this.state.operatorArr[iNow]._src:this.state.operatorArr[iNow].src;
 		if(iNow === 0 ){
-			this.state.settingShow = !this.state.settingShow;
-			this.settingIco.fillSettingIco(this.state.settingShow|0);
 			gotoActivity('setting');
 		}
 		else{
-			this.state.switchShow = !this.state.switchShow;
-			this.switchIco.fillSwitchIco(this.state.switchShow|0);
 			gotoActivity('openOrClose');
 		}
-		//this.state.isShow = false;
+		this.state.isShow = false;
 		this.forceUpdate();
 	}
 
 	menuChange(e){
 		e.preventDefault();
 		let {obserable} = this.props;
-		var iNow = this.getIndex(e,this.refs['fly-menu-C']);
+		
+		var iNow = e.target.getAttribute('data-index')*1;
 
 		if(iNow<=-1 || !this.state.isShow){//this.state.isShow 表示菜单没有展开。不能执行点击事件。
-
 			return;
 		}
-
-
-		
 		switch(iNow){
 			case 0://称量
 			case 1://菜板
 			case 4://提醒
-
-			this.state.operatorBarShow = !this.state.operatorBarShow;
-
-			this.weightIco.fillWeightIco(this.state.operatorBarShow|0);
-			this.broadIco.fillBroadIco(this.state.operatorBarShow|0);
-			this.countdownIco.fillCountdownIco(this.state.operatorBarShow|0);
-			obserable.trigger({type:'showOperater',data:this.state.operatorBarShow });
+				if(this.state.menusArr[0].curSrc === this.state.menusArr[0].src){
+					this.state.menusArr[0].curSrc = this.state.menusArr[0]._src;
+					this.state.menusArr[1].curSrc = this.state.menusArr[1]._src;
+					this.state.menusArr[4].curSrc = this.state.menusArr[4]._src;
+				}
+				else{
+					this.state.menusArr[0].curSrc = this.state.menusArr[0].src;
+					this.state.menusArr[1].curSrc = this.state.menusArr[1].src;
+					this.state.menusArr[4].curSrc = this.state.menusArr[4].src;
+				}
+			
+				obserable.trigger({type:'showOperater',data:this.state.menusArr[0].curSrc !== this.state.menusArr[0].src});
 			break;
 			case 2://菜谱
-			case 8://收藏
+			case 8:
 
-			this.state.foodBookShow = !this.state.foodBookShow;
-			this.foodBookIco.fillFoodBookIco(this.state.foodBookShow|0);
-			this.collectIco.fillCollectIco(this.state.foodBookShow|0);
-
-			obserable.trigger({type:'showCollect',data:this.state.foodBookShow});
-			this.state.foodBookShow && obserable.trigger({type:'loadFoodListData'});//重新加载数据
+				if(this.state.menusArr[2].curSrc === this.state.menusArr[2].src){
+					this.state.menusArr[2].curSrc = this.state.menusArr[2]._src;
+					this.state.menusArr[8].curSrc = this.state.menusArr[8]._src;
+					obserable.trigger({type:'loadFoodListData'});//重新加载数据
+				}
+				else{
+					this.state.menusArr[2].curSrc = this.state.menusArr[2].src;
+					this.state.menusArr[8].curSrc = this.state.menusArr[8].src;
+				}
+				obserable.trigger({type:'showCollect',data:this.state.menusArr[2].curSrc !== this.state.menusArr[2].src});
 			break;
 			case 3://统计
-
-			this.state.statisticsShow = !this.state.statisticsShow;
-			this.statisticsIco.fillStatisticsIco(this.state.statisticsShow|0);
-			gotoActivity('nutrition');	
-
-			break;
-			case 7://无线WIFi
-			this.state.wifiShow =  !this.state.wifiShow;
-			this.wifiIco.fillWifiIco(this.state.wifiShow|0);
-			gotoActivity('wifi');	
+			case 7://无线
+				if(this.state.menusArr[3].curSrc === this.state.menusArr[3].src){
+					this.state.menusArr[3].curSrc = this.state.menusArr[3]._src;
+					this.state.menusArr[7].curSrc = this.state.menusArr[7]._src;
+				}
+				else{
+					this.state.menusArr[3].curSrc = this.state.menusArr[3].src;
+					this.state.menusArr[7].curSrc = this.state.menusArr[7].src;
+				}
+				///this.state.menusArr[iNow].curSrc = this.state.menusArr[iNow].curSrc === this.state.menusArr[iNow].src? this.state.menusArr[iNow]._src:this.state.menusArr[iNow].src;
+				if(iNow === 3){
+					gotoActivity('nutrition')
+				}else{
+					gotoActivity('wifi')
+				}				
 			break;
 			case 5://天气
 			case 6://时间
+				if(this.state.menusArr[5].curSrc === this.state.menusArr[5].src){
+					this.state.menusArr[5].curSrc = this.state.menusArr[5]._src;
+					this.state.menusArr[6].curSrc = this.state.menusArr[6]._src;
+					obserable.trigger({type:'loadFoodListData'});//重新加载数据
+				}
+				else{
+					this.state.menusArr[5].curSrc = this.state.menusArr[5].src;
+					this.state.menusArr[6].curSrc = this.state.menusArr[6].src;
+				}
 
-			this.state.weatherShow = !this.state.weatherShow;
-
-			this.timeIco.fillTimeIco(this.state.weatherShow|0);
-			this.weatherIco.fillWeatherIco(this.state.weatherShow|0);
-
-			obserable.trigger({type:'showfunctionCenter',data:this.state.weatherShow});
-
-			this.state.weatherShow && obserable.trigger({type:'loadFoodListData'});//重新加载数据
+				obserable.trigger({type:'showfunctionCenter',data:this.state.menusArr[5].curSrc !== this.state.menusArr[5].src});
 			break;
 		}
 		this.state.isShow = false;
 		this.forceUpdate();
 
+		
 
 	}
 
@@ -227,52 +259,13 @@ class FlyNav extends React.Component{
 		});
 	}
 	componentDidMount(){
-		var s = this;
-		/*window.closeSetting = function(){
-			s.state.settingShow = !s.state.settingShow;
-			s.settingIco.fillSettingIco(s.state.settingShow|0);
-		}
-
-		window.closeApp = function(){
-			s.state.switchShow = !s.state.switchShow;
-			s.switchIco.fillSwitchIco(s.state.switchShow|0);
-		}
-		window.closeNutrition = function(){
-			s.state.statisticsShow = !s.state.statisticsShow;
-			s.statisticsIco.fillStatisticsIco(s.state.statisticsShow|0);
-		}
-		window.closeWifi = function(){
-			s.state.wifiShow =  !s.state.wifiShow;
-			s.wifiIco.fillWifiIco(s.state.wifiShow|0);
-		}
-		*/
 		let {obserable} = this.props;
 		obserable.on('switchMenu',(flag)=>{
 			this.setState({
 				isEnableDrag:flag,
 			});
 		});
-
-		var $ = selector=>{
-			return document.querySelector(selector);
-		}
-
-
-
-		this.weightIco = new Ico({color:'#f90',canvas:$('.canvas-0')}).fillWeightIco();
-		this.broadIco = new Ico({color:'#f90',canvas:$('.canvas-1')}).fillBroadIco();
-		this.countdownIco = new Ico({color:'#f90',canvas:$('.canvas-4')}).fillCountdownIco();
-		this.statisticsIco = new Ico({color:'#f90',canvas:$('.canvas-3')}).fillStatisticsIco();
-		this.timeIco = new Ico({color:'#f90',canvas:$('.canvas-6')}).fillTimeIco();
-		this.wifiIco = new Ico({color:'#f90',canvas:$('.canvas-7')}).fillWifiIco();
-		this.weatherIco = new Ico({color:'#f90',canvas:$('.canvas-5')}).fillWeatherIco();
-		this.foodBookIco = new Ico({color:'#f90',canvas:$('.canvas-2')}).fillFoodBookIco();
-		this.collectIco = new Ico({color:'#f90',canvas:$('.canvas-8')}).fillCollectIco();
-
-		this.switchIco = new Ico({color:'#f90',canvas:$('.canvas1-1')}).fillSwitchIco();
-		this.settingIco = new Ico({color:'#f90',canvas:$('.canvas1-0')}).fillSettingIco();
 	}	
-
 }
 
 export default PublicMethods(FlyNav);
