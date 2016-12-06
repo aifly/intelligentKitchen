@@ -5,7 +5,7 @@ import Ico from '../libs/ico';
 import {gotoActivity} from '../libs/android';
 
 
-injectTapEventPlugin();
+//injectTapEventPlugin();
 
 class FlyNav extends React.Component{
 	constructor(option){
@@ -96,19 +96,19 @@ class FlyNav extends React.Component{
 
 		return (
 			<nav className={'fly-nav '+ (this.state.isShow?'':'active')} ref='fly-menu'>
-			<div style={{overflowY:' hidden',overflowX:' auto',height:'11.5vh'}}>
-			<ul ref='fly-menu-C' onTouchStart={this.menuChange}>
-			{renderArr}
-			</ul>
-			<ul ref='fly-menu-C1' onTouchStart={this.operatorChange}>
-			{operatorArr}
-			</ul>
-			</div>
-			<div className='fly-menu-bar' onTouchStart={this.menuBarHandler}>
-			<div className={this.state.isEnableDrag ? 'fly-sure':''}>{this.state.isEnableDrag ? '确定':'下拉菜单'}</div>
-			<div style={{marginLeft:'-.45vw'}}>{this.state.isEnableDrag ? '':'>'}</div>
-			</div>
-			<div className={"fly-nav-mask "+ (this.state.isShow?'active':'') } ref="fly-nav-mask" onTouchStart={this.closeMenu}></div>
+				<div style={{overflowY:' hidden',overflowX:' auto',height:'11.5vh'}}>
+					<ul ref='fly-menu-C' onTouchStart={this.menuChange}>
+					{renderArr}
+					</ul>
+					<ul ref='fly-menu-C1' onTouchStart={this.operatorChange}>
+					{operatorArr}
+					</ul>
+				</div>
+				<div className='fly-menu-bar' onTouchStart={this.menuBarHandler}>
+					<div className={this.state.isEnableDrag ? 'fly-sure':''}>{this.state.isEnableDrag ? '确定':'下拉菜单'}</div>
+					<div style={{marginLeft:'-.45vw'}}>{this.state.isEnableDrag ? '':'>'}</div>
+					</div>
+					<div className={"fly-nav-mask "+ (this.state.isShow?'active':'') } ref="fly-nav-mask" onTouchStart={this.closeMenu}></div>
 			</nav>
 			)
 	}
@@ -228,7 +228,7 @@ class FlyNav extends React.Component{
 	}
 	componentDidMount(){
 		var s = this;
-		window.closeSetting = function(){
+		/*window.closeSetting = function(){
 			s.state.settingShow = !s.state.settingShow;
 			s.settingIco.fillSettingIco(s.state.settingShow|0);
 		}
@@ -245,7 +245,7 @@ class FlyNav extends React.Component{
 			s.state.wifiShow =  !s.state.wifiShow;
 			s.wifiIco.fillWifiIco(s.state.wifiShow|0);
 		}
-		
+		*/
 		let {obserable} = this.props;
 		obserable.on('switchMenu',(flag)=>{
 			this.setState({
