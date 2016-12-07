@@ -500,7 +500,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 			success(data){
 					
 					s.setState({
-						recFoods:data
+					//	recFoods:data
 					})
 			}
 		});

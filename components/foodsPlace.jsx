@@ -221,7 +221,7 @@ export default class FlyFoodsPlace extends Component {
 			viewHeight : document.documentElement.clientHeight,
 			viewWidth  : document.documentElement.clientWidth
 		}
-		if(typeof Worker === 'function'){
+		if(typeof Worker === 'function' && 0){
 			this.worker = new Worker('../libs/worker.js');
 			
 		}
