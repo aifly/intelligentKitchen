@@ -118,7 +118,8 @@ import $ from 'jquery';
 					}
 				})
 				
-				//this.state.dataSource[this.state.currentTimeSlot]= addFoods;
+				this.state.dataSource[this.state.currentTimeSlot]= addFoods;
+
 				//s.ajaxEnd(s);
 			break;
 			case 'rec-menu'://推荐菜谱
@@ -146,7 +147,7 @@ import $ from 'jquery';
 					}
 				})
 				
-				//this.state.dataSource[this.state.currentTimeSlot]= addFoods;
+				this.state.dataSource[this.state.currentTimeSlot]= addFoods;
 
 				//s.ajaxEnd(s);
 			break;
@@ -171,6 +172,7 @@ import $ from 'jquery';
 				
 			break;
 		}
+		s.forceUpdate();
 	}
 	componentDidMount(){
 
@@ -191,6 +193,7 @@ import $ from 'jquery';
 	}
 
 	ajaxEnd(_this,len){
+		return;
 		setTimeout(()=>{
 			_this.setState({
 				ulWidth:(_this.refs['foodlist-content'].children[0].children[0].clientWidth+10)*(Math.ceil(len/2))+2

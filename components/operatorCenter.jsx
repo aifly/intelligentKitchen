@@ -54,7 +54,7 @@ class FlyOperatorCenter extends Component {
 		</div>
 		<div className='fly-show-countdown-top' style={{borderColor:this.state.showCloseCountdownIco?'#fff':'transparent',display:this.state.showCanvas?'block':'none'}}>
 		<canvas ref='clock-ico'></canvas>						
-		<span className='fly-close-countdown' style={{display:this.state.showCloseCountdownIco?'block':'none'}} onTouchTap={this.hideCanvas}></span>
+		<span className='fly-close-countdown' style={{display:this.state.showCloseCountdownIco?'block':'none'}} onTouchStart={this.hideCanvas}></span>
 		<canvas ref='canvas' onTouchStart={this.beginTouchCountDown.bind(this)} onTouchEnd={this.endTouchCountDown.bind(this)}></canvas>
 		</div>
 		<div className='fly-operator-C' >
@@ -91,8 +91,8 @@ class FlyOperatorCenter extends Component {
 		this.timer = setTimeout(()=>{
 			this.setState({
 				showCloseCountdownIco:true
-			})
-		},2000);
+			});
+		},1000);
 	}
 
 	endTouchCountDown(){
@@ -393,7 +393,8 @@ class FlyOperatorCenter extends Component {
 				showWeight:true,
 				showBoard:false,
 				weightIcoShadow:1,
-				showCountdown:false
+				showCountdown:false,
+				showCloseCountdownIco:false
 			},()=>{
 				setTimeout(()=>{
 					this.setState({
@@ -410,7 +411,8 @@ class FlyOperatorCenter extends Component {
 			showWeight:false,
 			showBoard:true,
 			showCountdown:false,
-			broadIcoShadow:1
+			broadIcoShadow:1,
+			showCloseCountdownIco:false
 		},()=>{
 			setTimeout(()=>{
 				this.setState({

@@ -41,13 +41,13 @@ class FlyTimeLine extends Component {
 						return(
 							<article key={i}>
 								<span className={this.state.currentStep >= i+1?'active':''}></span>
-								<label>步骤{step.stepName} {step.timespan? '用时:'+step.timespan:''}</label>
+								<label>步骤{step.stepName*1+1} {step.timespan? '用时:'+step.timespan.split(':')[1]+'分':''}</label>
 								{/*<div style={{left:-this.state.articleWidth}} className="fly-step-C">{step.stepContent}</div>*/}
 							</article>
 						)
 					})}
 				</section>
-				{this.state.allTime !== -1 && <section className='fly-all-time'>总共用时: {this.state.allTime}</section>}
+				{this.state.allTime !== -1 && <section className='fly-all-time'>总共用时: {this.state.allTime.split(':')[1]+'分'}</section>}
 			</section>
 		);
 	}

@@ -38,7 +38,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 			showCityList:false,
 			currentData:'',
 			currentPannel:[3,2,1],
-			isShow:false,
+			isShow:true,
 			isEnableDrag:false //是否启用了拖拽
 			
 		}
@@ -375,13 +375,13 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 					currentFoodId:food.id
 				});
 
-				setTimeout(()=>{
+				/*setTimeout(()=>{
 					var video = obserable.trigger({
 						type:'getVideo'
 					});
-					video && video.play();
-				},100);
-
+					//video && video.play();
+				},100);*/
+				
 				obserable.trigger({type:'updateStep',data:0});
 				
 			break;

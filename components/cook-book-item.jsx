@@ -97,7 +97,7 @@ class FlyCookBookItem extends React.Component{
 			</ul>
 
 			</section>
-			<section onTouchTap={this.beginDo} className='begin-do'><span>开始制作</span></section>
+			<section onTouchStart={this.beginDo} className='begin-do'><span>开始制作</span></section>
 			</div>
 			</li>	
 			</ul>
@@ -216,7 +216,7 @@ class FlyCookBookItem extends React.Component{
 	}
 
 	beginDo(){
-
+		
 		let {obserable} = this.props;
 		//清空时间.
 		setTimeout(()=>{

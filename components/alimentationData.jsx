@@ -431,14 +431,10 @@ componentDidMount() {
 
 
 			obserable.on('fillAlimentationData',(data)=>{
-				
-				if(this.rendered !== 1){
-					this.rendered = 1;
-					obserable.trigger({
-						type:'startInterval'
-					});	
-				}
-
+			
+				obserable.trigger({
+					type:'startInterval'
+				});	
 
 				this.state.alimentatonData.currentFoodData = [];
 				this.state.alimentatonData.scaleData = data.scaleData;
@@ -523,6 +519,7 @@ componentDidMount() {
 					this.ball &&  this.ballCircularMotion(this.ball);
 					obserable.trigger({type:'prepareFood'})
 					this.ball && this.stage.update();
+
 				}
 			//	obserable.trigger({type:'drawVideo'})
 			
@@ -531,7 +528,12 @@ componentDidMount() {
 
 
 		obserable.on('startInterval',()=>{
-			timer = webkitRequestAnimationFrame(render);	
+			
+			if(this.rendered !==1){
+				this.rendered = 1;
+				timer = webkitRequestAnimationFrame(render);
+			}
+			
 		});
 
 		timer =  webkitRequestAnimationFrame(render);

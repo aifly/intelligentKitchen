@@ -36,7 +36,7 @@ class FlyVideo extends Component {
 		let  {imgSrc,steps} = this.props;
 		return (
 			<div className="fly-video-C" ref='fly-video-C'>
-				<div className='fly-close' onTouchStart={this.closeStep}></div>
+				<div className='fly-exit' onTouchStart={this.closeStep}></div>
 				<section>
 					<video ref='video' id="vjs_video_3_html5_api" className="" 
 						src={steps[this.state.currentVideoIndex].imgSrc}
@@ -110,7 +110,8 @@ class FlyVideo extends Component {
 		let {obserable} = this.props;
 		obserable.trigger({type:'clearMaterialsData'});//清空食材列表数据。
 		obserable.trigger({type:'clearAlimentationData'});//清空营养数据。
-		obserable.trigger({type:'closeStep',data:e});		
+		obserable.trigger({type:'closeStep',data:e});
+		obserable.trigger({type:'clearPlates'});//
 	}
 	componentDidMount() {
 		let video = this.refs['video'];
@@ -140,6 +141,7 @@ class FlyVideo extends Component {
 		});*/
 
 		obserable.on('videoPlay',()=>{
+
 			if(this.state.isPlay && this.state.playing && this.isLoad){
 				this.state.currentSeconds--;
 				if(this.state.currentSeconds*1 <0){
@@ -186,8 +188,19 @@ class FlyVideo extends Component {
 
 		});
 
-
+		this.isStart = false;
+		this.lastVideoIndex = -1;
 		$(video).on('play',()=>{
+			!this.isStart && obserable.trigger({type:'startInterval'});
+
+			if(!this.isStart){
+				obserable.trigger({type:'startProgress'});//开始进度条运动
+				
+			}
+			if(this.lastVideoIndex !== this.state.currentVideoIndex){
+			       this.lastVideoIndex = this.state.currentVideoIndex
+			       obserable.trigger({type:'updateStep',data:this.state.currentVideoIndex});
+			}
 			this.setState({
 				isPlay:true,
 				playing:true
@@ -198,42 +211,14 @@ class FlyVideo extends Component {
 				this.startTime = new Date().getTime();
 			}
 			
-			obserable.trigger({type:'startProgress'});//开始进度条运动
-			obserable.trigger({type:'updateStep',data:this.state.currentVideoIndex});
+			this.isStart = true;
 		});
 
 		this.lastCurrentIndex = 0;
 		$(video).on('ended',()=>{
-			this.setState({
-				isPlay:false,
-				playing:false,
-				currentMins: this.state.mins,
-				currentSeconds:this.state.seconds,
-				videoBarTransX:0,
-				videoProgressScale:0,
-			},()=>{
-
-				let scroll =this.refs['fly-video-list-scroll']; 
-				scroll.querySelector('ul').style.width = (scroll.querySelector('li').offsetWidth+20) * this.props.steps.length + 'px';
-				this.scroll && this.scroll.refresh();
-
-				let {obserable} = this.props;
-				obserable.trigger({type:'pauseProgress',data:this.state.currentVideoIndex})
-				isEnd = false;
-
-				obserable.trigger({type:'updateTimeSpan',data:new Date().getTime()-this.startTime});
-
-				this.showTimespan();
-
-				if(this.state.currentVideoIndex === this.props.steps.length-1){
-					
-					obserable.trigger({type:'showAllTime'});
-				}
-
-				this.transX = 0;
-			});
-
-
+			this.videoEnd(()=>{
+			  	isEnd = false;
+			  });
 		})
 		setTimeout(()=>{
 			let scroll =this.refs['fly-video-list-scroll']; 
@@ -261,6 +246,37 @@ class FlyVideo extends Component {
 			this.bindDrag($(this.refs['fly-voice-bar']),$doc,this.transX1,voiceProgress,vioceWidth,progressBarWidth,'voice');
 
 		},1);
+	}
+
+	videoEnd(fn){
+		this.setState({
+				isPlay:false,
+				playing:false,
+				currentMins: this.state.mins,
+				currentSeconds:this.state.seconds,
+				videoBarTransX:0,
+				videoProgressScale:0,
+			},()=>{
+
+				let scroll =this.refs['fly-video-list-scroll']; 
+				scroll.querySelector('ul').style.width = (scroll.querySelector('li').offsetWidth+20) * this.props.steps.length + 'px';
+				this.scroll && this.scroll.refresh();
+
+				let {obserable} = this.props;
+				obserable.trigger({type:'pauseProgress',data:this.state.currentVideoIndex})
+				fn && fn();
+				obserable.trigger({type:'updateTimeSpan',data:new Date().getTime()-this.startTime});
+
+				this.showTimespan();
+
+				if(this.state.currentVideoIndex === this.props.steps.length-1){
+					
+					obserable.trigger({type:'showAllTime'});
+				}
+
+				this.transX = 0;
+			});
+
 	}
 
 	showTimespan(){
@@ -376,15 +392,17 @@ class FlyVideo extends Component {
 
 	nextVideo(){
 		this.next();
-		this.showTimespan();
 	}
 
 	next(){
 
-		if(this.state.currentVideoIndex > this.props.steps.length-1){
+		if(this.state.currentVideoIndex >= this.props.steps.length-1){
+			this.video.pause();
+			this.videoEnd();//结束视频播放。
+
 			return;
 		}
-
+		this.showTimespan();
 		this.setState({
 			currentVideoIndex:this.state.currentVideoIndex + 1
 		},()=>{
