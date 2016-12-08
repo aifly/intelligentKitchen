@@ -38,7 +38,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 			showCityList:false,
 			currentData:'',
 			currentPannel:[3,2,1],
-			isShow:true,
+			isShow:false,
 			isEnableDrag:false //是否启用了拖拽
 			
 		}

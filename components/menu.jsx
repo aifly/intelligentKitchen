@@ -228,7 +228,7 @@ class FlyNav extends React.Component{
 	}
 	componentDidMount(){
 		var s = this;
-		/*window.closeSetting = function(){
+		window.closeSetting = function(){
 			s.state.settingShow = !s.state.settingShow;
 			s.settingIco.fillSettingIco(s.state.settingShow|0);
 		}
@@ -245,7 +245,7 @@ class FlyNav extends React.Component{
 			s.state.wifiShow =  !s.state.wifiShow;
 			s.wifiIco.fillWifiIco(s.state.wifiShow|0);
 		}
-		*/
+		
 		let {obserable} = this.props;
 		obserable.on('switchMenu',(flag)=>{
 			this.setState({

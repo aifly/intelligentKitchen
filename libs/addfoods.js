@@ -49,6 +49,42 @@ var addFoods = [
 	},
   {
     foodMtype:0,//
+    name:"葡萄汁1",
+    imgSrc:"./assets/images/f7.png",
+    id:'10000',
+    detailSrc:'./assets/images/food6.png',
+    pageView:12,
+    discuss:224,//讨论
+    foodMaterial:[
+      {name:'葡萄',weight:'300',id:1007},
+      {name:'糖',weight:'100g',id:2}
+    ],
+    type:'image',
+    steps:[
+      {
+        stepName:'0',
+        imgSrc:'./assets/images/s10.png',
+        stepContent:'将葡萄洗净'
+      },
+      {
+        stepName:'1',
+        imgSrc:'./assets/images/s11.png',
+        stepContent:'称重葡萄'
+      },
+      {
+        stepName:'2',
+        imgSrc:'./assets/images/s12.png',
+        stepContent:'放入榨汁机中，加入糖，一杯水'
+      },
+      {
+        stepName:'3',
+        imgSrc:'./assets/images/s13.png',
+        stepContent:'榨好后，沉淀一会，倒入杯中'
+      }
+    ]
+  },
+  {
+    foodMtype:0,//
     name:"葡萄汁",
     imgSrc:"./assets/images/f7.png",
     id:'10001',

@@ -111,15 +111,15 @@ import $ from 'jquery';
 								i++;
 							}
 						});
-						//s.state.dataSource[s.state.currentTimeSlot] = data;
+						s.state.dataSource[s.state.currentTimeSlot] = data;
 						s.forceUpdate(()=>{
 							s.ajaxEnd(s,i);
 						});
 					}
 				})
 				
-				this.state.dataSource[this.state.currentTimeSlot]= addFoods;
-
+				//this.state.dataSource[this.state.currentTimeSlot]= addFoods;
+				//489483513 123456
 				//s.ajaxEnd(s);
 			break;
 			case 'rec-menu'://推荐菜谱
@@ -140,16 +140,16 @@ import $ from 'jquery';
 								i++;
 							}
 						});
-						//s.state.dataSource[s.state.currentTimeSlot] = data;
+						console.log(i);
+						s.state.dataSource[s.state.currentTimeSlot] = data;
 						s.forceUpdate(()=>{
 							s.ajaxEnd(s,i);
 						});
 					}
 				})
-				
-				this.state.dataSource[this.state.currentTimeSlot]= addFoods;
+				//this.state.dataSource[this.state.currentTimeSlot]= addFoods;
 
-				//s.ajaxEnd(s);
+				
 			break;
 			case 'my-collect': // 我的收藏。
 
@@ -193,7 +193,7 @@ import $ from 'jquery';
 	}
 
 	ajaxEnd(_this,len){
-		return;
+		
 		setTimeout(()=>{
 			_this.setState({
 				ulWidth:(_this.refs['foodlist-content'].children[0].children[0].clientWidth+10)*(Math.ceil(len/2))+2

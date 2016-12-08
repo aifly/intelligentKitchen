@@ -21600,7 +21600,7 @@
 
 
 	// module
-	exports.push([module.id, "html,body,div,p,ul,li,ol,dl,dt,dd,header,footer,video,h1,h2,h3,h4,canvas,section,figure{padding:0;margin:0}a{text-decoration:none}li{list-style:none}html,body{height:100%}img{border:none;vertical-align:top;width:100%;height:auto}.shake-little{display:inline-block;-webkit-transform-origin:center center}.shake-freeze,.shake-constant.shake-constant--hover:hover,.shake-trigger:hover .shake-constant.shake-constant--hover{-webkit-animation-play-state:paused}.shake-freeze:hover,.shake-trigger:hover .shake-freeze,.shake-little:hover,.shake-trigger:hover .shake-little{-webkit-animation-play-state:running}@-webkit-keyframes shake-little{2%{-webkit-transform:translate(0px, 1px) rotate(0.5deg)}4%{-webkit-transform:translate(1px, 1px) rotate(0.5deg)}6%{-webkit-transform:translate(1px, 0px) rotate(0.5deg)}8%{-webkit-transform:translate(1px, 0px) rotate(0.5deg)}10%{-webkit-transform:translate(1px, 0px) rotate(0.5deg)}12%{-webkit-transform:translate(1px, 0px) rotate(0.5deg)}14%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}16%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}18%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}20%{-webkit-transform:translate(0px, 1px) rotate(0.5deg)}22%{-webkit-transform:translate(0px, 1px) rotate(0.5deg)}24%{-webkit-transform:translate(1px, 1px) rotate(0.5deg)}26%{-webkit-transform:translate(1px, 0px) rotate(0.5deg)}28%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}30%{-webkit-transform:translate(1px, 0px) rotate(0.5deg)}32%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}34%{-webkit-transform:translate(1px, 0px) rotate(0.5deg)}36%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}38%{-webkit-transform:translate(1px, 0px) rotate(0.5deg)}40%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}42%{-webkit-transform:translate(1px, 1px) rotate(0.5deg)}44%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}46%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}48%{-webkit-transform:translate(0px, 1px) rotate(0.5deg)}50%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}52%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}54%{-webkit-transform:translate(0px, 1px) rotate(0.5deg)}56%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}58%{-webkit-transform:translate(1px, 0px) rotate(0.5deg)}60%{-webkit-transform:translate(0px, 1px) rotate(0.5deg)}62%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}64%{-webkit-transform:translate(1px, 1px) rotate(0.5deg)}66%{-webkit-transform:translate(1px, 0px) rotate(0.5deg)}68%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}70%{-webkit-transform:translate(1px, 1px) rotate(0.5deg)}72%{-webkit-transform:translate(0px, 1px) rotate(0.5deg)}74%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}76%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}78%{-webkit-transform:translate(0px, 1px) rotate(0.5deg)}80%{-webkit-transform:translate(1px, 0px) rotate(0.5deg)}82%{-webkit-transform:translate(1px, 0px) rotate(0.5deg)}84%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}86%{-webkit-transform:translate(0px, 1px) rotate(0.5deg)}88%{-webkit-transform:translate(1px, 1px) rotate(0.5deg)}90%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}92%{-webkit-transform:translate(1px, 1px) rotate(0.5deg)}94%{-webkit-transform:translate(1px, 1px) rotate(0.5deg)}96%{-webkit-transform:translate(1px, 0px) rotate(0.5deg)}98%{-webkit-transform:translate(0px, 1px) rotate(0.5deg)}0%,100%{-webkit-transform:translate(0, 0) rotate(0)}}.shake-little:hover,.shake-trigger:hover .shake-little,.shake-little.shake-freeze,.shake-little.shake-constant{-webkit-animation-duration:100ms;-webkit-animation-iteration-count:infinite;-webkit-animation-name:shake-little;-webkit-animation-timing-function:ease-in-out}body{background:#EACFBB;overflow:hidden;font-size:1vw;font-family:'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif;color:#d1bdbd;-webkit-user-select:none}#fly-main{width:100vw;overflow:hidden}#fly-main .fly-nav-mask{position:absolute;height:88.24vh;width:100%;background:transparent;z-index:-1;-webkit-transform:translate3d(0, 120%, 0);transform:translate3d(0, 120%, 0);top:11.76vh}#fly-main .fly-nav-mask.active{z-index:10000;-webkit-transform:translate3d(0, 0, 0);transform:translate3d(0, 0, 0)}#fly-main .fly-nav{width:100vw;height:11.76vh;background:#fff9f3;z-index:9999;position:absolute;-webkit-transition:-webkit-transform .2s;transition:transform .2s;-webkit-transition-timing-function:cubic-bezier(0, 0.9, 0.17, 1.01);transition-timing-function:cubic-bezier(0, 0.9, 0.17, 1.01)}#fly-main .fly-nav.active{-webkit-transform:translate3d(0, -86%, 0);transform:translate3d(0, -86%, 0)}#fly-main .fly-nav.active ul{opacity:0;-webkit-transform:translate3d(0, 20px, 0);transform:translate3d(0, 20px, 0)}#fly-main .fly-nav ul{-webkit-transition-timing-function:cubic-bezier(0, 0.9, 0.17, 1.01);transition-timing-function:cubic-bezier(0, 0.9, 0.17, 1.01);-webkit-transform:translate3d(0, 0, 0);transform:translate3d(0, 0, 0);opacity:1;-webkit-transition:.4s;transition:.4s;float:left;display:-webkit-box;-webkit-box-align:center;-webkit-box-pack:center;-webkit-box-orient:horizontal;width:50vw}#fly-main .fly-nav ul.show{opacity:1}#fly-main .fly-nav ul li{height:10vh;width:10vh;text-align:center;position:relative}#fly-main .fly-nav ul li canvas{border-radius:50%}#fly-main .fly-nav ul li div{position:relative;width:140px;height:140px;margin-top:1.1vw;margin-left:1vw;border-radius:50%}#fly-main .fly-nav ul li div:before{content:'';position:absolute;left:0;top:0;border-radius:50%;width:100%;height:100%;z-index:100;box-shadow:0 0 1vw rgba(232,158,121,0.2)}#fly-main .fly-nav ul li span{color:#e89e79;font-size:.6vw;top:100%;position:absolute;left:38%}#fly-main .fly-nav ul:nth-of-type(2){width:12vw;float:right}#fly-main .fly-nav .fly-menu-bar{position:absolute;width:14vw;left:50%;top:99%;margin-left:-7vw;text-align:center;font-size:.6vw;background:inherit;border-radius:10px}#fly-main .fly-nav .fly-menu-bar div:nth-of-type(2){width:40px;-webkit-transform:rotate(90deg) translateY(-6.96vw) scaleY(2);transform:rotate(90deg) translateY(-6.96vw) scaleY(2)}#fly-main .fly-nav .fly-menu-bar .fly-sure{height:1.5vw;font-size:.8vw}#fly-main .fly-close-drag{position:absolute;left:10vw;padding:.5vw;border-radius:5px;z-index:10001;color:#fff;top:-10px;background:#d1bdbd;-webkit-transform:translate3d(0, -100%, 0);transform:translate3d(0, -100%, 0);-webkit-transition:-webkit-transform .3s;transition:transform .3s;-webkit-transition-timing-function:cubic-bezier(0, 0.9, 0.17, 1.01);transition-timing-function:cubic-bezier(0, 0.9, 0.17, 1.01)}#fly-main .fly-close-drag.active{-webkit-transform:translate3d(0, 0, 0);transform:translate3d(0, 0, 0)}#fly-main .fly-cook-book-C{width:100vw;height:42vh;background:#f9e0ca;position:relative;padding-top:5vh;display:-webkit-box;-webkit-box-align:center;-webkit-box-pack:center;-webkit-box-orient:horizontal}#fly-main .fly-cook-book-C>li{height:100%}#fly-main .fly-cook-book-C>li.active{-webkit-animation:shake-little 200ms ease-in-out infinite;animation:shake-little 200ms ease-in-out infinite}#fly-main .fly-cook-book-C>li.near{border:1px solid red}#fly-main .fly-cook-book-C>li .fly-cook-book-item-C{width:100%;height:100%}#fly-main .fly-cook-book-C>li>li:nth-of-type(1){-webkit-animation-delay:100ms;animation-delay:100ms}#fly-main .fly-cook-book-C>li>li:nth-of-type(2){-webkit-animation-delay:200ms;animation-delay:200ms}#fly-main .fly-cook-book-C>li>li:nth-of-type(3){-webkit-animation-delay:300ms;animation-delay:300ms}#fly-main .fly-cook-book-C>li .fly-city-C{width:80%;margin:1vw auto;height:1.5vw;line-height:1.5vw}#fly-main .fly-cook-book-C>li .fly-city-scroll-C{width:88%;height:1.5vw;float:left;overflow:hidden}#fly-main .fly-cook-book-C>li .fly-city-scroll-C span{margin:0 1vw}#fly-main .fly-cook-book-C>li .fly-city-scroll-C ul{position:relative}#fly-main .fly-cook-book-C>li .fly-city-scroll-C ul li{width:6vw;position:absolute;text-align:center}#fly-main .fly-cook-book-C>li .fly-add{float:left;width:2vh;height:2.6vh;text-align:center;margin-left:1vw;position:relative;left:1vw}#fly-main .fly-cook-book-C .fly-food{width:34vw;position:relative}#fly-main .fly-cook-book-C .fly-food .fly-food-item{width:70%;height:80%;background:#fff;position:absolute;border-radius:30px;-webkit-transform-origin:right;transform-origin:right;left:13%;top:8%;z-index:1}#fly-main .fly-cook-book-C .fly-food .fly-food-item:before{content:'';position:absolute;width:100%;z-index:-1;border-radius:30px;height:100%;box-shadow:0 0 1vw rgba(232,158,121,0.4)}#fly-main .fly-cook-book-C .fly-food .fly-food-item span.tag{position:absolute;width:1vw;z-index:6;font-size:.8vw;padding:.5vw .4vw .5vw .5vw;top:40%;border-radius:12px;background:#fff;left:98%}#fly-main .fly-cook-book-C .fly-food .fly-food-item span.tag:before{content:\"\";position:absolute;left:1px;top:0;z-index:-1;width:100%;height:100%;border-radius:12px;box-shadow:10px 0 .7vw rgba(232,158,121,0.2)}#fly-main .fly-cook-book-C .fly-food .fly-food-item span.tag canvas{position:absolute;left:0;top:0}#fly-main .fly-cook-book-C .fly-food .fly-top1{left:20%;z-index:0}#fly-main .fly-cook-book-C .fly-food .fly-top2{left:13%;z-index:1}#fly-main .fly-cook-book-C .fly-food .fly-top3{left:6%;z-index:2}#fly-main .fly-cook-book-C .fly-food .fly-weather span.tag{top:5%}#fly-main .fly-cook-book-C .fly-food .fly-weather .fly-weather-C{width:90%;margin:10px auto;display:-webkit-box;-webkit-box-align:center;-webkit-box-pack:center;-webkit-box-orient:horizontal;border-bottom:1px solid #ccc}#fly-main .fly-cook-book-C .fly-food .fly-weather .fly-weather-C li{-webkit-box-flex:1;padding:.9vw 1.2vw .4vw 1.2vw;box-sizing:border-content}#fly-main .fly-cook-book-C .fly-food .fly-weather .fly-weather-C li img{height:2vw;width:auto}#fly-main .fly-cook-book-C .fly-food .fly-weather .fly-weather-C li span{margin-left:-10px}#fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C{width:90%;margin:1vw auto;display:-webkit-box;-webkit-box-align:center;-webkit-box-pack:center;-webkit-box-orient:horizontal;height:15vh}#fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C .fly-time{-webkit-box-flex:1;width:60%;height:100%}#fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C .fly-date{-webkit-box-flex:1;width:35%;padding-left:2%}#fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C h1{font-weight:normal;font-size:1vw;color:#e29978;height:2vh;line-height:2vh}#fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C .fly-rec-food-container{height:7vh;width:100%;margin-top:1vh;overflow:hidden;font-size:.6vw}#fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C .fly-rec-food-container li{float:left;margin:6px;border:1px solid #cfbbbc;box-sizing:border-box;padding:6px 16px;border-radius:30px}#fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C .fly-rec-food-container li.active{border-color:#ff5503;color:#ff5503}#fly-main .fly-cook-book-C .fly-food .fly-rec-food span.tag{top:60%}#fly-main .fly-cook-book-C .fly-food .fly-rec-menu span.tag{top:35%}#fly-main .fly-cook-book-C .fly-cook-list{width:38.2vw;left:34vw}#fly-main .fly-cook-book-C .fly-cook-detail{width:27.8vw;left:72.2vw}.fly-main-operator-C{display:-webkit-box;-webkit-box-align:center;-webkit-box-pack:center;-webkit-box-orient:horizontal;-webkit-box-align:start}.fly-main-operator-C li.fly-operator-item{width:29vw;height:100%}.fly-main-operator-C li.fly-operator-item:nth-of-type(2){width:34vw}.fly-main-operator-C li.fly-operator-item:nth-of-type(3){width:34vw}.fly-hotcity-list{-webkit-transform:translate3d(-100%, 0, 0);transform:translate3d(-100%, 0, 0);opacity:0;-webkit-transition:.5s;transition:.5s;-webkit-transition-timing-function:cubic-bezier(0, 0.9, 0.17, 1.01);transition-timing-function:cubic-bezier(0, 0.9, 0.17, 1.01);position:absolute;left:0;top:0;width:100%;height:100%;background:#fff;border-radius:30px}.fly-hotcity-list.active{-webkit-transform:translate3d(0, 0, 0);transform:translate3d(0, 0, 0);opacity:1}.fly-hotcity-list .fly-hotcity-title{width:100%;height:12%;display:-webkit-box;-webkit-box-align:center;-webkit-box-pack:center;-webkit-box-orient:horizontal}.fly-hotcity-list .fly-hotcity-title span{width:33%;display:block;font-weight:normal;text-align:center}.fly-hotcity-list .fly-hotcity-title span:nth-of-type(3){margin-right:20px}.fly-hotcity-list .fly-hotcity-C{width:100%;height:88%;display:-webkit-box;-webkit-box-align:center;-webkit-box-pack:center;-webkit-box-orient:horizontal}.fly-hotcity-list .fly-hotcity-C .fly-hotcity-scroll{width:90%;height:98%;overflow:hidden}.fly-hotcity-list .fly-hotcity-C .fly-hotcity-scroll li.fly-first-spell{text-indent:.5em;background:#eee9e9}.fly-hotcity-list .fly-hotcity-C .fly-hotcity-scroll li.active:after{content:\"\\221A\" !important}.fly-hotcity-list .fly-hotcity-C .fly-hotcity-scroll li.fly-city-item{height:2vw;line-height:2vw;text-indent:.5em;border-bottom:1px solid #ccc;position:relative}.fly-hotcity-list .fly-hotcity-C .fly-hotcity-scroll li.fly-city-item:after{content:\"\";position:absolute;right:0;margin-right:1vw}.fly-hotcity-list .fly-hotcity-C .fly-hotcity-spell{width:8%}.fly-hotcity-list .fly-hotcity-C .fly-hotcity-spell li{font-size:.478vw;text-align:center}\r\n/*# sourceMappingURL=index.css.map */\r\n", ""]);
+	exports.push([module.id, "html,body,div,p,ul,li,ol,dl,dt,dd,header,footer,video,h1,h2,h3,h4,canvas,section,figure{padding:0;margin:0}a{text-decoration:none}li{list-style:none}html,body{height:100%}img{border:none;vertical-align:top;width:100%;height:auto}.shake-little{display:inline-block;-webkit-transform-origin:center center}.shake-freeze,.shake-constant.shake-constant--hover:hover,.shake-trigger:hover .shake-constant.shake-constant--hover{-webkit-animation-play-state:paused}.shake-freeze:hover,.shake-trigger:hover .shake-freeze,.shake-little:hover,.shake-trigger:hover .shake-little{-webkit-animation-play-state:running}@-webkit-keyframes shake-little{2%{-webkit-transform:translate(0px, 1px) rotate(0.5deg)}4%{-webkit-transform:translate(1px, 1px) rotate(0.5deg)}6%{-webkit-transform:translate(1px, 0px) rotate(0.5deg)}8%{-webkit-transform:translate(1px, 0px) rotate(0.5deg)}10%{-webkit-transform:translate(1px, 0px) rotate(0.5deg)}12%{-webkit-transform:translate(1px, 0px) rotate(0.5deg)}14%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}16%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}18%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}20%{-webkit-transform:translate(0px, 1px) rotate(0.5deg)}22%{-webkit-transform:translate(0px, 1px) rotate(0.5deg)}24%{-webkit-transform:translate(1px, 1px) rotate(0.5deg)}26%{-webkit-transform:translate(1px, 0px) rotate(0.5deg)}28%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}30%{-webkit-transform:translate(1px, 0px) rotate(0.5deg)}32%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}34%{-webkit-transform:translate(1px, 0px) rotate(0.5deg)}36%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}38%{-webkit-transform:translate(1px, 0px) rotate(0.5deg)}40%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}42%{-webkit-transform:translate(1px, 1px) rotate(0.5deg)}44%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}46%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}48%{-webkit-transform:translate(0px, 1px) rotate(0.5deg)}50%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}52%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}54%{-webkit-transform:translate(0px, 1px) rotate(0.5deg)}56%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}58%{-webkit-transform:translate(1px, 0px) rotate(0.5deg)}60%{-webkit-transform:translate(0px, 1px) rotate(0.5deg)}62%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}64%{-webkit-transform:translate(1px, 1px) rotate(0.5deg)}66%{-webkit-transform:translate(1px, 0px) rotate(0.5deg)}68%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}70%{-webkit-transform:translate(1px, 1px) rotate(0.5deg)}72%{-webkit-transform:translate(0px, 1px) rotate(0.5deg)}74%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}76%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}78%{-webkit-transform:translate(0px, 1px) rotate(0.5deg)}80%{-webkit-transform:translate(1px, 0px) rotate(0.5deg)}82%{-webkit-transform:translate(1px, 0px) rotate(0.5deg)}84%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}86%{-webkit-transform:translate(0px, 1px) rotate(0.5deg)}88%{-webkit-transform:translate(1px, 1px) rotate(0.5deg)}90%{-webkit-transform:translate(0px, 0px) rotate(0.5deg)}92%{-webkit-transform:translate(1px, 1px) rotate(0.5deg)}94%{-webkit-transform:translate(1px, 1px) rotate(0.5deg)}96%{-webkit-transform:translate(1px, 0px) rotate(0.5deg)}98%{-webkit-transform:translate(0px, 1px) rotate(0.5deg)}0%,100%{-webkit-transform:translate(0, 0) rotate(0)}}.shake-little:hover,.shake-trigger:hover .shake-little,.shake-little.shake-freeze,.shake-little.shake-constant{-webkit-animation-duration:100ms;-webkit-animation-iteration-count:infinite;-webkit-animation-name:shake-little;-webkit-animation-timing-function:ease-in-out}body{background:#EACFBB;overflow:hidden;font-size:1vw;font-family:'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif;color:#d1bdbd;-webkit-user-select:none}#fly-main{width:100vw;overflow:hidden}#fly-main .fly-nav-mask{position:absolute;height:88.24vh;width:100%;background:transparent;z-index:-1;-webkit-transform:translate3d(0, 120%, 0);transform:translate3d(0, 120%, 0);top:11.76vh}#fly-main .fly-nav-mask.active{z-index:10000;-webkit-transform:translate3d(0, 0, 0);transform:translate3d(0, 0, 0)}#fly-main .fly-nav{width:100vw;height:11.76vh;background:#fff9f3;z-index:9999;position:absolute;-webkit-transition:-webkit-transform .2s;transition:transform .2s;-webkit-transition-timing-function:cubic-bezier(0, 0.9, 0.17, 1.01);transition-timing-function:cubic-bezier(0, 0.9, 0.17, 1.01)}#fly-main .fly-nav.active{-webkit-transform:translate3d(0, -86%, 0);transform:translate3d(0, -86%, 0)}#fly-main .fly-nav.active ul{opacity:0;-webkit-transform:translate3d(0, 20px, 0);transform:translate3d(0, 20px, 0)}#fly-main .fly-nav ul{-webkit-transition-timing-function:cubic-bezier(0, 0.9, 0.17, 1.01);transition-timing-function:cubic-bezier(0, 0.9, 0.17, 1.01);-webkit-transform:translate3d(0, 0, 0);transform:translate3d(0, 0, 0);opacity:1;-webkit-transition:.4s;transition:.4s;float:left;display:-webkit-box;-webkit-box-align:center;-webkit-box-pack:center;-webkit-box-orient:horizontal;width:50vw}#fly-main .fly-nav ul.show{opacity:1}#fly-main .fly-nav ul li{height:10vh;width:10vh;text-align:center;position:relative}#fly-main .fly-nav ul li canvas{border-radius:50%}#fly-main .fly-nav ul li div{position:relative;width:140px;height:140px;margin-top:1.1vw;margin-left:1vw;border-radius:50%}#fly-main .fly-nav ul li div:before{content:'';position:absolute;left:0;top:0;border-radius:50%;width:100%;height:100%;z-index:100;box-shadow:0 0 1vw rgba(232,158,121,0.2)}#fly-main .fly-nav ul li span{color:#e89e79;font-size:.6vw;top:100%;position:absolute;left:38%}#fly-main .fly-nav ul:nth-of-type(2){width:12vw;float:right}#fly-main .fly-nav .fly-menu-bar{position:absolute;width:14vw;left:50%;top:99%;margin-left:-7vw;text-align:center;font-size:.6vw;background:inherit;border-radius:10px}#fly-main .fly-nav .fly-menu-bar div:nth-of-type(2){width:40px;-webkit-transform:rotate(90deg) translateY(-6.96vw) scaleY(2);transform:rotate(90deg) translateY(-6.96vw) scaleY(2)}#fly-main .fly-nav .fly-menu-bar .fly-sure{height:1.5vw;font-size:.8vw}#fly-main .fly-close-drag{position:absolute;left:10vw;padding:.5vw;border-radius:5px;z-index:10001;color:#fff;top:-10px;background:#d1bdbd;-webkit-transform:translate3d(0, -100%, 0);transform:translate3d(0, -100%, 0);-webkit-transition:-webkit-transform .3s;transition:transform .3s;-webkit-transition-timing-function:cubic-bezier(0, 0.9, 0.17, 1.01);transition-timing-function:cubic-bezier(0, 0.9, 0.17, 1.01)}#fly-main .fly-close-drag.active{-webkit-transform:translate3d(0, 0, 0);transform:translate3d(0, 0, 0)}#fly-main .fly-cook-book-C{width:100vw;height:42vh;background:#f9e0ca;position:relative;padding-top:5vh;display:-webkit-box;-webkit-box-align:center;-webkit-box-pack:center;-webkit-box-orient:horizontal}#fly-main .fly-cook-book-C>li{height:100%}#fly-main .fly-cook-book-C>li.active{-webkit-animation:shake-little 200ms ease-in-out infinite;animation:shake-little 200ms ease-in-out infinite}#fly-main .fly-cook-book-C>li.near{border:1px solid red}#fly-main .fly-cook-book-C>li .fly-cook-book-item-C{width:100%;height:100%}#fly-main .fly-cook-book-C>li>li:nth-of-type(1){-webkit-animation-delay:100ms;animation-delay:100ms}#fly-main .fly-cook-book-C>li>li:nth-of-type(2){-webkit-animation-delay:200ms;animation-delay:200ms}#fly-main .fly-cook-book-C>li>li:nth-of-type(3){-webkit-animation-delay:300ms;animation-delay:300ms}#fly-main .fly-cook-book-C>li .fly-city-C{width:80%;margin:1vw auto;height:1.5vw;line-height:1.5vw}#fly-main .fly-cook-book-C>li .fly-city-scroll-C{width:88%;height:1.5vw;float:left;overflow:hidden}#fly-main .fly-cook-book-C>li .fly-city-scroll-C span{margin:0 1vw}#fly-main .fly-cook-book-C>li .fly-city-scroll-C ul{position:relative}#fly-main .fly-cook-book-C>li .fly-city-scroll-C ul li{width:6vw;position:absolute;text-align:center}#fly-main .fly-cook-book-C>li .fly-add{float:left;width:2vh;height:2.6vh;text-align:center;margin-left:1vw;position:relative;left:1vw}#fly-main .fly-cook-book-C .fly-food{width:34vw;position:relative}#fly-main .fly-cook-book-C .fly-food .fly-food-item{width:70%;height:80%;background:#fff;position:absolute;border-radius:30px;-webkit-transform-origin:right;transform-origin:right;left:13%;top:8%;z-index:1}#fly-main .fly-cook-book-C .fly-food .fly-food-item:before{content:'';position:absolute;width:100%;z-index:-1;border-radius:30px;height:100%;box-shadow:0 0 1vw rgba(232,158,121,0.4)}#fly-main .fly-cook-book-C .fly-food .fly-food-item span.tag{position:absolute;width:1vw;z-index:6;font-size:.8vw;padding:.5vw .4vw .5vw .5vw;top:40%;border-radius:12px;background:#fff;left:98%}#fly-main .fly-cook-book-C .fly-food .fly-food-item span.tag:before{content:\"\";position:absolute;left:1px;top:0;z-index:-1;width:100%;height:100%;border-radius:12px;box-shadow:10px 0 .7vw rgba(232,158,121,0.2)}#fly-main .fly-cook-book-C .fly-food .fly-food-item span.tag canvas{position:absolute;left:0;top:0}#fly-main .fly-cook-book-C .fly-food .fly-top1{left:20%;z-index:0}#fly-main .fly-cook-book-C .fly-food .fly-top2{left:13%;z-index:1}#fly-main .fly-cook-book-C .fly-food .fly-top3{left:6%;z-index:2}#fly-main .fly-cook-book-C .fly-food .fly-weather span.tag{top:5%}#fly-main .fly-cook-book-C .fly-food .fly-weather .fly-weather-C{width:90%;margin:10px auto;display:-webkit-box;-webkit-box-align:center;-webkit-box-pack:center;-webkit-box-orient:horizontal;border-bottom:1px solid #ccc}#fly-main .fly-cook-book-C .fly-food .fly-weather .fly-weather-C li{-webkit-box-flex:1;padding:.9vw 1.2vw .4vw 1.2vw;box-sizing:border-content}#fly-main .fly-cook-book-C .fly-food .fly-weather .fly-weather-C li img{height:2vw;width:auto}#fly-main .fly-cook-book-C .fly-food .fly-weather .fly-weather-C li span{margin-left:-10px}#fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C{width:90%;margin:1vw auto;display:-webkit-box;-webkit-box-align:center;-webkit-box-pack:center;-webkit-box-orient:horizontal;height:15vh}#fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C .fly-time{-webkit-box-flex:1;width:60%;height:100%}#fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C .fly-date{-webkit-box-flex:1;width:35%;padding-left:2%}#fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C h1{font-weight:normal;font-size:1vw;color:#e29978;height:2vh;line-height:2vh}#fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C .fly-rec-food-container{height:7vh;width:100%;margin-top:1vh;overflow:hidden;font-size:.6vw}#fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C .fly-rec-food-container li{float:left;margin:6px;border:1px solid #cfbbbc;box-sizing:border-box;padding:6px 16px;border-radius:30px}#fly-main .fly-cook-book-C .fly-food .fly-weather .fly-time-C .fly-rec-food-container li.active{border-color:#ff5503;color:#ff5503}#fly-main .fly-cook-book-C .fly-food .fly-rec-food span.tag{top:60%}#fly-main .fly-cook-book-C .fly-food .fly-rec-menu span.tag{top:35%}#fly-main .fly-cook-book-C .fly-cook-list{width:38.2vw;left:34vw}#fly-main .fly-cook-book-C .fly-cook-detail{width:27.8vw;left:72.2vw}.fly-main-operator-C{display:-webkit-box;-webkit-box-align:center;-webkit-box-pack:center;-webkit-box-orient:horizontal;-webkit-box-align:start}.fly-main-operator-C li.fly-operator-item{width:29vw;height:100%}.fly-main-operator-C li.fly-operator-item:nth-of-type(2){width:34vw}.fly-main-operator-C li.fly-operator-item:nth-of-type(3){width:34vw}.fly-hotcity-list{-webkit-transform:translate3d(-100%, 0, 0);transform:translate3d(-100%, 0, 0);opacity:0;-webkit-transition:.5s;transition:.5s;-webkit-transition-timing-function:cubic-bezier(0, 0.9, 0.17, 1.01);transition-timing-function:cubic-bezier(0, 0.9, 0.17, 1.01);position:absolute;left:0;top:0;width:100%;height:100%;background:#fff;border-radius:30px}.fly-hotcity-list.active{-webkit-transform:translate3d(0, 0, 0);transform:translate3d(0, 0, 0);opacity:1}.fly-hotcity-list .fly-hotcity-title{width:100%;height:12%;display:-webkit-box;-webkit-box-align:center;-webkit-box-pack:center;-webkit-box-orient:horizontal}.fly-hotcity-list .fly-hotcity-title span{width:33%;display:block;font-weight:normal;text-align:center}.fly-hotcity-list .fly-hotcity-title span:nth-of-type(3){margin-right:20px}.fly-hotcity-list .fly-hotcity-C{width:100%;height:88%;display:-webkit-box;-webkit-box-align:center;-webkit-box-pack:center;-webkit-box-orient:horizontal}.fly-hotcity-list .fly-hotcity-C .fly-hotcity-scroll{width:90%;height:98%;overflow:hidden}.fly-hotcity-list .fly-hotcity-C .fly-hotcity-scroll li.fly-first-spell{text-indent:.5em;background:#eee9e9}.fly-hotcity-list .fly-hotcity-C .fly-hotcity-scroll li.active:after{content:\"\\221A\" !important}.fly-hotcity-list .fly-hotcity-C .fly-hotcity-scroll li.fly-city-item{height:2vw;line-height:2vw;text-indent:.5em;border-bottom:1px solid #ccc;position:relative}.fly-hotcity-list .fly-hotcity-C .fly-hotcity-scroll li.fly-city-item:after{content:\"\";position:absolute;right:0;margin-right:1vw}.fly-hotcity-list .fly-hotcity-C .fly-hotcity-spell{width:8%;margin-top:-.4vw}.fly-hotcity-list .fly-hotcity-C .fly-hotcity-spell li{font-size:.478vw;text-align:center}\r\n/*# sourceMappingURL=index.css.map */\r\n", ""]);
 
 	// exports
 
@@ -32336,23 +32336,24 @@
 				var _this = this;
 
 				var s = this;
-				/*window.closeSetting = function(){
-	   	s.state.settingShow = !s.state.settingShow;
-	   	s.settingIco.fillSettingIco(s.state.settingShow|0);
-	   }
-	   		window.closeApp = function(){
-	   	s.state.switchShow = !s.state.switchShow;
-	   	s.switchIco.fillSwitchIco(s.state.switchShow|0);
-	   }
-	   window.closeNutrition = function(){
-	   	s.state.statisticsShow = !s.state.statisticsShow;
-	   	s.statisticsIco.fillStatisticsIco(s.state.statisticsShow|0);
-	   }
-	   window.closeWifi = function(){
-	   	s.state.wifiShow =  !s.state.wifiShow;
-	   	s.wifiIco.fillWifiIco(s.state.wifiShow|0);
-	   }
-	   */
+				window.closeSetting = function () {
+					s.state.settingShow = !s.state.settingShow;
+					s.settingIco.fillSettingIco(s.state.settingShow | 0);
+				};
+
+				window.closeApp = function () {
+					s.state.switchShow = !s.state.switchShow;
+					s.switchIco.fillSwitchIco(s.state.switchShow | 0);
+				};
+				window.closeNutrition = function () {
+					s.state.statisticsShow = !s.state.statisticsShow;
+					s.statisticsIco.fillStatisticsIco(s.state.statisticsShow | 0);
+				};
+				window.closeWifi = function () {
+					s.state.wifiShow = !s.state.wifiShow;
+					s.wifiIco.fillWifiIco(s.state.wifiShow | 0);
+				};
+
 				var obserable = this.props.obserable;
 
 				obserable.on('switchMenu', function (flag) {
@@ -34131,12 +34132,12 @@
 							currentFoodId: food.id
 						});
 
-						setTimeout(function () {
-							var video = obserable.trigger({
-								type: 'getVideo'
-							});
-							video && video.play();
-						}, 100);
+						/*setTimeout(()=>{
+	     	var video = obserable.trigger({
+	     		type:'getVideo'
+	     	});
+	     	//video && video.play();
+	     },100);*/
 
 						obserable.trigger({ type: 'updateStep', data: 0 });
 
@@ -38030,7 +38031,7 @@
 										i++;
 									}
 								});
-								//s.state.dataSource[s.state.currentTimeSlot] = data;
+								s.state.dataSource[s.state.currentTimeSlot] = data;
 								s.forceUpdate(function () {
 									s.ajaxEnd(s, i);
 								});
@@ -38038,6 +38039,7 @@
 						});
 
 						//this.state.dataSource[this.state.currentTimeSlot]= addFoods;
+						//489483513 123456
 						//s.ajaxEnd(s);
 						break;
 					case 'rec-menu':
@@ -38059,16 +38061,15 @@
 										i++;
 									}
 								});
-								//s.state.dataSource[s.state.currentTimeSlot] = data;
+								console.log(i);
+								s.state.dataSource[s.state.currentTimeSlot] = data;
 								s.forceUpdate(function () {
 									s.ajaxEnd(s, i);
 								});
 							}
 						});
-
 						//this.state.dataSource[this.state.currentTimeSlot]= addFoods;
 
-						//s.ajaxEnd(s);
 						break;
 					case 'my-collect':
 						// 我的收藏。
@@ -38092,6 +38093,7 @@
 
 						break;
 				}
+				s.forceUpdate();
 			}
 		}, {
 			key: 'componentDidMount',
@@ -38114,6 +38116,7 @@
 		}, {
 			key: 'ajaxEnd',
 			value: function ajaxEnd(_this, len) {
+
 				setTimeout(function () {
 					_this.setState({
 						ulWidth: (_this.refs['foodlist-content'].children[0].children[0].clientWidth + 10) * Math.ceil(len / 2) + 2
@@ -38269,7 +38272,7 @@
 
 
 	// module
-	exports.push([module.id, "@charset \"UTF-8\";\r\n.foodlist {\r\n  margin: 0 auto;\r\n  height: 100%; }\r\n\r\n.foodlist-C {\r\n  width: 86%;\r\n  margin-left: 1vw;\r\n  height: 19vw;\r\n  overflow: hidden;\r\n  float: left;\r\n  border-radius: 20px;\r\n  position: relative; }\r\n  .foodlist-C section {\r\n    display: -webkit-box;\r\n    -webkit-box-align: center;\r\n    -webkit-box-pack: center;\r\n    -webkit-box-orient: horizontal; }\r\n    .foodlist-C section ol {\r\n      width: 29.16667%;\r\n      padding-right: 30px;\r\n      margin-left: -30px;\r\n      position: relative;\r\n      height: 100%; }\r\n      .foodlist-C section ol li {\r\n        margin: 0 auto;\r\n        text-align: center;\r\n        height: 3vw;\r\n        width: 3vw;\r\n        border-radius: 50%;\r\n        line-height: 3vw;\r\n        border: 3px solid #fff; }\r\n        .foodlist-C section ol li:nth-of-type(2) {\r\n          margin: 10px auto; }\r\n        .foodlist-C section ol li.active {\r\n          border-color: #e89e79; }\r\n      .foodlist-C section ol:after {\r\n        content: '';\r\n        width: 2px;\r\n        height: 160%;\r\n        top: -30%;\r\n        background: -webkit-gradient(linear, left top, left bottom, from(rgba(204, 204, 204, 0.2)), color-stop(0.5, #cccccc), to(rgba(204, 204, 204, 0.2)));\r\n        background: -ms-linear-gradient(top, rgba(204, 204, 204, 0.2), #cccccc 50%, rgba(204, 204, 204, 0.2));\r\n        position: absolute;\r\n        right: 10px; }\r\n  .foodlist-C .foodlist-content {\r\n    overflow: hidden;\r\n    height: 19vw;\r\n    width: 64%; }\r\n    .foodlist-C .foodlist-content .fly-play-ico {\r\n      bottom: 1.5vw; }\r\n    .foodlist-C .foodlist-content.no-data:before {\r\n      content: '\\6682\\65E0\\6570\\636E';\r\n      color: #f00;\r\n      margin-top: 50%;\r\n      margin-left: 20%;\r\n      display: block; }\r\n    .foodlist-C .foodlist-content ul {\r\n      height: 18vw;\r\n      margin-top: 0.45vw; }\r\n    .foodlist-C .foodlist-content li {\r\n      width: 6.75vw;\r\n      float: left;\r\n      height: 9vw;\r\n      padding: 0;\r\n      -webkit-transform: scale(0.9);\r\n      transform: scale(0.9);\r\n      box-sizing: border-box; }\r\n      .foodlist-C .foodlist-content li canvas {\r\n        position: absolute;\r\n        left: 0;\r\n        top: 0;\r\n        z-index: 10; }\r\n      .foodlist-C .foodlist-content li div.active {\r\n        box-sizing: border-box;\r\n        border: 8px solid #e89e79;\r\n        z-index: 1;\r\n        overflow: hidden;\r\n        position: relative; }\r\n        .foodlist-C .foodlist-content li div.active span {\r\n          -webkit-transform: translate3d(0, -6px, 0);\r\n          transform: translate3d(0, -6px, 0);\r\n          border-bottom-left-radius: 0;\r\n          border-bottom-right-radius: 0; }\r\n      .foodlist-C .foodlist-content li div {\r\n        width: 100%;\r\n        border-radius: 20px;\r\n        height: 100%;\r\n        position: relative; }\r\n      .foodlist-C .foodlist-content li span {\r\n        font-size: 0.6vw;\r\n        bottom: 0;\r\n        display: block;\r\n        width: 100%;\r\n        position: relative;\r\n        color: #cfbbba;\r\n        top: 7.5vw;\r\n        text-align: center;\r\n        height: 1.5vw;\r\n        line-height: 1.5vw;\r\n        background: white;\r\n        border-bottom-left-radius: 20px;\r\n        border-bottom-right-radius: 20px; }\r\n      .foodlist-C .foodlist-content li.food-top {\r\n        margin-top: 0.1vw; }\r\n      .foodlist-C .foodlist-content li:before {\r\n        content: '';\r\n        box-shadow: 0 0 2vw rgba(232, 158, 121, 0.4);\r\n        border-radius: 20px;\r\n        position: absolute;\r\n        width: 100%;\r\n        height: 100%;\r\n        z-index: -1;\r\n        left: 0;\r\n        top: 0; }\r\n  .foodlist-C:before {\r\n    content: '';\r\n    box-shadow: 0 0 3vw rgba(232, 158, 121, 0.2);\r\n    width: 100%;\r\n    height: 100%;\r\n    left: 0;\r\n    top: 0; }\r\n\r\n.foodlist-next {\r\n  float: left;\r\n  height: 4.75vw;\r\n  line-height: 4.75vw;\r\n  margin-top: 6.6vw;\r\n  padding: 0 20px;\r\n  -webkit-transform: scaleY(2.4);\r\n  transform: scaleY(2.4); }\r\n\r\n/*# sourceMappingURL=foodlist.css.map */", ""]);
+	exports.push([module.id, ".foodlist{margin:0 auto;height:100%}.foodlist-C{width:86%;margin-left:1vw;height:19vw;overflow:hidden;float:left;border-radius:20px;position:relative}.foodlist-C section{display:-webkit-box;-webkit-box-align:center;-webkit-box-pack:center;-webkit-box-orient:horizontal}.foodlist-C section ol{width:29.16667%;padding-right:30px;margin-left:-30px;position:relative;height:100%}.foodlist-C section ol li{margin:0 auto;text-align:center;height:3vw;width:3vw;border-radius:50%;line-height:3vw;border:3px solid #fff}.foodlist-C section ol li:nth-of-type(2){margin:10px auto}.foodlist-C section ol li.active{border-color:#e89e79}.foodlist-C section ol:after{content:'';width:2px;height:160%;top:-30%;background:-webkit-gradient(linear, left top, left bottom, from(rgba(204,204,204,0.2)), color-stop(0.5, #ccc), to(rgba(204,204,204,0.2)));background:-moz-linear-gradient(top, rgba(204,204,204,0.2), #ccc 50%, rgba(204,204,204,0.2));background:-ms-linear-gradient(top, rgba(204,204,204,0.2), #ccc 50%, rgba(204,204,204,0.2));position:absolute;right:10px}.foodlist-C .foodlist-content{overflow:hidden;height:19vw;width:64%}.foodlist-C .foodlist-content .fly-play-ico{bottom:1.5vw}.foodlist-C .foodlist-content.no-data:before{content:'\\6682\\65E0\\6570\\636E';color:#f00;margin-top:50%;margin-left:20%;display:block}.foodlist-C .foodlist-content ul{height:18vw;margin-top:.45vw}.foodlist-C .foodlist-content li{width:6.5vw;float:left;height:9vw;padding:0;-webkit-transform:scale(0.9);transform:scale(0.9);box-sizing:border-box}.foodlist-C .foodlist-content li canvas{position:absolute;left:0;top:0;z-index:10}.foodlist-C .foodlist-content li div.active{box-sizing:border-box;border:8px solid #e89e79;z-index:1;overflow:hidden;position:relative}.foodlist-C .foodlist-content li div.active span{-webkit-transform:translate3d(0, -6px, 0);transform:translate3d(0, -6px, 0);border-bottom-left-radius:0;border-bottom-right-radius:0}.foodlist-C .foodlist-content li div{width:100%;border-radius:20px;height:100%;position:relative}.foodlist-C .foodlist-content li span{font-size:.6vw;bottom:0;display:block;width:100%;position:relative;color:#cfbbba;top:7.5vw;text-align:center;height:1.5vw;line-height:1.5vw;background:#fff;border-bottom-left-radius:20px;border-bottom-right-radius:20px}.foodlist-C .foodlist-content li.food-top{margin-top:.1vw}.foodlist-C .foodlist-content li:before{content:'';box-shadow:0 0 2vw rgba(232,158,121,0.4);border-radius:20px;position:absolute;width:100%;height:100%;z-index:-1;left:0;top:0}.foodlist-C:before{content:'';box-shadow:0 0 3vw rgba(232,158,121,0.2);width:100%;height:100%;left:0;top:0}.foodlist-next{float:left;height:4.75vw;line-height:4.75vw;margin-top:6.6vw;padding:0 20px;-webkit-transform:scaleY(2.4);transform:scaleY(2.4)}\r\n/*# sourceMappingURL=foodlist.css.map */\r\n", ""]);
 
 	// exports
 
@@ -38945,7 +38948,7 @@
 											),
 											_react2['default'].createElement(
 												'section',
-												{ onTouchTap: this.beginDo, className: 'begin-do' },
+												{ onTouchStart: this.beginDo, className: 'begin-do' },
 												_react2['default'].createElement(
 													'span',
 													null,
@@ -39446,7 +39449,7 @@
 				return _react2['default'].createElement(
 					'div',
 					{ className: 'fly-video-C', ref: 'fly-video-C' },
-					_react2['default'].createElement('div', { className: 'fly-close', onTouchStart: this.closeStep }),
+					_react2['default'].createElement('div', { className: 'fly-exit', onTouchStart: this.closeStep }),
 					_react2['default'].createElement(
 						'section',
 						null,
@@ -39577,6 +39580,7 @@
 				obserable.trigger({ type: 'clearMaterialsData' }); //清空食材列表数据。
 				obserable.trigger({ type: 'clearAlimentationData' }); //清空营养数据。
 				obserable.trigger({ type: 'closeStep', data: e });
+				obserable.trigger({ type: 'clearPlates' }); //
 			}
 		}, {
 			key: 'componentDidMount',
@@ -39611,6 +39615,7 @@
 	   });*/
 
 				obserable.on('videoPlay', function () {
+
 					if (_this2.state.isPlay && _this2.state.playing && _this2.isLoad) {
 						_this2.state.currentSeconds--;
 						if (_this2.state.currentSeconds * 1 < 0) {
@@ -39652,7 +39657,18 @@
 					});
 				});
 
+				this.isStart = false;
+				this.lastVideoIndex = -1;
 				(0, _jquery2['default'])(video).on('play', function () {
+					!_this2.isStart && obserable.trigger({ type: 'startInterval' });
+
+					if (!_this2.isStart) {
+						obserable.trigger({ type: 'startProgress' }); //开始进度条运动
+					}
+					if (_this2.lastVideoIndex !== _this2.state.currentVideoIndex) {
+						_this2.lastVideoIndex = _this2.state.currentVideoIndex;
+						obserable.trigger({ type: 'updateStep', data: _this2.state.currentVideoIndex });
+					}
 					_this2.setState({
 						isPlay: true,
 						playing: true
@@ -39663,40 +39679,13 @@
 						_this2.startTime = new Date().getTime();
 					}
 
-					obserable.trigger({ type: 'startProgress' }); //开始进度条运动
-					obserable.trigger({ type: 'updateStep', data: _this2.state.currentVideoIndex });
+					_this2.isStart = true;
 				});
 
 				this.lastCurrentIndex = 0;
 				(0, _jquery2['default'])(video).on('ended', function () {
-					_this2.setState({
-						isPlay: false,
-						playing: false,
-						currentMins: _this2.state.mins,
-						currentSeconds: _this2.state.seconds,
-						videoBarTransX: 0,
-						videoProgressScale: 0
-					}, function () {
-
-						var scroll = _this2.refs['fly-video-list-scroll'];
-						scroll.querySelector('ul').style.width = (scroll.querySelector('li').offsetWidth + 20) * _this2.props.steps.length + 'px';
-						_this2.scroll && _this2.scroll.refresh();
-
-						var obserable = _this2.props.obserable;
-
-						obserable.trigger({ type: 'pauseProgress', data: _this2.state.currentVideoIndex });
+					_this2.videoEnd(function () {
 						isEnd = false;
-
-						obserable.trigger({ type: 'updateTimeSpan', data: new Date().getTime() - _this2.startTime });
-
-						_this2.showTimespan();
-
-						if (_this2.state.currentVideoIndex === _this2.props.steps.length - 1) {
-
-							obserable.trigger({ type: 'showAllTime' });
-						}
-
-						_this2.transX = 0;
 					});
 				});
 				setTimeout(function () {
@@ -39726,6 +39715,40 @@
 				}, 1);
 			}
 		}, {
+			key: 'videoEnd',
+			value: function videoEnd(fn) {
+				var _this3 = this;
+
+				this.setState({
+					isPlay: false,
+					playing: false,
+					currentMins: this.state.mins,
+					currentSeconds: this.state.seconds,
+					videoBarTransX: 0,
+					videoProgressScale: 0
+				}, function () {
+
+					var scroll = _this3.refs['fly-video-list-scroll'];
+					scroll.querySelector('ul').style.width = (scroll.querySelector('li').offsetWidth + 20) * _this3.props.steps.length + 'px';
+					_this3.scroll && _this3.scroll.refresh();
+
+					var obserable = _this3.props.obserable;
+
+					obserable.trigger({ type: 'pauseProgress', data: _this3.state.currentVideoIndex });
+					fn && fn();
+					obserable.trigger({ type: 'updateTimeSpan', data: new Date().getTime() - _this3.startTime });
+
+					_this3.showTimespan();
+
+					if (_this3.state.currentVideoIndex === _this3.props.steps.length - 1) {
+
+						obserable.trigger({ type: 'showAllTime' });
+					}
+
+					_this3.transX = 0;
+				});
+			}
+		}, {
 			key: 'showTimespan',
 			value: function showTimespan() {
 				var obserable = this.props.obserable;
@@ -39735,17 +39758,17 @@
 		}, {
 			key: 'bindDrag',
 			value: function bindDrag(progressBar, $doc, transX, videoProgress, videoWidth, progressBarWidth, type) {
-				var _this3 = this;
+				var _this4 = this;
 
 				progressBar.on('touchstart', function (e) {
 					var e = e.originalEvent ? e.originalEvent.changedTouches[0] : e.changedTarget[0];
 					var disX = e.pageX; //- progressBar.offset().left;
 					if (type === 'video') {
-						_this3.setState({
+						_this4.setState({
 							playing: false
 						});
 
-						_this3.video.pause();
+						_this4.video.pause();
 					}
 					$doc.on('touchmove', function (e) {
 						var e = e.originalEvent ? e.originalEvent.changedTouches[0] : e.changedTarget[0];
@@ -39756,17 +39779,17 @@
 						videoProgress.style.WebkitTransform = 'scale(' + x + ',1)';
 						switch (type) {
 							case "video":
-								_this3.setState({
+								_this4.setState({
 									videoBarTransX: x,
 									videoProgressScale: x
 								});
 								break;
 							case "voice":
-								_this3.setState({
+								_this4.setState({
 									voiceBarTransX: x,
 									voiceProgressScale: x
 								}, function () {
-									_this3.video.volume = x / (videoWidth - progressBarWidth);
+									_this4.video.volume = x / (videoWidth - progressBarWidth);
 								});
 								break;
 						}
@@ -39776,17 +39799,17 @@
 						transX = x;
 						if (type === 'video') {
 
-							var allTime = _this3.state.mins * 60 + _this3.state.seconds;
+							var allTime = _this4.state.mins * 60 + _this4.state.seconds;
 
-							_this3.video.currentTime = x / videoWidth * allTime;
+							_this4.video.currentTime = x / videoWidth * allTime;
 
-							var time = allTime - _this3.video.currentTime | 0;
+							var time = allTime - _this4.video.currentTime | 0;
 
-							_this3.setState({
+							_this4.setState({
 								currentSeconds: time % 60,
 								currentMins: time / 60 | 0
 							});
-							_this3.video.play();
+							_this4.video.play();
 						}
 
 						$doc.off('touchend touchmove');
@@ -39803,7 +39826,7 @@
 		}, {
 			key: 'switchVideo',
 			value: function switchVideo(e) {
-				var _this4 = this;
+				var _this5 = this;
 
 				var target = null;
 
@@ -39831,7 +39854,7 @@
 				this.setState({
 					currentVideoIndex: iNow
 				}, function () {
-					_this4.reload();
+					_this5.reload();
 				});
 			}
 		}, {
@@ -39846,30 +39869,32 @@
 			key: 'nextVideo',
 			value: function nextVideo() {
 				this.next();
-				this.showTimespan();
 			}
 		}, {
 			key: 'next',
 			value: function next() {
-				var _this5 = this;
+				var _this6 = this;
 
-				if (this.state.currentVideoIndex > this.props.steps.length - 1) {
+				if (this.state.currentVideoIndex >= this.props.steps.length - 1) {
+					this.video.pause();
+					this.videoEnd(); //结束视频播放。
+
 					return;
 				}
-
+				this.showTimespan();
 				this.setState({
 					currentVideoIndex: this.state.currentVideoIndex + 1
 				}, function () {
-					var obserable = _this5.props.obserable;
+					var obserable = _this6.props.obserable;
 
-					obserable.trigger({ type: 'updateStep', data: _this5.state.currentVideoIndex });
-					_this5.reload();
+					obserable.trigger({ type: 'updateStep', data: _this6.state.currentVideoIndex });
+					_this6.reload();
 				});
 			}
 		}, {
 			key: 'prev',
 			value: function prev() {
-				var _this6 = this;
+				var _this7 = this;
 
 				if (this.state.currentVideoIndex < 1) {
 					return;
@@ -39878,10 +39903,10 @@
 				this.setState({
 					currentVideoIndex: this.state.currentVideoIndex - 1
 				}, function () {
-					var obserable = _this6.props.obserable;
+					var obserable = _this7.props.obserable;
 
-					obserable.trigger({ type: 'updateStep', data: _this6.state.currentVideoIndex });
-					_this6.reload();
+					obserable.trigger({ type: 'updateStep', data: _this7.state.currentVideoIndex });
+					_this7.reload();
 				});
 			}
 		}, {
@@ -41257,12 +41282,9 @@
 
 					obserable.on('fillAlimentationData', function (data) {
 
-						if (_this3.rendered !== 1) {
-							_this3.rendered = 1;
-							obserable.trigger({
-								type: 'startInterval'
-							});
-						}
+						obserable.trigger({
+							type: 'startInterval'
+						});
 
 						_this3.state.alimentatonData.currentFoodData = [];
 						_this3.state.alimentatonData.scaleData = data.scaleData;
@@ -41350,7 +41372,11 @@
 					};
 
 					obserable.on('startInterval', function () {
-						timer = webkitRequestAnimationFrame(render);
+
+						if (_this3.rendered !== 1) {
+							_this3.rendered = 1;
+							timer = webkitRequestAnimationFrame(render);
+						}
 					});
 
 					timer = webkitRequestAnimationFrame(render);
@@ -41717,7 +41743,7 @@
 							'div',
 							{ className: 'fly-show-countdown-top', style: { borderColor: this.state.showCloseCountdownIco ? '#fff' : 'transparent', display: this.state.showCanvas ? 'block' : 'none' } },
 							_react2['default'].createElement('canvas', { ref: 'clock-ico' }),
-							_react2['default'].createElement('span', { className: 'fly-close-countdown', style: { display: this.state.showCloseCountdownIco ? 'block' : 'none' }, onTouchTap: this.hideCanvas }),
+							_react2['default'].createElement('span', { className: 'fly-close-countdown', style: { display: this.state.showCloseCountdownIco ? 'block' : 'none' }, onTouchStart: this.hideCanvas }),
 							_react2['default'].createElement('canvas', { ref: 'canvas', onTouchStart: this.beginTouchCountDown.bind(this), onTouchEnd: this.endTouchCountDown.bind(this) })
 						),
 						_react2['default'].createElement(
@@ -41784,7 +41810,7 @@
 					_this.setState({
 						showCloseCountdownIco: true
 					});
-				}, 2000);
+				}, 1000);
 			}
 		}, {
 			key: 'endTouchCountDown',
@@ -42112,7 +42138,8 @@
 					showWeight: true,
 					showBoard: false,
 					weightIcoShadow: 1,
-					showCountdown: false
+					showCountdown: false,
+					showCloseCountdownIco: false
 				}, function () {
 					setTimeout(function () {
 						_this6.setState({
@@ -42132,7 +42159,8 @@
 					showWeight: false,
 					showBoard: true,
 					showCountdown: false,
-					broadIcoShadow: 1
+					broadIcoShadow: 1,
+					showCloseCountdownIco: false
 				}, function () {
 					setTimeout(function () {
 						_this7.setState({
@@ -43209,9 +43237,9 @@
 									'label',
 									null,
 									'步骤',
-									step.stepName,
+									step.stepName * 1 + 1,
 									' ',
-									step.timespan ? '用时:' + step.timespan : ''
+									step.timespan ? '用时:' + step.timespan.split(':')[1] + '分' : ''
 								)
 							);
 						})
@@ -43220,7 +43248,7 @@
 						'section',
 						{ className: 'fly-all-time' },
 						'总共用时: ',
-						this.state.allTime
+						this.state.allTime.split(':')[1] + '分'
 					)
 				);
 			}
