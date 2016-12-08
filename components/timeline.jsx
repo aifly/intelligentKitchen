@@ -41,7 +41,7 @@ class FlyTimeLine extends Component {
 						return(
 							<article key={i}>
 								<span className={this.state.currentStep >= i+1?'active':''}></span>
-								<label>步骤{step.stepName*1+1} {step.timespan? '用时:'+step.timespan.split(':')[1]+'分':''}</label>
+								<label>步骤{step.stepName} {step.timespan? '用时:'+step.timespan.split(':')[1]+'分':''}</label>
 								{/*<div style={{left:-this.state.articleWidth}} className="fly-step-C">{step.stepContent}</div>*/}
 							</article>
 						)

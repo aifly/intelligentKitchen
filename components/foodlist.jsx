@@ -91,6 +91,11 @@ import $ from 'jquery';
 		let {type,getTimeSlot,URL,userId,obserable} = this.props;
 		this.state.currentTimeSlot = getTimeSlot;
 		let s = this;
+		this.state.dataSource = [
+				[],//早餐
+				[],//中餐
+				[]//晚餐
+			];//清空所有的数据
 		switch(type){//推荐食材
 			case 'rec-food':
 
@@ -108,10 +113,12 @@ import $ from 'jquery';
 						data.forEach(d=>{
 							s.state.dataSource[d.foodMtype*1-1].push(d);
 							if(d.foodMtype*1-1 === 0){
+								//console.log(d);
 								i++;
 							}
 						});
-						s.state.dataSource[s.state.currentTimeSlot] = data;
+
+						//s.state.dataSource[s.state.currentTimeSlot] = data;
 						s.forceUpdate(()=>{
 							s.ajaxEnd(s,i);
 						});
@@ -119,8 +126,8 @@ import $ from 'jquery';
 				})
 				
 				//this.state.dataSource[this.state.currentTimeSlot]= addFoods;
-				//489483513 123456
-				//s.ajaxEnd(s);
+				//489483513 123456 
+				
 			break;
 			case 'rec-menu'://推荐菜谱
 				this.state.currentTimeSlot = 0;
@@ -140,8 +147,7 @@ import $ from 'jquery';
 								i++;
 							}
 						});
-						console.log(i);
-						s.state.dataSource[s.state.currentTimeSlot] = data;
+						//s.state.dataSource[s.state.currentTimeSlot] = data;
 						s.forceUpdate(()=>{
 							s.ajaxEnd(s,i);
 						});
