@@ -159,43 +159,6 @@ var addFoods = [
         stepContent:'出锅即食'
       }
 		]
-	},{
-    foodMtype:0,//
-		name:"三明治",
-		imgSrc:"./assets/images/f2.png",
-		id:'10003',
-		detailSrc:'./assets/images/food2.png',
-		pageView:283,
-		discuss:124,//讨论
-		foodMaterial:[
-		  {name:'面包',weight:'4片',id:1},
-      {name:'火腿',weight:'1片',id:2},
-      {name:'鸡蛋',weight:'1个',id:3},
-      {name:'生菜',weight:'20g',id:4}
-		],
-    type:'image',
-		steps:[
-			{
-        stepName:'0',
-        imgSrc:'./assets/images/s6.png',
-        stepContent:'取两片土司单面涂满沙拉酱'
-      },
-      {
-        stepName:'1',
-        imgSrc:'./assets/images/s7.png',
-        stepContent:'把午餐肉煎热，鸡蛋煎熟'
-      },
-      {
-        stepName:'2',
-        imgSrc:'./assets/images/s8.png',
-        stepContent:'按顺序放好'
-      },
-      {
-        stepName:'3',
-        imgSrc:'./assets/images/s9.png',
-        stepContent:'牛奶微波炉加热40秒微热'
-      }
-		]
-	}
+	} 
 ];
 
