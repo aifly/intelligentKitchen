@@ -498,10 +498,11 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 				Userid:userId
 			},
 			success(data){
-					
-					s.setState({
-					//	recFoods:data
-					})
+					if(!window.isLoadLocalData){
+							s.setState({
+								recFoods:data
+							});
+					}
 			}
 		});
 

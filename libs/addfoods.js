@@ -51,7 +51,7 @@ var addFoods = [
     foodMtype:0,//
     name:"葡萄汁1",
     imgSrc:"./assets/images/f7.png",
-    id:'10000',
+    id:'10004',
     detailSrc:'./assets/images/food6.png',
     pageView:12,
     discuss:224,//讨论
