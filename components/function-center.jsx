@@ -547,7 +547,7 @@ import {GetLunarDay,GetDateStr,getFurtureDate,getMonthAndDate} from '../libs/Cal
 	}
 	timerCanvasStart(canvas){
 		let self = this;
-		new Time({
+	 var timer = new Time({
 			canvas:canvas,
 			obserable:self.props.obserable,
 			isTime:true
