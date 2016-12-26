@@ -174,7 +174,7 @@ class FlyTimeLine extends Component {
 				return;	
 			}
 
-			let x = this.state.width + 1;
+			let x = this.state.width + 2;
 
 			//x>= this.posArr[currentStep].x && (x =  20 && return false);
 

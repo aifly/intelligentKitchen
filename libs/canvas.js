@@ -17,9 +17,9 @@ export default class Time{
 			var index = s.init();
 
 			setInterval(()=>{
-				var isShow = s.obserable.trigger({type:'getfunctionCenterShow'});
-
-				if(isShow){
+				//var isShow = s.obserable.trigger({type:'getfunctionCenterShow'});
+					//isShow || 
+				if(1){
 					var D = new Date();
 					var hours = D.getHours(),
 						mins = D.getMinutes(),
@@ -69,16 +69,20 @@ export default class Time{
 			minsTen =  numbers[2],
 			minsOne =  numbers[3];
 		var tenFirst = (ten === 0);
+
+
+
 		s.drawWeight(ten,context,id,false,true,tenFirst);
 
 		var oneFirst = (tenFirst && one === 0);
 		id += numberData[ten][0].length+1;
+
 		s.drawWeight(one,context,id,false,true,oneFirst);
 		
 
 		id += 2;
 		var minsTenFirst = oneFirst && minsTen === 0;
-		id += numberData[10][0].length+1;
+		id += numberData[one][0].length -1;
 		s.drawWeight(minsTen,context,id,false,true,minsTenFirst);
 		
 
