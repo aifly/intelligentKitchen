@@ -128,7 +128,7 @@ class FlyCookBookList extends React.Component{
 			{this.state.addFoods[this.state.currentTimeSlot].map((item,i)=>{
 				return (
 					<li key={i} onTouchStart={this.getFoodById}>
-					<div data-index={i} style={{background:' url('+item.imgSrc+') no-repeat center top'}} className={this.state.currentFoodId === item.id ? 'active':''}>
+					<div data-index={i} style={{background:' url('+ '"'+item.imgSrc+'"'+') no-repeat center top'}} className={this.state.currentFoodId === item.id ? 'active':''}>
 					<canvas width='270' height='330'></canvas>
 					<span>{item.name}</span>
 					{item.type === 'video' && <img className='fly-play-ico' src='./assets/images/play.png'/>}

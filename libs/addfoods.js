@@ -10,10 +10,6 @@ var addFoods = [
 		foodMaterial:[//食材
 			{name:'小番茄',weight:'30g',id:1},
 			{name:'鸡蛋',weight:'40g',id:2},
-			{name:'生菜',weight:'70g',id:3},
-			{name:'生菜',weight:'70g',id:4},
-			{name:'生菜',weight:'70g',id:5},
-			{name:'生菜',weight:'70g',id:6},
 			{name:'生菜',weight:'70g',id:7},
 			{name:'培根',weight:'50g',id:8},
 			{name:'吐丝',weight:'25g',id:9}
@@ -21,27 +17,27 @@ var addFoods = [
     type:'video',//类型，图片or视频
 		steps:[//步骤
       {
-        stepName:'0',
+        stepName:'1',
         imgSrc:'./assets/videos/1.mp4',
         poster:'./assets/images/poster.png'
       },
 			{
-        stepName:'1',
-        imgSrc:'./assets/videos/2.mp4',
-        poster:'./assets/images/poster.png'
-      },
-      {
         stepName:'2',
-        imgSrc:'./assets/videos/1.mp4',
+        imgSrc:'./assets/videos/2.mp4',
         poster:'./assets/images/poster.png'
       },
       {
         stepName:'3',
-        imgSrc:'./assets/videos/2.mp4',
+        imgSrc:'./assets/videos/1.mp4',
         poster:'./assets/images/poster.png'
       },
       {
         stepName:'4',
+        imgSrc:'./assets/videos/2.mp4',
+        poster:'./assets/images/poster.png'
+      },
+      {
+        stepName:'5',
         imgSrc:'./assets/videos/1.mp4',
         poster:'./assets/images/poster.png'
       }

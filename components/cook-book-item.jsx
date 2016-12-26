@@ -40,7 +40,7 @@ class FlyCookBookItem extends React.Component{
 
 
 		let background = {
-			background:foodData.imgSrc?'url('+foodData.imgSrc+') no-repeat center  / cover':'none'
+			background:foodData.imgSrc?'url('+'"'+foodData.imgSrc+ '"' +') no-repeat center  / cover':'none'
 		};
 		let videoProps= {};
 		if(this.state.foodData.steps){
