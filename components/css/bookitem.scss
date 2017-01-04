@@ -389,7 +389,7 @@ $fontColor:#a16d56;
        height: $size;
        @include br(50%);
        background:#fff;
-       line-height: $size;
+       line-height: $size - .3;
        text-align: center;
        @include pos(a);
        left: - $size / 2 ;

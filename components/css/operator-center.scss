@@ -200,15 +200,18 @@ $maxIndex:9999;
          left: 0;
          box-sizing:border-box;
          @include displayBox(horizontal);
-
          div{
           text-align: center;
+
           &:nth-of-type(2){
+            @include pos(r);
             height: .4 * 10vw;
             width: 1.15 * 10vw;
             canvas{
               //margin-left: -.08 * 10vw;
-              margin-top: .5vw;
+              bottom: 0;
+              @include pos(a);
+              left: .5vw;
             }
           }
           &:nth-of-type(1),&:nth-of-type(3){

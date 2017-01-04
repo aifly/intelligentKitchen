@@ -15,12 +15,13 @@ export default class Time{
 		var context = s.canvas.getContext('2d');
 		if(s.isTime){
 			var index = s.init();
-
+			var PI = Math.PI;
+			var D = new Date();
 			setInterval(()=>{
 				//var isShow = s.obserable.trigger({type:'getfunctionCenterShow'});
 					//isShow || 
 				if(1){
-					var D = new Date();
+					
 					var hours = D.getHours(),
 						mins = D.getMinutes(),
 						seconds = D.getSeconds();
@@ -28,20 +29,20 @@ export default class Time{
 					
 					context.fillStyle = '#f8f3ef';
 					context.beginPath();//f8f3ef
-					context.arc((s.margin + .59 + s.r)*(index-3),(s.margin + s.r)*7.8,s.r+.4,0,Math.PI*2,false);
+					context.arc((s.margin + .59 + s.r)*(index-3),(s.margin + s.r)*7.8,s.r+.4,0,PI*2,false);
 					context.closePath();
 					context.fill();
 					context.beginPath();
-					context.arc((s.margin+ .59 + s.r)*(index-3),(s.margin + s.r)*5.8,s.r+.4,0,Math.PI*2,false);
+					context.arc((s.margin+ .59 + s.r)*(index-3),(s.margin + s.r)*5.8,s.r+.4,0,PI*2,false);
 					context.closePath();
 					context.fill();
 					setTimeout(()=>{
 						index = s.init();
-					},500);
+					},600);
 				}
 
-				hours === 0 && mins === 0 && seconds === 0 && s.obserable.trigger({type:'updateCalendar'});
-
+				//hours === 0 && mins === 0 && seconds === 0 && s.obserable.trigger({type:'updateCalendar'});
+				hours === 0 && mins === 0 && seconds === 0  && (D = new Date());
 				s.obserable.trigger({type:"timingdown"});//倒计时
 				s.obserable.trigger({type:'videoPlay'});
 			},1000);
