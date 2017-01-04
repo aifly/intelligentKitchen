@@ -38,7 +38,7 @@ export default class Time{
 					context.fill();
 					setTimeout(()=>{
 						index = s.init();
-					},600);
+					},500);
 				}
 
 				//hours === 0 && mins === 0 && seconds === 0 && s.obserable.trigger({type:'updateCalendar'});
