@@ -286,7 +286,8 @@ class FlyOperatorCenter extends Component {
 						console.log(data);
 						clearInterval(s.t);
 						if(data.getret === 1){
-							let weight= data.foodweight*1|0; 
+							let weight= data.foodweight*1|0;
+							weight = weight <0 ? 0:weight; 
 							s.weight = weight;
 							data.scaleData.forEach(item=>{
 							//item.scale*1<0 && (item.scale = 0);
