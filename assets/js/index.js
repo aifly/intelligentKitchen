@@ -38034,10 +38034,12 @@
 								//console.log(data);
 								var i = 0;
 								data.forEach(function (d) {
-									s.state.dataSource[d.foodMtype * 1 - 1].push(d);
-									if (d.foodMtype * 1 - 1 === 0) {
-										//console.log(d);
-										i++;
+									if (s.state.dataSource[d.foodMtype * 1 - 1]) {
+										s.state.dataSource[d.foodMtype * 1 - 1].push(d);
+										if (d.foodMtype * 1 - 1 === 0) {
+											//console.log(d);
+											i++;
+										}
 									}
 								});
 
@@ -38193,7 +38195,10 @@
 						this.setState({
 							currentFoodId: food.id
 						});
-						obserable.trigger({ type: 'updateStep', data: 0 });
+						obserable.trigger({
+							type: 'updateStep',
+							data: 0
+						});
 						break;
 				}
 
@@ -38216,7 +38221,9 @@
 
 				//obserable.trigger({type:'closeStep',data:e});//关闭步骤
 
-				obserable.trigger({ type: 'clearAlimentationData' }); //清空营养数据
+				obserable.trigger({
+					type: 'clearAlimentationData'
+				}); //清空营养数据
 				//清空盘子。
 				obserable.trigger({
 					type: 'clearPlates'
@@ -38231,7 +38238,9 @@
 					data: -1
 				});
 
-				obserable.trigger({ type: 'clearAllTime' }); //清空总时间
+				obserable.trigger({
+					type: 'clearAllTime'
+				}); //清空总时间
 			}
 		}]);
 
