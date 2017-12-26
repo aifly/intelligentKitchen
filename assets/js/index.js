@@ -37914,14 +37914,17 @@
 
 				if (target.nodeName === "LI") {
 					var index = this.props.getIndex(e.target.parentNode.children, e.target);
-
+					if (this.refs['foodlist-content'].children[0] && this.refs['foodlist-content'].children[0].children[0]) {
+						this.setState({
+							ulWidth: (this.refs['foodlist-content'].children[0].children[0].clientWidth + 10) * Math.ceil(this.state.dataSource[index].length / 2) + 2
+						}, function () {
+							_this2.scroll.scrollTo(0, 0);
+							_this2.scroll.refresh();
+						});
+					}
 					this.setState({
-						currentTimeSlot: index,
-						ulWidth: (this.refs['foodlist-content'].children[0].children[0].clientWidth + 10) * Math.ceil(this.state.dataSource[index].length / 2) + 2
-					}, function () {
-						_this2.scroll.scrollTo(0, 0);
-						_this2.scroll.refresh();
-					});
+						currentTimeSlot: index
+					}, function () {});
 				}
 				//
 			}
@@ -38127,22 +38130,23 @@
 		}, {
 			key: 'ajaxEnd',
 			value: function ajaxEnd(_this, len) {
+				if (_this.refs['foodlist-content'].children[0] && _this.refs['foodlist-content'].children[0].children[0]) {
+					setTimeout(function () {
+						_this.setState({
+							ulWidth: (_this.refs['foodlist-content'].children[0].children[0].clientWidth + 10) * Math.ceil(len / 2) + 2
+						});
 
-				setTimeout(function () {
-					_this.setState({
-						ulWidth: (_this.refs['foodlist-content'].children[0].children[0].clientWidth + 10) * Math.ceil(len / 2) + 2
-					});
-
-					_this.liWidth = _this.refs['foodlist-content'].children[0].children[0].clientWidth;
-					_this.scroll = new _iscroll2['default'](_this.refs['foodlist-content'], {
-						scrollX: true,
-						scrollY: false,
-						click: false,
-						disableMouse: true, //是否关闭鼠标事件探测。如知道运行在哪个平台，可以开启它来加速。
-						//momentum:false,//是否开启动量动画，关闭可以提升效率。
-						fadeScrollbars: false });
-				}, //是否渐隐滚动条，关掉可以加速
-				10);
+						_this.liWidth = _this.refs['foodlist-content'].children[0].children[0].clientWidth;
+						_this.scroll = new _iscroll2['default'](_this.refs['foodlist-content'], {
+							scrollX: true,
+							scrollY: false,
+							click: false,
+							disableMouse: true, //是否关闭鼠标事件探测。如知道运行在哪个平台，可以开启它来加速。
+							//momentum:false,//是否开启动量动画，关闭可以提升效率。
+							fadeScrollbars: false });
+					}, //是否渐隐滚动条，关掉可以加速
+					10);
+				}
 			}
 		}, {
 			key: 'getFoodById',
